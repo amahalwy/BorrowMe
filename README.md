@@ -4,7 +4,7 @@ Check out the developers below.
 
 Ahmed El Mahallawy @ https://github.com/amahalwy  
 
-Ayca Lacap @ https://github.com/aycelacap  
+Ayce Lacap @ https://github.com/aycelacap  
 
 Nate Gallagher @ https://github.com/n8gallagher  
 
