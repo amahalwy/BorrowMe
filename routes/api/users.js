@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const keys = require("../../config/keys");
 const passport = require("passport");
+require('../../config/passport')(passport);
 const jwt = require('jsonwebtoken');
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
@@ -14,16 +15,18 @@ const validateLoginInput = require('../../validation/login');
 // })
 
 // Private auth route
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    firstName: req.user.firstName,
-    email: req.user.email,
-    address: req.user.address,
-    city: req.user.city,
-    state: req.user.state,
-    zipCode: req.user.zipCode
-  });
+router.get('/current', 
+  passport.authenticate("jwt", { session: false }), 
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      firstName: req.user.firstName,
+      email: req.user.email,
+      address: req.user.address,
+      city: req.user.city,
+      state: req.user.state,
+      zipCode: req.user.zipCode
+    });
 })
 
 
