@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const validateSignupInput = require('../../validation/signup');
@@ -30,7 +31,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 
 // Signup user
 router.post('/signup', (req, res) =>{
-  debugger
   const { errors, isValid } = validateSignupInput(req.body);
 
   if (!isValid) {
@@ -61,9 +61,12 @@ router.post('/signup', (req, res) =>{
           newUser
             .save()
             .then(user => {
+
+              // Dictate response attributes here (jbuilder)
+              
               const payload = { id: user.id, email: user.email };
 
-              jwt.sign(payload, keys.secretOrKey, { expiresIn: 20 }, (err, token) => {
+              jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
                   success: true,
                   token: "Bearer " + token
@@ -97,7 +100,10 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            res.json({ msg: 'Success' });
+
+            // Dictate response attributes here (jbuilder)
+
+            const payload = { id: user.id, email: user.email, firstName: user.firstName };
 
             jwt.sign( payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
