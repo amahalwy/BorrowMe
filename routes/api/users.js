@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
-const validateRegisterInput = require('../../validation/signup');
+const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
 
 // user show
@@ -25,9 +25,13 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 })
 
+
+// Look at signup
+
 // Signup user
 router.post('/signup', (req, res) =>{
-  const { errors, isValid } = validateRegisterInput(req.body);
+  debugger
+  const { errors, isValid } = validateSignupInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -59,7 +63,7 @@ router.post('/signup', (req, res) =>{
             .then(user => {
               const payload = { id: user.id, email: user.email };
 
-              jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+              jwt.sign(payload, keys.secretOrKey, { expiresIn: 20 }, (err, token) => {
                 res.json({
                   success: true,
                   token: "Bearer " + token

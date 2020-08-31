@@ -22,4 +22,6 @@ app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
+// window.logout = 
+
 app.listen(port, () => console.log(`Server is running on port ${port}`));

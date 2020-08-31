@@ -1,7 +1,7 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
-module.exports = function validateRegisterInput(data) {
+module.exports = function validateSignupInput(data) {
   let errors = {};
 
   data.firstName = validText(data.firstName) ? data.firstName : '';
@@ -12,11 +12,11 @@ module.exports = function validateRegisterInput(data) {
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
 
   if (Validator.isEmpty(data.firstName)) {
-    errors.handle = "First Name can't be blank"
+    errors.firstName = "First Name can't be blank"
   }
 
   if (Validator.isEmpty(data.lastName)) {
-    errors.handle = "Last Name can't be blank"
+    errors.lastName = "Last Name can't be blank"
   }
 
   if (Validator.isEmpty(data.email)) {
