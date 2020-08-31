@@ -1,0 +1,98 @@
+.site-body{
+  display: flex;
+  min-height: 100%;
+  align-items: stretch;
+  position: relative;
+}
+
+.splash-page{
+  margin-top: 100px;
+height: 100%;
+ width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+position: fixed;
+}
+
+.splash-page > div{
+  display: inline-block;
+}
+
+.looking-for {
+  padding: 50px;
+  margin: 20px;
+  width: 25%;
+  height: 250px;
+  border-style: border-box;
+  background: white;
+  box-shadow: 0px 3px 3px #888888;
+   border-radius: 5px;
+}
+
+.rent-out {
+  padding: 50px;
+  margin: 20px;
+  width: 25%;
+  height: 250px;
+  background: white;
+ box-shadow: 0px 3px 3px #888888;
+  border-radius: 5px;
+
+}
+
+.splash-start-renting-button {
+  background: black;
+  color: white;
+  display: inline-block;
+  margin-top: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.splash-start-renting-button:hover {
+  background: #858585;
+}
+
+.splash-start-looking-button {
+  background: black;
+  color: white;
+  display: inline-block;
+  margin-top: 20%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.splash-start-looking-button:hover {
+  background: #858585;
+}
+
+.looking-for > h2{
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.rent-out > h2{
+   font-size: 1.3em;
+   margin-bottom: 20px;
+}
+
+.looking-for > p{
+line-height: 1.2;
+}
+
+.rent-out > p {
+line-height: 1.2;
+}

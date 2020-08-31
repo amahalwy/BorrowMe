@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions/session_actions";
 import { useDispatch, useSelector } from 'react-redux';
+import bmlogo from './bmlogo.png';
 
 export default (props) => {
   const dispatch = useDispatch();
@@ -18,27 +19,34 @@ export default (props) => {
   const getLinks = () => {
     if (loggedIn) {
       return (
-        <div>
-          <Link to={"/postings"}>All postings</Link>
-          <Link to={"/profile"}>Profile</Link>
+        <div className="nav-box-loggedin">
+          <Link className="nav-button" to={"/postings"}>All postings</Link>
+          <Link className="navbutton" to={"/profile"}>Profile</Link>
           {/* Might be doing a modal??? */}
-          <Link to={"/new_posting"}>Create A Posting</Link>
-          <button onClick={logoutUser}>Logout</button>
+          <Link className="nav-button" to={"/new_posting"}>Create A Posting</Link>
+          <button className="nav-buton" onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+        <div className="nav-box-loggedout">
+          <div className="nav-buttons">
+            <Link className="nav-button" to={"/signup"}>
+              Signup
+            </Link>
+            <Link className="nav-button" to={"/login"}>
+              Login
+            </Link>
+          </div>
         </div>
       );
     }
   }
 
   return (
-    <div>
-      <h1>Borrow ME!!</h1>
+    <div className="nav-logo-box">
+      <Link to="/"><img className="nav-logo" src={bmlogo} alt="bm-logo" />
+      </Link> 
       {getLinks()}
     </div>
   );
