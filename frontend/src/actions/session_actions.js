@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGIN = "RECEIVE_USER_LOGIN";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 
-export const receiveCurrentUser = currentUser => ({
+const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 });
@@ -27,37 +27,29 @@ const logoutUser = () => ({
 
 // Upon signup, dispatch the approporiate action depending on which type of 
 // response we receive from the backend
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then(res => {
-        const { token } = res.data;
-        localStorage.setItem('jwtToken', token);
-        APIUtil.setAuthToken(token);
-        const decoded = jwt_decode(token);
-        console.log(decoded)
-        dispatch(receiveCurrentUser(decoded));
-    })
-      .catch(err => {
-        dispatch(receiveErrors(err.response.data))
-      })
-)
   
+export const signup = user => dispatch => (
+  APIUtil.signup(user)
+    .then(res => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+      APIUtil.setAuthToken(token);
+      const decoded = jwt_decode(token);
+      dispatch(receiveCurrentUser(decoded))
+    }, err => dispatch(receiveErrors(err.response.data)))
+);
 
 // Upon login, set the session token and dispatch the current user. Dispatch 
 // errors on failure.
 export const login = (user) => (dispatch) => (
-  APIUtil.login(user).then(res => {
-    
+  APIUtil.login(user)
+  .then(res => { 
     const { token } = res.data;
     localStorage.setItem('jwtToken', token);
     APIUtil.setAuthToken(token);
-    if (token) {
-      const decoded = jwt_decode(token);
-      dispatch(receiveCurrentUser(decoded))
-    }
-  })
-    .catch(err => {
-      dispatch(receiveErrors(err.response.data));
-    })
+    const decoded = jwt_decode(token);
+    dispatch(receiveCurrentUser(decoded))
+  }, err => dispatch(receiveErrors(err.response.data)))
 )
 
 export const logout = () => (dispatch) => {
