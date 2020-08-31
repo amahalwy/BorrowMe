@@ -21,12 +21,13 @@ export default (props) => {
   
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (props.signedIn) {
-      props.history.push("/");
-    }
-    updateErrors(props.errors);
-    }, [props]);
+  // useEffect(() => {
+  //   // debugger
+  //   if (signedIn) {
+  //     props.history.push("/");
+  //   }
+  //   updateErrors(errors);
+  //   }, []);
 
 
   const handleSubmit = (e) => {
@@ -43,14 +44,18 @@ export default (props) => {
       password2
     };
 
+    window.signup = signup;
+    console.log(signup(user, props.history));
+    // debugger
     dispatch(signup(user, props.history));
+    props.history.push('hello');
   }
 
   const renderErrors = () => {
     return (
       <ul>
-        {Object.keys(stateErrors).map((error, i) => (
-          <li key={`error-${i}`}>{stateErrors[error]}</li>
+        {Object.keys(errors).map((error, i) => (
+          <li key={`error-${i}`}>{errors[error]}</li>
         ))}
       </ul>
     );
@@ -58,7 +63,6 @@ export default (props) => {
 
   return (
     <div className="signup-form-container">
-      {/* Do we need to bind "this"? */}
       <form onSubmit={handleSubmit}>
         <div className="signup-form">
           <input
@@ -93,7 +97,7 @@ export default (props) => {
             type="password"
             value={password2}
             onChange={e => updatePassword2(e.currentTarget.value)}
-            placeholder="Password"
+            placeholder="Confirm password"
           />
           <br />
           <input

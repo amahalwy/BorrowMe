@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/session_actions"
+import { login } from "../../actions/session_actions.js";
 
 export default (props) => {
   const [email, updateEmail] = useState("");
@@ -8,7 +8,7 @@ export default (props) => {
   const [stateErrors, updateErrors] = useState({});
   const dispatch = useDispatch();
 
-  // const errors = useSelector(state => state.errors.session);
+  const errors = useSelector(state => state.errors.session);
   
   useEffect(() => {
     if (props.currentUser) {
@@ -25,14 +25,16 @@ export default (props) => {
       password,
       stateErrors,
     };
+    debugger
     dispatch(login(user)); 
+    props.history.push('hello')
   }
 
   const renderErrors = () => {
     return (
       <ul>
-        {Object.keys(stateErrors).map((error, i) => (
-          <li key={`error-${i}`}>{stateErrors[error]}</li>
+        {Object.keys(errors).map((error, i) => (
+          <li key={`error-${i}`}>{errors[error]}</li>
         ))}
       </ul>
     );

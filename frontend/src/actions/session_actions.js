@@ -1,6 +1,5 @@
-import jwt_decode from 'jwt-decode';
-
 import * as APIUtil from '../util/session_api_util';
+import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -29,18 +28,17 @@ const logoutUser = () => ({
 // Upon signup, dispatch the approporiate action depending on which type of 
 // response we receive from the backend
 export const signup = user => dispatch => (
-  APIUtil.signup(user)
-    .then(user => dispatch(receiveUserLogIn(user)))
-    // const { token } = res.data;
-    // localStorage.setItem('jwtToken', token);
-    // APIUtil.setAuthToken(token);
-    // const decoded = jwt_decode(token);
-    // dispatch(receiveCurrentUser(decoded))
-    // APIUtil.current -> gives back full user obj
-  
-  //  (err => {
-  //   dispatch(receiveErrors(err.response.data))
-  // })
+  APIUtil.signup(user).then(res => {
+        const { token } = res.data;
+        localStorage.setItem('jwtToken', token);
+        APIUtil.setAuthToken(token);
+        const decoded = jwt_decode(token);
+        console.log(decoded)
+        dispatch(receiveCurrentUser(decoded));
+    })
+      .catch(err => {
+        dispatch(receiveErrors(err.response.data))
+      })
 )
   
 
@@ -48,11 +46,14 @@ export const signup = user => dispatch => (
 // errors on failure.
 export const login = (user) => (dispatch) => (
   APIUtil.login(user).then(res => {
+    
     const { token } = res.data;
     localStorage.setItem('jwtToken', token);
     APIUtil.setAuthToken(token);
-    const decoded = jwt_decode(token);
-    dispatch(receiveCurrentUser(decoded))
+    if (token) {
+      const decoded = jwt_decode(token);
+      dispatch(receiveCurrentUser(decoded))
+    }
   })
     .catch(err => {
       dispatch(receiveErrors(err.response.data));
@@ -60,6 +61,7 @@ export const login = (user) => (dispatch) => (
 )
 
 export const logout = () => (dispatch) => {
+  // APIUtil.logout()
   // Remove the token from local storage
   localStorage.removeItem("jwtToken");
   // Remove the token from the common axios header

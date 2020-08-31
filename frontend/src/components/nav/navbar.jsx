@@ -38,7 +38,7 @@ export default (props) => {
 
   return (
     <div>
-      <h1>Chirper</h1>
+      <h1>Borrow ME!!</h1>
       {getLinks()}
     </div>
   );
