@@ -1,25 +1,30 @@
 const express = require("express");
 const passport = require("passport");
+const jwt = require('jsonwebtoken');
 const router = express.Router();
-const validatePostingInput = require("../../validation/postings");
 const Posting = require("../../models/Posting");
-// const { restart } = require("nodemon");
+const validatePostingInput = require("../../validation/postings");
 
 
-router.get("/postings", (req, res) => {
+//    api/postings/'followed by whatever we have'
+router.get("/", (req, res) => {
   Posting.find()
     .sort({ date: -1 })
     .then(postings => res.json(postings))
     .catch(err => res.status(400).json(err));
 })
 
-router.get("/postings/:postingId", (req, res) => {
-  Posting.find({posting: req.params.postingId })
-    .then((posting) => res.json(posting))
-    .catch((err) => res.status(400).json(err));
+router.get("/:id", (req, res) => {
+  console.log(Posting.findById("5f4d71df5d38dc4341fbcb64").title)
+  Posting.findById(req.params.id)
+    .then((posting) => {
+      console.log(posting);
+      res.json(posting);
+    }
+    , (err) => res.status(400).json(err));
 })
 
-router.post("/postings",
+router.post("/",
   // protects the route
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -42,7 +47,7 @@ router.post("/postings",
   }
 )
 
-// router.patch("/postings/:postingId", (req, res) => {
+// router.patch("/:postingId", (req, res) => {
 //   Posting.find({posting: req.params.postId})
 //     if (!posting) {
       

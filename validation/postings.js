@@ -6,8 +6,8 @@ module.exports = function validatePostingInput(data) {
 
   data.title = validText(data.title) ? data.title : '';
   data.description = validText(data.description) ? data.description : '';
-  data.zipCode = validzipCode(data.zipCode) ? data.zipCode : '';
-  data.image = validimage(data.image) ? data.image : '';
+  data.zipCode = validText(data.zipCode) ? data.zipCode : '';
+  data.image = validText(data.image) ? data.image : '';
 
 
   if (Validator.isEmpty(data.title)) {
@@ -15,7 +15,7 @@ module.exports = function validatePostingInput(data) {
   }
 
   if (Validator.isEmpty(data.description)) {
-    errors.description= "Description field is required";
+    errors.description = "Description field is required";
   }
 
   if (Validator.isEmpty(data.image)) {
@@ -26,8 +26,8 @@ module.exports = function validatePostingInput(data) {
     errors.zipCode = 'zipCode field is required';
   }
 
-  if (Validator.isLength(data.description, {min: 8, max: 300})) {
-    errors.description = "Description field is required";
+  if (!Validator.isLength(data.description, {min: 8, max: 300})) {
+    errors.description = "Description field should be minimum 8 characters and maximum 300 characters";
   }
 
   return {
