@@ -1,0 +1,17 @@
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+body {
+ font-family: sans-serif;
+ height: 100%;
+ margin: 0;
+ background-color: #F1F1F1;
+}
+
+
+

@@ -8,7 +8,7 @@ import LoginForm from "./session/login_form";
 import SignupForm from "./session/signup_form";
 
 const App = () => (
-  <div>
+  <div className="site-body">
     <NavBar />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
