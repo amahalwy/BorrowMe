@@ -17,11 +17,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Posting.findById(req.params.id)
-<<<<<<< HEAD
     .then(posting => {res.json(posting)} 
-=======
-    .then((posting) => { res.json(posting) }
->>>>>>> add_postings
     , (err) => res.status(400).json(err));
 })
 
