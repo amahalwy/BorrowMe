@@ -1,0 +1,26 @@
+
+
+
+.post-index-item{
+  width: 30%;
+  height: 10%;
+  margin: 2% 1%;
+  display: inline-block;
+  background: white;
+;
+}
+
+.post-title,
+.post-price{
+  display:inline-block;
+  margin: 4% 4%;
+  font-weight: bold;
+}
+
+.post-index-item-image-container {
+  width: 100%;
+  height: 300px;
+  background: white;
+  border: 2px solid #D8D8D8;
+}
+

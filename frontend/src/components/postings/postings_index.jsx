@@ -5,12 +5,13 @@ export default props => {
 
   if (!props.filterList) return '';
   return (
-    <div>
-      <ul>
+    <div className="home-items-index">
+      <ul className="home-index-list">
       { 
           props.filterList.map(posting => {
           return (
             <PostIndexItem 
+              
               key={posting._id}
               posting={posting}
             />

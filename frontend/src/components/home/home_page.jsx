@@ -37,15 +37,22 @@ const SearchPage = (props) => {
 
   // 
   return (
-    <div>
-      <h1>Posting List</h1>
-      <SearchBar
-        input={input}
-        setKeyword={updateInput}
-      />
-      <PostingsIndex 
-        filterList={filterList} 
-      />
+    <div className="home-container">
+      <div className="home-filter">
+            <h2>Filter</h2>
+      </div>
+      <div className="home-index">
+        <SearchBar
+          input={input}
+          setKeyword={updateInput}
+        />
+        <div>
+          <PostingsIndex 
+            
+            filterList={filterList} 
+          />
+        </div>
+      </div>
     </div>
   );
 }

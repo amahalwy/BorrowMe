@@ -1,3 +1,72 @@
 .home-container {
   margin-top: 68px;
+  padding-top: 10px;
+  width: 100%;  
+  margin-left: 2%;  
+  display: flex;
+  bottom: 0;
+}
+
+.home-filter {
+  width: 15%;
+  box-sizing: border-box;
+  background: white;
+  height: 900px;
+  margin: 10px;
+  box-shadow: 0px 3px 3px #888888;
+}
+
+.home-filter h2{
+  font-size: 1.5em;
+  text-decoration: underline;
+  margin: 2% 0% 0% 40%;
+}
+
+.home-index{
+  box-sizing: border-box;
+  margin: 10px;
+  width: 80%;
+  background-color: white;
+  height: 100%;
+  box-shadow: 0px 3px 3px #888888;
+}
+
+.nav-button{
+  margin-right: 40px;
+  padding-right: 20px;
+  background-color: #6290c8;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.nav-button:hover{
+  background-color: #376996;
+  color: black;
+  cursor: pointer;
+}
+
+.home-index-list{
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  height: 100%;
+  text-align: center;
+}
+
+
+
+.home-index .home-no-show{
+  display: none;
 }

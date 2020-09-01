@@ -54,7 +54,7 @@
 .nav-logo {
   width: 70px;
   z-index: 7;
-  position: absolute;
+  position: fixed;
   margin-left: 80px;
   margin-top: 5px;
   border-radius: 10px;

@@ -6,7 +6,6 @@ import NavBar from "./nav/navbar";
 import MainPage from "./main/main_page";
 import LoginForm from "./session/login_form";
 import SignupForm from "./session/signup_form";
-import Home from './home/home';
 import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
 
@@ -22,7 +21,7 @@ const App = () => (
       
       <ProtectedRoute exact path="/postings" component={PostingIndex}/>
 
-      <Redirect to='/home' />
+      <Redirect to='/' />
     </Switch>
   </div>
 );

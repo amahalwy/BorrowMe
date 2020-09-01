@@ -6,6 +6,7 @@ export default ({keyword, setKeyword}) => {
     <div>
       {/* <label> */}
         <input 
+          className="search-bar"
           type="text"
           value={keyword}
           placeholder="Search site for..."

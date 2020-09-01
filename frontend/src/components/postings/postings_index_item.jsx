@@ -4,23 +4,23 @@ export default props => {
 
   // debugger
   return (
-    <div>
-      <div>Header
+    <div className="post-index-item">
+      <div>{/* Header */}
         <div><span></span></div>
       </div>
-      <div>Body
-        <div>Left body
-          <div>
+      <div>{/* Body */}
+        <div>{/*Left Body*/}
+          <div className="post-index-item-image-container">
             {/* <img src="" alt=""/> */}
           </div>
         </div>
-        <div>Right body
-          <div>Text
-            <div><span>{props.posting.title}</span></div>
-            <div><span>Zipcode</span></div>
-            <div><span>Price</span></div>
+        <div>{/* Right body */}
+          <div>{/*Text*/}
+            <div className="post-title"><span>{props.posting.title}</span></div>
+            <div className="home-no-show"><span>Zipcode</span></div>
+            <div className="post-price"><span>Price:</span></div>
           </div>
-          <div>Calendar
+          <div className="home-no-show">Calendar
             <div>
               {/* Calendar */}
             </div>
