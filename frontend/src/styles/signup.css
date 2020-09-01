@@ -1,0 +1,75 @@
+.signup-form-container {
+  height: 500px;
+  display: flex;
+  margin: auto;
+  
+  
+}
+
+.signup-form {
+  padding: 20px;
+  text-align: center;
+  margin-top: 150px;
+  background: white;
+  width: 250px;
+  box-shadow: 0px 3px 3px #888888 ;
+
+}
+
+.signup-name-input {
+  width: 90px;
+  margin: 10px;
+  height: 25px;
+}
+
+.signup-email-input {
+  margin: 10px;
+  height: 25px;
+  width: 82%;
+}
+
+.signup-password-input {
+  margin: 10px;
+  height: 25px;
+  width: 82%;
+}
+
+.signup-address-input {
+  margin: 10px;
+  height: 25px;
+  width: 82%;
+
+}
+
+.signup-state-input {
+  margin: 10px;
+  margin-left: 55px;
+  width: 40px;
+  height: 25px;
+}
+
+.signup-zip-input {
+  margin: 10px;
+  height: 25px;
+
+}
+
+.signup-submit {
+  margin: 10px;
+  background: #376996;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  border-width: 0;
+}
+
+.signup-submit:hover {
+  background-color: #6290c8;
+  color: #2b2b2b;
+  cursor: pointer;
+}

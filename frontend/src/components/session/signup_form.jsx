@@ -68,13 +68,14 @@ export default (props) => {
         <form onSubmit={handleSubmit}>
           <div className="signup-form">
             <input
+              className="signup-name-input"
               type="text"
               value={firstName}
               onChange={e => updateFirstName(e.currentTarget.value)}
               placeholder="First Name"
             />
-            <br />
             <input
+              className="signup-name-input"
               type="text"
               value={lastName}
               onChange={e => updateLastName(e.currentTarget.value)}
@@ -82,6 +83,7 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-email-input"
               type="text"
               value={email}
               onChange={e => updateEmail(e.currentTarget.value)}
@@ -89,6 +91,7 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-password-input"
               type="password"
               value={password}
               onChange={e => updatePassword(e.currentTarget.value)}
@@ -96,6 +99,7 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-password-input"
               type="password"
               value={password2}
               onChange={e => updatePassword2(e.currentTarget.value)}
@@ -103,6 +107,7 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-address-input"
               type="text"
               value={address}
               onChange={e => updateAddress(e.currentTarget.value)}
@@ -110,13 +115,14 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-name-input"
               type="text"
               value={city}
               onChange={e => updateCity(e.currentTarget.value)}
               placeholder="City"
             />
-            <br />
             <input
+              className="signup-state-input"
               type="text"
               value={state}
               onChange={e => updateState(e.currentTarget.value)}
@@ -124,6 +130,7 @@ export default (props) => {
             />
             <br />
             <input
+              className="signup-zip-input"
               type="text"
               value={zipCode}
               onChange={e => updateZipCode(e.currentTarget.value)}
@@ -131,7 +138,7 @@ export default (props) => {
             />
             <br />
 
-            <input type="submit" value="Submit" />
+            <input className="signup-submit" type="submit" value="Signup" />
             {renderErrors()}
           </div>
         </form>
