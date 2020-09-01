@@ -21,10 +21,10 @@ export default (props) => {
       return (
         <div className="nav-box-loggedin">
           <Link className="nav-button" to={"/postings"}>All postings</Link>
-          <Link className="navbutton" to={"/profile"}>Profile</Link>
+          <Link className="nav-button" to={"/profile"}>Profile</Link>
           {/* Might be doing a modal??? */}
           <Link className="nav-button" to={"/new_posting"}>Create A Posting</Link>
-          <button className="nav-buton" onClick={logoutUser}>Logout</button>
+          <button className="nav-button" onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {
