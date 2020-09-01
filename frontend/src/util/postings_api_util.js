@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const getPostings = () => {
+export const fetchPostings = () => {
   return axios.get('/api/postings')
 };
 
-export const getPosting = postingId => {
+export const fetchPosting = postingId => {
   return axios.get(`/api/postings/${postingId}`)
 };
 
