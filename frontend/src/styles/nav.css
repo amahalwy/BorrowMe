@@ -2,7 +2,8 @@
   
 } */
 
-.nav-box-loggedout{
+.nav-box-loggedout,
+.nav-box-loggedin {
     width: 100%;
     height: 68px;
     padding: 0;
@@ -23,14 +24,13 @@
   padding-top: 25px;
 }
 
-.nav-buttons{
+.nav-buttons {
 width: 290px;
-
 }
 
 .nav-box-loggedout >
 .nav-buttons >
-.nav-button{
+.nav-button {
   width: 50px;
   margin-right: 40px;
   padding-right: 20px;
