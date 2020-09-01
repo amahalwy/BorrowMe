@@ -1,33 +1,22 @@
-import React, { useEffect } from 'react';
-import {useSelector, useDispatch } from 'react-redux';
-import { fetchPostings } from '../../actions/posting_actions';
-import PostingIndexItem from './postings_index_item';
+import React from 'react';
+import PostIndexItem from './postings_index_item';
 
-export default (props) => {
-  const postings = useSelector(state => Object.values(state.entities.postings || {}))
-  const dispatch = useDispatch();
+export default props => {
 
-  useEffect(() => {
-
-    dispatch(fetchPostings());
-
-    // Think about unmounting?
-
-  }, [postings])
-
+  if (!props.filterList) return '';
   return (
     <div>
       <ul>
-        {
-          postings.map(posting => {
-            return (
-              <PostingIndexItem 
-                key={posting.id}
-                posting={posting}
-              />
-            )
-          })
-        }
+      { 
+          props.filterList.map(posting => {
+          return (
+            <PostIndexItem 
+              key={posting._id}
+              posting={posting}
+            />
+          )
+        }) 
+      }   
       </ul>
     </div>
   )
