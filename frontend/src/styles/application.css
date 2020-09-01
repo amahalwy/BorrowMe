@@ -1,9 +1,7 @@
-
-
 header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 body {
@@ -12,7 +10,6 @@ body {
  margin: 0;
  background-color: #F1F1F1;
 }
-
 
 .site-body{
   display: flex;

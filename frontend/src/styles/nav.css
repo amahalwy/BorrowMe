@@ -1,19 +1,15 @@
-/* .nav-box-loggedin{
-  
-} */
-
 .nav-box-loggedout,
 .nav-box-loggedin {
-    width: 100%;
-    height: 68px;
-    padding: 0;
-    position: fixed;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    top: 0;
-    background-color: #6290c8;
-    box-shadow: 0px 3px 3px #888888
+  width: 100%;
+  height: 68px;
+  padding: 0;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 0;
+  background-color: #6290c8;
+  box-shadow: 0px 3px 3px #888888
 }
 
 .nav-name h2 {
@@ -25,7 +21,7 @@
 }
 
 .nav-buttons {
-width: 290px;
+  width: 290px;
 }
 
 .nav-box-loggedout >
@@ -53,11 +49,7 @@ width: 290px;
 .nav-button:hover{
   background-color: #376996;
   color: white;
-
 }
-
-
-
 
 .nav-logo {
   width: 70px;
