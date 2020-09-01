@@ -15,12 +15,8 @@ router.get("/", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
-  console.log(Posting.findById("5f4d71df5d38dc4341fbcb64").title)
   Posting.findById(req.params.id)
-    .then((posting) => {
-      console.log(posting);
-      res.json(posting);
-    }
+    .then((posting) => { res.json(posting) }
     , (err) => res.status(400).json(err));
 })
 
