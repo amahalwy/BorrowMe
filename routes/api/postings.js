@@ -1,12 +1,13 @@
 const express = require("express");
+const router = express.Router();
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
-const router = express.Router();
 const Posting = require("../../models/Posting");
 const validatePostingInput = require("../../validation/postings");
 
 
 //    api/postings/'followed by whatever we have'
+
 router.get("/", (req, res) => {
   Posting.find()
     .sort({ date: -1 })
@@ -15,14 +16,11 @@ router.get("/", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
-  console.log(Posting.findById("5f4d71df5d38dc4341fbcb64").title)
   Posting.findById(req.params.id)
-    .then((posting) => {
-      console.log(posting);
-      res.json(posting);
-    }
+    .then(posting => {res.json(posting)} 
     , (err) => res.status(400).json(err));
 })
+
 
 router.post("/",
   // protects the route
