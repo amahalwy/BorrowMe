@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/post_api_util";
+import * as APIUtil from "../util/postings_api_util";
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_POSTING = "RECEIVE_POSTING";
