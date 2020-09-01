@@ -41,6 +41,12 @@
 
 }
 
+.signup-city-input {
+  margin: 10px;
+  height: 25px;
+  width: 82%;
+}
+
 .signup-state-input {
   margin: 10px;
   margin-left: 55px;

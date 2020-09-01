@@ -113,13 +113,20 @@ export default (props) => {
               onChange={e => updateAddress(e.currentTarget.value)}
               placeholder="Address"
             />
-            <br />
             <input
-              className="signup-name-input"
+              className="signup-city-input"
               type="text"
               value={city}
               onChange={e => updateCity(e.currentTarget.value)}
               placeholder="City"
+            />
+            <br />
+            <input
+              className="signup-name-input"
+              type="text"
+              value={zipCode}
+              onChange={e => updateZipCode(e.currentTarget.value)}
+              placeholder="Zip Code"
             />
             <input
               className="signup-state-input"
@@ -129,13 +136,8 @@ export default (props) => {
               placeholder="State"
             />
             <br />
-            <input
-              className="signup-zip-input"
-              type="text"
-              value={zipCode}
-              onChange={e => updateZipCode(e.currentTarget.value)}
-              placeholder="Zip Code"
-            />
+            
+            
             <br />
 
             <input className="signup-submit" type="submit" value="Signup" />
