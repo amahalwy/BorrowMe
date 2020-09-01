@@ -41,22 +41,22 @@ export default (props) => {
   };
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="login-form-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="login-inputs">
           <input
             type="text"
             value={email}
-            onChange={e => updateEmail(e.currentTarget.value)}
+            onChange={(e) => updateEmail(e.currentTarget.value)}
             placeholder="Email"
-            />
+          />
           <br />
           <input
             type="password"
             value={password}
-            onChange={e => updatePassword(e.currentTarget.value)}
+            onChange={(e) => updatePassword(e.currentTarget.value)}
             placeholder="Password"
-            />
+          />
           <br />
           <input type="submit" value="Submit" />
           {renderErrors()}
