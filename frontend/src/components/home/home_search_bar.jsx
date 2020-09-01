@@ -9,7 +9,7 @@ export default ({keyword, setKeyword}) => {
           type="text"
           value={keyword}
           placeholder="Search site for..."
-          onChange={(e) => setKeyword(e.currentTarget.value)}
+          onChange={e => setKeyword(e.currentTarget.value)}
         />
       {/* </label> */}
     </div>
