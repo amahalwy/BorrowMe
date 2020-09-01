@@ -9,17 +9,31 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="splash-page">
-        <div className="looking-for">
+        <Link to="/home" className="looking-for">
+          <div>
             <h2>What are you looking for?</h2>
-            <p>We have the best renters ready to connect with you to enjoy their stuff</p>
-            <Link className="splash-start-looking-button">Start Looking</Link>
-        </div>
+            <p className="splash-ptag">
+              We have the best renters ready to connect with you to enjoy their
+              stuff
+            </p>
+            <Link className="splash-start-looking-button">
+              Click here to start looking!
+            </Link>
+          </div>
+        </Link>
 
-        <div className="rent-out">
+        <Link to="/home" className="rent-out">
+          <div>
             <h2>What do you want to rent out?</h2>
-            <p>Rent out your unused items, make some extra cash while you're not using them</p>
-            <Link className="splash-start-renting-button" >Start Renting</Link>
-        </div>
+            <p className="splash-ptag">
+              Rent out your unused items, make some extra cash while you're not
+              using them
+            </p>
+            <Link className="splash-start-renting-button">
+              Click here to start renting!
+            </Link>
+          </div>
+        </Link>
       </div>
     );
   }

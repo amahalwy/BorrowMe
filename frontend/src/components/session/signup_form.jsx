@@ -67,6 +67,8 @@ export default (props) => {
       <div className="signup-form-container">
         <form onSubmit={handleSubmit}>
           <div className="signup-form">
+            <h1>Sign up for Borrow Me</h1>
+            <br/>
             <input
               className="signup-name-input"
               type="text"

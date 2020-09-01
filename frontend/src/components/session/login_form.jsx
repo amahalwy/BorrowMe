@@ -43,6 +43,7 @@ export default (props) => {
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
+        <h1 className="login-title">Log In to Borrow Me</h1>
         <div className="login-inputs">
           <input
             type="text"
@@ -58,7 +59,7 @@ export default (props) => {
             placeholder="Password"
           />
           <br />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" value="Log In" />
           {renderErrors()}
         </div>
       </form>

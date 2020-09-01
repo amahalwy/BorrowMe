@@ -24,7 +24,7 @@ export default (props) => {
           <Link className="nav-button" to={"/profile"}>Profile</Link>
           {/* Might be doing a modal??? */}
           <Link className="nav-button" to={"/new_posting"}>Create A Posting</Link>
-          <button className="nav-button" onClick={logoutUser}>Logout</button>
+          <button className="nav-buttton" onClick={logoutUser}>Logout</button>
         </div>
       );
     } else {
