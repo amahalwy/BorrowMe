@@ -1,9 +1,4 @@
-.site-body{
-  display: flex;
-  min-height: 100%;
-  align-items: stretch;
-  position: relative;
-}
+
 
 .splash-page{
   margin-top: 100px;
