@@ -31,12 +31,12 @@
   margin-right: 40px;
   padding-right: 20px;
   background-color: #6290c8;
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: white;
   border-radius: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -48,7 +48,8 @@
 .nav-buttons >
 .nav-button:hover{
   background-color: #376996;
-  color: white;
+  color: black;
+  border-color: black;
 }
 
 .nav-logo {

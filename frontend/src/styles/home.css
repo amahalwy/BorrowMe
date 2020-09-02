@@ -40,7 +40,7 @@
   font-weight: bold;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: white;
   border-radius: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -52,6 +52,7 @@
   background-color: #376996;
   color: black;
   cursor: pointer;
+  border-color: black;
 }
 
 .home-index-list{
