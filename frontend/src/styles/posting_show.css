@@ -1,0 +1,60 @@
+.modal-top-bar{
+
+  display: flex;
+  position: relative;
+
+}
+.modal-item-title{
+  font-size: 2em;
+  display: inline-block;  
+ padding-left: 5px;
+position: absolute;
+top: 2px;
+}
+
+.modal-x{
+  display: block;
+padding: 8px;
+margin-left: 350px;
+position: absolute;
+top: 2px;
+right: 5px;
+}
+
+.modal-item-info{
+  margin-top: 100px;
+  display: block;
+  padding-left: 5px;
+  width: 100%;
+  position: relative;
+}
+
+
+.modal-description{
+  margin-top: 2%;
+  flex: wrap;
+  display: block;
+  position: absolute; 
+}
+
+.modal-price{
+  padding-top: 2%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.modal-img{
+  margin-top: 50px; 
+  height: 100px;
+}
+
+.modal-calendar{
+ float: right;
+display: block;
+bottom: 0;
+margin-right: 10px;
+}
+
+
+

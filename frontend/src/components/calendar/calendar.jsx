@@ -10,7 +10,7 @@ export default props => {
       key: "selection",
     }, ]);
 
-    debugger
+
   return (
     <DateRange
       editableDateInputs={true}

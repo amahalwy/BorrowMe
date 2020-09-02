@@ -37,7 +37,7 @@ export default props => {
         {/* Body */}
         <div>
           {/*Left Body*/}
-          <div className="post-index-item-image-container">
+          <div onClick={showModal} className="post-index-item-image-container">
             {/* <img src="" alt=""/> */}
           </div>
         </div>
@@ -53,7 +53,6 @@ export default props => {
             </div>
             <div className="post-price">
               <span>Price:</span>
-              <button onClick={showModal}>Show</button>
             </div>
           </div>
           <div className="home-no-show">
@@ -63,9 +62,7 @@ export default props => {
         </div>
       </div>
       <Modal show={openModal} handleClose={hideModal}>
-        <PostingShow posting={props.posting}
-          hideModal={hideModal}
-        />
+        <PostingShow posting={props.posting} hideModal={hideModal} />
       </Modal>
     </div>
   );
