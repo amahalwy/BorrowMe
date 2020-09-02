@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 const token = require('../../config/keys').mapBoxToken;
-// import "./styles/map.css"
-// import { withRouter, link } from "react-router-dom";
-// import Typical from "react-typical";
 
 const Map = (props) => {
   const lng = -122.44;
