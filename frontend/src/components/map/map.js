@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-const mapBoxToken = require('../../config/keys_dev');
+const mapBoxToken = require('../../config/keys');
 // import { withRouter, link } from "react-router-dom";
 // import Typical from "react-typical";
 
