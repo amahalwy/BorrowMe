@@ -7,7 +7,7 @@ export default ({keyword, setKeyword}) => {
           className="search-bar"
           type="text"
           value={keyword}
-          placeholder="Search by keyword"
+          placeholder="Search by tag"
           onChange={e => setKeyword(e.currentTarget.value)}
         />
     </div>

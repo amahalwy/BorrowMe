@@ -4,8 +4,6 @@ const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const Posting = require("../../models/Posting");
 const validatePostingInput = require("../../validation/postings");
-
-
 //    api/postings/'followed by whatever we have'
 
 router.get("/", (req, res) => {
@@ -37,7 +35,8 @@ router.post("/",
       image: req.body.image,
       description: req.body.description,
       price: req.body.price,
-      zipCode: req.body.zipCode
+      zipCode: req.body.zipCode,
+      tags: req.body.tags
     })
 
     newPosting.save()

@@ -9,6 +9,7 @@ import SignupForm from "./session/signup_form";
 import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
 import Calendar from "./calendar/calendar";
+import Profile from './user/profile';
 
 import Map from "./map/map"
 
@@ -21,6 +22,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupForm} />
       <ProtectedRoute exact path="/home" component={HomePage}/>
       <Route exact path="/calendar" component={Calendar}/>
+      <Route exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
       <Route path="/map" component={Map}/>
 

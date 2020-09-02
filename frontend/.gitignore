@@ -6,7 +6,6 @@
 .pnp.js
 
 # frontend keys
-/src/config/keys.js
 /src/config/keys_dev.js
 
 # testing
