@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import { mapBoxToken } from "../../config/keys_dev";
+const token = require('../../config/keys').mapBoxToken;
+// import "./styles/map.css"
 // import { withRouter, link } from "react-router-dom";
 // import Typical from "react-typical";
 
@@ -14,7 +15,7 @@ const Map = (props) => {
 
 
   useEffect(() => {
-    mapboxgl.accessToken = mapBoxToken;
+    mapboxgl.accessToken = token;
     const bounds = [
       [-122.54, 37.6], // [west, south]
       [-122.34, 37.9], // [east, north]
@@ -43,6 +44,20 @@ const Map = (props) => {
   }, [map]);
 
   // Add zoom and rotation controls to the map.
+
+  // const marker = new mapboxgl.Marker()
+  //   .setLngLat([103.811279, 1.345399])
+  //   .addTo(map);
+
+  // const geolocate = new mapboxgl.GeolocateControl({
+  //   positionOptions: {
+  //     enableHighAccuracy: true,
+  //   },
+  //   trackUserLocation: true,
+  // });
+
+  // map.addControl(geolocate, "top-right");
+  // hello
 
   return (
   <div>
