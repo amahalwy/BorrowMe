@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# frontend keys
+/src/config
+
 # testing
 /coverage
 

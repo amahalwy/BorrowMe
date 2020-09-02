@@ -36,6 +36,7 @@ router.get('/current',
 router.post('/signup', (req, res) =>{
   const { errors, isValid } = validateSignupInput(req.body);
 
+  // debugger 
   if (!isValid) {
     return res.status(400).json(errors);
   }

@@ -10,6 +10,7 @@ import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
 import Calendar from "./calendar/calendar";
 
+import Map from "./map/map"
 
 const App = () => (
   <div className="site-body">
@@ -21,9 +22,11 @@ const App = () => (
       <ProtectedRoute exact path="/home" component={HomePage}/>
       <Route exact path="/calendar" component={Calendar}/>
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
+      <Route path="/map" component={Map}/>
 
       <Redirect to='/' />
     </Switch>
+  {/* <Map /> */}
   </div>
 );
 
