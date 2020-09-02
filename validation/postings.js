@@ -6,6 +6,7 @@ module.exports = function validatePostingInput(data) {
 
   data.title = validText(data.title) ? data.title : '';
   data.description = validText(data.description) ? data.description : '';
+  data.price = validText(data.price) ? data.price : '';
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
   data.image = validText(data.image) ? data.image : '';
 
@@ -22,8 +23,12 @@ module.exports = function validatePostingInput(data) {
     errors.image = "Image field is required";
   }
 
+  if (Validator.isEmpty(data.price)) {
+    errors.price = 'price field is required';
+  }
+
   if (Validator.isEmpty(data.zipCode)) {
-    errors.zipCode = 'zipCode field is required';
+    errors.zipCode = "zip code field is required";
   }
 
   if (!Validator.isLength(data.description, {min: 8, max: 300})) {

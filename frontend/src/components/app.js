@@ -10,6 +10,7 @@ import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
 import Calendar from "./calendar/calendar";
 
+import Map from "./map/map"
 
 const App = () => (
   <div className="site-body">
@@ -24,6 +25,8 @@ const App = () => (
 
       <Redirect to='/' />
     </Switch>
+      {/* <Route path="/map" component={Map}/> */}
+  <Map />
   </div>
 );
 
