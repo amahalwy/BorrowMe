@@ -36,6 +36,7 @@ router.post("/",
       title: req.body.title,
       image: req.body.image,
       description: req.body.description,
+      price: req.body.price,
       zipCode: req.body.zipCode
     })
 
@@ -45,13 +46,49 @@ router.post("/",
   }
 )
 
-// router.patch("/:postingId", (req, res) => {
-//   Posting.find({posting: req.params.postId})
-//     if (!posting) {
-      
-//     } else {
-//       // posting exists
-//     }
-// })
+// update
+
+router.patch("/:postingId", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+
+    const { isValid, errors } = validatePostingInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors)
+    }
+
+    // const posting = new Posting({
+    //   title: req.body.title,
+    //   image: req.body.image,
+    //   description: req.body.description,
+    //   price: req.body.price,
+    //   zipCode: req.body.zipCode,
+    // });
+    // let updatedPosting = Object.assign(posting)
+
+    Posting.findOne(req.body._id)
+      .then((posting) => {
+        posting.title = req.body.title;
+        posting.description = req.body.description;
+        posting.price = req.body.price;
+        posting.zipCode = req.body.zipCode;
+        posting.image = req.body.image;
+        posting.save()
+          .then(savedPosting => res.json(savedPosting))
+          .catch(err => res.json(err))
+      })
+
+  });
+
+  // delete
+  router.delete('/:id', 
+    (req, res) => {
+      Posting.deleteOne({_id: req.params.id})
+        .then(() => {
+          res.json("Posting deleted successfully!")
+        })
+        .catch(err => res.status(400).json(err))
+    }
+  )
 
 module.exports = router;
