@@ -8,6 +8,8 @@ import LoginForm from "./session/login_form";
 import SignupForm from "./session/signup_form";
 import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
+import Calendar from "./calendar/calendar";
+
 
 const App = () => (
   <div className="site-body">
@@ -17,9 +19,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginForm} />
       <AuthRoute exact path="/signup" component={SignupForm} />
       <ProtectedRoute exact path="/home" component={HomePage}/>
-
-      
-      <ProtectedRoute exact path="/postings" component={PostingIndex}/>
+      <Route exact path="/calendar" component={Calendar}/>
+      <ProtectedRoute exact path="/postings" component={PostingIndex} />
 
       <Redirect to='/' />
     </Switch>

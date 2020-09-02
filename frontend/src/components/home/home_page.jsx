@@ -14,6 +14,11 @@ const SearchPage = (props) => {
     const filtered = postingList.filter(posting => {
       return posting.title.toLowerCase().includes(input.toLowerCase())
     })
+
+    // const filtered = postingList.filter(posting => {
+    //   return posting.tags.includes(input.toLowerCase())
+    // })
+    
     setInput(input);
     setFilterList(filtered);
   }
