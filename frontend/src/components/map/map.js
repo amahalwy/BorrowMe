@@ -12,6 +12,7 @@ const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
+
   useEffect(() => {
     mapboxgl.accessToken = mapBoxToken;
     const bounds = [
