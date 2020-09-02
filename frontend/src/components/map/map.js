@@ -44,8 +44,8 @@ const Map = (props) => {
   // Add zoom and rotation controls to the map.
 
   return (
-  <div style={{margin: 300}}>
-      <div
+  <div>
+      <div 
         ref={(el) => (mapContainer.current = el)}
         className="map_container"
       />

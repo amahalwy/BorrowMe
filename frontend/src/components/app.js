@@ -22,11 +22,11 @@ const App = () => (
       <ProtectedRoute exact path="/home" component={HomePage}/>
       <Route exact path="/calendar" component={Calendar}/>
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
+      <Route path="/map" component={Map}/>
 
       <Redirect to='/' />
     </Switch>
-      {/* <Route path="/map" component={Map}/> */}
-  <Map />
+  {/* <Map /> */}
   </div>
 );
 
