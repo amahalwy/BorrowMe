@@ -1,33 +1,73 @@
-import React from 'react'
+import React, {useState} from 'react';
+import Modal from '../modal/modal';
+import PostingShow from './posting_show';
 
 export default props => {
 
-  // debugger
+  const [openModal, setModal] = useState(false)
+
+  // this.state = {
+  //   openModal: false
+  // }
+
+  // setModal("hello")
+
+  // const update = () => {
+  //   this.setState({openModal: 'hello'})
+  // }
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
+
+  const hideModal = () => {
+    setModal(false);
+  };
+
   return (
     <div className="post-index-item">
-      <div>{/* Header */}
-        <div><span></span></div>
+      <div>
+        {/* Header */}
+        <div>
+          <span></span>
+        </div>
       </div>
-      <div>{/* Body */}
-        <div>{/*Left Body*/}
+      <div>
+        {/* Body */}
+        <div>
+          {/*Left Body*/}
           <div className="post-index-item-image-container">
             {/* <img src="" alt=""/> */}
           </div>
         </div>
-        <div>{/* Right body */}
-          <div>{/*Text*/}
-            <div className="post-title"><span>{props.posting.title}</span></div>
-            <div className="home-no-show"><span>Zipcode</span></div>
-            <div className="post-price"><span>Price:</span></div>
-          </div>
-          <div className="home-no-show">Calendar
-            <div>
-              {/* Calendar */}
+        <div>
+          {/* Right body */}
+          <div>
+            {/*Text*/}
+            <div className="post-title">
+              <span>{props.posting.title}</span>
             </div>
+            <div className="home-no-show">
+              <span>Zipcode</span>
+            </div>
+            <div className="post-price">
+              <span>Price:</span>
+              <button onClick={showModal}>Show</button>
+            </div>
+          </div>
+          <div className="home-no-show">
+            Calendar
+            <div>{/* Calendar */}</div>
           </div>
         </div>
       </div>
+      <Modal show={openModal} handleClose={hideModal}>
+        <PostingShow posting={props.posting}
+          hideModal={hideModal}
+        />
+      </Modal>
     </div>
-  )
+  );
 
 }
