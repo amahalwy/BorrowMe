@@ -6,7 +6,8 @@
 .pnp.js
 
 # frontend keys
-/src/config
+/src/config/keys.js
+/src/config/keys_dev.js
 
 # testing
 /coverage
