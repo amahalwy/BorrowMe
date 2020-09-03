@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const Posting = require("../../models/Posting");
 const validatePostingInput = require("../../validation/postings");
-const { userInfo } = require("os");
-//    api/postings/'followed by whatever we have'
+const multer = require("multer");
+const AWS = require("aws-sdk");
+const uuidv4 = require("uuid").v4;
+
+// Middleware for postman form-data
+const upload = multer();
+
 
 router.get("/", (req, res) => {
   Posting.find()
@@ -24,31 +30,50 @@ router.get("/:id", (req, res) => {
     , (err) => res.status(400).json(err));
 })
 
+const s3 = new AWS.S3({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+});
 
-router.post("/",
-  // protects the route
+const uploadImage = (file) => {
+  const params = {
+    Bucket: keys.S3Bucket,
+    Key: uuidv4(),
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    ACL: "public-read",
+  };
+  const uploadPhoto = s3.upload(params).promise();
+  return uploadPhoto;
+};
+
+// protects the route
+router.post("/", upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.user._id)
-    const { isValid, errors } = validatePostingInput(req.body, req.user)
+    const { isValid, errors } = validatePostingInput(req.body)
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    const newPosting = new Posting({
-      authorId: req.user._id,
-      title: req.body.title,
-      image: req.body.image,
-      description: req.body.description,
-      price: req.body.price,
-      zipCode: req.body.zipCode,
-      tags: req.body.tags
-    })
+    uploadImage(req.file).then(data => {
+      // console.log(req.file)
+      console.log(data)
+        const uploadedImageURL = data.Location;
 
-    newPosting.save()
-    .then(posting => res.json(posting))
-    .catch(err => res.status(400).json(err));
+        const newPosting = new Posting({
+          title: req.body.title,
+          image: uploadedImageURL,
+          description: req.body.description,
+          price: req.body.price,
+          zipCode: req.body.zipCode,
+          tags: req.body.tags,
+        });
+
+        newPosting.save().then(posting => res.json(posting))
+      }).catch(err => res.status(400).json(err))
+
   }
 )
 
