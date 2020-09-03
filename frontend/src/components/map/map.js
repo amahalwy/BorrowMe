@@ -10,7 +10,6 @@ const Map = (props) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
-
   useEffect(() => {
     mapboxgl.accessToken = token;
     const bounds = [
@@ -56,9 +55,56 @@ const Map = (props) => {
   // map.addControl(geolocate, "top-right");
   // hello
 
+  // 2nd try
+
+  // const nav = new mapboxgl.NavigationControl();
+  // map.addControl(nav, "top-right");
+
+  // const marker = new mapboxgl.Marker()
+  //   .setLngLat([103.811279, 1.345399])
+  //   .addTo(map);
+
+  // var marker = new mapboxgl.Marker()
+  //   .setLngLat([12.550343, 55.665957])
+  //   .addTo(map);
+
+  // const mapBoxMarker = new mapboxgl.Marker(el)
+  //   .setLngLat(marker.geometry.coordinates)
+  //   .setPopup(popup);
+
+  // 3rd try
+  var geojson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [-77.032, 38.913],
+        },
+        properties: {
+          title: "Mapbox",
+          description: "Washington, D.C.",
+        },
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [-122.414, 37.776],
+        },
+        properties: {
+          title: "Mapbox",
+          description: "San Francisco, California",
+        },
+      },
+    ],
+  };
+
+
   return (
-  <div>
-      <div 
+    <div>
+      <div
         ref={(el) => (mapContainer.current = el)}
         className="map_container"
       />
