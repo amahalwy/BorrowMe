@@ -47,11 +47,8 @@
     "react": "^16.13.1",
     "react-date-range": "^1.0.3",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
     "react-images-upload": "^1.2.8",
-=======
     "react-map-gl": "^5.2.8",
->>>>>>> d068224dc82917cfca77ea5b512660f43078cdf3
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
