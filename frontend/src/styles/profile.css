@@ -80,3 +80,25 @@
   background: white;
   border: 2px solid #D8D8D8;
 }
+
+.profile-edit-button-container {
+  margin-top: 10%;
+}
+
+.profile-edit-button {
+  background: #376996;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 25px;
+}
+
+.profile-edit-button:hover {
+  background: #6290c8;
+  cursor: pointer;
+}
+
+.profile-edit-button:focus {
+  outline: none;
+}

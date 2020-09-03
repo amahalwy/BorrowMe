@@ -52,7 +52,9 @@ const SearchPage = (props) => {
     <div className="home-container">
       <div className="home-filter">
         <h2>Filter</h2>
-        <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
+        <div className="home-tag-search-bar">
+          <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
+        </div>
       </div>
       <div className="home-index">
         <SearchBar input={input} setKeyword={updateInput} />
