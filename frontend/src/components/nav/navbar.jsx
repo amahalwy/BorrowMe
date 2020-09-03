@@ -23,7 +23,7 @@ export default (props) => {
           <Link className="nav-button" to={"/postings"}>All postings</Link>
           <Link className="nav-button" to={"/profile"}>Profile</Link>
           {/* Might be doing a modal??? */}
-          <Link className="nav-button" to={"/new_posting"}>Create A Posting</Link>
+          <Link className="nav-button" to={"/create_posting"}>Create A Posting</Link>
           <Link className="nav-button" onClick={logoutUser} to="/">Logout</Link>
         </div>
       );
