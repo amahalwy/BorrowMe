@@ -7,12 +7,31 @@ const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
-const { Mongoose } = require("mongoose");
+const multer = require("multer");
+const AWS = require("aws-sdk");
+const uuidv4 = require("uuid").v4;
+const fs = require("fs");
 
-// user show
-// router.get('/users/:userId', (req, res) => {
-//   User.find({ id: req.params.userId})
-// })
+
+// Middleware for postman form-data
+const upload = multer();
+
+const s3 = new AWS.S3({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+});
+
+const uploadImage = (file) => {
+  const params = {
+    Bucket: keys.S3Bucket,
+    Key: uuidv4(),
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    ACL: "public-read",
+  };
+  const uploadPhoto = s3.upload(params).promise();
+  return uploadPhoto;
+};
 
 // Private auth route
 router.get('/current', 
@@ -55,7 +74,8 @@ router.post('/signup', (req, res) =>{
         address: req.body.address,
         city: req.body.city,
         state: req.body.state,
-        zipCode: req.body.zipCode
+        zipCode: req.body.zipCode,
+        profilePhoto: ''
       })
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -123,7 +143,57 @@ router.post('/login', (req, res) => {
     })
 })
 
-// router.patch('/users/:userId)
+router.post(
+  "/",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+
+    uploadImage(req.file)
+      .then((data) => {
+        // console.log(req.file)
+        console.log(data);
+        const uploadedImageURL = data.Location;
+
+        const newPosting = new Posting({
+          title: req.body.title,
+          image: uploadedImageURL,
+          description: req.body.description,
+          price: req.body.price,
+          zipCode: req.body.zipCode,
+          tags: req.body.tags,
+        });
+
+        newPosting.save().then((posting) => res.json(posting));
+      })
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
+
+
+// router.post('/:id', (req, res) => {
+//   console.log(req);
+//   User.findOne({ email: req.body.email })
+//   .then((user) => {
+//     if (!user) {
+//       return res.status(400).json({ email: "User does not exist." });
+//     } else {
+//       const newUser = new User({
+//         firstName: req.body.firstName,
+//         lastName: req.body.lastName,
+//         email: req.body.email,
+//         password: req.body.password,
+//         password2: req.body.password2,
+//         address: req.body.address,
+//         city: req.body.city,
+//         state: req.body.state,
+//         zipCode: req.body.zipCode,
+//         profilePhoto: "",
+//       });
+//     }
+//   });
+// })
 
 // router.delete('/users/:userId')
 

@@ -8,6 +8,10 @@
   margin-top: 10px;
 }
 
+.search-bar-tag {
+  width: 20%;
+}
+
 .home-search-icon-container {
   display: flex;
   align-items: center;

@@ -14,9 +14,12 @@ const SearchPage = (props) => {
   // their name
   const updateInput = input => {
     const filtered = postingList.filter((posting) => {
-      return posting.title.toLowerCase().includes(input.toLowerCase());
+      if (input === "") {
+        return posting;
+      } else {
+        return posting.title.toLowerCase().includes(input.toLowerCase());
+      }
     });
-
     setInput(input);
     setFilterList(filtered);
   };
@@ -24,9 +27,12 @@ const SearchPage = (props) => {
   // Function used to filter by tags instead
   const updateTagInput = input => {
     const filtered = postingList.filter(posting => {
-      return posting.tags.includes(input.toLowerCase())
+      if (input === '') {
+        return posting;
+      } else {
+        return posting.tags.some(tag => tag.includes(input.toLowerCase()))
+      }
     })
-
     setTagInput(input);
     setFilterList(filtered);
   };
@@ -48,16 +54,30 @@ const SearchPage = (props) => {
     fetchData();
   }, []);
 
+
+
+
+
   return (
     <div className="home-container">
       <div className="home-filter">
-        <h2>Filter</h2>
-        <div className="home-tag-search-bar">
-          <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
-        </div>
+        <div className="home-tag-search-bar"></div>
       </div>
       <div className="home-index">
-        <SearchBar input={input} setKeyword={updateInput} />
+        <div>
+          <SearchBar input={input} setKeyword={updateInput} />
+        </div>
+        <div>
+          <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
+          <div>
+            <span className='search-tags'>Photography</span>
+            <span className='search-tags'>Outdoors</span>
+            <span className='search-tags'>Sports</span>
+            <span className='search-tags'>Water</span>
+            <span className='search-tags'>Electronics</span>
+            <span className='search-tags'>Clothing</span>
+          </div>
+        </div>
         <div>
           <PostingsIndex filterList={filterList} />
         </div>

@@ -1,5 +1,6 @@
 // import { RECEIVE_USER } from "../../actions/user_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import {RECEIVE_USER} from "../actions/user_actions";
 
 const initialState = {
   isAuthenticated: false,
@@ -14,6 +15,10 @@ export default function (state = initialState, action) {
         isAuthenticated: !!action.currentUser,
         user: action.currentUser,
       };
+    case RECEIVE_USER:
+      return Object.assign({}, state, {
+        [action.user._id]: action.user
+      });
     default:
       return state;
   }

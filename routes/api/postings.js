@@ -8,6 +8,8 @@ const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
+const fs = require("fs");
+
 
 // Middleware for postman form-data
 const upload = multer();
@@ -30,6 +32,7 @@ router.get("/:id", (req, res) => {
     , (err) => res.status(400).json(err));
 })
 
+
 const s3 = new AWS.S3({
   accessKeyId: keys.accessKeyId,
   secretAccessKey: keys.secretAccessKey,
@@ -47,6 +50,7 @@ const uploadImage = (file) => {
   return uploadPhoto;
 };
 
+
 // protects the route
 router.post("/", upload.single("file"),
   passport.authenticate("jwt", { session: false }),
@@ -58,7 +62,6 @@ router.post("/", upload.single("file"),
     }
 
     uploadImage(req.file).then(data => {
-      // console.log(req.file)
       console.log(data)
         const uploadedImageURL = data.Location;
 
@@ -79,41 +82,39 @@ router.post("/", upload.single("file"),
 
 // update
 
-router.patch("/:postingId", passport.authenticate("jwt", { session: false }),
+router.patch(
+  "/:postingId",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
-
     const { isValid, errors } = validatePostingInput(req.body);
 
     if (!isValid) {
-      return res.status(400).json(errors)
+      return res.status(400).json(errors);
     }
 
-    // const posting = new Posting({
-    //   title: req.body.title,
-    //   image: req.body.image,
-    //   description: req.body.description,
-    //   price: req.body.price,
-    //   zipCode: req.body.zipCode,
-    // });
-    // let updatedPosting = Object.assign(posting)
-
-    Posting.findOne(req.body._id)
-    // if currentUser === postingOwner
-    // info to be used in the frontend
-      .then((posting) => {
+    uploadImage(req.file).then(data => {
+      console.log(data)
+      const uploadedImageURL = data.Location;
+      
+      Posting.findOne(req.body._id)
+      // if currentUser === postingOwner
+      // info to be used in the frontend
+      .then(posting => {
         posting.authorId = req.body.authorId;
         posting.title = req.body.title;
         posting.description = req.body.description;
         posting.price = req.body.price;
         posting.zipCode = req.body.zipCode;
-        posting.image = req.body.image;
+        posting.image = uploadedImageURL;
         posting.tags = req.body.tags;
         posting.save()
-          .then(savedPosting => res.json(savedPosting))
-          .catch(err => res.json(err))
-      })
-
-  });
+        .then((savedPosting) => res.json(savedPosting))
+        .catch((err) => res.json(err));
+      });
+    })
+  }
+);
 
   // delete
   router.delete('/:id', 

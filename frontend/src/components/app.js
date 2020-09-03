@@ -12,6 +12,7 @@ import Calendar from "./calendar/calendar";
 import Profile from './user/profile';
 import CreatePosting from './postings/create_posting';
 
+import Trial from './trial/trial';
 import Map from "./map/map"
 
 const App = () => (
@@ -21,16 +22,15 @@ const App = () => (
       <AuthRoute exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginForm} />
       <AuthRoute exact path="/signup" component={SignupForm} />
-      <ProtectedRoute exact path="/home" component={HomePage}/>
-      <Route exact path="/calendar" component={Calendar}/>
+      <ProtectedRoute exact path="/home" component={HomePage} />
+      <Route exact path="/calendar" component={Calendar} />
       <Route exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
-      <ProtectedRoute exact path="/create-posting" component={CreatePosting}/>
-      <Route path="/map" component={Map}/>
+      <ProtectedRoute exact path="/create-posting" component={CreatePosting} />
+      <Route path="/map" component={Map} />
 
-      <Redirect to='/' />
+      <Redirect to="/" />
     </Switch>
-  {/* <Map /> */}
   </div>
 );
 

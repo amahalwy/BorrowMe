@@ -40,6 +40,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  profilePhoto: {
+    type: String,
+    required: false
+  }
 }, {
   timestamps: true
 })
