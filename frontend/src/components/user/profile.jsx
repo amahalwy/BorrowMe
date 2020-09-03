@@ -14,7 +14,9 @@ const Profile = () => {
           <h2>Address</h2>
           <h2>Change Password</h2>
         </div>
-
+        <div className="profile-edit-button-container">
+          <button className="profile-edit-button">Edit Profile</button>
+        </div>
       </div>
       <div className="profile-main-box">
         <div className="profile-postings">

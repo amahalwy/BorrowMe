@@ -8,11 +8,10 @@ const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
+
 // Middleware for postman form-data
 const upload = multer();
 
-// var storage = multer.memoryStorage();
-// var upload = multer({ storage: storage });
 
 router.get("/", (req, res) => {
   Posting.find()
@@ -23,6 +22,10 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Posting.findById(req.params.id)
+  .populate({
+    path: 'userId',
+    select: 'firstName'
+  })
     .then(posting => {res.json(posting)} 
     , (err) => res.status(400).json(err));
 })
@@ -48,13 +51,19 @@ const uploadImage = (file) => {
 router.post("/", upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+<<<<<<< HEAD
 
     const { isValid, errors } = validatePostingInput(req.body)
+=======
+    console.log(req.user._id)
+    const { isValid, errors } = validatePostingInput(req.body, req.user)
+>>>>>>> 4557b2f1bc7a77df7fc82637f235f160357f9a9f
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
+<<<<<<< HEAD
     uploadImage(req.file).then(data => {
       // console.log(req.file)
       console.log(data)
@@ -72,6 +81,21 @@ router.post("/", upload.single("file"),
         newPosting.save().then(posting => res.json(posting))
       }).catch(err => res.status(400).json(err))
 
+=======
+    const newPosting = new Posting({
+      authorId: req.user._id,
+      title: req.body.title,
+      image: req.body.image,
+      description: req.body.description,
+      price: req.body.price,
+      zipCode: req.body.zipCode,
+      tags: req.body.tags
+    })
+
+    newPosting.save()
+    .then(posting => res.json(posting))
+    .catch(err => res.status(400).json(err));
+>>>>>>> 4557b2f1bc7a77df7fc82637f235f160357f9a9f
   }
 )
 
@@ -96,12 +120,16 @@ router.patch("/:postingId", passport.authenticate("jwt", { session: false }),
     // let updatedPosting = Object.assign(posting)
 
     Posting.findOne(req.body._id)
+    // if currentUser === postingOwner
+    // info to be used in the frontend
       .then((posting) => {
+        posting.authorId = req.body.authorId;
         posting.title = req.body.title;
         posting.description = req.body.description;
         posting.price = req.body.price;
         posting.zipCode = req.body.zipCode;
         posting.image = req.body.image;
+        posting.tags = req.body.tags;
         posting.save()
           .then(savedPosting => res.json(savedPosting))
           .catch(err => res.json(err))
