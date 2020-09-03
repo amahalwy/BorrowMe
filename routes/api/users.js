@@ -7,6 +7,7 @@ const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
+const { Mongoose } = require("mongoose");
 
 // user show
 // router.get('/users/:userId', (req, res) => {
