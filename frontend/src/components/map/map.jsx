@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import ReactMapGL, { Popup } from "react-map-gl";
 const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
