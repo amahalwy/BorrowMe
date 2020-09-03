@@ -51,19 +51,12 @@ const uploadImage = (file) => {
 router.post("/", upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-<<<<<<< HEAD
-
     const { isValid, errors } = validatePostingInput(req.body)
-=======
-    console.log(req.user._id)
-    const { isValid, errors } = validatePostingInput(req.body, req.user)
->>>>>>> 4557b2f1bc7a77df7fc82637f235f160357f9a9f
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-<<<<<<< HEAD
     uploadImage(req.file).then(data => {
       // console.log(req.file)
       console.log(data)
@@ -81,21 +74,6 @@ router.post("/", upload.single("file"),
         newPosting.save().then(posting => res.json(posting))
       }).catch(err => res.status(400).json(err))
 
-=======
-    const newPosting = new Posting({
-      authorId: req.user._id,
-      title: req.body.title,
-      image: req.body.image,
-      description: req.body.description,
-      price: req.body.price,
-      zipCode: req.body.zipCode,
-      tags: req.body.tags
-    })
-
-    newPosting.save()
-    .then(posting => res.json(posting))
-    .catch(err => res.status(400).json(err));
->>>>>>> 4557b2f1bc7a77df7fc82637f235f160357f9a9f
   }
 )
 
