@@ -33,24 +33,20 @@ export default (props) => {
     if (loggedIn) {
 
       return (
-        <div className="nav-box-loggedin">
-          <Link className="nav-button" to={"/postings"}>
-            All postings
-          </Link>
-          <Link className="nav-button" to={"/profile"}>
-            Profile
-          </Link>
-          {/* Might be doing a modal??? */}
-          <Link
-            className="nav-button"
-            to={"/create-posting"}
-            onClick={showModal}
-          >
-            Create A Posting
-          </Link>
-          <Link className="nav-button" onClick={logoutUser} to="/">
-            Logout
-          </Link>
+        <div className="nav-box-loggedin">     
+          <div className="nav-dropdown-trigger">
+            <img className="nav-dropdown-trigger-icon" src="https://www.iconsdb.com/icons/preview/white/arrow-206-xxl.png" alt="dropdown-trigger"/>
+            <div className="nav-dropdown-items">
+              <ul>
+                <li><Link className="nav-dropdown-link" to={"/"}>Welcome</Link></li>
+                <li><Link className="nav-dropdown-link" to={"/home"}>Home</Link></li>
+                <li><Link className="nav-dropdown-link" onClick={showModal}>New Posting</Link></li>
+                <li><Link className="nav-dropdown-link" to={"/profile"}>Profile</Link></li>
+                <li><Link className="nav-dropdown-link" onClick={logoutUser} to="/">Logout</Link></li>
+              </ul>
+              
+            </div>
+          </div>
           <Modal show={openModal} handleClose={hideModal}>
             <CreatePosting hideModal={hideModal} />
           </Modal>
@@ -76,6 +72,7 @@ export default (props) => {
     <div className="nav-logo-box">
       <Link to="/"><img className="nav-logo" src={bmlogo} alt="bm-logo" />
       </Link> 
+      <h2>BorrowMe</h2>
       {getLinks()}
     </div>
   );

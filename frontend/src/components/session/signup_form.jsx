@@ -62,12 +62,13 @@ export default (props) => {
     );
   }
 
+
   // render() {
     return (
       <div className="signup-form-container">
         <form onSubmit={handleSubmit}>
           <div className="signup-form">
-            <h1>Sign up for Borrow Me</h1>
+            <h1>Sign up for BorrowMe</h1>
             <br/>
             <input
               className="signup-name-input"
@@ -123,27 +124,29 @@ export default (props) => {
               placeholder="City"
             />
             <br />
-            <input
-              className="signup-name-input"
-              type="text"
-              value={zipCode}
-              onChange={e => updateZipCode(e.currentTarget.value)}
-              placeholder="Zip Code"
-            />
-            <input
-              className="signup-state-input"
-              type="text"
-              value={state}
-              onChange={e => updateState(e.currentTarget.value)}
-              placeholder="State"
-            />
+            <div className="signup-zip-state-container">
+              <input
+                className="signup-name-input"
+                type="text"
+                value={zipCode}
+                onChange={e => updateZipCode(e.currentTarget.value)}
+                placeholder="Zip Code"
+              />
+              <input
+                className="signup-state-input"
+                type="text"
+                value={state}
+                onChange={e => updateState(e.currentTarget.value)}
+                placeholder="State"
+              />
+            </div>
             <br />
             
             
             <br />
 
             <input className="signup-submit" type="submit" value="Signup" />
-            {renderErrors()}
+            <div className="signup-errors">{renderErrors()}</div>
           </div>
         </form>
       </div>

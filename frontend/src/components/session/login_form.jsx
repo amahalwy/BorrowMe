@@ -7,6 +7,7 @@ export default (props) => {
   const [password, updatePassword] = useState("");
   const [stateErrors, updateErrors] = useState({});
   const dispatch = useDispatch();
+  const [clearErrors, updateClearedErrors] = useState(false);
   
   const currentUser = useSelector(state => state.session.isAuthenticated || {})
   const errors = useSelector(state => state.errors.session);
@@ -39,11 +40,15 @@ export default (props) => {
       </ul>
     );
   };
+
+  // useEffect(() => {
+  //   clearErrors();
+  // }, []);
   
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1 className="login-title">Log In to Borrow Me</h1>
+        <h1 className="login-title">Log In to BorrowMe</h1>
         <div className="login-inputs">
           <input
             type="text"
@@ -60,7 +65,9 @@ export default (props) => {
           />
           <br />
           <input type="submit" value="Submit" value="Log In" />
-          {renderErrors()}
+          <div className="login-errors">
+            {renderErrors()}
+          </div>
         </div>
       </form>
     </div>

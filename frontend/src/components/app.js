@@ -25,7 +25,7 @@ const App = () => (
       <Route exact path="/calendar" component={Calendar} />
       <Route exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
-      <ProtectedRoute exact path="/create-posting" component={CreatePosting} />
+      {/* <ProtectedRoute exact path="/create-posting" component={CreatePosting} /> */}
       <ProtectedRoute exact path="/map" component={Map} />
 
       <Redirect to="/" />
