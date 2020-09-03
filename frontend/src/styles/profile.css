@@ -1,5 +1,5 @@
 .profile-container {
-  padding: 6%;
+  padding: 6% 1%;
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,6 +16,7 @@
   min-width: 375px;
   background: white;
   box-shadow: 0px 3px 3px #888888;
+  border-radius: 8px;
 }
 
 .profile-container h1 {
@@ -30,6 +31,7 @@
   width: 200px;
   background: #F1F1F1;
   z-index: 1;
+  border-radius: 8px;
 }
 .profile-picture-edit-icon {
   width: 20px;
@@ -42,10 +44,11 @@
 .profile-main-box {
   margin: 1%;
   height: 900px;
-  width: 70%;
+  width: 85%;
   text-align: center;
   background: white;
   box-shadow: 0px 3px 3px #888888;
+  border-radius: 8px;
 
 }
 
@@ -72,6 +75,7 @@
   padding: 1%;
   background: white;
   border: 2px solid #D8D8D8;
+  border-radius: 8px;
 }
 
 .profile-rentals {
@@ -79,6 +83,7 @@
   padding: 1%;
   background: white;
   border: 2px solid #D8D8D8;
+  border-radius: 8px;
 }
 
 .profile-edit-button-container {

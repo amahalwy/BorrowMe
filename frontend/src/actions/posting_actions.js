@@ -42,10 +42,8 @@ export const createPosting = (data) => (dispatch) => {
 };
 
 
-
-
-// export const updatePosting = (data) => (dispatch) => {
-//   return APIUtil.updatePosting(data)
-//     .then((post) => dispatch(receiveNewPost(post)))
-//     .catch((err) => console.log(err));
-// };
+export const updatePosting = (postingId, data) => (dispatch) => {
+  return APIUtil.updatePosting(postingId, data)
+    .then((posting) => dispatch(receivePosting(posting)))
+    .catch((err) => console.log(err));
+};

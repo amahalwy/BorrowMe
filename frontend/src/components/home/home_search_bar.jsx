@@ -4,6 +4,7 @@ export default ({keyword, setKeyword}) => {
   return (
     <div>
       <div className="home-search-icon-container">
+        <img className="home-search-icon" src="https://www.iconsdb.com/icons/preview/white/search-15-xxl.png" alt="search-icon"/>
         <input 
           className="search-bar"
           type="text"
@@ -11,7 +12,6 @@ export default ({keyword, setKeyword}) => {
           placeholder="Search by keyword"
           onChange={e => setKeyword(e.currentTarget.value)}
         />
-          <img className="home-search-icon" src="https://image.flaticon.com/icons/svg/622/622669.svg" alt="search-icon"/>
         </div>
     </div>
   )

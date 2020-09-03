@@ -43,10 +43,15 @@ export default (props) => {
       );
     };
 
+
    return (
      <div className="create-posting-container">
        <form className="posting-form" onSubmit={handleSubmit}>
          <h1>Posting Form</h1>
+         <br />
+         <button className="posting-modal-x" onClick={props.hideModal}>
+           X
+         </button>
          <br />
          <div className="posting-first">
            <input

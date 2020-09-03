@@ -1,24 +1,22 @@
 .create-posting-container{
-  margin-top: 200px;
-  /* display: flex; */
+
   min-height: 100%;
-width: 40%;
+  width: 100%;
   box-sizing: border-box;
   position: absolute;
   background: white;
   box-shadow: 0px 3px 3px #888888;
   border-radius: 5px;
-   left: 30%;
    margin-bottom: 100px;
 }
 
 .posting-form{
-  margin: 2% auto;
+  margin: 6% auto;
 }
 
 .posting-form h1{
 font-size: 2em;
-margin: 0% 0% 0% 30%;
+margin: 0% 0% 0% 35%;
 }
 
 .posting-form input{
@@ -41,7 +39,7 @@ margin: 0% 0% 0% 30%;
 
 .posting-form input[placeholder="Price"]{
   width: 15%;
-  margin-left: 18px;
+  margin-left: 20px;
 }
 
 .posting-second{
@@ -49,8 +47,8 @@ margin: 0% 0% 0% 30%;
   width: 100%;
 }
 .posting-form input[placeholder="City"]{
-  width: 36%;
-  margin-left: 72px;
+  width: 37%;
+  margin-left: 90px;
   margin-right: 10px;
 }
 
@@ -94,17 +92,32 @@ height: 100px;
 
 .create-posting-img{
   display: flex;
-  margin-left: 25%;
+  margin-left: 30%;
   height: 2em;
 }
 
 .create-posting-img label{
   padding: 1.5% 0% 5% 0%;
-  width: 25%;
+  width: 20%;
   height: 1.2em;
 }
 
 
 .create-posting-img input{
   padding: 1% 0%;
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
+    cursor: pointer; 
+}
+
+.posting-modal-x{
+   display: block;
+padding: 12px;
+margin-left: 350px;
+position: absolute;
+top: 2px;
+right: 5px;
+cursor: pointer;
 }
