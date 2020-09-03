@@ -1,10 +1,24 @@
 .search-bar {
   height: 3em;
   display: block;
-  margin: auto;
   width: 50%;
   background: #F1F1F1;
   border-radius: 3px;
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+.home-search-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.home-search-icon {
+  width: 17px;
+  background: #6290c8;
+  margin-left: -3.25%;
+  margin-bottom: .7%;
+  padding: 10px;
+  border-radius: 100%;
 }

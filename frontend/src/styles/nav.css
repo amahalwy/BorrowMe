@@ -65,3 +65,17 @@
   cursor: pointer;
   background: #376996;
 }
+.nav-logo:hover .nav-logout-link {
+  cursor: pointer;
+  background: #376996;
+}
+
+.nav-logout-link {
+  text-decoration: none;
+  color: white;
+  padding: 5px 12px;
+}
+
+.nav-logout-link:hover {
+  color: black;
+}
