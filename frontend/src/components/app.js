@@ -12,12 +12,7 @@ import Calendar from "./calendar/calendar";
 import Profile from './user/profile';
 import CreatePosting from './postings/create_posting';
 
-<<<<<<< HEAD
-import Trial from './trial/trial';
-import Map from "./map/map"
-=======
 import Map from "./map/map.jsx"
->>>>>>> d068224dc82917cfca77ea5b512660f43078cdf3
 
 const App = () => (
   <div className="site-body">
@@ -30,20 +25,12 @@ const App = () => (
       <Route exact path="/calendar" component={Calendar} />
       <Route exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
-<<<<<<< HEAD
-      <ProtectedRoute exact path="/create-posting" component={CreatePosting} />
-      <Route path="/map" component={Map} />
-
-      <Redirect to="/" />
-    </Switch>
-=======
       {/* <ProtectedRoute exact path="/create-posting" component={CreatePosting} /> */}
       <ProtectedRoute exact path="/map" component={Map} />
 
       <Redirect to="/" />
     </Switch>
     {/* <Map /> */}
->>>>>>> d068224dc82917cfca77ea5b512660f43078cdf3
   </div>
 );
 
