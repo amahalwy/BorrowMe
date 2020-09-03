@@ -9,7 +9,7 @@ module.exports = function validatePostingInput(data) {
   data.description = validText(data.description) ? data.description : '';
   data.price = validText(data.price) ? data.price : '';
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
-  data.image = validText(data.image) ? data.image : '';
+  // data.image = validText(data.image) ? data.image : '';
   data.tags = validArray(data.tags.trim().split(","))
     ? data.tags.trim().split(",")
     : "";
@@ -26,9 +26,9 @@ module.exports = function validatePostingInput(data) {
     errors.description = "Description field should be minimum 8 characters and maximum 300 characters.";
   }
 
-  if (Validator.isEmpty(data.image)) {
-    errors.image = "Image field is required.";
-  }
+  // if (Validator.isEmpty(data.image)) {
+  //   errors.image = "Image field is required.";
+  // }
 
   if (Validator.isEmpty(data.price)) {
     errors.price = 'Price field is required.';
