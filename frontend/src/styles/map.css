@@ -3,7 +3,7 @@
 }
 
 .marker {
-  /* background-image: url('mapbox-icon.png'); */
+  background-image: url('map-arrow-icon.png');
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -11,11 +11,11 @@
   cursor: pointer;
 }
 
-/* .mapboxgl-popup {
+.mapboxgl-popup {
   max-width: 200px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-} */
+}

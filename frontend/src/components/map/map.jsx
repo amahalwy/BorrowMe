@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from "mapbox-gl";
+import ReactMapGL, { Popup } from "react-map-gl";
 const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
@@ -17,7 +18,7 @@ const Map = (props) => {
       [-122.34, 37.9], // [east, north]
     ];
 
-    const initializeMap = ({ setMap, mapContainer }) => {
+    const initializeMap = ({ setMap }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current, // container id
         style: "mapbox://styles/mapbox/streets-v11",
@@ -35,6 +36,10 @@ const Map = (props) => {
       );
       map.setMaxBounds(bounds);
       setMap(map);
+
+      let marker = new mapboxgl.Marker()
+        .setLngLat([-122.414, 37.776])
+        .addTo(map);
     };
     if (!map) initializeMap({ setMap, mapContainer });
   }, [map]);
@@ -72,8 +77,8 @@ const Map = (props) => {
   //   .setLngLat(marker.geometry.coordinates)
   //   .setPopup(popup);
 
-  // 3rd try
-  var geojson = {
+  // // 3rd try
+  let geojson = {
     type: "FeatureCollection",
     features: [
       {
@@ -101,7 +106,6 @@ const Map = (props) => {
     ],
   };
 
-
   return (
     <div>
       <div
@@ -111,6 +115,7 @@ const Map = (props) => {
     </div>
   );
 };
+
 
 export default Map;
 
