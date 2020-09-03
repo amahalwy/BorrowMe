@@ -1,0 +1,110 @@
+.create-posting-container{
+  margin-top: 200px;
+  /* display: flex; */
+  min-height: 100%;
+width: 40%;
+  box-sizing: border-box;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 3px 3px #888888;
+  border-radius: 5px;
+   left: 30%;
+   margin-bottom: 100px;
+}
+
+.posting-form{
+  margin: 2% auto;
+}
+
+.posting-form h1{
+font-size: 2em;
+margin: 0% 0% 0% 30%;
+}
+
+.posting-form input{
+  margin: 0% auto;
+  width: 75%;
+  display: block;
+  height: 3em;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.posting-first{
+  display: flex;
+}
+
+.posting-form input[placeholder="Title"]{
+  width: 57%;
+  margin-right: 0px;
+}
+
+.posting-form input[placeholder="Price"]{
+  width: 15%;
+  margin-left: 18px;
+}
+
+.posting-second{
+  display: flex;
+  width: 100%;
+}
+.posting-form input[placeholder="City"]{
+  width: 36%;
+  margin-left: 72px;
+  margin-right: 10px;
+}
+
+.posting-form input[placeholder="State"]{
+  width: 12%;
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+.posting-form input[placeholder="Zip Code"]{
+  width: 23%;
+  margin-left: 10px;
+}
+
+
+
+.posting-form > input[type=textarea]{
+height: 100px;
+}
+
+.posting-form > input[type=submit]{
+  background-color:#376996;
+  color: white; 
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  border-width: 0;
+  margin-bottom: 5%;
+}
+
+.posting-form > input[type=submit]:hover{
+  background-color:  #6290c8;
+  color: black;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.create-posting-img{
+  display: flex;
+  margin-left: 25%;
+  height: 2em;
+}
+
+.create-posting-img label{
+  padding: 1.5% 0% 5% 0%;
+  width: 25%;
+  height: 1.2em;
+}
+
+
+.create-posting-img input{
+  padding: 1% 0%;
+}

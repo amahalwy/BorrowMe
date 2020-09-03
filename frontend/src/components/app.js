@@ -10,6 +10,7 @@ import PostingIndex from "./postings/postings_index";
 import HomePage from "./home/home_page";
 import Calendar from "./calendar/calendar";
 import Profile from './user/profile';
+import CreatePosting from './postings/create_posting';
 
 import Map from "./map/map"
 
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/calendar" component={Calendar}/>
       <Route exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
+      <ProtectedRoute exact path="/create-posting" component={CreatePosting}/>
       <Route path="/map" component={Map}/>
 
       <Redirect to='/' />
