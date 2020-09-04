@@ -62,6 +62,83 @@ const SearchPage = (props) => {
     <div className="home-container">
       <div className="home-filter">
         <div className="home-tag-search-bar"></div>
+        <div>
+          <div className="side-engineers-container">
+            <div>
+              <h3 className="meet-the-engineers">Meet the team!</h3>
+
+              <div className="engineer-info">
+                <p className="engineer-name">Ahmed Mahallawy, Team Lead</p>
+                <a className="links" href="https://github.com/amahalwy">
+                  GitHub
+                </a>
+                <br />
+                <a
+                  className="links"
+                  href="https://www.linkedin.com/in/ahmed-elmahallawy-11a87191/"
+                >
+                  LinkedIn
+                </a>
+                <div className="engineer-image">
+                  <img src="" alt="" />
+                </div>
+              </div>
+
+              <div className="engineer-info">
+                <p className="engineer-name">Ayce Lacap, Backend Operations</p>
+                <a className="links" href="https://github.com/aycelacap">
+                  GitHub
+                </a>
+                <br />
+                <a
+                  className="links"
+                  href="https://www.linkedin.com/in/ayce-lacap-00/"
+                >
+                  LinkedIn
+                </a>
+                <div className="engineer-image">
+                  <img src="" alt="" />
+                </div>
+              </div>
+
+              <div className="engineer-info">
+                <p className="engineer-name">
+                  Nate Gallegher, Frontend Operations
+                </p>
+                <a className="links" href="https://github.com/n8gallagher">
+                  GitHub
+                </a>
+                <br />
+                <a
+                  className="links"
+                  href="https://www.linkedin.com/in/n8gallagher/"
+                >
+                  LinkedIn
+                </a>
+                <div className="engineer-image">
+                  <img src="" alt="" />
+                </div>
+              </div>
+
+              <div className="engineer-info">
+                <p className="engineer-name">Sean Scott, Frontend Operations</p>
+                <a className="links" href="https://github.com/seanscott23">
+                  GitHub
+                </a>
+                <br />
+                <a
+                  className="links"
+                  href="https://www.linkedin.com/in/sean-scott-708821b7/"
+                >
+                  LinkedIn
+                </a>
+                <div className="engineer-image">
+                  <img src="" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="home-index">
         <div>
@@ -70,12 +147,12 @@ const SearchPage = (props) => {
         <div>
           <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
           <div>
-            <span className='search-tags'>Photography</span>
-            <span className='search-tags'>Outdoors</span>
-            <span className='search-tags'>Sports</span>
-            <span className='search-tags'>Water</span>
-            <span className='search-tags'>Electronics</span>
-            <span className='search-tags'>Clothing</span>
+            <span className="search-tags">Photography</span>
+            <span className="search-tags">Outdoors</span>
+            <span className="search-tags">Sports</span>
+            <span className="search-tags">Water</span>
+            <span className="search-tags">Electronics</span>
+            <span className="search-tags">Clothing</span>
           </div>
         </div>
         <div>
@@ -87,3 +164,4 @@ const SearchPage = (props) => {
 }
 
 export default SearchPage
+
