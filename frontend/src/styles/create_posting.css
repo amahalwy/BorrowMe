@@ -48,7 +48,7 @@ margin: 0% 0% 0% 35%;
 }
 .posting-form input[placeholder="City"]{
   width: 37%;
-  margin-left: 90px;
+  margin-left: 104px;
   margin-right: 10px;
 }
 
@@ -123,14 +123,29 @@ cursor: pointer;
 }
 
 .fileContainer {
-  border: 1px solid red;
   width: 0px;
   height: 0px;
 }
 
 /* display none */
 .fileContainer > p,
-.uploadIcon,
-.errorsContainer {
+.uploadIcon {
   display: none;
+}
+
+.chooseFileButton {
+  padding: 3px 15px !important;
+  margin: 0px !important;
+  width: 200px !important;
+}
+
+.fileContainer {
+  margin: 0px !important;
+  margin-left: 160px !important;
+}
+
+.fileUploader {
+  margin: 0px !important;
+  height: 0px;
+  width: 0px;
 }

@@ -126,7 +126,7 @@ export default (props) => {
         />
         <br />
         <div className="create-posting-img">
-          <label for="img">Select image:</label>
+          
 
           <ImageUploader
             withIcon={true}
