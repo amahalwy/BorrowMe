@@ -13,12 +13,16 @@ export default (props) => {
           </button>
         </div>
         <div className="modal-img">
-          <div>{props.posting.image}</div>
+          <div>
+            <img src={props.posting.image} alt="" />
+          </div>
         </div>
         <div className="modal-item-info">
           <div className="modal-description">{props.posting.description}</div>
           <div className="modal-price">Price: {props.posting.price}</div>
-          <div className="modal-calendar"><Calendar/></div>
+          <div className="modal-calendar">
+            <Calendar />
+          </div>
         </div>
       </div>
     </div>

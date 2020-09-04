@@ -9,10 +9,10 @@ export const fetchPosting = postingId => {
 };
 
 export const createPosting = data => {
-  return axios.post('/api/postings', data)
+  debugger
+  return axios.post('/api/postings',data)
 }
 
 export const updatePosting = (postingId, data) => {
   return axios.patch(`/api/postings/${postingId}`, data);
 };
-

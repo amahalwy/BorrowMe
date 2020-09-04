@@ -85,8 +85,6 @@ router.post('/signup', (req, res) =>{
           newUser
             .save()
             .then(user => {
-
-              // Dictate response attributes here (jbuilder)
               
               const payload = { id: user.id, email: user.email };
 

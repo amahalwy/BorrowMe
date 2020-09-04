@@ -38,9 +38,12 @@ export default props => {
         <div>
           {/*Left Body*/}
           <div onClick={showModal} className="post-index-item-image-container">
-            {/* <img src="" alt=""/> */}
+            <div>
+              <img src={props.posting.image} alt=""/>
+            </div>
           </div>
         </div>
+        
         <div>
           {/* Right body */}
           <div>

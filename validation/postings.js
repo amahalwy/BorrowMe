@@ -10,14 +10,14 @@ module.exports = function validatePostingInput(data) {
   data.price = validText(data.price) ? data.price : '';
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
   // data.image = validText(data.image) ? data.image : '';
-  data._id = validText(data._id) ? data._id : ''
+  data.authorId = validText(data.authorId) ? data.authorId : "";
   data.tags = validArray(data.tags.trim().split(","))
     ? data.tags.trim().split(",")
     : "";
 
 
-  if (Validator.isEmpty(data._id)) {
-    errors.user = 'Something went wrong with the user'
+  if (Validator.isEmpty(data.authorId)) {
+    errors.user = "Owner id required.";
   }
   
   if (Validator.isEmpty(data.title)) {

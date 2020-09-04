@@ -31,12 +31,6 @@ export default props => {
   const updateUserPhoto = (userId, formData) => {
     debugger;
     return axios.post(`/api/users/${userId}`, formData)
-    // .then(res => console.log(res))
-    //, {
-    //   headers: {
-    //     "Content-Type": `multipart/form-data`,
-    //   },
-    // });
   };
 
   const coverProfileSubmit = () => {

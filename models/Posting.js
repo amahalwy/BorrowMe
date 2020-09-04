@@ -18,10 +18,14 @@ const PostingSchema = new Schema({
   },
   image: {
     type: String,
-    required: true
+    required: false
   },
   tags: {
     type: Array,
+    required: true
+  },
+  price: {
+    type: String,
     required: true
   }
   // available: {
