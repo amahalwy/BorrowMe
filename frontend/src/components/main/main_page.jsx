@@ -36,12 +36,7 @@ class MainPage extends React.Component {
             </div>
           </Link>
         </div>
-        <div className="git-roles">
-          <h3 className="main-git-role-ahmed">Project Lead / Backend</h3>
-          <h3 className="main-git-role-ayce">Backend</h3>
-          <h3 className="main-git-role-nate">Frontend</h3>
-          <h3 className="main-git-role-sean">Frontend</h3>
-        </div>
+        
         <div className="main-meet-the-devs-bar">
           <h4>Connect on GitHub</h4>
         </div>
@@ -59,10 +54,8 @@ class MainPage extends React.Component {
               <h3>Project Repo</h3>
             </div>
           </a>
-          <a
-            className="main-git-links ahmed-git-link"
-            href="https://github.com/amahalwy"
-          >
+          <a className="main-git-links main-git-link-ahmed" href="https://github.com/amahalwy">
+            <h3 className="main-git-role-ahmed">Project Lead / Backend</h3>
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
@@ -72,10 +65,8 @@ class MainPage extends React.Component {
               <h3>Ahmed El Mahallawy</h3>
             </div>
           </a>
-          <a
-            className="main-git-links ayce-git-link"
-            href="https://github.com/aycelacap"
-          >
+          <a className="main-git-links main-git-link-ayce" href="https://github.com/aycelacap">
+            <h3 className="main-git-role-ayce">Backend</h3>
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
@@ -85,10 +76,8 @@ class MainPage extends React.Component {
               <h3>Ayce Lacap</h3>
             </div>
           </a>
-          <a
-            className="main-git-links nate-git-link"
-            href="https://github.com/n8gallagher"
-          >
+          <a className="main-git-links main-git-link-nate" href="https://github.com/n8gallagher">
+            <h3 className="main-git-role-nate">Frontend</h3>
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
@@ -98,10 +87,8 @@ class MainPage extends React.Component {
               <h3>Nate Gallagher</h3>
             </div>
           </a>
-          <a
-            className="main-git-links sean-git-link"
-            href="https://github.com/seanscott23"
-          >
+          <a className="main-git-links main-git-link-sean" href="https://github.com/seanscott23">
+            <h3 className="main-git-role-sean">Frontend</h3>
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
