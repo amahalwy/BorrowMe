@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './home_search_bar';
-import TagSearchBar from './home_tag_search_bar';
+// import TagSearchBar from './home_tag_search_bar';
 import PostingsIndex from '../postings/postings_index';
 
 const SearchPage = (props) => {
@@ -61,7 +61,6 @@ const SearchPage = (props) => {
   return (
     <div className="home-container">
       <div className="home-filter">
-        <div className="home-tag-search-bar"></div>
         <div>
           <div className="side-engineers-container">
             <div>
@@ -144,17 +143,9 @@ const SearchPage = (props) => {
         <div>
           <SearchBar input={input} setKeyword={updateInput} />
         </div>
-        <div>
+        {/* <div>
           <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
-          <div>
-            <span className="search-tags">Photography</span>
-            <span className="search-tags">Outdoors</span>
-            <span className="search-tags">Sports</span>
-            <span className="search-tags">Water</span>
-            <span className="search-tags">Electronics</span>
-            <span className="search-tags">Clothing</span>
-          </div>
-        </div>
+        </div> */}
         <div>
           <PostingsIndex filterList={filterList} />
         </div>

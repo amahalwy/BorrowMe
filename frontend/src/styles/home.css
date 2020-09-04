@@ -24,20 +24,20 @@
   margin: 2% 0% 0% 40%;
 }
 
-.home-tag-search-bar {
+/* .home-tag-search-bar {
   margin-top: 12%;
   
   margin-left: 30%;
-}
+} */
 
 .home-index{
   box-sizing: border-box;
   margin: 10px;
   width: 80%;
   border: none;
-  padding-top: 2%;
+  padding-top: 1%;
   background-color: white;
-  height: 100%;
+  height: 98%;
   /* box-shadow: 0px 3px 3px #888888; */
 }
 

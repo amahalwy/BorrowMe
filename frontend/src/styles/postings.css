@@ -6,7 +6,7 @@
   height: 10%;
   margin: 2% 1%;
   display: inline-block;
-  background: white;
+  background: #f1f1f1;
 ;
 }
 
@@ -38,4 +38,9 @@ border:none;
 .posting-image{
   width: 100%;
   border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.Item-info-bar{
+  background-color:  #f1f1f1;
 }
