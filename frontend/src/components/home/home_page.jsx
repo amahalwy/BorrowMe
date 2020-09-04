@@ -62,42 +62,55 @@ const SearchPage = (props) => {
     <div className="home-container">
       <div className="home-filter">
         <div className="home-tag-search-bar"></div>
-        <div>
           <div className="side-engineers-container">
-            <div>
               <h3 className="meet-the-engineers">Meet the team!</h3>
 
               <div className="engineer-info">
                 <p className="engineer-name">Ahmed Mahallawy, Team Lead</p>
-                <a className="links" href="https://github.com/amahalwy">
-                  GitHub
-                </a>
-                <br />
-                <a
-                  className="links"
-                  href="https://www.linkedin.com/in/ahmed-elmahallawy-11a87191/"
-                >
-                  LinkedIn
-                </a>
-                <div className="engineer-image">
-                  <img src="" alt="" />
+                <div className="links-image-container"> 
+                  <div className="links">
+                
+                    <a className="links" href="https://github.com/amahalwy">
+                      GitHub
+                    </a>
+                    <br />
+                    <a
+                      className="links"
+                      href="https://www.linkedin.com/in/ahmed-elmahallawy-11a87191/"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                  <div className="engineer-image">
+                    <img
+                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/ahmed.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
 
               <div className="engineer-info">
                 <p className="engineer-name">Ayce Lacap, Backend Operations</p>
-                <a className="links" href="https://github.com/aycelacap">
-                  GitHub
-                </a>
-                <br />
-                <a
-                  className="links"
-                  href="https://www.linkedin.com/in/ayce-lacap-00/"
-                >
-                  LinkedIn
-                </a>
-                <div className="engineer-image">
-                  <img src="" alt="" />
+                <div className="links-image-container">
+                  <div className="links">
+                    <a className="links" href="https://github.com/aycelacap">
+                      GitHub
+                    </a>
+                    <br />
+                    <a
+                      className="links"
+                      href="https://www.linkedin.com/in/ayce-lacap-00/"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                  <div className="engineer-image">
+                    <img
+                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/ayce.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -105,40 +118,52 @@ const SearchPage = (props) => {
                 <p className="engineer-name">
                   Nate Gallegher, Frontend Operations
                 </p>
-                <a className="links" href="https://github.com/n8gallagher">
-                  GitHub
-                </a>
-                <br />
-                <a
-                  className="links"
-                  href="https://www.linkedin.com/in/n8gallagher/"
-                >
-                  LinkedIn
-                </a>
-                <div className="engineer-image">
-                  <img src="" alt="" />
+                <div className="links-image-container">
+                  <div className="links">
+                    <a className="links" href="https://github.com/n8gallagher">
+                      GitHub
+                    </a>
+                    <br />
+                    <a
+                      className="links"
+                      href="https://www.linkedin.com/in/n8gallagher/"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                  <div className="engineer-image">
+                    <img
+                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/nate.png"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
 
               <div className="engineer-info">
                 <p className="engineer-name">Sean Scott, Frontend Operations</p>
-                <a className="links" href="https://github.com/seanscott23">
-                  GitHub
-                </a>
-                <br />
-                <a
-                  className="links"
-                  href="https://www.linkedin.com/in/sean-scott-708821b7/"
-                >
-                  LinkedIn
-                </a>
-                <div className="engineer-image">
-                  <img src="" alt="" />
+                <div className="links-image-container">
+                  <div className="links">
+                    <a className="links" href="https://github.com/seanscott23">
+                      GitHub
+                    </a>
+                    <br />
+                    <a
+                      className="links"
+                      href="https://www.linkedin.com/in/sean-scott-708821b7/"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                  <div className="engineer-image">
+                    <img
+                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/sean.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
       </div>
       <div className="home-index">
         <div>
