@@ -80,3 +80,38 @@
 .home-index .home-no-show{
   display: none;
 }
+
+/* Side engineers container */
+
+.meet-the-engineers {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+}
+
+.meet-the-engineers h3.thicker {
+  font-weight: bold;
+}
+
+.engineer-info {
+  float: center;
+}
+
+.engineer-name {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.links {
+  text-decoration: none;
+  color: grey;
+  padding: 3px;
+  margin-bottom: 10px;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
