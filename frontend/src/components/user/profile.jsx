@@ -73,7 +73,7 @@ export default props => {
         <div className="profile-picture-box">
           <img
             className="profile-photo-img"
-            // src={currentUser.profilePhoto}
+            src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/profile-default.png"
             alt="Profile Image"
           />
           <ImageUploader

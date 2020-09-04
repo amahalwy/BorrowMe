@@ -48,7 +48,7 @@ class MainPage extends React.Component {
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
-                src="https://www.iconsdb.com/icons/preview/white/github-9-xxl.png"
+                src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/github-9-xxl.png"
                 alt="github-logo"
               />
               <h3>Project Repo</h3>
@@ -59,7 +59,7 @@ class MainPage extends React.Component {
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
-                src="https://www.iconsdb.com/icons/preview/white/github-9-xxl.png"
+                src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/github-9-xxl.png"
                 alt="github-logo"
               />
               <h3>Ahmed El Mahallawy</h3>
@@ -70,7 +70,7 @@ class MainPage extends React.Component {
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
-                src="https://www.iconsdb.com/icons/preview/white/github-9-xxl.png"
+                src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/github-9-xxl.png"
                 alt="github-logo"
               />
               <h3>Ayce Lacap</h3>
@@ -81,7 +81,7 @@ class MainPage extends React.Component {
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
-                src="https://www.iconsdb.com/icons/preview/white/github-9-xxl.png"
+                src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/github-9-xxl.png"
                 alt="github-logo"
               />
               <h3>Nate Gallagher</h3>
@@ -92,7 +92,7 @@ class MainPage extends React.Component {
             <div className="main-git-links-container">
               <img
                 className="main-git-logo"
-                src="https://www.iconsdb.com/icons/preview/white/github-9-xxl.png"
+                src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/github-9-xxl.png"
                 alt="github-logo"
               />
               <h3>Sean Scott</h3>
