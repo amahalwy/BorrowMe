@@ -29,6 +29,13 @@ export const fetchPostings = () => (dispatch) => {
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
+export const fetchUserPostings = ownerId => (dispatch) => {
+  APIUtil.fetchUserPostings(ownerId)
+    .then((postings) => dispatch(receivePostings(postings)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+};
+
+
 export const fetchPosting = postingId => dispatch => {
   APIUtil.fetchPosting(postingId)
     .then(posting => dispatch(receivePosting(posting)))
@@ -45,5 +52,5 @@ export const createPosting = (data) => (dispatch) => {
 export const updatePosting = (postingId, data) => (dispatch) => {
   return APIUtil.updatePosting(postingId, data)
     .then((posting) => dispatch(receivePosting(posting)))
-    .catch((err) => console.log(err));
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
 };

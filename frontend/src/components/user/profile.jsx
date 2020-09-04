@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-// import { updateUserPhoto } from "../../actions/user_actions";
 import FormData from "form-data";
 import ImageUploader from "react-images-upload";
 import axios from 'axios';
+import PostingsIndex from "../postings/profile_postings_index";
+
 
 export default props => {
-  const [profilePhoto, setProfilePhoto] = useState(null);
   const currentUser = useSelector(state => state.session.user)
-  const dispatch = useDispatch();
-
-  const photoUpload = React.createRef();
+  const [profilePhoto, setProfilePhoto] = useState(null);
+  const [filterList, setFilterList] = useState();
 
   // const handleProfileFile = e => {
   //   const reader = new FileReader();
@@ -36,14 +35,25 @@ export default props => {
    
   //   updateUserPhoto(currentUser.id, formData);
   // }
+  
+  const fetchData = ownerId => {
+    return fetch("/api/postings", {data: ownerId})
+      .then(response => response.json())
+      .then(data => {
+        setFilterList(data);
+      });
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, [])
 
-
+  
   const onDrop = picture => {
     setProfilePhoto(picture[0]);
 
     const formData = new FormData();
-    formData.append("firstName", currentUser.firstName)
+    formData.append("firstName", currentUser.firstName);
     formData.append("lastName", currentUser.lastName);
     formData.append("email", currentUser.email);
     formData.append("address", currentUser.address);
@@ -52,18 +62,9 @@ export default props => {
     formData.append("zipCode", currentUser.zipCode);
     formData.append("profilePhoto", profilePhoto);
 
-    debugger
     return axios.patch(`/api/users/${currentUser.id}`, formData);
   }
 
-  // useEffect(() => {
-  //   console.log("Use:",profilePhoto);
-  //   if (profilePhoto) {
-  //     console.log("UPDATED!!:", profilePhoto)
-  
-  //     coverProfileSubmit()
-  //   }
-  // }, [profilePhoto]);
 
   return (
     <div className="profile-container">
@@ -82,31 +83,6 @@ export default props => {
             imgExtension={[".jpg", ".gif", ".png", ".gif"]}
             maxFileSize={5242880}
           />
-
-          {/* <button onClick={uploadPhoto} className="camera-circle">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="camera"
-              className="camera-icon"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill="currentColor"
-                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"
-              ></path>
-            </svg>
-            <input
-              type="file"
-              className="button-file"
-              ref={photoUpload}
-              onChange={onDrop}
-            />
-          </button> */}
-
         </div>
         <div className="profile-user-info">
           <h2>{currentUser.firstName}</h2>
@@ -122,7 +98,7 @@ export default props => {
       <div className="profile-main-box">
         <div className="profile-postings">
           <h1>Postings</h1>
-          <p>All your postings here</p>
+          <PostingsIndex filterList={filterList} />
         </div>
         <div className="profile-rentals">
           <h1>Rentals</h1>

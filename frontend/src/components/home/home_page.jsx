@@ -37,7 +37,6 @@ const SearchPage = (props) => {
     setFilterList(filtered);
   };
 
-
   // Standalone fetch for data (think of an axios request but not api_util)
   // Using this to set the data immediately; can change this to be api_util later
   const fetchData = () => {
@@ -49,14 +48,11 @@ const SearchPage = (props) => {
       });
   };
 
+
   // useEffect hook that mounts and invokes the above function
   useEffect(() => {
     fetchData();
   }, []);
-
-
-
-
 
   return (
     <div className="home-container">
