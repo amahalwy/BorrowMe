@@ -4,6 +4,7 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const Posting = require("../../models/Posting");
+const User = require("../../models/User");
 const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const AWS = require("aws-sdk");
@@ -62,9 +63,8 @@ router.post("/", upload.single("file"),
     }
 
     uploadImage(req.file).then(data => {
-      console.log(data)
         const uploadedImageURL = data.Location;
-
+    
         const newPosting = new Posting({
           title: req.body.title,
           image: uploadedImageURL,
@@ -72,11 +72,15 @@ router.post("/", upload.single("file"),
           price: req.body.price,
           zipCode: req.body.zipCode,
           tags: req.body.tags,
+          authorId: req.user.id
         });
 
-        newPosting.save().then(posting => res.json(posting))
-      }).catch(err => res.status(400).json(err))
-
+        console.log(newPosting)
+        newPosting.save()
+        .then(posting => res.json(posting))
+          // User.findOne({id: req.user.id}).postings.push(posting);
+        .catch(err => res.json(err))
+    }).catch(err => res.status(400).json(err))
   }
 )
 
@@ -94,9 +98,9 @@ router.patch(
     }
 
     uploadImage(req.file).then(data => {
-      console.log(data)
       const uploadedImageURL = data.Location;
       
+      console.log(req.body.price)
       Posting.findOne(req.body._id)
       // if currentUser === postingOwner
       // info to be used in the frontend
