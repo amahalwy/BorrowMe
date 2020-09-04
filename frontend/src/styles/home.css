@@ -36,8 +36,8 @@
   border: none;
   padding-top: 1%;
   background-color: white;
-  height: 98%;
-  /* box-shadow: 0px 3px 3px #888888; */
+  height: 88px;
+  box-shadow: 0px 3px 3px #888888;
 }
 
 .nav-button{
