@@ -94,13 +94,11 @@ export default props => {
       <div className="profile-info-box">
         <h1>Profile</h1>
         <div className="profile-picture-box">
-          <div className='profile-picture-div'>
-            <img
-              className="profile-photo-img"
-              src={currentUser.profilePhoto}
-              alt="Profile Image"
-            />
-          </div>
+          <img
+            className="profile-photo-img"
+            src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/profile-default.png"
+            alt="Profile Image"
+          />
           <ImageUploader
             withIcon={true}
             buttonText="Choose Image"

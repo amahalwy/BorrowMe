@@ -5,18 +5,16 @@ export default props => {
   if (!props.filterList) return "";
 
   return (
-    <div>
-      <ul>
+    <div className="profile-postings-image-list">
         {
           props.filterList.map(posting => {
             return (
-              <div>
-                <img src={posting.image} alt=""/>
+              <div className="postings-index-image-box">
+                <img className="postings-index-image" src={posting.image} alt=""/>
               </div>
             )
           })
         }
-      </ul>
     </div>
   )
 }
