@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions/session_actions";
 import { useDispatch, useSelector } from 'react-redux';
-import bmlogo from './bmlogo.png';
 import Modal from "../modal/modal";
 import CreatePosting  from "../postings/create_posting";
 
@@ -35,7 +34,7 @@ export default (props) => {
         <div className="nav-box-loggedin">
           <div className="nav-dropdown-trigger">
             <h1>Welcome {currentUser.firstName}</h1>     
-            <img className="nav-dropdown-trigger-icon" src="https://www.iconsdb.com/icons/preview/white/arrow-206-xxl.png" alt="dropdown-trigger"/>
+            <img className="nav-dropdown-trigger-icon" src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"/>
             <div className="nav-dropdown-items">
               <ul>
                 <li><Link className="nav-dropdown-link" to={"/"}>Welcome</Link></li>
@@ -70,7 +69,7 @@ export default (props) => {
 
   return (
     <div className="nav-logo-box">
-      <Link to="/"><img className="nav-logo" src={bmlogo} alt="bm-logo" />
+      <Link to="/"><img className="nav-logo" src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/bm-logo.png" alt="bm-logo" />
       </Link> 
       <h2>BorrowMe</h2>
       {getLinks()}
