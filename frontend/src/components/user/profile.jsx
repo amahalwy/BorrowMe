@@ -7,7 +7,7 @@ import PostingsIndex from "../postings/profile_postings_index";
 
 
 export default props => {
-  const currentUser = useSelector(state => state.session.user)
+  const currentUser = useSelector(state => state.session.user);
   const [profilePhoto, setProfilePhoto] = useState(null);
   const [filterList, setFilterList] = useState();
 
@@ -44,27 +44,50 @@ export default props => {
       });
   };
 
+  // const fetchUser = _id => {
+  //   return fetch("/api/postings", { data: currentUser._id })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //     });
+  // }
+
   useEffect(() => {
-    fetchData();
-  }, [])
+    fetchData(currentUser._id);
+    console.log("FETCH!!")
+  }, [profilePhoto])
 
-  
-  const onDrop = picture => {
-    setProfilePhoto(picture[0]);
-
+  const submit = () => {
     const formData = new FormData();
-    formData.append("firstName", currentUser.firstName);
-    formData.append("lastName", currentUser.lastName);
     formData.append("email", currentUser.email);
-    formData.append("address", currentUser.address);
-    formData.append("city", currentUser.city);
-    formData.append("state", currentUser.state);
-    formData.append("zipCode", currentUser.zipCode);
-    formData.append("profilePhoto", profilePhoto);
+    formData.append("file", profilePhoto);
 
-    return axios.patch(`/api/users/${currentUser.id}`, formData);
+    return axios.put(`/api/users/${currentUser.id}`, formData);
+  }; 
+
+  const onDrop = (picture) => {
+    // console.log("picture: ", picture)
+    // console.log("picture222: ", picture[0]);
+
+    setProfilePhoto(picture[0]);
+    // console.log("photooo:", profilePhoto);
+
+    // const formData = new FormData();
+    // formData.append("firstName", currentUser.firstName);
+    // formData.append("lastName", currentUser.lastName);
+    // formData.append("email", currentUser.email);
+    // formData.append("address", currentUser.address);
+    // formData.append("city", currentUser.city);
+    // formData.append("state", currentUser.state);
+    // formData.append("zipCode", currentUser.zipCode);
+    // formData.append("file", profilePhoto);
+
+    // return axios.put(`/api/users/${currentUser.id}`, formData);
+    setTimeout(() => {
+      console.log("Beg of timeout")
+      console.log("Just invoked!")
+      submit()
+    }, 10000);
   }
-
 
   return (
     <div className="profile-container">
@@ -73,7 +96,7 @@ export default props => {
         <div className="profile-picture-box">
           <img
             className="profile-photo-img"
-            // src={currentUser.profilePhoto}
+            src={currentUser.profilePhoto}
             alt="Profile Image"
           />
           <ImageUploader

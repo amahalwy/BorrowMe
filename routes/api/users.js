@@ -125,7 +125,16 @@ router.post('/login', (req, res) => {
 
             // Dictate response attributes here (jbuilder)
 
-            const payload = { id: user.id, email: user.email, firstName: user.firstName };
+            const payload = {
+              id: user.id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email,
+              address: user.address,
+              city: user.city,
+              state: user.state,
+              profilePhoto: user.profilePhoto
+            };
 
             jwt.sign( payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
@@ -168,8 +177,7 @@ router.post(
   }
 );
 
-
-
+// Patching for profile picture only
 router.put(
   "/:id",
   upload.single("file"),
@@ -177,17 +185,19 @@ router.put(
   (req, res) => {
 
     uploadImage(req.file)
-      .then((data) => {
+      .then(data => {
         const uploadedImageURL = data.Location;
-        User.findOne({ email: req.body.email }).then((user) => {
-          console.log(user);
-          user.profilePhoto = uploadedImageURL;
-          user
-            .save()
-            .then((savedUser) => res.json(savedUser))
-            .catch((err) => res.json(err));
-        });
-      }).catch((err) => res.status(400).json(err));
+        User.findOne({ email: req.body.email })
+          .then((user) => {
+            user.profilePhoto = uploadedImageURL;
+            user
+              .save()
+              .then((savedUser) => res.json(savedUser))
+              .catch((err) => res.json(err));
+          })
+          .catch((err) => res.status(400).json(err));
+      })
+      .catch((err) => res.status(400).json(err));
   }
 );
 
