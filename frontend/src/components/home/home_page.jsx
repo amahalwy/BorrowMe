@@ -37,7 +37,6 @@ const SearchPage = (props) => {
     setFilterList(filtered);
   };
 
-
   // Standalone fetch for data (think of an axios request but not api_util)
   // Using this to set the data immediately; can change this to be api_util later
   const fetchData = () => {
@@ -49,14 +48,11 @@ const SearchPage = (props) => {
       });
   };
 
+
   // useEffect hook that mounts and invokes the above function
   useEffect(() => {
     fetchData();
   }, []);
-
-
-
-
 
   return (
     <div className="home-container">
@@ -146,14 +142,6 @@ const SearchPage = (props) => {
         </div>
         <div>
           <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
-          <div>
-            {/* <span className="search-tags">Photography</span>
-            <span className="search-tags">Outdoors</span>
-            <span className="search-tags">Sports</span>
-            <span className="search-tags">Water</span>
-            <span className="search-tags">Electronics</span>
-            <span className="search-tags">Clothing</span> */}
-          </div>
         </div>
         <div>
           <PostingsIndex filterList={filterList} />

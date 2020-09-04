@@ -4,13 +4,17 @@ export const fetchPostings = () => {
   return axios.get('/api/postings')
 };
 
+export const fetchUserPostings = ownerId => {
+  return axios.get("/api/postings", ownerId);
+};
+
+
 export const fetchPosting = postingId => {
   return axios.get(`/api/postings/${postingId}`)
 };
 
 export const createPosting = data => {
-  debugger
-  return axios.post('/api/postings',data)
+  return axios.post('/api/postings', data)
 }
 
 export const updatePosting = (postingId, data) => {
