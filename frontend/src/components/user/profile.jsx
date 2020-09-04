@@ -29,7 +29,7 @@ export default props => {
   }
 
   const updateUserPhoto = (userId, formData) => {
-    debugger;
+  
     return axios.post(`/api/users/${userId}`, formData)
   };
 
@@ -37,7 +37,7 @@ export default props => {
     const formData = new FormData();
     formData["profilePhoto"]= profilePhoto;
     formData["_method"] =  "PATCH";
-    debugger
+   
     updateUserPhoto(currentUser.id, formData);
   }
 
@@ -49,7 +49,7 @@ export default props => {
     console.log("Use:",profilePhoto);
     if (profilePhoto) {
       console.log("UPDATED!!:", profilePhoto)
-      debugger
+  
       coverProfileSubmit()
     }
   }, [profilePhoto]);

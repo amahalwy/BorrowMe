@@ -21,6 +21,21 @@ export default (props) => {
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      title,
+      price,
+      tags,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+    };
+
+    dispatch(createPosting(data));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
