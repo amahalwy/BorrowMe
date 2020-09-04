@@ -10,11 +10,9 @@ export default props => {
         {
           props.filterList.map(posting => {
             return (
-            <div>
               <div>
                 <img src={posting.image} alt=""/>
               </div>
-            </div>
             )
           })
         }

@@ -8,9 +8,8 @@ import PostingsIndex from "../postings/profile_postings_index";
 
 export default props => {
   const currentUser = useSelector(state => state.session.user);
-  const [profilePhoto, setProfilePhoto] = useState(null);
+  const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
   const [filterList, setFilterList] = useState();
-
   // const handleProfileFile = e => {
   //   const reader = new FileReader();
   //   const file = e.currentTarget.files[0];
@@ -52,8 +51,11 @@ export default props => {
   // }
 
   useEffect(() => {
+    console.log(profilePhoto);
     fetchData(currentUser._id);
-    console.log("FETCH!!")
+    console.log("FETCH!!");
+    console.log(profilePhoto);
+
   }, [profilePhoto])
 
   const submit = () => {
@@ -83,10 +85,8 @@ export default props => {
 
     // return axios.put(`/api/users/${currentUser.id}`, formData);
     setTimeout(() => {
-      console.log("Beg of timeout")
-      console.log("Just invoked!")
       submit()
-    }, 10000);
+    }, 3000);
   }
 
   return (
