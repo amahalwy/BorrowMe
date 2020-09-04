@@ -127,11 +127,10 @@ export default (props) => {
         />
         <br />
         <div className="create-posting-img">
-          
-
+        
           <ImageUploader
             withIcon={true}
-            buttonText="Choose images"
+            buttonText="Choose Image"
             onChange={onDrop}
             imgExtension={[".jpg", ".gif", ".png", ".gif"]}
             maxFileSize={5242880}

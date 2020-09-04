@@ -62,7 +62,7 @@ const SearchPage = (props) => {
               <h3 className="meet-the-engineers">Meet the team!</h3>
 
               <div className="engineer-info">
-                <p className="engineer-name">Ahmed Mahallawy, Team Lead</p>
+                <p className="engineer-name">Ahmed El Mahallawy, Team Lead</p>
                 <div className="links-image-container"> 
                   <div className="links">
                 
