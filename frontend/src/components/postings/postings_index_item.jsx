@@ -29,9 +29,9 @@ export default props => {
     <div className="post-index-item">
       <div>
         {/* Header */}
-        <div>
+        {/* <div>
           <span></span>
-        </div>
+        </div> */}
       </div>
       <div>
         {/* Body */}
@@ -46,7 +46,7 @@ export default props => {
         
         <div>
           {/* Right body */}
-          <div>
+          <div className="Item-info-bar">
             {/*Text*/}
             <div className="post-title">
               <span>{props.posting.title}</span>
