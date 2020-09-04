@@ -7,6 +7,16 @@
   
 }
 
+.profile-picture-div {
+  height: 100%;
+  width: 100%;
+}
+
+.profile-photo-img {
+  height: 100%;
+  width: 100%;
+}
+
 
 .profile-info-box {
   height: 900px;

@@ -94,14 +94,16 @@ export default props => {
       <div className="profile-info-box">
         <h1>Profile</h1>
         <div className="profile-picture-box">
-          <img
-            className="profile-photo-img"
-            src={currentUser.profilePhoto}
-            alt="Profile Image"
-          />
+          <div className='profile-picture-div'>
+            <img
+              className="profile-photo-img"
+              src={currentUser.profilePhoto}
+              alt="Profile Image"
+            />
+          </div>
           <ImageUploader
             withIcon={true}
-            buttonText="Choose images"
+            buttonText="Choose Image"
             onChange={onDrop}
             imgExtension={[".jpg", ".gif", ".png", ".gif"]}
             maxFileSize={5242880}

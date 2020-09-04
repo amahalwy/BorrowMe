@@ -12,7 +12,6 @@ export default props => {
           props.filterList.map(posting => {
           return (
             <PostIndexItem 
-              
               key={posting._id}
               posting={posting}
             />
