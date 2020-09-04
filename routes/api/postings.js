@@ -72,7 +72,7 @@ router.post("/", upload.single("file"),
           price: req.body.price,
           zipCode: req.body.zipCode,
           tags: req.body.tags,
-          authorId: req.user.id
+          ownerId: req.user.id
         });
 
         console.log(newPosting)
@@ -105,7 +105,7 @@ router.patch(
       // if currentUser === postingOwner
       // info to be used in the frontend
       .then(posting => {
-        posting.authorId = req.body.authorId;
+        posting.ownerId = req.body.ownerId;
         posting.title = req.body.title;
         posting.description = req.body.description;
         posting.price = req.body.price;

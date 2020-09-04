@@ -33,7 +33,7 @@ export default (props) => {
     formData.append("city", city);
     formData.append("state", state);
     formData.append("zipCode", zipCode);
-    formData.append("authorId", currentUser.id);
+    formData.append("ownerId", currentUser.id);
     formData.append("file", imageFile)
 
     return axios.post("/api/postings", formData)

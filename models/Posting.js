@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const User = require("./User")
 
 const PostingSchema = new Schema({
-  authorId: { type: Schema.Types.ObjectId, ref: "User"},
+  ownerId: { type: Schema.Types.ObjectId, ref: "User"},
   title: {
     type: String, 
     required: true

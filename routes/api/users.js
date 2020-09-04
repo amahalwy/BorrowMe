@@ -170,28 +170,28 @@ router.post(
 
 
 
-// router.post('/:id', (req, res) => {
-//   console.log(req);
-//   User.findOne({ email: req.body.email })
-//   .then((user) => {
-//     if (!user) {
-//       return res.status(400).json({ email: "User does not exist." });
-//     } else {
-//       const newUser = new User({
-//         firstName: req.body.firstName,
-//         lastName: req.body.lastName,
-//         email: req.body.email,
-//         password: req.body.password,
-//         password2: req.body.password2,
-//         address: req.body.address,
-//         city: req.body.city,
-//         state: req.body.state,
-//         zipCode: req.body.zipCode,
-//         profilePhoto: "",
-//       });
-//     }
-//   });
-// })
+router.post('/:id', (req, res) => {
+  console.log(req);
+  User.findOne({ email: req.body.email })
+  .then((user) => {
+    if (!user) {
+      return res.status(400).json({ email: "User does not exist." });
+    } else {
+      const newUser = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        password2: req.body.password2,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
+        profilePhoto: "",
+      });
+    }
+  });
+})
 
 // router.delete('/users/:userId')
 

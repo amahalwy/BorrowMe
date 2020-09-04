@@ -6,53 +6,64 @@ import ImageUploader from "react-images-upload";
 import axios from 'axios';
 
 export default props => {
-
-  // Class component for now, will need to be refactored maybe
-
   const [profilePhoto, setProfilePhoto] = useState(null);
   const currentUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
-  // Reference for the div
-  const photoProfileUpload = React.createRef();
+  const photoUpload = React.createRef();
 
-  const handleProfileFile = e => {
-    const reader = new FileReader();
-    const file = e.currentTarget.files[0];
-    reader.onloadend = () =>
-      setProfilePhoto(file);
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        setProfilePhoto(null);
-      }
-  }
+  // const handleProfileFile = e => {
+  //   const reader = new FileReader();
+  //   const file = e.currentTarget.files[0];
+  //   reader.onloadend = () =>
+  //     setProfilePhoto(file);
+  //     if (file) {
+  //       reader.readAsDataURL(file);
+  //     } else {
+  //       setProfilePhoto(null);
+  //     }
+  // }
 
-  const updateUserPhoto = (userId, formData) => {
+  // const updateUserPhoto = (userId, formData) => {
   
-    return axios.post(`/api/users/${userId}`, formData)
-  };
+  //   return axios.post(`/api/users/${userId}`, formData)
+  // };
 
-  const coverProfileSubmit = () => {
-    const formData = new FormData();
-    formData["profilePhoto"]= profilePhoto;
-    formData["_method"] =  "PATCH";
+  // const coverProfileSubmit = () => {
+  //   const formData = new FormData();
+  //   formData["profilePhoto"]= profilePhoto;
+  //   formData["_method"] =  "PATCH";
    
-    updateUserPhoto(currentUser.id, formData);
+  //   updateUserPhoto(currentUser.id, formData);
+  // }
+
+
+
+  const onDrop = picture => {
+    setProfilePhoto(picture[0]);
+
+    const formData = new FormData();
+    formData.append("firstName", currentUser.firstName)
+    formData.append("lastName", currentUser.lastName);
+    formData.append("email", currentUser.email);
+    formData.append("address", currentUser.address);
+    formData.append("city", currentUser.city);
+    formData.append("state", currentUser.state);
+    formData.append("zipCode", currentUser.zipCode);
+    formData.append("profilePhoto", profilePhoto);
+
+    debugger
+    return axios.patch(`/api/users/${currentUser.id}`, formData);
   }
 
-  const profilePhotoUpload = () => {
-    photoProfileUpload.current.click();
-  }
-
-  useEffect(() => {
-    console.log("Use:",profilePhoto);
-    if (profilePhoto) {
-      console.log("UPDATED!!:", profilePhoto)
+  // useEffect(() => {
+  //   console.log("Use:",profilePhoto);
+  //   if (profilePhoto) {
+  //     console.log("UPDATED!!:", profilePhoto)
   
-      coverProfileSubmit()
-    }
-  }, [profilePhoto]);
+  //     coverProfileSubmit()
+  //   }
+  // }, [profilePhoto]);
 
   return (
     <div className="profile-container">
@@ -64,15 +75,15 @@ export default props => {
             // src={currentUser.profilePhoto}
             alt="Profile Image"
           />
-          {/* <ImageUploader
+          <ImageUploader
             withIcon={true}
             buttonText="Choose images"
             onChange={onDrop}
             imgExtension={[".jpg", ".gif", ".png", ".gif"]}
             maxFileSize={5242880}
-          /> */}
+          />
 
-          <button onClick={profilePhotoUpload} className="camera-circle">
+          {/* <button onClick={uploadPhoto} className="camera-circle">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -91,10 +102,10 @@ export default props => {
             <input
               type="file"
               className="button-file"
-              ref={photoProfileUpload}
-              onChange={handleProfileFile}
+              ref={photoUpload}
+              onChange={onDrop}
             />
-          </button>
+          </button> */}
 
         </div>
         <div className="profile-user-info">
@@ -119,4 +130,5 @@ export default props => {
         </div>
       </div>
     </div>
-  );}
+  );
+}
