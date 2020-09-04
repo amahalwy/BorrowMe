@@ -13,6 +13,7 @@ export default props => {
 
   return (
     <DateRange
+    className="full-calendar"
       editableDateInputs={true}
       onChange={(item) => setState([item.selection])}
       moveRangeOnFirstSelection={false}

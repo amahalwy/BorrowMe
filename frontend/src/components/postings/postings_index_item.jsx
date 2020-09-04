@@ -38,7 +38,9 @@ export default props => {
         <div>
           {/*Left Body*/}
           <div onClick={showModal} className="post-index-item-image-container">
-            {/* <img src="" alt=""/> */}
+            <div className="image-container">
+              <img className="posting-image" src={props.posting.image} alt="" />
+            </div>
           </div>
         </div>
         <div>
@@ -52,7 +54,7 @@ export default props => {
               <span>Zipcode</span>
             </div>
             <div className="post-price">
-              <span>Price:</span>
+              <span>Price: {props.posting.price}</span>
             </div>
           </div>
           <div className="home-no-show">

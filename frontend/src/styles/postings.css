@@ -25,3 +25,17 @@
   border-radius: 8px;
 }
 
+.home-items-index{
+background-color: #f1f1f1;
+border:none;
+}
+
+.image-container{
+  display: flex;
+
+}
+
+.posting-image{
+  width: 100%;
+  border-radius: 4px;
+}
