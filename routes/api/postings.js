@@ -15,6 +15,22 @@ const fs = require("fs");
 // Middleware for postman form-data
 const upload = multer();
 
+const s3 = new AWS.S3({
+  accessKeyId: keys.accessKeyId,
+  secretAccessKey: keys.secretAccessKey,
+});
+
+const uploadImage = (file) => {
+  const params = {
+    Bucket: keys.S3Bucket,
+    Key: uuidv4(),
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    ACL: "public-read",
+  };
+  const uploadPhoto = s3.upload(params).promise();
+  return uploadPhoto;
+};
 
 router.get("/", (req, res) => {
   Posting.find()
@@ -32,24 +48,6 @@ router.get("/:id", (req, res) => {
     .then(posting => {res.json(posting)} 
     , (err) => res.status(400).json(err));
 })
-
-
-const s3 = new AWS.S3({
-  accessKeyId: keys.accessKeyId,
-  secretAccessKey: keys.secretAccessKey,
-});
-
-const uploadImage = (file) => {
-  const params = {
-    Bucket: keys.S3Bucket,
-    Key: uuidv4(),
-    Body: file.buffer,
-    ContentType: file.mimetype,
-    ACL: "public-read",
-  };
-  const uploadPhoto = s3.upload(params).promise();
-  return uploadPhoto;
-};
 
 
 // protects the route
@@ -76,10 +74,11 @@ router.post("/", upload.single("file"),
         });
 
         console.log(newPosting)
-        newPosting.save()
-        .then(posting => res.json(posting))
-          // User.findOne({id: req.user.id}).postings.push(posting);
-        .catch(err => res.json(err))
+        // User.findOne({id: req.user.id}).postings.push(posting);
+        newPosting
+          .save()
+          .then(posting => res.json(posting))
+          .catch(err => res.json(err))
     }).catch(err => res.status(400).json(err))
   }
 )
@@ -97,26 +96,28 @@ router.patch(
       return res.status(400).json(errors);
     }
 
-    uploadImage(req.file).then(data => {
-      const uploadedImageURL = data.Location;
-      
-      console.log(req.body.price)
-      Posting.findOne(req.body._id)
-      // if currentUser === postingOwner
-      // info to be used in the frontend
-      .then(posting => {
-        posting.ownerId = req.body.ownerId;
-        posting.title = req.body.title;
-        posting.description = req.body.description;
-        posting.price = req.body.price;
-        posting.zipCode = req.body.zipCode;
-        posting.image = uploadedImageURL;
-        posting.tags = req.body.tags;
-        posting.save()
-        .then((savedPosting) => res.json(savedPosting))
-        .catch((err) => res.json(err));
-      });
-    })
+    uploadImage(req.file)
+      .then((data) => {
+        const uploadedImageURL = data.Location;
+
+        console.log(req.body.price);
+        Posting.findOne(req.body._id)
+          // if currentUser === postingOwner
+          // info to be used in the frontend
+          .then((posting) => {
+            posting.ownerId = req.body.ownerId;
+            posting.title = req.body.title;
+            posting.description = req.body.description;
+            posting.price = req.body.price;
+            posting.zipCode = req.body.zipCode;
+            posting.image = uploadedImageURL;
+            posting.tags = req.body.tags;
+            posting
+              .save()
+              .then((savedPosting) => res.json(savedPosting))
+              .catch((err) => res.json(err));
+          });
+      }).catch((err) => res.status(400).json(err));
   }
 );
 

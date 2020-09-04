@@ -170,28 +170,26 @@ router.post(
 
 
 
-router.post('/:id', (req, res) => {
-  console.log(req);
-  User.findOne({ email: req.body.email })
-  .then((user) => {
-    if (!user) {
-      return res.status(400).json({ email: "User does not exist." });
-    } else {
-      const newUser = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password,
-        password2: req.body.password2,
-        address: req.body.address,
-        city: req.body.city,
-        state: req.body.state,
-        zipCode: req.body.zipCode,
-        profilePhoto: "",
-      });
-    }
-  });
-})
+router.put(
+  "/:id",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+
+    uploadImage(req.file)
+      .then((data) => {
+        const uploadedImageURL = data.Location;
+        User.findOne({ email: req.body.email }).then((user) => {
+          console.log(user);
+          user.profilePhoto = uploadedImageURL;
+          user
+            .save()
+            .then((savedUser) => res.json(savedUser))
+            .catch((err) => res.json(err));
+        });
+      }).catch((err) => res.status(400).json(err));
+  }
+);
 
 // router.delete('/users/:userId')
 

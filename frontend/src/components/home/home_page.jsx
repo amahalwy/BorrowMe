@@ -147,12 +147,12 @@ const SearchPage = (props) => {
         <div>
           <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
           <div>
-            <span className="search-tags">Photography</span>
+            {/* <span className="search-tags">Photography</span>
             <span className="search-tags">Outdoors</span>
             <span className="search-tags">Sports</span>
             <span className="search-tags">Water</span>
             <span className="search-tags">Electronics</span>
-            <span className="search-tags">Clothing</span>
+            <span className="search-tags">Clothing</span> */}
           </div>
         </div>
         <div>
