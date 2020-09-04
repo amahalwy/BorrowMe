@@ -121,3 +121,16 @@ top: 2px;
 right: 5px;
 cursor: pointer;
 }
+
+.fileContainer {
+  border: 1px solid red;
+  width: 0px;
+  height: 0px;
+}
+
+/* display none */
+.fileContainer > p,
+.uploadIcon,
+.errorsContainer {
+  display: none;
+}

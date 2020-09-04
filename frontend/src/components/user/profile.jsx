@@ -61,7 +61,7 @@ export default props => {
         <div className="profile-picture-box">
           <img
             className="profile-photo-img"
-            src={currentUser.profilePhoto}
+            // src={currentUser.profilePhoto}
             alt="Profile Image"
           />
           {/* <ImageUploader

@@ -16,17 +16,16 @@ export default (props) => {
     dispatch(logout());
   }
 
+  const [openModal, setModal] = useState(false);
 
-      const [openModal, setModal] = useState(false);
+  const showModal = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
 
-     const showModal = (e) => {
-       e.preventDefault();
-       setModal(true);
-     };
-
-      const hideModal = () => {
-        setModal(false);
-      };
+  const hideModal = () => {
+    setModal(false);
+  };
 
   // Selectively render links dependent on whether the user is logged in
   const getLinks = () => {
