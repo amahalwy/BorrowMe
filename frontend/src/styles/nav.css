@@ -76,9 +76,18 @@
 
 .nav-dropdown-trigger {
   margin-right: 3%;
-  margin-top: 10px;
+  margin-top: 5px;
   position: relative;
   float: right;
+}
+
+.nav-dropdown-trigger h1 {
+  color: white;
+  margin-top: 20px;
+  margin-right: 8%;
+  right: 3%;
+  font-size: 22px;
+  position: fixed;
 }
 
 .nav-dropdown-trigger-icon {

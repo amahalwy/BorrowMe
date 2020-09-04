@@ -28,7 +28,7 @@ export default (props) => {
       stateErrors,
     };
 
-    dispatch(login(user)); 
+    dispatch(login(user)).then(res => console.log(res)); 
   }
 
   const renderErrors = () => {
@@ -41,9 +41,11 @@ export default (props) => {
     );
   };
 
-  // useEffect(() => {
-  //   clearErrors();
-  // }, []);
+  useEffect(() => {
+
+    clearErrors ? console.log("not clear") : console.log("CLEAR");
+    // clearErrors();
+  }, [clearErrors]);
   
   return (
     <div className="login-form-container">

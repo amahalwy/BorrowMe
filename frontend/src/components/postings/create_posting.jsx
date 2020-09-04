@@ -20,7 +20,7 @@ export default (props) => {
   const currentUser = useSelector(state => state.session.user)
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,8 +34,8 @@ export default (props) => {
     formData.append("state", state);
     formData.append("zipCode", zipCode);
     formData.append("ownerId", currentUser.id);
-    formData.append("file", imageFile)
-
+    formData.append("file", imageFile);
+    props.hideModal();
     return axios.post("/api/postings", formData)
     .then(res => console.log(res))
     .catch(err => console.log(err))

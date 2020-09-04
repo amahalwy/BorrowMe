@@ -10,7 +10,7 @@ import CreatePosting  from "../postings/create_posting";
 export default (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.session.isAuthenticated);
-
+  const currentUser = useSelector(state => state.session.user);
   const logoutUser = e => {
     e.preventDefault();
     dispatch(logout());
@@ -32,8 +32,9 @@ export default (props) => {
     if (loggedIn) {
 
       return (
-        <div className="nav-box-loggedin">     
+        <div className="nav-box-loggedin">
           <div className="nav-dropdown-trigger">
+            <h1>Welcome {currentUser.firstName}</h1>     
             <img className="nav-dropdown-trigger-icon" src="https://www.iconsdb.com/icons/preview/white/arrow-206-xxl.png" alt="dropdown-trigger"/>
             <div className="nav-dropdown-items">
               <ul>
