@@ -87,7 +87,7 @@ const SearchPage = (props) => {
               </div>
 
               <div className="engineer-info">
-                <p className="engineer-name">Ayce Lacap, Backend Operations</p>
+                <p className="engineer-name">Ayce Lacap, <br/> Backend Operations</p>
                 <div className="links-image-container">
                   <div className="links">
                     <a className="links" href="https://github.com/aycelacap">
@@ -137,7 +137,7 @@ const SearchPage = (props) => {
               </div>
 
               <div className="engineer-info">
-                <p className="engineer-name">Sean Scott, Frontend Operations</p>
+                <p className="engineer-name">Sean Scott, <br/> Frontend Operations</p>
                 <div className="links-image-container">
                   <div className="links">
                     <a className="links" href="https://github.com/seanscott23">
