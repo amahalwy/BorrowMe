@@ -3,8 +3,8 @@
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding-top: 5%;
+  justify-content: space-evenly;
+  padding-top: 2%;
   position: fixed;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .splash-page h2 {
-  color: black;
+  color: white;
   font-size: 32px;
   margin: 15px;
 
@@ -21,12 +21,13 @@
 
 .looking-for {
   padding: 50px;
-  margin: 20px;
+  margin: 10px;
   margin-right: 25px;
-  width: 25%;
-  height: 250px;
+  width: 35%;
+  height: 350px;
   border-style: border-box;
-  background: white;
+  background-image:url("https://images.unsplash.com/photo-1552761831-7ef8ec07adbd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-size: auto;
   box-shadow: 0px 3px 3px #888888;
   border-radius: 5px;
   transition: all .2s ease-in-out;
@@ -40,11 +41,11 @@
 
 .rent-out {
   padding: 50px;
-  margin: 20px;
-  width: 25%;
+  margin: 10px;
+  width: 35%;
   margin-left: 25px;
-  height: 250px;
-  background: white;
+  height: 350px;
+  background: url("https://images.unsplash.com/photo-1475359524104-d101d02a042b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1157&q=80");
   box-shadow: 0px 3px 3px #888888;
   border-radius: 5px;
   transition: all .2s ease-in-out;
@@ -59,13 +60,16 @@
 
 .splash-start-renting-button {
 
-  color: #6290c8;
-  display: block;
-  margin-top: 20%;
+  color: #012a36;
+  display: inline-block;
+  margin-top: 25%;
+  margin-left: 27%;
   font-size: 1.2em;
-  padding: 0% 0% 0% 16%;
+  padding: 10px 15px 10px 15px;
   text-decoration: none;
   font-weight: bold;
+  background: white;
+  border-radius: 25px;
 }
 
 .splash-start-renting-button:hover {
@@ -73,13 +77,16 @@
 }
 
 .splash-start-looking-button {
-  color: #6290c8;
-  display: block;
+  color: #012a36;
+  display: inline-block;
   margin-top: 25%;
+  margin-left: 27%;
   font-size: 1.2em;
-  padding: 0% 0% 0% 16%;
+  padding: 10px 15px 10px 15px;
   text-decoration: none;
   font-weight: bold;
+  background: white;
+  border-radius: 25px;
 }
 
 .splash-start-looking-button:hover {
@@ -90,8 +97,11 @@
 .splash-ptag{
 font-size: 1.2em;
 margin-top: 10px;
-margin-left: 8%;
+margin-left: 3%;
 color: black;
+background: #FFFFFFD4;
+border-radius: 8px;
+padding: 10px;
 }
 
 
@@ -110,4 +120,92 @@ color: black;
   
   .grow:hover { 
   transform: scale(1.6); 
+  }
+  .main {
+    width:100%
+  }
+
+  .main-footer {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background: #012a36;
+    bottom: 0;
+    box-shadow: 3px 3px 3px 3px #888888;
+    z-index: 2;
+  }
+
+  .main-git-links-container {
+    padding: 2% 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    
+  }
+
+  .main-git-links-container:hover {
+    background: #011920;
+  }
+
+  .main-git-logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .main-meet-the-devs-bar {
+    background: white;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 28px;
+    z-index: 1;
+    bottom: 99px;
+    box-shadow: 3px 3px 3px 3px #888888;
+  }
+
+  .main-meet-the-devs-bar h4 {
+    font-weight: bold;
+    color: #012a36;
+  }
+
+  .git-roles {
+    z-index: 5;
+    margin-left: 30%;
+    justify-content: center;
+    bottom: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 50%;
+  }
+
+  .main-git-links {
+    text-decoration: none;
+  }
+
+  .main-git-role-ahmed {
+    color: white;
+    background: black;
+  }
+
+  .main-git-role-ayce {
+    
+  }
+
+  .main-git-role-nate {
+    
+  }
+  .main-git-role-sean {
+    
   }
