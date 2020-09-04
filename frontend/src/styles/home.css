@@ -26,7 +26,6 @@
 
 /* .home-tag-search-bar {
   margin-top: 12%;
-  
   margin-left: 30%;
 } */
 
@@ -83,6 +82,8 @@
 
 /* Side engineers container */
 
+
+
 .meet-the-engineers {
   font-family: 'Lato', sans-serif;
   display: flex;
@@ -95,15 +96,24 @@
   font-weight: bold;
 }
 
-.engineer-info {
-  float: center;
-}
+/* .engineer-info {
+ backg 
+} */
 
 .engineer-name {
   font-family: 'Lato', sans-serif;
   display: flex;
   justify-content: space-between;
   margin: 20px;
+}
+
+.links-image-container {
+  /* background: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
 }
 
 .links {
@@ -115,3 +125,18 @@
   cursor: pointer;
 }
 
+.links:hover {
+  color: #012a36;
+}
+
+.engineer-image {
+  height: 80px;
+  width: 80px;
+}
+
+.engineer-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10%;
+  /* margin-right: 10px; */
+}

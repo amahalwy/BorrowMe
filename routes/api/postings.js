@@ -59,7 +59,9 @@ router.post("/", upload.single("file"),
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
+    console.log(req.body)
+    console.log("----")
+    console.log(req.user)
     uploadImage(req.file).then(data => {
         const uploadedImageURL = data.Location;
     
