@@ -21,9 +21,10 @@
 }
 .home-search-icon {
   width: 17px;
-  background: #6290c8;
+  background: #a2d3c2;
   margin-left: -5%;
   margin-bottom: .7%;
   padding: 10px;
   border-radius: 100%;
+  box-shadow: 0px 3px 3px #888888;
 }

@@ -89,7 +89,7 @@
 }
 
 .nav-dropdown-trigger:hover .nav-dropdown-trigger-icon {
-  background: #376996;
+  background: #779c8f;
 }
 
 
@@ -110,7 +110,7 @@
 }
 
 .nav-dropdown-items ul li:hover {
-  background: #376996;
+  background: #779c8f;
   display: block;
 }
 .nav-dropdown-items ul li:hover .nav-dropdown-link {

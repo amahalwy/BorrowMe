@@ -179,33 +179,69 @@ padding: 10px;
     color: #012a36;
   }
 
-  .git-roles {
-    z-index: 5;
-    margin-left: 30%;
-    justify-content: center;
-    bottom: 10%;
-    display: flex;
-    justify-content: space-evenly;
-    position: fixed;
-    width: 50%;
-  }
-
   .main-git-links {
     text-decoration: none;
   }
 
+  .main-git-link-ahmed:hover .main-git-role-ahmed {
+    display: block;
+  }
+
+  .main-git-link-ayce:hover .main-git-role-ayce {
+    display: block;
+  }
+
+  .main-git-link-nate:hover .main-git-role-nate {
+    display: block;
+  }
+
+  .main-git-link-sean:hover .main-git-role-sean {
+    display: block;
+  }
+
   .main-git-role-ahmed {
+    display: none;
+    font-size: 11px;
     color: white;
-    background: black;
+    background: #011920bd;
+    margin-left: 3%;
+    position: absolute;
+    padding: 6px;
+    bottom: 90px;
+    border-radius: 5px;
   }
 
   .main-git-role-ayce {
-    
+    display: none;
+    font-size: 11px;
+    color: white;
+    background: #011920bd;
+    margin-left: 2.85%;
+    position: absolute;
+    padding: 6px;
+    bottom: 90px;
+    border-radius: 5px;
   }
 
   .main-git-role-nate {
-    
+    display: none;
+    font-size: 11px;
+    color: white;
+    background: #011920bd;
+    margin-left: 3.8%;
+    position: absolute;
+    padding: 6px;
+    bottom: 90px;
+    border-radius: 5px;
   }
   .main-git-role-sean {
-    
+    display: none;
+    font-size: 11px;
+    color: white;
+    background: #011920bd;
+    margin-left: 2.5%;
+    position: absolute;
+    padding: 6px;
+    bottom: 90px;
+    border-radius: 5px;
   }
