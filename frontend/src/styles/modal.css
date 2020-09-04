@@ -8,16 +8,18 @@
 }
 
 .modal-main {
-  position: relative;
+  position: absolute;
   background: white;
   width: 55%;
-  height: 700px;
-  top:50%;
+  height: 400px;
+  top:40%;
   left:50%;
   transform: translate(-50%,-50%);
   border-radius: 5px;
   z-index: 100;
 }
+
+
 
 .display-block {
   display: block;
