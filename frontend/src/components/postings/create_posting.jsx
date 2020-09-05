@@ -34,12 +34,21 @@ export default (props) => {
     formData.append("state", state);
     formData.append("zipCode", zipCode);
     formData.append("ownerId", currentUser.id);
+<<<<<<< HEAD
     formData.append("file", imageFile);
     
     // props.hideModal();
     return axios.post("/api/postings", formData)
     .then(res => console.log(res))
     .catch(err => console.log(err))
+=======
+    formData.append("file", imageFile)
+
+    // return axios.post("/api/postings", formData)
+    dispatch(createPosting(formData))
+      // .then((res) => console.log(res))
+      // .catch((err) => console.log(err));
+>>>>>>> 801a6c4... AWS complete postings
   };
 
   const onDrop = (picture) => {

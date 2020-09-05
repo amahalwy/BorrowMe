@@ -11,9 +11,9 @@
   width: 15%;
   box-sizing: border-box;
   background: white;
-  height: 900px;
+  height: 860px;
   margin: 10px;
-  padding-top: 1%;
+  padding-top: 2px;
   box-shadow: 0px 3px 3px #888888;
 }
 
@@ -90,6 +90,7 @@
   justify-content: center;
   align-content: center;
   font-weight: bold;
+  padding-top: 2px;
 }
 
 .meet-the-engineers h3.thicker {
@@ -107,6 +108,13 @@
   margin: 20px;
 }
 
+.engineer-ahmed {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 20px 20px 20px;
+}
+
 .links-image-container {
   /* background: red; */
   width: 100%;
@@ -114,6 +122,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 15%;
+  margin-bottom: 5px;
 }
 
 .links {
@@ -139,4 +148,23 @@
   width: 100%;
   border-radius: 10%;
   /* margin-right: 10px; */
+}
+
+.italicize-quote {
+  font-family: "lato", sans-serif;
+  font-size: 12px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-style: italic;
+}
+
+/* .italicize-quote p {
+  font-family: "lato", sans-serif;
+  margin-right: 20px;
+  margin-left: 20px;
+} */
+
+.engineer-quotes {
+  margin: 0px 10px;
+  margin-top: 10px;
 }

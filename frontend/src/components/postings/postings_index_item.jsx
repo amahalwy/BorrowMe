@@ -55,7 +55,7 @@ export default props => {
               <span>Zipcode</span>
             </div>
             <div className="post-price">
-              <span>Price: {props.posting.price}</span>
+              <span>Price: ${props.posting.price}</span>
             </div>
           </div>
           <div className="home-no-show">
