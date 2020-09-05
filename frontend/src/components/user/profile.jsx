@@ -11,10 +11,6 @@ export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
   const [filterList, setFilterList] = useState();
 
-export default props => {
-  const currentUser = useSelector(state => state.session.user);
-  const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
-  const [filterList, setFilterList] = useState();
   // const handleProfileFile = e => {
   //   const reader = new FileReader();
   //   const file = e.currentTarget.files[0];
@@ -48,7 +44,6 @@ export default props => {
       });
   };
 
-<<<<<<< HEAD
   // const fetchUser = _id => {
   //   return fetch("/api/postings", { data: currentUser._id })
   //     .then((response) => response.json())
@@ -63,27 +58,12 @@ export default props => {
     console.log(profilePhoto);
 
   }, [profilePhoto])
-=======
-  useEffect(() => {
-    fetchData();
-  }, [])
-
-  
-  const onDrop = picture => {
-    setProfilePhoto(picture[0]);
->>>>>>> 6c273d3... Fix for merge
 
   const submit = () => {
     const formData = new FormData();
-<<<<<<< HEAD
-=======
-    formData.append("firstName", currentUser.firstName);
-    formData.append("lastName", currentUser.lastName);
->>>>>>> 6c273d3... Fix for merge
     formData.append("email", currentUser.email);
     formData.append("file", profilePhoto);
 
-<<<<<<< HEAD
     return axios.put(`/api/users/${currentUser.id}`, formData);
   }; 
 
@@ -109,11 +89,6 @@ export default props => {
       submit()
     }, 3000);
   }
-=======
-    return axios.patch(`/api/users/${currentUser.id}`, formData);
-  }
-
->>>>>>> 6c273d3... Fix for merge
 
   return (
     <div className="profile-container">
