@@ -168,13 +168,7 @@ const SearchPage = (props) => {
         {/* <div>
           <TagSearchBar tagInput={tagInput} setKeyword={updateTagInput} />
         </div> */}
-        <div>
-          <PostingsIndex filterList={filterList} />
-        </div>
       </div>
     </div>
-  );
+  )
 }
-
-export default SearchPage
-
