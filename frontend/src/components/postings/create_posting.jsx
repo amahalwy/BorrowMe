@@ -36,7 +36,7 @@ export default (props) => {
     formData.append("ownerId", currentUser.id);
     formData.append("file", imageFile);
     
-    props.hideModal();
+    // props.hideModal();
     return axios.post("/api/postings", formData)
     .then(res => console.log(res))
     .catch(err => console.log(err))
