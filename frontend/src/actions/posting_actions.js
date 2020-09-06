@@ -30,17 +30,16 @@ export const fetchPostings = () => (dispatch) => {
     // .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
-export const fetchUserPostings = ownerId => (dispatch) => {
-  APIUtil.fetchUserPostings(ownerId)
-    .then((postings) => dispatch(receivePostings(postings)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
-};
-
-
 export const fetchPosting = postingId => dispatch => {
   APIUtil.fetchPosting(postingId)
     .then(posting => dispatch(receivePosting(posting)))
     .catch(err => dispatch(receiveErrors(err.response.data)));
+};
+
+export const fetchUserPostings = ownerId => (dispatch) => {
+  APIUtil.fetchUserPostings(ownerId)
+    .then((postings) => dispatch(receivePostings(postings)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 
 export const createPosting = (data) => (dispatch) => {
@@ -49,9 +48,8 @@ export const createPosting = (data) => (dispatch) => {
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
-
 export const updatePosting = (postingId, data) => (dispatch) => {
-  return APIUtil.updatePosting(postingId, data)
+  APIUtil.updatePosting(postingId, data)
     .then((posting) => dispatch(receivePosting(posting)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };

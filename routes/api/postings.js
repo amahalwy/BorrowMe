@@ -146,10 +146,3 @@ router.patch(
   )
 
 module.exports = router;
-
-
-
-router.get("/api/postings/:userId", (req, res) => {
-  console.log(req.body)
-  Posting.find({id: req.user.id})
-})

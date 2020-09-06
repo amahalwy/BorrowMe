@@ -30,7 +30,7 @@ export default props => {
       if (input === '') {
         return posting;
       } else {
-        return posting.tags.some(tag => tag.includes(input.toLowerCase()))
+        return posting.tags.some(tag => tag.toLowerCase().includes(input.toLowerCase()))
       }
     })
     setTagInput(input);
