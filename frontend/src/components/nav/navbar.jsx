@@ -58,7 +58,7 @@ export default (props) => {
                 <li>
                   <Link
                     className="nav-dropdown-link"
-                    to={`/profile/${currentUser.id}`}
+                    to={`/users/${currentUser.id}`}
                   >
                     Profile
                   </Link>

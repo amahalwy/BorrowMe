@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import FormData from "form-data";
-import ImageUploader from "react-images-upload";
+// import ImageUploader from "react-images-upload";
 import axios from 'axios';
-import ProfileSideBar from './profileSideBar';
+import ProfileSideBar from './profile_side_bar';
 import PostingsIndex from "../postings/profile_postings_index";
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 import {fetchUser} from '../../actions/user_actions';
@@ -11,7 +11,7 @@ import {fetchUser} from '../../actions/user_actions';
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
   const currentUser = useSelector(state => state.session.user);
-  // const profileUser = useSelector(state => state.entities.user )
+  const profileUser = useSelector(state => state.entities.users.user )
   const postings = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
   
@@ -20,7 +20,6 @@ export default props => {
     dispatch(clearPostings());
     dispatch(fetchUserPostings(props.match.params.userId));
   }, [])
-  // debugger
 
   const submit = () => {
     const formData = new FormData();
@@ -29,26 +28,6 @@ export default props => {
 
     return axios.put(`/api/users/${currentUser.id}`, formData);
   }; 
-
-  const onDrop = (picture) => {
-    setProfilePhoto(picture[0]);
-    // console.log("photooo:", profilePhoto);
-
-    // const formData = new FormData();
-    // formData.append("firstName", currentUser.firstName);
-    // formData.append("lastName", currentUser.lastName);
-    // formData.append("email", currentUser.email);
-    // formData.append("address", currentUser.address);
-    // formData.append("city", currentUser.city);
-    // formData.append("state", currentUser.state);
-    // formData.append("zipCode", currentUser.zipCode);
-    // formData.append("file", profilePhoto);
-
-    // return axios.put(`/api/users/${currentUser.id}`, formData);
-    setTimeout(() => {
-      submit()
-    }, 3000);
-  }
 
   return (
     <div className="profile-container">

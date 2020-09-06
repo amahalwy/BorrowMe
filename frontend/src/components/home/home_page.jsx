@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
@@ -8,8 +8,8 @@ import {clearPostings, fetchPostings} from '../../actions/posting_actions';
 export default props => {
   const [input, setInput] = useState("");
   const [tagInput, setTagInput] = useState("");
-  const [filterList, setFilterList] = useState();
   const [postingList, setPostingList] = useState();
+  const [filterList, setFilterList] = useState();
   const dispatch = useDispatch();
 
   // // This function is used to update the filter list; when typing, the input
@@ -194,11 +194,6 @@ export default props => {
                 </div>
               </div>
             </div>
-
-
-
-
-
       </div>
 
       <div className="home-index">

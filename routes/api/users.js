@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const Posting = require('../../models/Posting');
 const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
@@ -11,7 +12,6 @@ const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
 const fs = require("fs");
-
 
 // Middleware for postman form-data
 const upload = multer();
@@ -33,13 +33,23 @@ const uploadImage = (file) => {
   return uploadPhoto;
 };
 
-// router.get("/:userId", (req, res) => {
-//     console.log("REQ: ", req.params.userId);
-//     User.findOne({ id: req.params.userId });
-//     // Posting.find({ ownerId: req.params.userId })
-//     //   .then((postings) => res.json(postings))
-//     //   .catch((err) => res.status(400).json(err));
-// });
+router.get("/:userId",
+ passport.authenticate("jwt", { session: false }),  
+ (req, res) => {
+  User.findOne({ _id: req.params.userId })
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json(err));
+});
+
+router.get("/:userId/postings",
+  passport.authenticate("jwt", { session: false }),  
+  (req, res) => {
+    Posting.find({ownerId: req.params.userId})
+      .then(postings => res.json(postings))
+      .catch(err => res.status(400).json(err))
+})
+
+
 
 // Private auth route
 router.get('/current', 
@@ -59,14 +69,10 @@ router.get('/current',
     });
 })
 
-
-// Look at signup
-
 // Signup user
 router.post('/signup', (req, res) =>{
   const { errors, isValid } = validateSignupInput(req.body);
 
-  // debugger 
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -86,7 +92,8 @@ router.post('/signup', (req, res) =>{
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        profilePhoto: ''
+        profilePhoto: '',
+        postings: []
       })
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -144,7 +151,9 @@ router.post('/login', (req, res) => {
               address: user.address,
               city: user.city,
               state: user.state,
-              profilePhoto: user.profilePhoto
+              zipCode: user.zipCode,
+              profilePhoto: user.profilePhoto,
+              postings: user.postings
             };
 
             jwt.sign( payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
@@ -161,33 +170,6 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.post(
-  "/",
-  upload.single("file"),
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-
-    uploadImage(req.file)
-      .then((data) => {
-        // console.log(req.file)
-        console.log(data);
-        const uploadedImageURL = data.Location;
-
-        const newPosting = new Posting({
-          title: req.body.title,
-          image: uploadedImageURL,
-          description: req.body.description,
-          price: req.body.price,
-          zipCode: req.body.zipCode,
-          tags: req.body.tags,
-        });
-
-        newPosting.save().then((posting) => res.json(posting));
-      })
-      .catch((err) => res.status(400).json(err));
-  }
-);
-
 // Patching for profile picture only
 router.put(
   "/:id",
@@ -199,7 +181,14 @@ router.put(
       .then(data => {
         const uploadedImageURL = data.Location;
         User.findOne({ email: req.body.email })
-          .then((user) => {
+          .then(user => {
+            user.firstName = req.body.firstName;
+            user.lastName = req.body.lastName;
+            user.address = req.body.address;
+            user.city = req.body.city;
+            user.state = req.body.state;
+            user.zipCode = req.body.zipCode;
+            user.postings = req.body.postings;
             user.profilePhoto = uploadedImageURL;
             user
               .save()
