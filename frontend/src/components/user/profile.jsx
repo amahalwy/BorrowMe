@@ -3,8 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import FormData from "form-data";
 import ImageUploader from "react-images-upload";
 import axios from 'axios';
+import ProfileSideBar from './profileSideBar';
 import PostingsIndex from "../postings/profile_postings_index";
+<<<<<<< HEAD
 import {fetchUserPostings} from '../../actions/posting_actions';
+=======
+// import { profile } from 'console';
+
+>>>>>>> saturday-nate-frontend
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
@@ -56,33 +62,7 @@ export default props => {
 
   return (
     <div className="profile-container">
-      <div className="profile-info-box">
-        <h1>Profile</h1>
-        <div className="profile-picture-box">
-          <img
-            className="profile-photo-img"
-            src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/profile-default.png"
-            alt="Profile Image"
-          />
-          <ImageUploader
-            withIcon={true}
-            buttonText="Choose Image"
-            onChange={onDrop}
-            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-            maxFileSize={5242880}
-          />
-        </div>
-        <div className="profile-user-info">
-          <h2>{currentUser.firstName}</h2>
-          <h2>{currentUser.lastName}</h2>
-          <h2>{currentUser.email}</h2>
-          <h2>{currentUser.address}</h2>
-          <h2>Change Password</h2>
-        </div>
-        <div className="profile-edit-button-container">
-          <button className="profile-edit-button">Edit Profile</button>
-        </div>
-      </div>
+      <ProfileSideBar />
       <div className="profile-main-box">
         <div className="profile-postings">
           <h1>Postings</h1>
