@@ -33,17 +33,46 @@ export default (props) => {
       return (
         <div className="nav-box-loggedin">
           <div className="nav-dropdown-trigger">
-            <h1>Welcome {currentUser.firstName}</h1>     
-            <img className="nav-dropdown-trigger-icon" src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"/>
+            <h1>Welcome {currentUser.firstName}</h1>
+            <img
+              className="nav-dropdown-trigger-icon"
+              src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"
+            />
             <div className="nav-dropdown-items">
               <ul>
-                <li><Link className="nav-dropdown-link" to={"/"}>Welcome</Link></li>
-                <li><Link className="nav-dropdown-link" to={"/home"}>Home</Link></li>
-                <li><Link className="nav-dropdown-link" onClick={showModal}>New Posting</Link></li>
-                <li><Link className="nav-dropdown-link" to={"/profile"}>Profile</Link></li>
-                <li><Link className="nav-dropdown-link" onClick={logoutUser} to="/">Logout</Link></li>
+                <li>
+                  <Link className="nav-dropdown-link" to={"/"}>
+                    Welcome
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav-dropdown-link" to={"/home"}>
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav-dropdown-link" onClick={showModal}>
+                    New Posting
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-dropdown-link"
+                    to={`/profile/${currentUser.id}`}
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="nav-dropdown-link"
+                    onClick={logoutUser}
+                    to="/login"
+                  >
+                    Logout
+                  </Link>
+                </li>
               </ul>
-              
             </div>
           </div>
           <Modal show={openModal} handleClose={hideModal}>
