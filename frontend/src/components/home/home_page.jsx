@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
-import {fetchPostings} from '../../actions/posting_actions';
+import {clearPostings, fetchPostings} from '../../actions/posting_actions';
 
 export default props => {
   const [input, setInput] = useState("");
@@ -50,7 +50,6 @@ export default props => {
         setPostingList(data);
       });
   };
-
 
   // // useEffect hook that mounts and invokes the above function
   useEffect(() => {

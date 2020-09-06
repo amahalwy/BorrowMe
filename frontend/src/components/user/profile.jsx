@@ -5,12 +5,12 @@ import ImageUploader from "react-images-upload";
 import axios from 'axios';
 import ProfileSideBar from './profileSideBar';
 import PostingsIndex from "../postings/profile_postings_index";
-import {fetchUserPostings} from '../../actions/posting_actions';
+import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
-  const currentUser = useSelector(state => state.session.user)
-  const postings = useSelector(state => Object.values(state.entities.postings))
+  const currentUser = useSelector(state => state.session.user);
+  const postings = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
   
 
@@ -24,8 +24,10 @@ export default props => {
 
 
   useEffect(() => {
+    dispatch(clearPostings());
     dispatch(fetchUserPostings(currentUser.id));
   }, [])
+  // debugger
 
   const submit = () => {
     const formData = new FormData();
