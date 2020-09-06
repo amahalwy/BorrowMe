@@ -5,12 +5,7 @@ import ImageUploader from "react-images-upload";
 import axios from 'axios';
 import ProfileSideBar from './profileSideBar';
 import PostingsIndex from "../postings/profile_postings_index";
-<<<<<<< HEAD
 import {fetchUserPostings} from '../../actions/posting_actions';
-=======
-// import { profile } from 'console';
-
->>>>>>> saturday-nate-frontend
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
