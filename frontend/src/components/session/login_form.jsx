@@ -5,30 +5,23 @@ import { login } from "../../actions/session_actions";
 export default (props) => {
   const [email, updateEmail] = useState("");
   const [password, updatePassword] = useState("");
-  const [stateErrors, updateErrors] = useState({});
+  const stateErrors = useState({});
   const dispatch = useDispatch();
-  const [clearErrors, updateClearedErrors] = useState(false);
+  const clearErrors = useState(false);
   
   const currentUser = useSelector(state => state.session.isAuthenticated || {})
   const errors = useSelector(state => state.errors.session);
   
-  // useEffect(() => {
-  //   if (currentUser === true) {
-  //     props.history.push("/hello");
-  //   }
-  //   updateErrors(props.stateErrors);
-  // }, [currentUser])
-  
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     const user = {
       email,
       password,
       stateErrors,
     };
 
-    dispatch(login(user)).then(res => console.log(res)); 
+    dispatch(login(user))
+    .then(res => console.log(res)); 
   }
 
   const renderErrors = () => {

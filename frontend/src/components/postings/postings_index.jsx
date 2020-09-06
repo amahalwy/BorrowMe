@@ -2,6 +2,7 @@ import React from 'react';
 import PostIndexItem from './postings_index_item';
 
 export default props => {
+  console.log(props.filterList);
 
   if (!props.filterList) return '';
 

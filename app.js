@@ -4,7 +4,6 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const postings = require("./routes/api/postings");
-const profile = require("./routes/api/profile");
 const requests = require("./routes/api/requests");
 // const requests = require("./routes/api/requests");
 const bodyParser = require('body-parser');
@@ -21,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(passport.initialize());
-app.use("/api/profile", profile);
 app.use("/api/users", users);
 app.use("/api/postings", postings);
 app.use("/api/requests", requests);

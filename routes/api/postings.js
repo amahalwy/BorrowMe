@@ -39,7 +39,7 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 })
 
-router.get("/:id", (req, res) => {
+router.get("/:ownerId", (req, res) => {
   Posting.findById(req.params.id)
   .populate({
     path: 'userId',
@@ -47,6 +47,13 @@ router.get("/:id", (req, res) => {
   })
     .then(posting => {res.json(posting)} 
     , (err) => res.status(400).json(err));
+})
+
+router.get("/:userId", (req, res) => {
+  console.log(req.params)
+  Posting.find({ownerId: req.params.ownerId })
+  .then(postings => res.json(postings))
+  .catch(err => res.status(400).json(err))
 })
 
 // protects the route
@@ -77,8 +84,7 @@ router.post("/", upload.single("file"),
         // console.log(newPosting)
         // User.findOne({id: req.user.id})
         // .then(user => console.log(user))//user.postings.push(newPosting));
-        req.user.postings.push(newPosting);
-
+        
         newPosting
           .save()
           .then(posting => res.json(posting))

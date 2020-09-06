@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ImageUploader from "react-images-upload";
 import { useDispatch, useSelector } from "react-redux";
-import axios from 'axios';
-// import { profile } from 'console';
+import { updateUserPhoto} from '../../actions/user_actions';
+// import axios from 'axios';
 
 const ProfileSideBar = props => {
   const currentUser = useSelector(state => state.session.user)
   const [profilePhoto, setProfilePhoto] = useState(null);
+  const dispatch = useDispatch();
 
   const submit = () => {
     const formData = new FormData();
     formData.append("email", currentUser.email);
     formData.append("file", profilePhoto);
 
-    return axios.put(`/api/users/${currentUser.id}`, formData);
+    dispatch(updateUserPhoto(currentUser.id, formData))
+    // return axios.put(`/api/users/${currentUser.id}`, formData);
   }; 
 
   const onDrop = (picture) => {
@@ -38,7 +40,6 @@ const ProfileSideBar = props => {
       submit()
     }, 3000);
   }
-
 
   return (
     <div className="profile-info-box">
@@ -68,7 +69,7 @@ const ProfileSideBar = props => {
         <button className="profile-edit-button">Edit Profile</button>
       </div>
     </div>
-    )
+  )
 }
 
 export default ProfileSideBar;
