@@ -1,13 +1,26 @@
 import * as APIUtil from "../util/user_api_util";
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user,
 });
 
-export const updateUserPhoto = (userId, formData) => (dispatch) =>
+// const receiveErrors = errors => ({
+//   type: RECEIVE_USER_ERRORS,
+//   errors
+// })
+
+export const fetchUser = userId => dispatch => {
+  APIUtil.fetchUser(userId)
+    .then(user => dispatch(receiveUser(user)))
+    // .catch(err => dispatch(receiveErrors(err)));
+}
+
+export const updateUserPhoto = (userId, formData) => (dispatch) => {
   APIUtil.updateUserPhoto(userId, formData)
-    .then((user) => dispatch(receiveUser(user))
-);
+    .then(user => dispatch(receiveUser(user)))
+    // .catch(err => dispatch(receiveErrors(err)))
+}

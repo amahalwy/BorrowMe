@@ -14,7 +14,7 @@ const RequestSchema = new Schema(
       required: false,
     },
     endDate: {
-      type: Array,
+      type: String,
       required: true,
     },
   },

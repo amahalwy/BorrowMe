@@ -5,6 +5,7 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const postings = require("./routes/api/postings");
 const profile = require("./routes/api/profile");
+const requests = require("./routes/api/requests");
 // const requests = require("./routes/api/requests");
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -34,3 +35,4 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api/profile", profile);
 app.use("/api/users", users);
 app.use("/api/postings", postings);
+app.use("/api/requests", requests)

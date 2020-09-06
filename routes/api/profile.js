@@ -12,10 +12,11 @@ const User = require("../../models/User");
 // const fs = require("fs");
 
 router.get("/:userId", (req, res) => {    
-    console.log(req.params);
-    Posting.find({ ownerId: req.params.userId })
-      .then((postings) => res.json(postings))
-      .catch((err) => res.status(400).json(err));
+    console.log("REQ: ", req.params.userId);
+    User.findOne({id: req.params.userId}) 
+    // Posting.find({ ownerId: req.params.userId })
+    //   .then((postings) => res.json(postings))
+    //   .catch((err) => res.status(400).json(err));
   }
 );
 

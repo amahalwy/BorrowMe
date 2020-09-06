@@ -33,6 +33,14 @@ const uploadImage = (file) => {
   return uploadPhoto;
 };
 
+// router.get("/:userId", (req, res) => {
+//     console.log("REQ: ", req.params.userId);
+//     User.findOne({ id: req.params.userId });
+//     // Posting.find({ ownerId: req.params.userId })
+//     //   .then((postings) => res.json(postings))
+//     //   .catch((err) => res.status(400).json(err));
+// });
+
 // Private auth route
 router.get('/current', 
   passport.authenticate("jwt", { session: false }), 

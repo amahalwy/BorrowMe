@@ -6,24 +6,18 @@ import axios from 'axios';
 import ProfileSideBar from './profileSideBar';
 import PostingsIndex from "../postings/profile_postings_index";
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
+import {fetchUser} from '../../actions/user_actions';
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
   const currentUser = useSelector(state => state.session.user);
+  // const profileUser = useSelector(state => state.entities.user )
   const postings = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
   
-
-  // const fetchData = ownerId => {
-  //   return fetch("/api/postings", {data: ownerId})
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setFilterList(data);
-  //     });
-  // };
-
-
   useEffect(() => {
+    // console.log(currentUser)
+    dispatch(fetchUser());
     dispatch(clearPostings());
     dispatch(fetchUserPostings(currentUser.id));
   }, [])

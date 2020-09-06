@@ -14,9 +14,19 @@ const upload = multer();
 
 router.get("")
 
-router.get("")
+router.post("/", (req, res) => {
+  const newRequest = new Request({
+    requestorId: req.body.requestorId,
+    postingId: req.body.postingId,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate
+  })
 
+  newRequest.save()
+  .then(request => res.json(request))
+  .catch(err => res.json(err));
+});
 
-router.get("");
+router.delete("");
 
-router.get("");
+module.exports = router;
