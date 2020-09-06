@@ -139,6 +139,7 @@
 
 .nav-dropdown-trigger:hover .nav-dropdown-items {
   display: block;
+  z-index: 500;
 }
 
 .nav-logo:hover {

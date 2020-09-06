@@ -1,5 +1,4 @@
 import React from 'react'
-import HomeTagSearchBar from './home_tag_search_bar';
 
 export default ({keyword, setKeyword}) => {
   return (
