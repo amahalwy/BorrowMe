@@ -3,6 +3,8 @@ import mapboxgl from "mapbox-gl";
 const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
+  // debugger
+  console.log(props)
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;
@@ -17,7 +19,7 @@ const Map = (props) => {
       [-122.34, 37.9], // [east, north]
     ];
 
-    const initializeMap = ({ setMap }) => {
+    const initializeMap = async ({ setMap }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current, // container id
         style: "mapbox://styles/mapbox/streets-v11",
@@ -39,42 +41,31 @@ const Map = (props) => {
       let marker = new mapboxgl.Marker()
         .setLngLat([-122.414, 37.776])
         .addTo(map);
+
+      let searchText = "123 kissling street san francisco CA 94103"
+      let request = new Request(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchText}.json?country=US&access_token=${token}`);
+      const res = await fetch(request);
+      const json = await res.json();
+      const coordinates = json.features[0].geometry.coordinates;
+      console.log(coordinates);
+      // .then(function (response.json()) {
+      //   // debugger
+      //   console.log(response.json());
+      //   return response.json();
+      // }).then( json => {
+      //   const data = json.features[0].geometry.coordinates;
+      //   console.log(data);
+      // })
+      
+      let markerPlace = new mapboxgl.Marker()
+        .setLngLat([coordinates[0], coordinates[1]])
+        .addTo(map);
+
+
     };
     if (!map) initializeMap({ setMap, mapContainer });
   }, [map]);
 
-  // Add zoom and rotation controls to the map.
-
-  // const marker = new mapboxgl.Marker()
-  //   .setLngLat([103.811279, 1.345399])
-  //   .addTo(map);
-
-  // const geolocate = new mapboxgl.GeolocateControl({
-  //   positionOptions: {
-  //     enableHighAccuracy: true,
-  //   },
-  //   trackUserLocation: true,
-  // });
-
-  // map.addControl(geolocate, "top-right");
-  // hello
-
-  // 2nd try
-
-  // const nav = new mapboxgl.NavigationControl();
-  // map.addControl(nav, "top-right");
-
-  // const marker = new mapboxgl.Marker()
-  //   .setLngLat([103.811279, 1.345399])
-  //   .addTo(map);
-
-  // var marker = new mapboxgl.Marker()
-  //   .setLngLat([12.550343, 55.665957])
-  //   .addTo(map);
-
-  // const mapBoxMarker = new mapboxgl.Marker(el)
-  //   .setLngLat(marker.geometry.coordinates)
-  //   .setPopup(popup);
 
   // // 3rd try
   let geojson = {

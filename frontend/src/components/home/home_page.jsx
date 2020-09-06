@@ -114,7 +114,7 @@ export default props => {
                   </div>
                   <div className="engineer-image">
                     <img
-                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/ayce.jpg"
+                      src="https://borrowme-pro.s3.us-east-2.amazonaws.com/ayce-pp.png"
                       alt=""
                     />
                   </div>
