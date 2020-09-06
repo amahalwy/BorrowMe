@@ -5,9 +5,8 @@ export const fetchPostings = () => {
 };
 
 export const fetchUserPostings = ownerId => {
-  return axios.get("/api/postings", ownerId);
+  return axios.get("/api/postings", {data: ownerId});
 };
-
 
 export const fetchPosting = postingId => {
   return axios.get(`/api/postings/${postingId}`)

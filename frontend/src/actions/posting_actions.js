@@ -26,7 +26,8 @@ export const receiveErrors = errors => ({
 export const fetchPostings = () => (dispatch) => {
   APIUtil.fetchPostings()
     .then(postings => dispatch(receivePostings(postings)))
-    .catch(err => dispatch(receiveErrors(err.response.data)));
+    .catch(err => console.log(err));
+    // .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
 export const fetchUserPostings = ownerId => (dispatch) => {

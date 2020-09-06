@@ -4,7 +4,7 @@ export default function (state = {}, action) {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_POSTINGS:
-      return Object.assign({}, state, action.postings);
+      return Object.assign({}, state, action.postings.data);
     case RECEIVE_POSTING:
       return Object.assign({}, state, {[action.posting.data._id]: action.posting.data})
     default: 

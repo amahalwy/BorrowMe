@@ -40,10 +40,12 @@ router.get('/current',
     res.json({
       id: req.user.id,
       firstName: req.user.firstName,
+      lastName: req.user.lastName,
       email: req.user.email,
       address: req.user.address,
       city: req.user.city,
       state: req.user.state,
+      profilePhoto: req.user.profilePhoto,
       zipCode: req.user.zipCode
     });
 })
