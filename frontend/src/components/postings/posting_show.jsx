@@ -24,7 +24,7 @@ export default (props) => {
           <img className="modal-img" src={props.posting.image} alt="" />
         </div>
         <div className="modal-calendar">
-          <Calendar />
+          <Calendar posting={props.posting}/>
         </div>
       </div>
     </div>
