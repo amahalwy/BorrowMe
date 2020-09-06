@@ -4,60 +4,27 @@ import FormData from "form-data";
 import ImageUploader from "react-images-upload";
 import axios from 'axios';
 import PostingsIndex from "../postings/profile_postings_index";
-
+import {fetchUserPostings} from '../../actions/posting_actions';
 
 export default props => {
-  const currentUser = useSelector(state => state.session.user)
   const [profilePhoto, setProfilePhoto] = useState(null);
-  const [filterList, setFilterList] = useState();
-
-  // const handleProfileFile = e => {
-  //   const reader = new FileReader();
-  //   const file = e.currentTarget.files[0];
-  //   reader.onloadend = () =>
-  //     setProfilePhoto(file);
-  //     if (file) {
-  //       reader.readAsDataURL(file);
-  //     } else {
-  //       setProfilePhoto(null);
-  //     }
-  // }
-
-  // const updateUserPhoto = (userId, formData) => {
+  const currentUser = useSelector(state => state.session.user)
+  const postings = useSelector(state => Object.values(state.entities.postings))
+  const dispatch = useDispatch();
   
-  //   return axios.post(`/api/users/${userId}`, formData)
+
+  // const fetchData = ownerId => {
+  //   return fetch("/api/postings", {data: ownerId})
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setFilterList(data);
+  //     });
   // };
 
-  // const coverProfileSubmit = () => {
-  //   const formData = new FormData();
-  //   formData["profilePhoto"]= profilePhoto;
-  //   formData["_method"] =  "PATCH";
-   
-  //   updateUserPhoto(currentUser.id, formData);
-  // }
-  
-  const fetchData = ownerId => {
-    return fetch("/api/postings", {data: ownerId})
-      .then(response => response.json())
-      .then(data => {
-        setFilterList(data);
-      });
-  };
-
-  // const fetchUser = _id => {
-  //   return fetch("/api/postings", { data: currentUser._id })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //     });
-  // }
 
   useEffect(() => {
-    console.log(profilePhoto);
-    fetchData(currentUser._id);
-    console.log("FETCH!!");
-    console.log(profilePhoto);
-
-  }, [profilePhoto])
+    dispatch(fetchUserPostings(currentUser.id));
+  }, [])
 
   const submit = () => {
     const formData = new FormData();
@@ -68,9 +35,6 @@ export default props => {
   }; 
 
   const onDrop = (picture) => {
-    // console.log("picture: ", picture)
-    // console.log("picture222: ", picture[0]);
-
     setProfilePhoto(picture[0]);
     // console.log("photooo:", profilePhoto);
 
@@ -122,7 +86,7 @@ export default props => {
       <div className="profile-main-box">
         <div className="profile-postings">
           <h1>Postings</h1>
-          <PostingsIndex filterList={filterList} />
+          <PostingsIndex postings={postings} />
         </div>
         <div className="profile-rentals">
           <h1>Rentals</h1>

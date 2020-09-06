@@ -5,6 +5,7 @@ import 'react-date-range/dist/theme/default.css';
 import { Discovery } from "aws-sdk";
 import FormData from "form-data";
 import {useSelector} from 'react-redux';
+import axios from 'axios';
 
 
 export default (props) => {

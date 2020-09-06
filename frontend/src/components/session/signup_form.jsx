@@ -27,14 +27,6 @@ export default (props) => {
     // updateErrors(errors);
     }, [isSignedIn]);
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.signedIn === true) {
-  //     this.props.history.push("/login");
-  //   }
-
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let user = {

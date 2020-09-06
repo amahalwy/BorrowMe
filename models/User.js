@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Posting = require('./Posting')
+const Request = require("./Request");
 
-const UserSchema = new Schema({
+const UserSchema = new Schema(
+  {
   postings: [{type: Schema.Types.ObjectId, ref: "Posting" }],
+  requests: [{type: Schema.Types.ObjectId, ref: "Request" }],
   firstName: {
     type: String,
     required: true

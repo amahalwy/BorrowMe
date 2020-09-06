@@ -36,10 +36,13 @@ export default (props) => {
     formData.append("ownerId", currentUser.id);
     formData.append("file", imageFile);
     
-    // props.hideModal();
-    return axios.post("/api/postings", formData)
+    
+    axios.post("/api/postings", formData)
     .then(res => console.log(res))
     .catch(err => console.log(err))
+    
+    dispatch(createPosting(formData));
+    // props.hideModal();
   };
 
   const onDrop = (picture) => {

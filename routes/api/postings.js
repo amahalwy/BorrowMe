@@ -33,21 +33,10 @@ const uploadImage = (file) => {
 };
 
 router.get("/", (req, res) => {
-  console.log(req)
-  if (Object.keys(req.body).length === 0 && req.body.constructor === Object) {
-    console.log("IF STATEMENT")
-    Posting.find()
-      .sort({ date: -1 })
-      .then((postings) => res.json(postings))
-      .catch((err) => res.status(400).json(err));
-  } else {
-    console.log("ELSE STATEMENT")
-    console.log(req.body)
-    Posting.find({ownerId: req.body.ownerId})
-      .then((postings) => res.json(postings))
-      .catch((err) => res.status(400).json(err));
-  }
-
+  Posting.find()
+    .sort({ date: -1 })
+    .then((postings) => res.json(postings))
+    .catch((err) => res.status(400).json(err));
 })
 
 router.get("/:id", (req, res) => {

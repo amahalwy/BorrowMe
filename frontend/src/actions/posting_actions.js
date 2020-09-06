@@ -4,52 +4,49 @@ export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_POSTING = "RECEIVE_POSTING";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 
-export const receivePostings = postings => {
-  return {
-    type: RECEIVE_POSTINGS,
-    postings,
-  };
-};
+const receivePostings = postings => ({
+  type: RECEIVE_POSTINGS,
+  postings,
+});
 
-export const receivePosting = posting => {
-  return {
-    type: RECEIVE_POSTING,
-    posting,
-  };
-};
+const receivePosting = posting => ({
+  type: RECEIVE_POSTING,
+  posting,
+});
 
-export const receiveErrors = errors => ({
+const receiveErrors = errors => ({
   type: RECEIVE_POST_ERRORS,
   errors,
 });
 
-export const fetchPostings = () => (dispatch) => {
+export const fetchPosting = postingId => dispatch => {
+  APIUtil.fetchPosting(postingId)
+    .then((posting) => dispatch(receivePosting(posting)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+};
+
+export const fetchPostings = () => dispatch => {
   APIUtil.fetchPostings()
     .then(postings => dispatch(receivePostings(postings)))
     .catch(err => console.log(err));
     // .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
-export const fetchPosting = postingId => dispatch => {
-  APIUtil.fetchPosting(postingId)
-    .then(posting => dispatch(receivePosting(posting)))
-    .catch(err => dispatch(receiveErrors(err.response.data)));
-};
-
-export const fetchUserPostings = ownerId => (dispatch) => {
+export const fetchUserPostings = ownerId => dispatch => {
   APIUtil.fetchUserPostings(ownerId)
     .then((postings) => dispatch(receivePostings(postings)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 
-export const createPosting = (data) => (dispatch) => {
-  APIUtil.createPosting(data)
+export const createPosting = posting => dispatch => {
+  debugger
+  APIUtil.createPosting(posting)
     .then(posting => dispatch(receivePosting(posting)))
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
-export const updatePosting = (postingId, data) => (dispatch) => {
-  APIUtil.updatePosting(postingId, data)
+export const updatePosting = (postingId, posting) => dispatch => {
+  APIUtil.updatePosting(postingId, posting)
     .then((posting) => dispatch(receivePosting(posting)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import {useDispatch} from "react-redux";
 import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
+import {fetchPostings} from '../../actions/posting_actions';
 
 export default props => {
   const [input, setInput] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [filterList, setFilterList] = useState();
   const [postingList, setPostingList] = useState();
+  const dispatch = useDispatch();
 
   // // This function is used to update the filter list; when typing, the input
   // // will be used to filter out the postings that have the input INCLUDED in
@@ -52,6 +55,7 @@ export default props => {
   // // useEffect hook that mounts and invokes the above function
   useEffect(() => {
     fetchData()
+    dispatch(fetchPostings());
   }, []);
 
   return (
