@@ -16,10 +16,9 @@ export default props => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    // console.log(currentUser)
-    dispatch(fetchUser());
+    dispatch(fetchUser(props.match.params.userId));
     dispatch(clearPostings());
-    dispatch(fetchUserPostings(currentUser.id));
+    dispatch(fetchUserPostings(props.match.params.userId));
   }, [])
   // debugger
 

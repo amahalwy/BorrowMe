@@ -66,7 +66,7 @@ export default (props) => {
             placeholder="Password"
           />
           <br />
-          <input type="submit" value="Submit" value="Log In" />
+          <input type="submit" value="Log In" />
           <div className="login-errors">
             {renderErrors()}
           </div>

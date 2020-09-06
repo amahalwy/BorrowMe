@@ -13,10 +13,9 @@ const User = require("../../models/User");
 
 router.get("/:userId", (req, res) => {    
     console.log("REQ: ", req.params.userId);
-    User.findOne({id: req.params.userId}) 
-    // Posting.find({ ownerId: req.params.userId })
-    //   .then((postings) => res.json(postings))
-    //   .catch((err) => res.status(400).json(err));
+    User.findOne({_id: req.params.userId}) 
+      .then((user) => res.json(user))
+      .catch((err) => res.status(400).json(err));
   }
 );
 

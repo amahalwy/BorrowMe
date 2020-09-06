@@ -16,9 +16,11 @@ export default function (state = initialState, action) {
         user: action.currentUser,
       };
     case RECEIVE_USER:
-      return Object.assign({}, state, {
-        [action.user._id]: action.user
-      });
+      return {
+        ...state,
+        isAuthenticated: !!action.currentUser,
+        user: action.user,
+      };
     default:
       return state;
   }

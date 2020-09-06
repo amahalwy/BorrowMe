@@ -49,7 +49,6 @@ router.get("/:id", (req, res) => {
     , (err) => res.status(400).json(err));
 })
 
-
 // protects the route
 router.post("/", upload.single("file"),
   passport.authenticate("jwt", { session: false }),
@@ -59,8 +58,8 @@ router.post("/", upload.single("file"),
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    console.log(req.body)
-    console.log("----")
+    // console.log(req.body)
+    // console.log("----")
     console.log(req.user)
     uploadImage(req.file).then(data => {
         const uploadedImageURL = data.Location;
@@ -75,12 +74,20 @@ router.post("/", upload.single("file"),
           ownerId: req.user.id
         });
 
-        console.log(newPosting)
-        // User.findOne({id: req.user.id}).postings.push(posting);
+        // console.log(newPosting)
+        // User.findOne({id: req.user.id})
+        // .then(user => console.log(user))//user.postings.push(newPosting));
+        req.user.postings.push(newPosting);
+
         newPosting
           .save()
           .then(posting => res.json(posting))
           .catch(err => res.json(err))
+
+          // User.findOne({ id: req.user.id }).postings.then((user) =>
+          //   user.postings.push(newPosting)
+          // );
+
     }).catch(err => res.status(400).json(err))
   }
 )

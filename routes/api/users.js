@@ -54,7 +54,8 @@ router.get('/current',
       city: req.user.city,
       state: req.user.state,
       profilePhoto: req.user.profilePhoto,
-      zipCode: req.user.zipCode
+      zipCode: req.user.zipCode,
+      postings: req.user.postings
     });
 })
 

@@ -38,9 +38,10 @@ export default (props) => {
     const formData = new FormData();
     formData.append("postingId", props.posting._id);
     formData.append("requestorId", currentUser.id );
-    formData.append("startDate", state[0].startDate);
-    formData.append("endDate", state[0].endDate);
-    debugger
+    formData.append("startDate", state[0].startDate.toString());
+    formData.append("endDate", state[0].endDate.toString());
+    console.log(state[0].startDate);
+    console.log(state[0].startDate.toDateString());
 
       return axios
         .post("/api/requests", formData)

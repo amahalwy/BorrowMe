@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const User = require("./User");
 
 const RequestSchema = new Schema(
   {
@@ -11,7 +10,7 @@ const RequestSchema = new Schema(
     },
     startDate: {
       type: String,
-      required: false,
+      required: true,
     },
     endDate: {
       type: String,
