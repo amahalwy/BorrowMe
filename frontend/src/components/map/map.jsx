@@ -11,6 +11,10 @@ const Map = (props) => {
 
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
+  const [address, updateAddress] = useState("");
+  const [city, updateCity] = useState("");
+  const [state, updateState] = useState("");
+  const [zipCode, updateZipCode] = useState("");
 
   useEffect(() => {
     mapboxgl.accessToken = token;
