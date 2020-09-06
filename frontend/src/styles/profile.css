@@ -161,14 +161,14 @@
 }
 
 .postings-index-image-box {
-  width: 15%;
+  width: 18%;
   height: 150px;
   margin: 1%;
 }
 
 .postings-index-image {
   width: 100%;
-  height: 100%;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
 }
