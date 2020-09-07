@@ -6,11 +6,11 @@ const Map = (props) => {
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;
-
+  
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
   
-  const { address, city, state, zipCode } = props
+  const { address, city, state, zipCode } = props.posting
 
   const searchText = `${address} ${city} ${state} ${zipCode}`
 

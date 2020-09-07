@@ -7,6 +7,11 @@ import {useSelector} from 'react-redux';
 import axios from 'axios';
 // import { Discovery } from "aws-sdk";
 
+Date.prototype.addDays = function (days) {
+  let date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+}
 
 export default (props) => {
   const [state, setState] = useState([{
@@ -22,19 +27,25 @@ export default (props) => {
     // }, [state.StatDate, state.endDate]);
 
 
-  // const getDates = (state) => {
-  //   let dateArray = new Array();
-  //   let currentDate = state.startDate;
-  //   while (currentDate <= state.endDate) {
-  //     dateArray.push(new Date(currentDate));
-  //     currentDate = currentDate.addDays(1);
-  //   }
-  //   return dateArray;
-  // }
+    const getDates = () => {
+      const dateArray = new Array();
+      let currentDate = state[0].startDate;
+      // console.log(currentDate)
+      // console.log(state[0].endDate)
+      // console.log(currentDate !== state[0].endDate)
+      while (currentDate <= state[0].endDate) {
+        dateArray.push(new Date(currentDate));
+        currentDate = currentDate.addDays(1);
+        console.log(currentDate)
+      }
+      // console.log(dateArray)
+      return dateArray;
+    }
    
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    const dateRangeArray = getDates();
     const formData = new FormData();
     formData.append("postingId", props.posting._id);
     formData.append("requestorId", currentUser.id );
@@ -53,7 +64,12 @@ export default (props) => {
       <div>
         <DateRange
           editableDateInputs={true}
-          onChange={(item) => setState([item.selection])}
+          onChange={(item) => {
+            console.log(item)
+            setState([item.selection])
+            console.log(state)
+          }}
+
           moveRangeOnFirstSelection={false}
           ranges={state}
         />
