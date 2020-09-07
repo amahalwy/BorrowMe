@@ -9,7 +9,7 @@ export default (props) => {
     setPicture(picture)
   }
 
-  debugger
+  // debugger
   return (
     <ImageUploader
       withIcon={true}
