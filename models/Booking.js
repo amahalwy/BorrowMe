@@ -9,7 +9,7 @@ const BookingSchema = new Schema(
       type: String,
       required: true,
     },
-    requestedDates: {
+    requestDates: {
       type: Array,
       required: true,
     },

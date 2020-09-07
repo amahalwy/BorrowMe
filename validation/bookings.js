@@ -11,21 +11,26 @@ module.exports = function validateRequestInput(data) {
   data.requestDates = validArray(data.requestDates.trim().split(","))
     ? data.requestDates.trim().split(",")
     : "";
+  data.price = validText(data.price) ? data.price : "";
+
+  if (Validator.isEmpty(data.ownerId)) {
+    errors.ownerId = "Owner id field is required.";
+  }
+  
+  if (Validator.isEmpty(data.requestorId)) {
+    errors.requestorId = "Requestor id field is required.";
+  }
 
   if (Validator.isEmpty(data.postingId)) {
     errors.postingId = "Posting id field is required.";
   }
 
-  if (Validator.isEmpty(data.requestorId)) {
-    errors.requestorId = "Requestor id field is required.";
-  }
-
-  // if (Validator.isEmpty(data.requestDates)) {
-  //   errors.requestDates = "Request dates field is required.";
-  // }
-
   if (data.requestDates[0] === "") {
     errors.requestDates = "RequestDates field can't be empty.";
+  }
+
+  if (Validator.isEmpty(data.price)) {
+    errors.price = "Price field is required.";
   }
 
   return {

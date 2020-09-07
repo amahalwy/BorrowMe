@@ -18,11 +18,7 @@ module.exports = function validateRequestInput(data) {
   if (Validator.isEmpty(data.requestorId)) {
     errors.requestorId = "Requestor id field is required.";
   }
-
-  // if (Validator.isEmpty(data.requestDates)) {
-  //   errors.requestDates = "Request dates field is required.";
-  // }
-
+  
   if (data.requestDates[0] === "") {
     errors.requestDates = "RequestDates field can't be empty.";
   }
