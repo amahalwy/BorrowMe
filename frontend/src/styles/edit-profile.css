@@ -1,0 +1,87 @@
+.edit-profile-modal-x{
+    display: block;
+    padding: 10px;
+    margin-left: 350px;
+    position: absolute;
+    background-color: white;
+    top: 4px;
+    right: 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.edit-profile-container .edit-profile-first input {
+  margin: 0% auto;
+  width: 75%;
+  display: block;
+  height: 3em;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.edit-profile-container input{
+    height: 3em;
+      border-radius: 3px;
+  box-sizing: border-box;
+}
+  
+.edit-profile-container input[type="submit"] {
+  background-color: #012a36;
+  color: white; 
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  border-width: 0;
+  margin-bottom: 5%;
+}
+
+.edit-profile-container input[type="submit"]:hover {
+  background-color: #011920;
+  cursor: pointer;
+}
+
+.edit-profile-img-uploader {
+  position: absolute;
+  left: 32%;
+  top: 33%;
+}
+
+.profile-posting-second{
+  display: flex;
+  width: 100%;
+}
+
+.profile-posting-second  .profile-city{
+  width: 38%;
+  margin-left: 98px;
+  margin-right: 10px;
+}
+
+.profile-posting-second .profile-state{
+  width: 12%;
+}
+
+.profile-posting-second .profile-zipCode{
+   width: 22.5%;
+  margin-left: 10px;
+}
+
+.edit-profile-picture-box {
+  margin: auto;
+  height: 120px;
+  width: 120px;
+  background: #F1F1F1;
+  z-index: 1;
+  border-radius: 8px;
+  margin-top: -50px;
+  margin-bottom: 30px;
+}
+
+.edit-profile-photo-img {
+  width: 100%;
+  border-radius: 8px;
+}
