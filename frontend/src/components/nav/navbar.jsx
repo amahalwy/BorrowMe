@@ -51,6 +51,8 @@ export default (props) => {
                   </Link>
                 </li>
                 <li>
+                  {/* FIX THIS. ADD A to= */}
+                  {/* OR, change to div */}
                   <Link className="nav-dropdown-link" onClick={showModal}>
                     New Posting
                   </Link>

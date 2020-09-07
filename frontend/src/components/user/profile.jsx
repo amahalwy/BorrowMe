@@ -16,6 +16,7 @@ export default props => {
   const dispatch = useDispatch();
   
   useEffect(() => {
+    // incorporate full re-rendering over URL change
     dispatch(fetchUser(props.match.params.userId));
     dispatch(clearPostings());
     dispatch(fetchUserPostings(props.match.params.userId));

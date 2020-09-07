@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserPhoto } from '../../actions/user_actions';
+import { updateUser } from '../../actions/user_actions';
 import axios from 'axios';
 import FormData from 'form-data';
 
@@ -16,6 +16,9 @@ const EditProfileModal = (props) => {
   const [city, updateCity] = useState(currentUser.city);
   const [state, updateState] = useState(currentUser.state);
   const [zipCode, updateZipCode] = useState(currentUser.zipCode);
+
+  // Branch logic for this one. If present, use currentUser.profilePhoto
+  // Else, use null
   const [profilePhoto, setProfilePhoto] = useState(null);
 
   const errors = useSelector((state) => state.errors.session);
@@ -39,15 +42,12 @@ const EditProfileModal = (props) => {
     // .then(res => console.log(res))
     // .catch(err => console.log(err))
     
-    dispatch(updateUserPhoto(formData));
+    dispatch(updateUser(currentUser.id ,formData));
     props.hideModal();
   };
 
   const onDrop = (picture) => {
     setProfilePhoto(picture[0]);
-    setTimeout(() => {
-      handleSubmit()
-    }, 3000)
   }
 
   const renderErrors = () => {

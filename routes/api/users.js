@@ -175,6 +175,10 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
+    console.log(req);
+
+    // Branching logic for uploading a photo/NOT having a photo uploaded
+    // with edit
     uploadImage(req.file)
       .then(data => {
         const uploadedImageURL = data.Location;
