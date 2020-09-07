@@ -9,7 +9,7 @@ const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
-const fs = require("fs");
+// const fs = require("fs");
 
 
 // Middleware for postman form-data

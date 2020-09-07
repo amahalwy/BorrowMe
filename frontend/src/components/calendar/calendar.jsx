@@ -6,6 +6,7 @@ import FormData from "form-data";
 import {useSelector, useDispatch} from 'react-redux';
 import {createRequest} from '../../actions/request_actions';
 // import { Discovery } from "aws-sdk";
+import axios from 'axios';
 
 Date.prototype.addDays = function (days) {
   let date = new Date(this.valueOf());
@@ -32,37 +33,34 @@ export default (props) => {
   const getDates = () => {
     const dateArray = new Array();
     let currentDate = state[0].startDate;
-    // console.log(currentDate)
-    // console.log(state[0].endDate)
-    // console.log(currentDate !== state[0].endDate)
+
     while (currentDate <= state[0].endDate) {
       dateArray.push(new Date(currentDate));
       currentDate = currentDate.addDays(1);
       console.log(currentDate)
     }
-    // console.log(dateArray)
+
     return dateArray;
   }
    
-  const handleSubmit = async (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     
     const dateRangeArray = getDates();
-    const newObj = {};
-    newObj["postingId"] = id;
-    newObj["requestorId"] = currentUser.id;
-    // newObj["requestDates"] = dateRangeArray;
-    // const formData = new FormData();
-    // formData.append("postingId", id);
-    // formData.append("requestorId", currentUser.id );
-    // formData.append("requestDates", dateRangeArray);
+
+    const formData = new FormData();
+    formData.append("postingId", id);
+    formData.append("requestorId", currentUser.id );
+    formData.append("requestDates", dateRangeArray);
     // formData.append("startDate", state[0].startDate.toString());
     // formData.append("endDate", state[0].endDate.toString());
     // console.log(state[0].startDate);
     // console.log(state[0].startDate.toDateString());
 
-    console.log(newObj);
-    dispatch(createRequest(newObj));
+    dispatch(createRequest(formData));
+    // return axios.post('/api/requests', formData)
+    // .then(req => res.json(req))
+    // .catch
   };
     
     return (
@@ -70,9 +68,9 @@ export default (props) => {
         <DateRange
           editableDateInputs={true}
           onChange={(item) => {
-            console.log(item)
+            // console.log(item)
             setState([item.selection])
-            console.log(state)
+            // console.log(state)
           }}
 
           moveRangeOnFirstSelection={false}

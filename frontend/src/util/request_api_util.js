@@ -9,12 +9,11 @@ export const fetchRequests = userId => {
 }
 
 export const createRequest = request => {
-  return axios.post("/api/requests", request,
-    {
-      headers: {
-        "Content-Type": `multipart/form-data`
-      }
-    })
+  return axios.post("/api/requests", request)
+    // {
+    //   headers: {
+    //     "Content-Type": `multipart/form-data`
+    //   }
 }
 
 export const deleteRequest = requestId => {
