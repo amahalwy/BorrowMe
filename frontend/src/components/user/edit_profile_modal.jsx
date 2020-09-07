@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from '../../actions/user_actions';
-import axios from 'axios';
 import FormData from 'form-data';
 
 const EditProfileModal = (props) => {
@@ -36,12 +35,7 @@ const EditProfileModal = (props) => {
     formData.append("state", state);
     formData.append("zipCode", zipCode);
     formData.append("file", profilePhoto);
-    
-    
-    // axios.post("/api/postings", formData)
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
-    
+      
     dispatch(updateUser(currentUser.id ,formData));
     props.hideModal();
   };

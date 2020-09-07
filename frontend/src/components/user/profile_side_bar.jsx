@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Modal from "../modal/modal";
 import axios from 'axios';
 import EditProfileModal from './edit_profile_modal';
-import {updateUser} from '../../actions/user_actions';
-// import { profile } from 'console';
 
 const ProfileSideBar = props => {
   const activeUser = useSelector(state => state.entities.users.user);
