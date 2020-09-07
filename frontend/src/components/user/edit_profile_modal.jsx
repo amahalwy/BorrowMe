@@ -10,7 +10,7 @@ const EditProfileModal = (props) => {
 
   const [firstName, updateFirstName] = useState(currentUser.firstName);
   const [lastName, updateLastName] = useState(currentUser.lastName);
-  const [email, updateEmail] = useState(currentUser.email);
+  const email = useState(currentUser.email);
   const [address, updateAddress] = useState(currentUser.address);
   const [city, updateCity] = useState(currentUser.city);
   const [state, updateState] = useState(currentUser.state);

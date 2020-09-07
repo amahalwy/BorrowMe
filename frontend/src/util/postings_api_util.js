@@ -16,6 +16,6 @@ export const createPosting = posting => {
   return axios.post('/api/postings', posting)
 }
 
-// export const updatePosting = (postingId, data) => {
-//   return axios.patch(`/api/postings/${postingId}`, data);
-// };
+export const updatePosting = (postingId, data) => {
+  return axios.patch(`/api/postings/${postingId}`, data);
+};

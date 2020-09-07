@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
@@ -203,7 +203,7 @@ export default props => {
             <SearchBar input={input} setKeyword={updateInput} />
           </div>
           <div className="tag-container">
-            <HomeTagSearchBar setKeyword={updateTagInput} />
+            <HomeTagSearchBar input={tagInput} setKeyword={updateTagInput} />
           </div>
         </div>
         <div>

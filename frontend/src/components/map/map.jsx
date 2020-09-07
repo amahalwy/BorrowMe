@@ -49,7 +49,7 @@ const Map = (props) => {
       const res = await fetch(request);
       const json = await res.json();
       const coordinates = json.features[0].geometry.coordinates;
-      console.log(coordinates);
+      // console.log(coordinates);
       // .then(function (response.json()) {
       //   console.log(response.json());
       //   return response.json();

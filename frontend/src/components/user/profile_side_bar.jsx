@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ImageUploader from "react-images-upload";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from 'react';
+import {useSelector } from "react-redux";
 import Modal from "../modal/modal";
-import axios from 'axios';
 import EditProfileModal from './edit_profile_modal';
 
 const ProfileSideBar = props => {

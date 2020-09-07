@@ -9,7 +9,7 @@ export default (props) => {
   const dispatch = useDispatch();
   const clearErrors = useState(false);
   
-  const currentUser = useSelector(state => state.session.isAuthenticated || {})
+  // const currentUser = useSelector(state => state.session.isAuthenticated || {})
   const errors = useSelector(state => state.errors.session);
   
   const handleSubmit = (e) => {

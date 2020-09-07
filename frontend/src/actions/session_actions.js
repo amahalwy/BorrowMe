@@ -11,11 +11,6 @@ const receiveCurrentUser = currentUser => ({
   currentUser
 });
 
-// This will be used to redirect the user to the home page
-const receiveUserLogIn = () => ({
-  type: RECEIVE_USER_LOGIN,
-});
-
 const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors

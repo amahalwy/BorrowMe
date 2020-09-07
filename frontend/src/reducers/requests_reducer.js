@@ -2,6 +2,7 @@ import {
   RECEIVE_REQUESTS,
   RECEIVE_REQUEST,
   REMOVE_REQUEST,
+  CLEAR_REQUESTS
 } from "../actions/request_actions";
 
 export default function (state = {}, action) {
