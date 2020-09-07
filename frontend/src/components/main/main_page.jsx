@@ -17,9 +17,9 @@ class MainPage extends React.Component {
                 We have the best renters ready to connect with you to enjoy
                 their stuff
               </p>
-              <Link className="splash-start-looking-button">
+              <div className="splash-start-looking-button">
                 Click here to start looking!
-              </Link>
+              </div>
             </div>
           </Link>
 
@@ -30,9 +30,9 @@ class MainPage extends React.Component {
                 Rent out your unused items, make some extra cash while you're
                 not using them
               </p>
-              <Link className="splash-start-renting-button">
+              <div className="splash-start-renting-button">
                 Click here to start renting!
-              </Link>
+              </div>
             </div>
           </Link>
         </div>

@@ -24,3 +24,8 @@ export const updateUser = (userId, formData) => dispatch => {
     .then(user => dispatch(receiveUser(user)))
     // .catch(err => dispatch(receiveErrors(err)))
 }
+
+export const updateUser = (userId, formData) => (dispatch) => {
+  APIUtil.updateUser(userId, formData)
+    .then(user => dispatch(receiveUser(user)))
+}

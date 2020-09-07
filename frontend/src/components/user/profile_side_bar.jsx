@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import ImageUploader from "react-images-upload";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserPhoto} from '../../actions/user_actions';
-// import axios from 'axios';
+import Modal from "../modal/modal";
+import axios from 'axios';
+import EditProfileModal from './editProfileModal';
+// import { profile } from 'console';
 
 const ProfileSideBar = props => {
-  const currentUser = useSelector(state => state.session.user)
+  const activeUser = useSelector(state => state.entities.users.user);
+  const currentUser = useSelector(state => state.session.user);
   const [profilePhoto, setProfilePhoto] = useState(null);
   const dispatch = useDispatch();
+
+  const [openModal, setModal] = useState(false);
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
 
   const submit = () => {
     const formData = new FormData();
@@ -17,6 +27,10 @@ const ProfileSideBar = props => {
     dispatch(updateUserPhoto(currentUser.id, formData))
     // return axios.put(`/api/users/${currentUser.id}`, formData);
   }; 
+
+  const hideModal = () => {
+    setModal(false);
+  };
 
   const onDrop = (picture) => {
     // console.log("picture: ", picture)
@@ -41,33 +55,36 @@ const ProfileSideBar = props => {
     }, 3000);
   }
 
+  const userActions = () => {
+    if (activeUser._id === currentUser.id) {
+    return (
+          <div className="profile-edit-button-container">
+            <button className="profile-edit-button" onClick={showModal}>Edit Profile</button>
+          </div>
+      )
+    }
+  }
+
   return (
     <div className="profile-info-box">
       <h1>Profile</h1>
       <div className="profile-picture-box">
         <img
           className="profile-photo-img"
-          src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/profile-default.png"
+          src={activeUser.profilePhoto}
           alt="Profile Image"
-        />
-        <ImageUploader
-          withIcon={true}
-          buttonText="Choose Image"
-          onChange={onDrop}
-          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880}
         />
       </div>
       <div className="profile-user-info">
-        <h2>{currentUser.firstName}</h2>
-        <h2>{currentUser.lastName}</h2>
-        <h2>{currentUser.email}</h2>
-        <h2>{currentUser.address}</h2>
-        <h2>Change Password</h2>
+        <h2>{activeUser.firstName}</h2>
+        <h2>{activeUser.lastName}</h2>
+        <h2>{activeUser.email}</h2>
+        <h2>{activeUser.address}</h2>
       </div>
-      <div className="profile-edit-button-container">
-        <button className="profile-edit-button">Edit Profile</button>
-      </div>
+      {userActions()}
+      <Modal show={openModal} handleClose={hideModal}>
+        <EditProfileModal hideModal={hideModal} />
+      </Modal>
     </div>
   )
 }

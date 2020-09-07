@@ -15,6 +15,7 @@
 .profile-photo-img {
   height: 100%;
   width: 100%;
+  border-radius: 8px;
 }
 
 .profile-info-box {
@@ -106,7 +107,7 @@
 }
 
 .profile-edit-button {
-  background: #376996;
+  background: #012a36;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -115,7 +116,7 @@
 }
 
 .profile-edit-button:hover {
-  background: #6290c8;
+  background: #01141a;
   cursor: pointer;
 }
 
