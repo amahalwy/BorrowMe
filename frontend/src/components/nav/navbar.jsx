@@ -17,8 +17,7 @@ export default (props) => {
 
   const [openModal, setModal] = useState(false);
 
-  const showModal = (e) => {
-    e.preventDefault();
+  const showModal = () => {
     setModal(true);
   };
 
@@ -77,8 +76,8 @@ export default (props) => {
               </ul>
             </div>
           </div>
-          <Modal show={openModal} handleClose={hideModal}>
-            <CreatePosting hideModal={hideModal} />
+          <Modal show={openModal} handleClose={hideModal} >
+            <CreatePosting className="create-posting-modal-box" showModal={showModal} hideModal={hideModal} />
           </Modal>
         </div>
       );

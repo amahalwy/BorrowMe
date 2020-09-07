@@ -52,7 +52,7 @@ export const createPosting = posting => dispatch => {
 export const updatePosting = (postingId, posting) => dispatch => {
   APIUtil.updatePosting(postingId, posting)
     .then((posting) => dispatch(receivePosting(posting)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
+    .catch((err) => dispatch(receiveErrors(err.response.data)))
 };
 
 export const clearPostings = () => dispatch => {

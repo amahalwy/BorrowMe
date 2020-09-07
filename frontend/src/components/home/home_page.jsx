@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
@@ -11,6 +11,7 @@ export default props => {
   const [postingList, setPostingList] = useState();
   const [filterList, setFilterList] = useState();
   const dispatch = useDispatch();
+  const errors = useSelector((state) => state.errors.session);
 
   // // This function is used to update the filter list; when typing, the input
   // // will be used to filter out the postings that have the input INCLUDED in
@@ -25,6 +26,16 @@ export default props => {
     });
     setInput(input);
     setFilterList(filtered);
+  };
+
+  const renderErrors = () => {  
+      return (
+        <ul>
+          {Object.keys(errors).map((error, i) => (
+            <li key={`error-${i}`}>{errors[error]}</li>
+          ))}
+        </ul>
+      );
   };
 
   // // Function used to filter by tags instead
@@ -60,6 +71,7 @@ export default props => {
 
   return (
     <div className="home-container">
+      {renderErrors()}
       <div className="home-filter">
         <div className="home-tag-search-bar"></div> 
             <div className="side-engineers-container">
