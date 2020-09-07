@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
-const Posting = require('../../models/Posting');
 const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require('jsonwebtoken');
+const User = require('../../models/User');
+const Posting = require('../../models/Posting');
+const Booking = require("../../models/Booking");
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
 const multer = require("multer");
@@ -48,6 +49,26 @@ router.get("/:userId/postings",
       .then(postings => res.json(postings))
       .catch(err => res.status(400).json(err))
 })
+
+router.get(
+  "/:userId/postings",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Request.find({ ownerId: req.params.userId })
+      .then((postings) => res.json(postings))
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
+router.get(
+  "/:userId/bookings",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Booking.find({ ownerId: req.params.userId })
+      .then((postings) => res.json(postings))
+      .catch((err) => res.status(400).json(err));
+  }
+);
 
 // Private auth route
 router.get('/current', 
