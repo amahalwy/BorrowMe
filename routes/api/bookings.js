@@ -11,7 +11,7 @@ const upload = multer();
 
 router.get("/", (req, res) => {
   Booking.find()
-    .then((requests) => res.json(requests))
+    .then((bookings) => res.json(bookings))
     .catch((err) => res.status(400).json(err));
 });
 

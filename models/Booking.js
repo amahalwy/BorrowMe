@@ -3,15 +3,20 @@ const Schema = mongoose.Schema;
 
 const BookingSchema = new Schema(
   {
+    ownerId: { type: Schema.Types.ObjectId, ref: "User" },
     renterId: { type: Schema.Types.ObjectId, ref: "User" },
     postingId: {
       type: String,
-      required: true
+      required: true,
     },
     requestedDates: {
       type: Array,
-      required: true
+      required: true,
     },
+    price: {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: true,
