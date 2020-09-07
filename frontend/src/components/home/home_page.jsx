@@ -53,7 +53,8 @@ export default props => {
 
   useEffect(() => {
     // Update the home_page index when new posting is created
-    fetchData()
+    dispatch(clearPostings());
+    fetchData();
     dispatch(fetchPostings());
   }, []);
 

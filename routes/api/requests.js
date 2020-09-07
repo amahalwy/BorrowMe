@@ -4,9 +4,6 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const Request = require("../../models/Request");
-const Posting = require("../../models/Posting");
-const User = require("../../models/User");
-const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const fs = require("fs");
 
@@ -31,6 +28,17 @@ router.post("/", (req, res) => {
   .catch(err => res.json(err));
 });
 
-// router.delete("/:requestId", req);
+router.delete("/", (req, res) => {
+    Request.findOneAndDelete({
+      _id: req.body.id
+    }, (err, request) => {
+      if (err) {
+        res.send('Error removing')
+      } else {
+        // console.log(request);
+        res.json("Complete!");
+      }
+    });
+});
 
 module.exports = router;

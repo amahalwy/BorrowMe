@@ -3,8 +3,6 @@ import mapboxgl from "mapbox-gl";
 const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
-  // debugger
-  // console.log(props)
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;

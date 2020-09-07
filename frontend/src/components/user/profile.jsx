@@ -21,14 +21,6 @@ export default props => {
     dispatch(fetchUserPostings(props.match.params.userId));
   }, [])
 
-  const submit = () => {
-    const formData = new FormData();
-    formData.append("email", currentUser.email);
-    formData.append("file", profilePhoto);
-
-    return axios.put(`/api/users/${currentUser.id}`, formData);
-  }; 
-
   return (
     <div className="profile-container">
       <ProfileSideBar />

@@ -65,44 +65,32 @@ router.post("/", upload.single("file"),
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    // console.log(req.body)
-    // console.log("----")
-    console.log(req.user)
+
     uploadImage(req.file).then(data => {
-        const uploadedImageURL = data.Location;
-    
-        const newPosting = new Posting({
-          title: req.body.title,
-          image: uploadedImageURL,
-          description: req.body.description,
-          price: req.body.price,
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          zipCode: req.body.zipCode,
-          tags: req.body.tags,
-          ownerId: req.user.id
-        });
-
-        // console.log(newPosting)
-        // User.findOne({id: req.user.id})
-        // .then(user => console.log(user))//user.postings.push(newPosting));
-        
-        newPosting
-          .save()
-          .then(posting => res.json(posting))
-          .catch(err => res.json(err))
-
-          // User.findOne({ id: req.user.id }).postings.then((user) =>
-          //   user.postings.push(newPosting)
-          // );
-
+      const uploadedImageURL = data.Location;
+  
+      const newPosting = new Posting({
+        title: req.body.title,
+        image: uploadedImageURL,
+        description: req.body.description,
+        price: req.body.price,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipCode: req.body.zipCode,
+        tags: req.body.tags,
+        ownerId: req.user.id
+      });
+      
+      newPosting
+        .save()
+        .then(posting => res.json(posting))
+        .catch(err => res.json(err))
     }).catch(err => res.status(400).json(err))
   }
 )
 
 // update
-
 router.patch(
   "/:postingId",
   upload.single("file"),
@@ -130,8 +118,8 @@ router.patch(
             posting.zipCode = req.body.zipCode;
             posting.image = uploadedImageURL;
             posting.tags = req.body.tags;
-            posting
-              .save()
+            
+            posting.save()
               .then((savedPosting) => res.json(savedPosting))
               .catch((err) => res.json(err));
           });
