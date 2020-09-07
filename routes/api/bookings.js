@@ -37,29 +37,49 @@ router.post("/", upload.single("file"), (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.delete("/", upload.single("file"), (req, res) => {
-  console.log(req.body);
-  Booking.findOneAndDelete({ _id: req.body.id }).then((booking) => {
-    if (!booking) {
-      res.status(404).json("Booking not found. Try again.");
-    } else {
-      booking
-        .delete()
-        .then((res) => res.json("Complete! Beep boop, booking DELETED"))
-        .carch((err) => res.json(err));
+
+router.delete("/",upload.single("file"),  (req, res) => {
+  Request.findOneAndDelete(
+    {
+      _id: req.body.id,
+    },
+    (err, request) => {
+      if (err) {
+        res.send("Error removing the request");
+      } else {
+        // console.log(request);
+        res.json("Complete!");
+      }
     }
-  });
-  // })
-  //   (err, request) => {
-  //     if (err) {
-  //       res.send("Error removing the booking");
-  //     } else {
-  //       // console.log(request);
-  //       res.json("Complete! Booking = DELETED");
-  //     }
-  //   }
-  // );
+  );
 });
+
+
+
+// router.delete("/", upload.single("file"), (req, res) => {
+//   console.log(req.body);
+//   Booking.findOneAndDelete({ _id: req.body.id })
+//   // .then((booking) => {
+//   //   if (!booking) {
+//   //     res.status(404).json("Booking not found. Try again.");
+//   //   } else {
+//   //     booking
+//   //       .delete()
+//   //       .then((res) => res.json("Complete! Beep boop, booking DELETED"))
+//   //       .carch((err) => res.json(err));
+//   //   }
+//   // });
+//   // })
+//     ,(err, request) => {
+//       if (err) {
+//         res.send("Error removing the booking");
+//       } else {
+//         // console.log(request);
+//         res.json("Complete! Booking = DELETED");
+//       }
+//     }
+//   );
+// });
 
 
 module.exports = router;
