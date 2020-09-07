@@ -1,13 +1,13 @@
 const Validator = require("validator");
 const validText = require("./valid-text");
+const validArray = require("./valid-array");
 
 module.exports = function validatePostingInput(data) {
   let errors = {};
 
   data.postingId = validText(data.postingId) ? data.postingId : "";
   data.requestorId = validText(data.requestorId) ? data.requestorId : "";
-  data.startDate = validText(data.startDate) ? data.startDate : "";
-  data.endDate = validText(data.endDate) ? data.endDate : "";
+  data.requestDates = validArray(data.requestDates) ? data.requestDates : "";
 
   if (Validator.isEmpty(data.postingId)) {
     errors.postingId = "Posting id field is required.";
@@ -17,14 +17,10 @@ module.exports = function validatePostingInput(data) {
     errors.requestorId = "Requestor id field is required.";
   }
 
-  if (Validator.isEmpty(data.startDate)) {
-    errors.startDate = "Start date field is required.";
+  if (Validator.isEmpty(data.requestDates)) {
+    errors.requestDates = "Request dates field is required.";
   }
 
-  if (Validator.isEmpty(data.endDate)) {
-    errors.endDate = "End date field is required.";
-  }
-  
   return {
     errors,
     isValid: Object.keys(errors).length === 0,

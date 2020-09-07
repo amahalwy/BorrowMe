@@ -16,14 +16,15 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
+  console.log(req.body);
   const newRequest = new Request({
     requestorId: req.body.requestorId,
     postingId: req.body.postingId,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate
+    requestDates: req.body.requestDates
   })
-
-  newRequest.save()
+ 
+  newRequest
+  .save()
   .then(request => res.json(request))
   .catch(err => res.json(err));
 });

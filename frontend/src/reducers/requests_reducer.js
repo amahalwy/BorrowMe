@@ -9,11 +9,9 @@ export default function (state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_REQUESTS:
-      return Object.assign({}, state, action.requests.data);
+      return Object.assign({}, state, action.requests);
     case RECEIVE_REQUEST:
-      return Object.assign({}, state, {
-        [action.request.data._id]: action.request.data,
-      });
+      return Object.assign({}, state, action.request);
     case REMOVE_REQUEST: 
       let newState = Object.assign({}, state)
       delete newState[action.requestId];

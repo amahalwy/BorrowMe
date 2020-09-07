@@ -1,9 +1,9 @@
 import * as APIUtil from "../util/request_api_util";
 
-export const RECEIVE_REQUESTS = "RECEIVE_POSTINGS";
-export const RECEIVE_REQUEST = "RECEIVE_POSTING";
+export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
+export const RECEIVE_REQUESTS = "RECEIVE_REQUESTS";
 export const REMOVE_REQUEST = "REMOVE_REQUEST";
-export const RECEIVE_REQUEST_ERRORS = "RECEIVE_POST_ERRORS";
+export const RECEIVE_REQUEST_ERRORS = "RECEIVE_REQUEST_ERRORS";
 export const CLEAR_REQUESTS = "CLEAR_REQUESTS";
 
 const receiveRequests = requests => ({
@@ -49,7 +49,7 @@ export const createRequest = request => dispatch => {
     .catch(err => dispatch(receiveErrors(err.response.data)));
     // .catch((err) => console.log(err));
 };
-  
+
 export const deleteRequest = requestId => dispatch => {
   APIUtil.deleteRequest(requestId)
     .then(() => dispatch(removeRequest(requestId)))

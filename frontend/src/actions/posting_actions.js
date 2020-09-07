@@ -40,7 +40,8 @@ export const fetchPostings = () => dispatch => {
 export const fetchUserPostings = ownerId => dispatch => {
   APIUtil.fetchUserPostings(ownerId)
     .then((postings) => dispatch(receivePostings(postings)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
+    .catch(err => console.log(err));
+    // .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 
 export const createPosting = posting => dispatch => {

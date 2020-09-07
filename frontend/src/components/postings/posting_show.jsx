@@ -27,7 +27,7 @@ export default (props) => {
         <div className="modal-calendar">
           <Calendar posting={props.posting}/>
         </div>
-        <div><Map posting={props.posting} /></div>
+        {/* <div><Map posting={props.posting} /></div> */}
       </div>
     </div>
   );

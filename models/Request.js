@@ -6,14 +6,10 @@ const RequestSchema = new Schema(
     requestorId: { type: Schema.Types.ObjectId, ref: "User" },
     postingId: {
       type: String,
-      required: true,
+      required: false,
     },
-    startDate: {
-      type: String,
-      required: true,
-    },
-    endDate: {
-      type: String,
+    requestDates: {
+      type: Array,
       required: true,
     },
   },

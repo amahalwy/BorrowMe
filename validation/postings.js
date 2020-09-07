@@ -43,11 +43,11 @@ module.exports = function validatePostingInput(data) {
   }
 
   if (Validator.isEmpty(data.address)) {
-    errors.address = "Zip code field is required.";
+    errors.address = "Address code field is required.";
   }
 
   if (Validator.isEmpty(data.city)) {
-    errors.city = "Zip code field is required.";
+    errors.city = "City code field is required.";
   }
 
   if (Validator.isEmpty(data.zipCode)) {
