@@ -51,7 +51,6 @@ const Map = (props) => {
       const coordinates = json.features[0].geometry.coordinates;
       console.log(coordinates);
       // .then(function (response.json()) {
-      //   // debugger
       //   console.log(response.json());
       //   return response.json();
       // }).then( json => {

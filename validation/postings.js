@@ -12,7 +12,6 @@ module.exports = function validatePostingInput(data) {
   data.state = validText(data.state) ? data.state : '';
   data.city = validText(data.city) ? data.city : '';
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
-  // data.image = validText(data.image) ? data.image : '';
   data.ownerId = validText(data.ownerId) ? data.ownerId : "";
   data.tags = validArray(data.tags.trim().split(","))
     ? data.tags.trim().split(",")
