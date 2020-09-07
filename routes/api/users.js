@@ -49,8 +49,6 @@ router.get("/:userId/postings",
       .catch(err => res.status(400).json(err))
 })
 
-
-
 // Private auth route
 router.get('/current', 
   passport.authenticate("jwt", { session: false }), 

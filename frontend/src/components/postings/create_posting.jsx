@@ -6,6 +6,8 @@ import axios from 'axios';
 import FormData from 'form-data';
 
 export default (props) => {
+  const currentUser = useSelector(state => state.session.user)
+  const errors = useSelector((state) => state.errors.session);
   const [title, updateTitle] = useState("");
   const [price, updatePrice] = useState("");
   const [description, updateDescription] = useState("");
@@ -17,8 +19,6 @@ export default (props) => {
   const [imageFile, setFile] = useState(null);
   const [url, setUrl] = useState(null);
 
-  const currentUser = useSelector(state => state.session.user)
-  const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
   
   const handleSubmit = async (e) => {

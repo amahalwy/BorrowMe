@@ -31,6 +31,6 @@ router.post("/", (req, res) => {
   .catch(err => res.json(err));
 });
 
-router.delete("");
+router.delete("/:requestId", req);
 
 module.exports = router;

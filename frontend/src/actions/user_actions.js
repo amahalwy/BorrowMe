@@ -19,8 +19,8 @@ export const fetchUser = userId => dispatch => {
     // .catch(err => dispatch(receiveErrors(err)));
 }
 
-export const updateUserPhoto = (userId, formData) => (dispatch) => {
-  APIUtil.updateUserPhoto(userId, formData)
+export const updateUser = (userId, formData) => dispatch => {
+  APIUtil.updateUser(userId, formData)
     .then(user => dispatch(receiveUser(user)))
     // .catch(err => dispatch(receiveErrors(err)))
 }
