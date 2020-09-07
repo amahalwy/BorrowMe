@@ -12,3 +12,7 @@ export const updateUserPhoto = (userId, formData) => {
     }
   });
 };
+
+export const updateUser = (userId, formData) => {
+  return axios.patch(`/api/profile/${userId}`, formData);
+};

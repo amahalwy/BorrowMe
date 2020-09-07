@@ -113,13 +113,15 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 .posting-modal-x{
-   display: block;
-padding: 12px;
-margin-left: 350px;
-position: absolute;
-top: 2px;
-right: 5px;
-cursor: pointer;
+    display: block;
+    padding: 10px;
+    margin-left: 350px;
+    position: absolute;
+    background-color: white;
+    top: 4px;
+    right: 5px;
+    font-size: 2em;
+    cursor: pointer;
 }
 
 .fileContainer {
