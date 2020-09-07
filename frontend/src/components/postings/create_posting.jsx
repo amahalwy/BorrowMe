@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
 import {createPosting} from '../../actions/posting_actions';
+import Modal from "../modal/modal"
 import axios from 'axios';
 import FormData from 'form-data';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user)
-  const errors = useSelector((state) => state.errors.session);
+  const errors = useSelector((state) => state.errors.postings);
   const [title, updateTitle] = useState("");
   const [price, updatePrice] = useState("");
   const [description, updateDescription] = useState("");
@@ -18,6 +19,7 @@ export default (props) => {
   const [tags, updateTags] = useState("");
   const [imageFile, setFile] = useState(null);
   const [url, setUrl] = useState(null);
+  const [openModal, setModal] = useState(false);
 
   const dispatch = useDispatch();
   
@@ -45,13 +47,19 @@ export default (props) => {
   }
 
   const renderErrors = () => {
-    return (
-      <ul>
-        {Object.keys(errors).map((error, i) => (
-          <li key={`error-${i}`}>{errors[error]}</li>
-        ))}
-      </ul>
-    );
+    if (Object.keys(errors).length > 0) {
+      props.showModal()
+      return (
+        <div >
+          <h2 id="create-posting-errors-h2">Could not create posting see the below errors:</h2>
+          <ul>
+            {Object.keys(errors).map((error, i) => (
+              <li className="create-posting-errors" key={`error-${i}`}>{errors[error]}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
   };
 
   return (
