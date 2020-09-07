@@ -12,7 +12,11 @@ const fs = require("fs");
 
 const upload = multer();
 
-router.get("")
+router.get("/", (req, res) => {
+  Request.find()
+    .then(requests => res.json(requests))
+    .catch(err => res.status(400).json(err));
+})
 
 router.post("/", (req, res) => {
   const newRequest = new Request({
