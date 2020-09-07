@@ -5,7 +5,7 @@ export const fetchUser = userId => {
 }
 
 export const updateUserPhoto = (userId, formData) => {
-  debugger
+  // debugger
   return axios.put(`/api/users/${userId}`, formData,
     {headers: {
       "Content-Type": `multipart/form-data`

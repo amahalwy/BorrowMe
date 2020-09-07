@@ -1,5 +1,6 @@
 import React from 'react';
 import Calendar from '../calendar/calendar';
+import Map from '../map/map'
 
 export default (props) => {
 
@@ -26,6 +27,7 @@ export default (props) => {
         <div className="modal-calendar">
           <Calendar posting={props.posting}/>
         </div>
+        <div><Map posting={props.posting} /></div>
       </div>
     </div>
   );

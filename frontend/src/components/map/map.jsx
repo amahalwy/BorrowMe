@@ -4,17 +4,17 @@ const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
   // debugger
-  console.log(props)
+  // console.log(props)
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;
 
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
-  const [address, updateAddress] = useState("");
-  const [city, updateCity] = useState("");
-  const [state, updateState] = useState("");
-  const [zipCode, updateZipCode] = useState("");
+  
+  const { address, city, state, zipCode } = props
+
+  const searchText = `${address} ${city} ${state} ${zipCode}`
 
   useEffect(() => {
     mapboxgl.accessToken = token;
@@ -46,7 +46,7 @@ const Map = (props) => {
         .setLngLat([-122.414, 37.776])
         .addTo(map);
 
-      let searchText = "123 kissling street san francisco CA 94103"
+      // let searchText = "123 kissling street san francisco CA 94103"
       let request = new Request(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchText}.json?country=US&access_token=${token}`);
       const res = await fetch(request);
       const json = await res.json();
