@@ -8,6 +8,9 @@ module.exports = function validatePostingInput(data) {
   data.title = validText(data.title) ? data.title : '';
   data.description = validText(data.description) ? data.description : '';
   data.price = validText(data.price) ? data.price : '';
+  data.address = validText(data.address) ? data.address : '';
+  data.state = validText(data.state) ? data.state : '';
+  data.city = validText(data.city) ? data.city : '';
   data.zipCode = validText(data.zipCode) ? data.zipCode : '';
   // data.image = validText(data.image) ? data.image : '';
   data.ownerId = validText(data.ownerId) ? data.ownerId : "";
@@ -32,12 +35,20 @@ module.exports = function validatePostingInput(data) {
     errors.description = "Description field should be minimum 8 characters and maximum 300 characters.";
   }
 
-  // if (Validator.isEmpty(data.image)) {
-  //   errors.image = "Image field is required.";
-  // }
-
   if (Validator.isEmpty(data.price)) {
     errors.price = 'Price field is required.';
+  }
+
+  if (Validator.isEmpty(data.state)) {
+    errors.state = "State field is required.";
+  }
+
+  if (Validator.isEmpty(data.address)) {
+    errors.address = "Zip code field is required.";
+  }
+
+  if (Validator.isEmpty(data.city)) {
+    errors.city = "Zip code field is required.";
   }
 
   if (Validator.isEmpty(data.zipCode)) {

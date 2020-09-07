@@ -51,8 +51,8 @@ export default props => {
       });
   };
 
-  // // useEffect hook that mounts and invokes the above function
   useEffect(() => {
+    // Update the home_page index when new posting is created
     fetchData()
     dispatch(fetchPostings());
   }, []);

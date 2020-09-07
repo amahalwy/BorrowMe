@@ -11,7 +11,6 @@ import {fetchUser} from '../../actions/user_actions';
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
   const currentUser = useSelector(state => state.session.user);
-  const profileUser = useSelector(state => state.entities.users.user )
   const postings = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
   
