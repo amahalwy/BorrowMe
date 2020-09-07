@@ -8,11 +8,11 @@ const Map = (props) => {
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;
-
+  
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
   
-  const { address, city, state, zipCode } = props
+  const { address, city, state, zipCode } = props.posting
 
   const searchText = `${address} ${city} ${state} ${zipCode}`
 
@@ -51,7 +51,7 @@ const Map = (props) => {
       const res = await fetch(request);
       const json = await res.json();
       const coordinates = json.features[0].geometry.coordinates;
-      console.log(coordinates);
+      // console.log(coordinates);
       // .then(function (response.json()) {
       //   // debugger
       //   console.log(response.json());
