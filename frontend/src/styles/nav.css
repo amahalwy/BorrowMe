@@ -52,7 +52,7 @@
 }
 
 .nav-logo {
-  width: 70px;
+  width: 65px;
   z-index: 7;
   position: fixed;
   margin-left: 80px;
@@ -113,13 +113,15 @@
   line-height: 1em;
   padding: 10%, 10%;
   margin-top: 68px;
-  z-index: 7;
+  z-index: 200;
   border-radius: 8px;
 }
 
 .nav-dropdown-items ul li:hover {
   background: #779c8f;
   display: block;
+  z-index: 200;
+  border-radius: 8px;
 }
 .nav-dropdown-items ul li:hover .nav-dropdown-link {
 
