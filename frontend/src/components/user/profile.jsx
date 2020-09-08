@@ -7,6 +7,7 @@ import ProfileSideBar from './profile_side_bar';
 import PostingsIndex from "../postings/profile_postings_index";
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 import {fetchUser} from '../../actions/user_actions';
+import ProfileBookings from './profile_bookings';
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
@@ -37,7 +38,7 @@ export default props => {
         </div>
         <div className="profile-rentals">
           <h1>Rentals</h1>
-          <p>Current rentals and rental history here</p>
+          <ProfileBookings postings={postings}/>
         </div>
       </div>
     </div>
