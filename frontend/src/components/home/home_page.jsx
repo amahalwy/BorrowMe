@@ -79,7 +79,7 @@ export default props => {
 
 
               <div className="engineer-info">
-                <p className="engineer-name">Ahmed El Mahallawy, Team Lead</p>
+                <p className="engineer-name">Ahmed El Mahallawy <br/> Team Lead</p>
                 <div className="links-image-container"> 
                   <div className="links">
                     <a className="links" href="https://github.com/amahalwy">
@@ -106,12 +106,12 @@ export default props => {
                     enjoyed building the auto-updating search functionality; it’s so
                     awesome!!”
                   </p>
-                  - Ahmed
+                  <span>- Ahmed</span>
                 </div>
               </div>
 
               <div className="engineer-info">
-                <p className="engineer-name">Ayce Lacap, <br/> Backend Operations</p>
+                <p className="engineer-name">Ayce Lacap <br/> Backend Operations</p>
                 <div className="links-image-container">
                   <div className="links">
                     <a className="links" href="https://github.com/aycelacap">
@@ -138,7 +138,7 @@ export default props => {
                     update and delete. I am most proud of working collaboratively
                     with our team.”
                   </p>
-                  - Ayce
+                  <span> - Ayce</span>
                 </div>
               </div>
 
@@ -171,7 +171,7 @@ export default props => {
                     I'm proud of our workflow improvements over the course of the
                     project"
                   </p>
-                  - Nate
+                  <span>- Nate</span>
                 </div>
               </div>
 
@@ -203,7 +203,7 @@ export default props => {
                     work on the index page as well as the different modals we used in
                     the project."
                   </p>
-                  - Sean
+                  <span> - Sean </span>
                 </div>
               </div>
             </div>
