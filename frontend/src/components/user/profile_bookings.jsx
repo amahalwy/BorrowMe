@@ -5,7 +5,7 @@ const ProfileBookings = props => {
 
   return (
     <div className="profile-postings-image-list">
-      {
+      {/* {
         props.postings.map(posting => {
           if (posting)
           return (
@@ -14,7 +14,7 @@ const ProfileBookings = props => {
             </div>
           )
         })
-      }
+      } */}
     </div>
   )
 }
