@@ -10,7 +10,6 @@ const EditProfileModal = (props) => {
 
   const [firstName, updateFirstName] = useState(currentUser.firstName);
   const [lastName, updateLastName] = useState(currentUser.lastName);
-  const email = useState(currentUser.email);
   const [address, updateAddress] = useState(currentUser.address);
   const [city, updateCity] = useState(currentUser.city);
   const [state, updateState] = useState(currentUser.state);
@@ -29,7 +28,7 @@ const EditProfileModal = (props) => {
     const formData = new FormData();
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
-    formData.append("email", email);
+    formData.append("email", currentUser.email);
     formData.append("address", address);
     formData.append("city", city);
     formData.append("state", state);
@@ -101,7 +100,7 @@ const EditProfileModal = (props) => {
           onChange={(e) => updateAddress(e.currentTarget.value)}
           placeholder={currentUser.address}
         />
-   </div>
+        </div>
         <br />
         <div className="profile-posting-second">
           <input

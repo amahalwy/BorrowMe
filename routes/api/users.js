@@ -218,7 +218,7 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
-    console.log(req);
+    console.log(req.body);
 
     // Branching logic for uploading a photo/NOT having a photo uploaded
     // with edit
@@ -233,10 +233,9 @@ router.put(
             user.city = req.body.city;
             user.state = req.body.state;
             user.zipCode = req.body.zipCode;
-            user.postings = req.body.postings;
             user.profilePhoto = uploadedImageURL;
-            user
-              .save()
+
+            user.save()
               .then((savedUser) => res.json(savedUser))
               .catch((err) => res.json(err));
           })
