@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const BookingSchema = new Schema(
   {
     ownerId: { type: Schema.Types.ObjectId, ref: "User" },
-    renterId: { type: Schema.Types.ObjectId, ref: "User" },
+    requestorId: { type: Schema.Types.ObjectId, ref: "User" },
     postingId: {
       type: String,
       required: true,
@@ -15,8 +15,8 @@ const BookingSchema = new Schema(
     },
     price: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -1,8 +1,10 @@
 import React from 'react';
+// import {useSelector} from 'react-redux';
 import Calendar from '../calendar/calendar';
 import Map from '../map/map'
 
 export default (props) => {
+  // const currentUser = useSelector(state => state.session.user)
 
   return (
     <div className="modal-main-show">
@@ -27,7 +29,7 @@ export default (props) => {
         <div className="modal-calendar">
           <Calendar posting={props.posting}/>
         </div>
-        {/* <div><Map posting={props.posting} /></div> */}
+        {/* <div><Map posting={props.posting} currentUser={currentUser}/></div> */}
       </div>
     </div>
   );

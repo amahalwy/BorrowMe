@@ -13,12 +13,18 @@ export default props => {
   const currentUser = useSelector(state => state.session.user);
   const postings = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
+    // 
+    // 
+    // 
   
   useEffect(() => {
     // incorporate full re-rendering over URL change
     dispatch(fetchUser(props.match.params.userId));
     dispatch(clearPostings());
     dispatch(fetchUserPostings(props.match.params.userId));
+    // 
+    // 
+    // 
   }, [])
 
   return (

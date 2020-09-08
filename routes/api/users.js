@@ -35,37 +35,59 @@ const uploadImage = (file) => {
 };
 
 router.get("/:userId",
- passport.authenticate("jwt", { session: false }),  
- (req, res) => {
-  User.findOne({ _id: req.params.userId })
-    .then(user => res.json(user))
-    .catch(err => res.status(400).json(err));
-});
-
-router.get("/:userId/postings",
   passport.authenticate("jwt", { session: false }),  
   (req, res) => {
-    Posting.find({ownerId: req.params.userId})
-      .then(postings => res.json(postings))
-      .catch(err => res.status(400).json(err))
-})
+    User.findOne({ _id: req.params.userId })
+      .then(user => res.json(user))
+      .catch(err => res.status(400).json(err));
+  }
+);
 
+// Users' postings
 router.get(
   "/:userId/postings",
+  upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Request.find({ ownerId: req.params.userId })
+    Posting.find({ ownerId: req.params.userId })
       .then((postings) => res.json(postings))
       .catch((err) => res.status(400).json(err));
   }
 );
 
+// Users' requests (as requestor)
 router.get(
-  "/:userId/bookings",
+  "/:userId/requests/requestor",
+  upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Booking.find({ ownerId: req.params.userId })
-      .then((postings) => res.json(postings))
+    Request.find({ requestorId: req.params.userId })
+      .then((requests) => res.json(requests))
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
+// Users' requests (as receiver)
+router.get(
+  "/:userId/requests/receiver",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Request.find({ receiverId: req.params.userId })
+      .then((requests) => res.json(requests))
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
+// Users' bookings
+router.get(
+  "/:userId/bookings",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log("PARAMS :", req.params)
+    Booking.find({ requestorId: req.params.userId })
+      .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
   }
 );

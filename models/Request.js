@@ -4,13 +4,14 @@ const Schema = mongoose.Schema;
 const RequestSchema = new Schema(
   {
     requestorId: { type: Schema.Types.ObjectId, ref: "User" },
+    receiverId: { type: Schema.Types.ObjectId, ref: "User" },
     postingId: {
       type: String,
-      required: false
+      required: false,
     },
     requestDates: {
       type: Array,
-      required: true
+      required: true,
     },
   },
   {
