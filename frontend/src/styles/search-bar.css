@@ -1,12 +1,13 @@
 .search-bar {
   height: 3em;
   display: inline-block;
-  width: 30em;
+  width: 35em;
   background: #F1F1F1;
   /* position: absolute; */
   border-radius: 5px;
+  background-color: white;
   margin-bottom: 20px;
-  margin-left: 150px;
+  margin-left: 100px;
   margin-top: 10px;
 }
 
@@ -14,14 +15,15 @@
   width: 100%;
     height: 3em;
    display: inline-block;
+background-color: white;
 
-    background: #F1F1F1;
   border-radius: 5px;
   margin-bottom: 20px;
-  margin-top: 10px; 
+  margin-top: 10px;
+}
 
-
-
+input:focus {
+    outline:none;
 }
 
 .tag-container{

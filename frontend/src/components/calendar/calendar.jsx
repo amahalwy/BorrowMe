@@ -40,7 +40,7 @@ export default (props) => {
     formData.append("requestorId", currentUser.id );
     formData.append("startDate", state[0].startDate);
     formData.append("endDate", state[0].endDate);
-    debugger
+
 
       return axios
         .post("/api/requests", formData)
