@@ -4,18 +4,18 @@ export const fetchRequest = requestId => {
   return axios.get(`/api/requests`, requestId)
 }
 
-export const fetchRequests = userId => {
-  return axios.get('/api/requests', userId)
+export const fetchRequestorRequests = userId => {
+  return axios.get(`/api/users/${userId}/requests/requestor`);
+}
+
+export const fetchReceiverRequests = userId => {
+  return axios.get(`/api/users/${userId}/requests/receiver`);
 }
 
 export const createRequest = request => {
   return axios.post("/api/requests", request)
-    // {
-    //   headers: {
-    //     "Content-Type": `multipart/form-data`
-    //   }
 }
 
 export const deleteRequest = requestId => {
-  return axios.delete(`/api/request`, requestId)
+  return axios.delete(`/api/requests/${requestId}`)
 }

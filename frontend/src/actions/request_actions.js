@@ -6,14 +6,14 @@ export const REMOVE_REQUEST = "REMOVE_REQUEST";
 export const RECEIVE_REQUEST_ERRORS = "RECEIVE_REQUEST_ERRORS";
 export const CLEAR_REQUESTS = "CLEAR_REQUESTS";
 
-const receiveRequests = requests => ({
-  type: RECEIVE_REQUESTS,
-  requests,
-});
-
 const receiveRequest = request => ({
   type: RECEIVE_REQUEST,
   request,
+});
+
+const receiveRequests = requests => ({
+  type: RECEIVE_REQUESTS,
+  requests,
 });
 
 const removeRequest = requestId => ({
@@ -36,11 +36,18 @@ export const fetchRequest = requestId => dispatch => {
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 
-export const fetchRequests = userId => dispatch => {
-  APIUtil.fetchRequests(userId)
-    .then(requests => dispatch(receiveRequests(requests)))
-    .catch(err => dispatch(receiveErrors(err.response.data)));
-    // .catch(err => console.log(err));
+export const fetchReceiverRequests = (userId) => (dispatch) => {
+  APIUtil.fetchReceiverRequests(userId)
+    .then((requests) => dispatch(receiveRequests(requests)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+  // .catch(err => console.log(err));
+};
+
+export const fetchRequestorRequests = (userId) => (dispatch) => {
+  APIUtil.fetchRequestorRequests(userId)
+    .then((requests) => dispatch(receiveRequests(requests)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+  // .catch(err => console.log(err));
 };
 
 export const createRequest = request => dispatch => {

@@ -11,7 +11,6 @@ const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
 // const fs = require("fs");
 
-
 // Middleware for postman form-data
 const upload = multer();
 
@@ -32,14 +31,15 @@ const uploadImage = (file) => {
   return uploadPhoto;
 };
 
-router.get("/", (req, res) => {
+router.get("/", 
+  (req, res) => {
   Posting.find()
-    .sort({ date: -1 })
     .then((postings) => res.json(postings))
     .catch((err) => res.status(400).json(err));
 })
 
-router.get("/:ownerId", (req, res) => {
+router.get("/:ownerId", 
+  (req, res) => {
   Posting.findById(req.params.id)
   .populate({
     path: 'userId',
@@ -56,8 +56,9 @@ router.get("/:userId", (req, res) => {
   .catch(err => res.status(400).json(err))
 })
 
-// protects the route
-router.post("/", upload.single("file"),
+
+router.post("/", 
+  upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { isValid, errors } = validatePostingInput(req.body)

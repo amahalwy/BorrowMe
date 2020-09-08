@@ -12,7 +12,7 @@ const Map = (props) => {
   
   const { address, city, state, zipCode } = props.posting
 
-  const searchText = `${address} ${city} ${state} ${zipCode}`
+  const searchText = `${address} ${city} ${state} ${zipCode}`;
 
   useEffect(() => {
     mapboxgl.accessToken = token;
@@ -39,7 +39,10 @@ const Map = (props) => {
       );
       map.setMaxBounds(bounds);
       setMap(map);
+      
 
+      // Change this up to hold the currentUser stuff
+      // Grab currentUser address, state, etc and convert it
       let marker = new mapboxgl.Marker()
         .setLngLat([-122.414, 37.776])
         .addTo(map);

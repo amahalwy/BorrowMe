@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const Request = require("../../models/Request");
 const multer = require("multer");
 const validateRequestInput = require('../../validation/requests');
-// const fs = require("fs");
 
 const upload = multer();
 
@@ -16,36 +15,44 @@ router.get("/", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-router.post("/", upload.single("file"), (req, res) => {
-  const { isValid, errors } = validateRequestInput(req.body)
+router.post(
+  "/",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { isValid, errors } = validateRequestInput(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
 
-  const newRequest = new Request({
-    requestorId: req.body.requestorId,
-    postingId: req.body.postingId,
-    requestDates: req.body.requestDates
-  })
- 
-  newRequest
-  .save()
-  .then(request => res.json(request))
-  .catch(err => res.json(err));
-});
-
-router.delete("/", (req, res) => {
-    Request.findOneAndDelete({
-      _id: req.body.id
-    }, (err, request) => {
-      if (err) {
-        res.send('Error removing the request')
-      } else {
-        // console.log(request);
-        res.json("Complete!");
-      }
+    const newRequest = new Request({
+      requestorId: req.body.requestorId,
+      receiverId: req.body.receiverId,
+      postingId: req.body.postingId,
+      requestDates: req.body.requestDates,
     });
-});
+
+    newRequest
+      .save()
+      .then((request) => res.json(request))
+      .catch((err) => res.json(err));
+  }
+);
+
+router.delete(
+  "/",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Request.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.status(200).json({ message: "Deleted!" });
+      })
+      .catch((error) => {
+        res.status(400).json({ error: error });
+      });
+  }
+);
 
 module.exports = router;
