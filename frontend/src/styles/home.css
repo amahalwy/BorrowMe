@@ -8,13 +8,14 @@
 }
 
 .home-filter {
-  width: 15%;
+  width: 17%;
   box-sizing: border-box;
   background: white;
-  height: 870px;
+  height: 1060px;
   margin: 10px;
   padding-top: 2px;
   box-shadow: 0px 3px 3px #888888;
+  border-radius: 8px;
 }
 
 .home-filter h2{
@@ -32,12 +33,13 @@
 .home-index{
   box-sizing: border-box;
   margin: 10px;
-  width: 80%;
+  margin-right: 15px;
+  width: 75%;
   border: none;
   padding-top: 1%;
-  background-color: white;
+  background-color: #f1f1f1;
   height: 88px;
-  box-shadow: 0px 3px 3px #888888;
+  /* box-shadow: 0px 3px 3px #888888; */
 }
 
 .nav-button{
@@ -65,8 +67,8 @@
 }
 
 .home-index-list{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -97,14 +99,36 @@
   font-weight: bold;
 }
 
-/* .engineer-info {
- backg 
-} */
+.engineer-info {
+  color: white;
+ background: #012a36;
+ padding-left: 3px;
+ padding-right: 3px;
+ padding-bottom: 15px;
+ padding-top: 3px;
+ margin: 10px;
+ border-radius: 8px; 
+ box-shadow: 0px 3px 3px #888888;
+}
+
+.engineer-info a {
+  color: white;
+}
+
+.engineer-info a:hover {
+  text-decoration: underline;
+}
 
 .engineer-name {
   font-family: 'Lato', sans-serif;
   display: flex;
-  justify-content: space-between;
+  text-align: center;
+  background: white;
+  font-weight: bold;
+  padding: 2px;
+  color: #012a36;
+  border-radius: 5px;
+  justify-content: center;
   margin: 20px;
 }
 
@@ -117,25 +141,21 @@
 
 .links-image-container {
   /* background: red; */
-  width: 100%;
+  width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-right: 15%;
+
   margin-bottom: 5px;
 }
 
 .links {
   text-decoration: none;
-  color: grey;
+  color: white;
   padding: 3px;
   margin-bottom: 10px;
   margin-left: 14px;
   cursor: pointer;
-}
-
-.links:hover {
-  color: #012a36;
 }
 
 .engineer-image {
@@ -167,4 +187,8 @@
 .engineer-quotes {
   margin: 0px 10px;
   margin-top: 10px;
+}
+
+.engineer-quotes span {
+  margin-left: 150px;
 }

@@ -7,25 +7,38 @@ import ProfileSideBar from './profile_side_bar';
 import PostingsIndex from "../postings/profile_postings_index";
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 import {fetchUser} from '../../actions/user_actions';
+import { fetchRequestorRequests, fetchReceiverRequests} from '../../actions/request_actions';
+// import ProfileBookings from './profile_bookings';
+import ProfileRequestorIndex from '../requests/posting_requestor_index';
 
 export default props => {
   const [profilePhoto, setProfilePhoto] = useState(null);
-  const currentUser = useSelector(state => state.session.user);
-  const postings = useSelector(state => Object.values(state.entities.postings));
+  const currentUser = useSelector((state) => state.session.user);
+  const postings = useSelector((state) =>
+    Object.values(state.entities.postings)
+  );
+  const requestorRequests = useSelector((state) =>
+    Object.values(state.entities.requests)
+  );
   const dispatch = useDispatch();
-    // 
-    // 
-    // 
-  
+
+  /*
+
+
+  */
+  // useState => this.state
+
   useEffect(() => {
     // incorporate full re-rendering over URL change
     dispatch(fetchUser(props.match.params.userId));
     dispatch(clearPostings());
     dispatch(fetchUserPostings(props.match.params.userId));
-    // 
-    // 
-    // 
-  }, [])
+    dispatch(fetchRequestorRequests(props.match.params.userId));
+    // dispatch(fetchReceiverRequests(props.match.params.userId));
+    //
+    //
+    //
+  }, []);
 
   return (
     <div className="profile-container">
@@ -37,7 +50,7 @@ export default props => {
         </div>
         <div className="profile-rentals">
           <h1>Rentals</h1>
-          <p>Current rentals and rental history here</p>
+          <ProfileRequestorIndex requests={requestorRequests} />
         </div>
       </div>
     </div>
