@@ -162,3 +162,13 @@
 .nav-logout-link:hover {
   color: black;
 }
+
+.nav-current-user-profile-link {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-current-user-profile-link:hover {
+  cursor: pointer;
+  color: rgb(221, 221, 221);
+}

@@ -14,7 +14,7 @@
   box-shadow: 0px 3px 3px #888888;
   width: 40%;
   background-color: white;
-  padding: 5% 0%;
+  padding: 2% 0%;
   border-radius: 8px;
 }
 
@@ -35,11 +35,12 @@
 input[type=submit]{
   width: 70%;
   height: 2em;
-  background-color:#376996;
+  background-color:#012a36;
   color: white; 
 
   font-weight: bold;
   font-size: 18px;
+  margin-top: 5%;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
@@ -51,8 +52,7 @@ input[type=submit]{
 
 .login-inputs >
 input[type=submit]:hover{
-  background-color:  #6290c8;
-  color: black;
+  background-color:  #01141a;
   cursor: pointer;
   width: 70%;
   padding: 2px;
@@ -67,7 +67,7 @@ input[type=submit]:focus {
 
 .login-title{
   display: block;
-  padding: 0% 2% 0% 9%;
+  text-align: center;
   margin: 0% 15% 5% 15%;
   font-size: 30px;
   min-height: 100%;
