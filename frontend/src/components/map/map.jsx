@@ -48,7 +48,7 @@ const Map = (props) => {
       const json = await res.json();
       const coordinates = json.features[0].geometry.coordinates;
       
-      let markerPlace = new mapboxgl.Marker()
+      let markerPlace = new mapboxgl.Marker({ "color": "#cc0000" })
         .setLngLat([coordinates[0], coordinates[1]])
         .addTo(map);
 
