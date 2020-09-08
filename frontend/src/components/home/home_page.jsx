@@ -144,7 +144,7 @@ export default props => {
 
 
               <div className="engineer-info">
-                <p className="engineer-name">Nate Gallagher, Frontend Operations</p>
+                <p className="engineer-name">Nate Gallagher <br/> Frontend Operations</p>
                 <div className="links-image-container">
                   <div className="links">
                     <a className="links" href="https://github.com/n8gallagher">
@@ -176,7 +176,7 @@ export default props => {
               </div>
 
               <div className="engineer-info">
-                <p className="engineer-name">Sean Scott, Frontend Operations</p>
+                <p className="engineer-name">Sean Scott <br/> Frontend Operations</p>
                 <div className="links-image-container">
                   <div className="links">
                     <a className="links" href="https://github.com/seanscott23">

@@ -49,7 +49,7 @@ export default props => {
           <PostingsIndex postings={postings} />
         </div>
         <div className="profile-rentals">
-          <h1>Rentals</h1>
+          <h1>Rental Requests</h1>
           <ProfileRequestorIndex requests={requestorRequests} />
         </div>
       </div>

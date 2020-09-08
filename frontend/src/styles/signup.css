@@ -76,7 +76,7 @@
 
 .signup-submit {
   margin: 10px;
-  background: #376996;
+  background: #012a36;
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -89,8 +89,7 @@
 }
 
 .signup-submit:hover {
-  background-color: #6290c8;
-  color: #2b2b2b;
+  background-color: #01141a;
   cursor: pointer;
 }
 

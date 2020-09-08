@@ -19,7 +19,7 @@
 }
 
 .profile-info-box {
-  height: 900px;
+  height: 110%;
   margin: 1%;
   text-align: center;
   width: 28%;
@@ -59,7 +59,7 @@
 
 .profile-main-box {
   margin: 1%;
-  height: 900px;
+  height: 100%;
   width: 85%;
   text-align: center;
   background: white;
@@ -103,7 +103,7 @@
 }
 
 .profile-edit-button-container {
-  margin-top: 10%;
+  padding: 10%;
 }
 
 .profile-edit-button {
