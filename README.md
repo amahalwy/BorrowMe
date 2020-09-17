@@ -20,12 +20,13 @@ Borrow Me is a peer to peer advertising site for individuals to rent out items t
 Technologies
 ***
 Backend
-* Ruby on Rails
+* Express
 * Postgresql
 
 Frontend
 * React 
 * Redux
+* HTML/CSS
 
 Other
 * AWS
