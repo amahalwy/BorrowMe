@@ -9,12 +9,12 @@ export default props => {
     <div className="profile-postings-image-list">
       {
         props.requests.map(request => {
-          
-            return (
-              <div className="postings-index-image-box">
-                <img className="postings-index-image" src='' alt="" />
-              </div>
-            )
+          return (
+            <div className="postings-index-image-box">
+              <img className="postings-index-image" src={request.postingImage} alt="" />
+              <span></span>
+            </div>
+          )
         })
       }
     </div>

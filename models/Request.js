@@ -5,6 +5,10 @@ const RequestSchema = new Schema(
   {
     requestorId: { type: Schema.Types.ObjectId, ref: "User" },
     receiverId: { type: Schema.Types.ObjectId, ref: "User" },
+    postingImage: { 
+      type: String,
+      required: true
+    },
     postingId: {
       type: String,
       required: false,

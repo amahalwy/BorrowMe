@@ -22,6 +22,8 @@ router.post(
   (req, res) => {
     const { isValid, errors } = validateRequestInput(req.body);
 
+    console.log(req.body)
+
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -31,6 +33,7 @@ router.post(
       receiverId: req.body.receiverId,
       postingId: req.body.postingId,
       requestDates: req.body.requestDates,
+      postingImage: req.body.postingImage
     });
 
     newRequest

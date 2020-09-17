@@ -11,7 +11,8 @@
 }
 
 .post-title,
-.post-price{
+.post-price,
+.post-tags {
   display:inline-block;
   margin: 4% 4%;
   font-weight: bold;

@@ -44,9 +44,9 @@ export default props => {
               <span>Zipcode</span>
             </div>
             <div className="post-price">
-              <span>Price: ${props.posting.price}</span>
+              <span>Price: ${props.posting.price}/day</span>
             </div>
-            <div>
+            <div className='post-tags'>
               <span>Tags: {props.posting.tags}</span>
             </div>
           </div>

@@ -42,6 +42,7 @@ export default (props) => {
 
     return dateArray;
   }
+  debugger
    
   const handleSubmit = e => {
     e.preventDefault();
@@ -52,6 +53,7 @@ export default (props) => {
     formData.append("postingId", id);
     formData.append("requestorId", currentUser.id );
     formData.append("requestDates", dateRangeArray);
+    formData.append("postingImage", props.posting.image);
     // formData.append("startDate", state[0].startDate.toString());
     // formData.append("endDate", state[0].endDate.toString());
     // console.log(state[0].startDate);
