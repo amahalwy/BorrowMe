@@ -58,9 +58,6 @@ export default (props) => {
     // console.log(state[0].startDate.toDateString());
 
     dispatch(createRequest(formData));
-    // return axios.post('/api/requests', formData)
-    // .then(req => res.json(req))
-    // .catch
   };
     
     return (
@@ -68,9 +65,7 @@ export default (props) => {
         <DateRange
           editableDateInputs={true}
           onChange={(item) => {
-            // console.log(item)
             setState([item.selection])
-            // console.log(state)
           }}
 
           moveRangeOnFirstSelection={false}

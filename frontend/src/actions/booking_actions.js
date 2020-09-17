@@ -40,21 +40,18 @@ export const fetchUserBookings = (userId) => (dispatch) => {
   APIUtil.fetchUserBookings(userId)
     .then((bookings) => dispatch(receiveBookings(bookings)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
-  // .catch(err => console.log(err));
 };
 
 export const createBooking = (booking) => (dispatch) => {
   APIUtil.createBooking(booking)
     .then((booking) => dispatch(receiveBooking(booking)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
-  // .catch((err) => console.log(err));
 };
 
 export const deleteBooking = (bookingId) => (dispatch) => {
   APIUtil.deleteBooking(bookingId)
     .then(() => dispatch(removeBooking(bookingId)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
-  // .catch((err) => console.log(err));
 };
 
 export const clearBookings = () => (dispatch) => {

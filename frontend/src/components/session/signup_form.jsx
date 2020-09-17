@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { withRouter } from "react-router-dom";
-import {signup} from '../../actions/session_actions';
+import {signup, clearErrors} from '../../actions/session_actions';
 
 export default (props) => {
   const [firstName, updateFirstName] = useState("");
@@ -14,18 +14,21 @@ export default (props) => {
   const [password, updatePassword] = useState("");
   const [password2, updatePassword2] = useState("");
   const [stateErrors, updateErrors] = useState({});
-  const [clearErrors, updateClearedErrors] = useState(false);
 
   const isSignedIn = useSelector(state => state.session.isSignedIn || {});
   const errors = useSelector(state => state.errors.session);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isSignedIn === true) {
-      props.history.push("/hello");
-    }
-    // updateErrors(errors);
-    }, [isSignedIn]);
+    // if (isSignedIn === true) {
+    //   props.history.push("/hello");
+    // }
+
+    return () => {
+      dispatch(clearErrors());
+    };
+
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

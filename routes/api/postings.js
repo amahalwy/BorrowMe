@@ -107,7 +107,6 @@ router.patch(
       .then((data) => {
         const uploadedImageURL = data.Location;
 
-        console.log(req.body.price);
         Posting.findOne(req.body._id)
           // if currentUser === postingOwner
           // info to be used in the frontend

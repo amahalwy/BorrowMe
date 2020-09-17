@@ -40,28 +40,24 @@ export const fetchReceiverRequests = (userId) => (dispatch) => {
   APIUtil.fetchReceiverRequests(userId)
     .then((requests) => dispatch(receiveRequests(requests)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
-  // .catch(err => console.log(err));
 };
 
 export const fetchRequestorRequests = (userId) => (dispatch) => {
   APIUtil.fetchRequestorRequests(userId)
     .then((requests) => dispatch(receiveRequests(requests)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
-  // .catch(err => console.log(err));
 };
 
 export const createRequest = request => dispatch => {
   APIUtil.createRequest(request)
     .then(request => dispatch(receiveRequest(request)))
     .catch(err => dispatch(receiveErrors(err.response.data)));
-    // .catch((err) => console.log(err));
 };
 
 export const deleteRequest = requestId => dispatch => {
   APIUtil.deleteRequest(requestId)
     .then(() => dispatch(removeRequest(requestId)))
     .catch(err => dispatch(receiveErrors(err.response.data)));
-    // .catch((err) => console.log(err));
 };
 
 export const clearRequests = () => dispatch => {

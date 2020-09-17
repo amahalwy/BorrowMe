@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
         user: undefined,
       };
     case RECEIVE_USER_LOGIN:
-      return Object.assign({}, state, { isSignedIn: true})
+      return Object.assign({}, state, { isSignedIn: true});
     default:
       return state;
   }

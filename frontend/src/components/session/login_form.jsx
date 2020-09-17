@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/session_actions";
+import { login, clearErrors } from "../../actions/session_actions";
 
 export default (props) => {
   const [email, updateEmail] = useState("");
   const [password, updatePassword] = useState("");
   const stateErrors = useState({});
   const dispatch = useDispatch();
-  const clearErrors = useState(false);
   
   // const currentUser = useSelector(state => state.session.isAuthenticated || {})
   const errors = useSelector(state => state.errors.session);
@@ -35,10 +34,10 @@ export default (props) => {
   };
 
   useEffect(() => {
-
-    clearErrors ? console.log("not clear") : console.log("CLEAR");
-    // clearErrors();
-  }, [clearErrors]);
+    return () => {
+      dispatch(clearErrors());
+    }
+  }, []);
   
   return (
     <div className="login-form-container">

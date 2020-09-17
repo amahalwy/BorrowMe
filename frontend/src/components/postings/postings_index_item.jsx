@@ -6,16 +6,6 @@ export default props => {
 
   const [openModal, setModal] = useState(false)
 
-  // this.state = {
-  //   openModal: false
-  // }
-
-  // setModal("hello")
-
-  // const update = () => {
-  //   this.setState({openModal: 'hello'})
-  // }
-
   const showModal = (e) => {
     e.preventDefault();
     setModal(true);
@@ -28,7 +18,6 @@ export default props => {
   return (
     <div className="post-index-item">
       <div>
-        {/* Header */}
         {/* <div>
           <span></span>
         </div> */}
@@ -56,6 +45,9 @@ export default props => {
             </div>
             <div className="post-price">
               <span>Price: ${props.posting.price}</span>
+            </div>
+            <div>
+              <span>Tags: {props.posting.tags}</span>
             </div>
           </div>
           <div className="home-no-show">

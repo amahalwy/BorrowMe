@@ -85,7 +85,6 @@ router.get(
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("PARAMS :", req.params)
     Booking.find({ requestorId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
@@ -218,10 +217,7 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
-    console.log(req.body);
-
-    // Branching logic for uploading a photo/NOT having a photo uploaded
-    // with edit
+    // Branching logic for uploading a photo/NOT having a photo uploaded with edit
     uploadImage(req.file)
       .then(data => {
         const uploadedImageURL = data.Location;
