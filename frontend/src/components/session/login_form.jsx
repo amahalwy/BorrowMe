@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/session_actions";
 import { Link } from "react-router-dom";
+import {clearErrors} from '../../actions/session_actions';
 
 
 export default (props) => {

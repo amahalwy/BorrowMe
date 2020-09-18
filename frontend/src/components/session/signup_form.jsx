@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {signup, clearErrors} from '../../actions/session_actions';
+import {Link} from 'react-router-dom';
 
 export default (props) => {
   const [firstName, updateFirstName] = useState("");
@@ -131,38 +132,14 @@ export default (props) => {
               onChange={(e) => updateState(e.currentTarget.value)}
               placeholder="State"
             />
-            <br />
-            <div className="signup-zip-state-container">
-              <input
-                className="signup-name-input"
-                type="text"
-                value={zipCode}
-                onChange={e => updateZipCode(e.currentTarget.value)}
-                placeholder="Zip Code"
-              />
-              <input
-                className="signup-state-input"
-                type="text"
-                value={state}
-                onChange={e => updateState(e.currentTarget.value)}
-                placeholder="State"
-              />
-            </div>
-            <br />
-            
-            
-            <br />
-
-            <input className="signup-submit" type="submit" value="Signup" />
-            <h2 className="signup-redirect-for-login">Already have and account? <Link to="/login" className="signup-link">Log In</Link></h2>
-            <div className="signup-errors">{renderErrors()}</div>
           </div>
           <br />
 
-          <br />
-
-          <input className="signup-submit" type="submit" value="Signup" />
-          <div className="signup-errors">{renderErrors()}</div>
+            <input className="signup-submit" type="submit" value="Signup" />
+            <h2 className="signup-redirect-for-login">Already have and account? 
+              <Link to="/login" className="signup-link">  Log In</Link>
+            </h2>
+            <div className="signup-errors">{renderErrors()}</div>
         </div>
       </form>
     </div>
