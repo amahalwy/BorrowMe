@@ -8,7 +8,7 @@ import PostingsIndex from "../postings/profile_postings_index";
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 import {fetchUser} from '../../actions/user_actions';
 import { fetchRequestorRequests, fetchReceiverRequests} from '../../actions/request_actions';
-// import ProfileBookings from './profile_bookings';
+
 import ProfileRequestorIndex from '../requests/posting_requestor_index';
 
 export default props => {
@@ -22,12 +22,6 @@ export default props => {
   );
   const dispatch = useDispatch();
 
-  /*
-
-
-  */
-  // useState => this.state
-
   useEffect(() => {
     // incorporate full re-rendering over URL change
     dispatch(fetchUser(props.match.params.userId));
@@ -35,9 +29,6 @@ export default props => {
     dispatch(fetchUserPostings(props.match.params.userId));
     dispatch(fetchRequestorRequests(props.match.params.userId));
     // dispatch(fetchReceiverRequests(props.match.params.userId));
-    //
-    //
-    //
   }, []);
 
   return (

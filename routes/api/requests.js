@@ -33,7 +33,9 @@ router.post(
       receiverId: req.body.receiverId,
       postingId: req.body.postingId,
       requestDates: req.body.requestDates,
-      postingImage: req.body.postingImage
+      postingImage: req.body.postingImage,
+      postingTitle: req.body.postingTitle,
+      amount: req.body.amount
     });
 
     newRequest

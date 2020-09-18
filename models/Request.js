@@ -5,9 +5,13 @@ const RequestSchema = new Schema(
   {
     requestorId: { type: Schema.Types.ObjectId, ref: "User" },
     receiverId: { type: Schema.Types.ObjectId, ref: "User" },
-    postingImage: { 
+    postingImage: {
       type: String,
-      required: true
+      required: true,
+    },
+    postingTitle: {
+      type: String,
+      required: true,
     },
     postingId: {
       type: String,
@@ -17,6 +21,10 @@ const RequestSchema = new Schema(
       type: Array,
       required: true,
     },
+    amount: {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: true,

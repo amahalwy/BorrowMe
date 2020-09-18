@@ -1,15 +1,17 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
-import Calendar from '../calendar/calendar';
-import Map from '../map/map'
+import React from "react";
+import { useSelector } from "react-redux";
+import Map from "../map/map";
 
 export default (props) => {
-  const currentUser = useSelector(state => state.session.user)
+  const currentUser = useSelector((state) => state.session.user);
+
+  
+  const totalAmount = props.amount * props.requestDates.length;
+
 
   return (
     <div className="modal-main-show">
-      <div className="modal-top-bar">
+      {/* <div className="modal-top-bar">
         <h1 className="modal-item-title">{props.posting.title}</h1>
         <button className="modal-x" onClick={props.hideModal}>
           X
@@ -27,14 +29,24 @@ export default (props) => {
         <div className="img-container">
           <img className="modal-img" src={props.posting.image} alt="" />
         </div>
-        <div className="modal-calendar">
-          <Calendar posting={props.posting}/>
+        <div>
+          <Map posting={props.posting} currentUser={currentUser} />
+        </div>
+      </div> */}
+
+      {/* Title, amount * dates.length, image */}
+      <div className="request-image">
+        {/* <img src={props.image} alt=""/> */}
+      </div>
+      <div>
+        <div>
+          <span>{props.title}</span>
         </div>
         <div>
-          <Link to={`/${props.posting.id}/map`}>Check it out on the map!</Link>
-          <Map posting={props.posting} currentUser={currentUser}/>
+          <span>{props.requestDates}</span>
+          <span>{totalAmount}</span>
         </div>
       </div>
     </div>
   );
-}
+};

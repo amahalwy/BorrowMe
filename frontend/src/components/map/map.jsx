@@ -30,6 +30,7 @@ const Map = (props) => {
         center: [lng, lat], // starting position
         zoom: zoom, // starting zoom
       });
+
       map.addControl(new mapboxgl.NavigationControl());
       map.addControl(
         new mapboxgl.GeolocateControl({

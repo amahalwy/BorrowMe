@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import PostingRequestorIndexItem from './posting_requestor_index_item'; 
 
 export default props => {
 
@@ -10,11 +9,10 @@ export default props => {
       {
         props.requests.map(request => {
           return (
-            <div className="postings-index-image-box">
-              <img className="postings-index-image" src={request.postingImage} alt="" />
-              <span></span>
-            </div>
-          )
+            <PostingRequestorIndexItem
+              request={request}
+            />
+          );
         })
       }
     </div>

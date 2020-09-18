@@ -32,11 +32,8 @@ export default props => {
             </div>
           </div>
         </div>
-        
         <div>
-          {/* Right body */}
           <div className="Item-info-bar">
-            {/*Text*/}
             <div className="post-title">
               <span>{props.posting.title}</span>
             </div>

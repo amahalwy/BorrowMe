@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
 import {createPosting} from '../../actions/posting_actions';
-import Modal from "../modal/modal"
-import axios from 'axios';
 import FormData from 'form-data';
+// import Modal from "../modal/modal"
+// import axios from 'axios';
 
 export default (props) => {
-  const currentUser = useSelector(state => state.session.user)
+  const currentUser = useSelector(state => state.session.user);
   const errors = useSelector((state) => state.errors.postings);
+
   const [title, updateTitle] = useState("");
   const [price, updatePrice] = useState("");
   const [description, updateDescription] = useState("");

@@ -5,8 +5,6 @@ import 'react-date-range/dist/theme/default.css';
 import FormData from "form-data";
 import {useSelector, useDispatch} from 'react-redux';
 import {createRequest} from '../../actions/request_actions';
-// import { Discovery } from "aws-sdk";
-import axios from 'axios';
 
 Date.prototype.addDays = function (days) {
   let date = new Date(this.valueOf());
@@ -42,7 +40,7 @@ export default (props) => {
 
     return dateArray;
   }
-  debugger
+  
    
   const handleSubmit = e => {
     e.preventDefault();
@@ -54,10 +52,8 @@ export default (props) => {
     formData.append("requestorId", currentUser.id );
     formData.append("requestDates", dateRangeArray);
     formData.append("postingImage", props.posting.image);
-    // formData.append("startDate", state[0].startDate.toString());
-    // formData.append("endDate", state[0].endDate.toString());
-    // console.log(state[0].startDate);
-    // console.log(state[0].startDate.toDateString());
+    formData.append("postingTitle", props.posting.title);
+    formData.append("amount", props.posting.price);
 
     dispatch(createRequest(formData));
   };
