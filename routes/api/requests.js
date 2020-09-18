@@ -29,13 +29,14 @@ router.post(
     }
 
     const newRequest = new Request({
+      requestorName: req.body.requestorName,
       requestorId: req.body.requestorId,
       receiverId: req.body.receiverId,
       postingId: req.body.postingId,
       requestDates: req.body.requestDates,
       postingImage: req.body.postingImage,
       postingTitle: req.body.postingTitle,
-      amount: req.body.amount
+      amount: req.body.amount,
     });
 
     newRequest
