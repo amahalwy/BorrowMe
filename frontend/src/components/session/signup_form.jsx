@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { withRouter } from "react-router-dom";
 import {signup} from '../../actions/session_actions';
+import { Link } from "react-router-dom";
 
 export default (props) => {
   const [firstName, updateFirstName] = useState("");
@@ -138,6 +139,7 @@ export default (props) => {
             <br />
 
             <input className="signup-submit" type="submit" value="Signup" />
+            <h2 className="signup-redirect-for-login">Already have and account? <Link to="/login" className="signup-link">Log In</Link></h2>
             <div className="signup-errors">{renderErrors()}</div>
           </div>
         </form>

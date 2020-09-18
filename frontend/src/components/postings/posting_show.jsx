@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import Calendar from '../calendar/calendar';
 import Map from '../map/map'
+import { Link } from 'react-router-dom';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user)
@@ -29,7 +30,7 @@ export default (props) => {
         <div className="modal-calendar">
           <Calendar posting={props.posting}/>
         </div>
-        <div><Map posting={props.posting} currentUser={currentUser}/></div>
+        <Link to={`/${props.posting.id}/map`}><button className="postings-view-map-button">View Map</button></Link> 
       </div>
     </div>
   );

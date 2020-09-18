@@ -80,9 +80,31 @@ cursor: pointer;
   width: 40%;
   box-sizing: border-box;
    font-weight: bold;
-  font-size: 24px;
+  font-size: 16px;
   margin-top:16px;
-  margin-left: 30%;
+  margin-left: 10%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  border-width: 0;
+}
+
+.postings-view-map-button {
+  align-content: center;
+  height: 2.5em;
+  background-color: #a2d3c2;
+  color: black;
+   cursor: pointer;
+  width: 15%;
+  box-sizing: border-box;
+  position: absolute;
+   font-weight: bold;
+  font-size: 16px;
+  bottom: 2.5%;
+  right: 3%;
+  /* margin-right: 120px; */
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
@@ -96,3 +118,10 @@ cursor: pointer;
   color: black;
   cursor: pointer;
 }
+
+.postings-view-map-button:hover {
+  background-color:  #779e91;
+  color: black;
+  cursor: pointer;
+}
+
