@@ -23,7 +23,7 @@ const App = () => (
       <ProtectedRoute exact path="/home" component={HomePage} />
       <ProtectedRoute exact path="/users/:userId" component={Profile} />
       <ProtectedRoute exact path="/postings" component={PostingIndex} />
-      <ProtectedRoute exact path="/map" component={Map} />
+      <ProtectedRoute exact path="/:postingId/map" component={Map} />
       <Route exact path="/calendar" component={Calendar} />
 
       <Redirect to="/" />

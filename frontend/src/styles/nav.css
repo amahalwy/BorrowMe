@@ -108,7 +108,7 @@
   right: -20px;
   top: -4px;
   position: absolute;
-  background: #F1F1F1;
+  background: #e2e2e2;
   width: 300px;
   line-height: 1em;
   padding: 10%, 10%;
@@ -118,7 +118,7 @@
 }
 
 .nav-dropdown-items ul li:hover {
-  background: #779c8f;
+  background: #a2d3c2;
   display: block;
   z-index: 200;
   border-radius: 8px;
