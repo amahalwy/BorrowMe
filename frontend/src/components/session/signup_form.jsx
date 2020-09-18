@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import { withRouter } from "react-router-dom";
 import {signup, clearErrors} from '../../actions/session_actions';
 
 export default (props) => {
@@ -13,10 +12,10 @@ export default (props) => {
   const [zipCode, updateZipCode] = useState("");
   const [password, updatePassword] = useState("");
   const [password2, updatePassword2] = useState("");
-  const [stateErrors, updateErrors] = useState({});
+  // const [stateErrors, updateErrors] = useState({});
 
-  const isSignedIn = useSelector(state => state.session.isSignedIn || {});
-  const errors = useSelector(state => state.errors.session);
+  // const isSignedIn = useSelector(state => state.session.isSignedIn || {});
+  const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +26,7 @@ export default (props) => {
     return () => {
       dispatch(clearErrors());
     };
-
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,11 +39,11 @@ export default (props) => {
       address,
       city,
       state,
-      zipCode
-    }
+      zipCode,
+    };
 
-    dispatch(signup(user))
-  }
+    dispatch(signup(user));
+  };
 
   const renderErrors = () => {
     return (
@@ -55,95 +53,93 @@ export default (props) => {
         ))}
       </ul>
     );
-  }
-
+  };
 
   // render() {
-    return (
-      <div className="signup-form-container">
-        <form onSubmit={handleSubmit}>
-          <div className="signup-form">
-            <h1>Sign up for BorrowMe</h1>
-            <br/>
+  return (
+    <div className="signup-form-container">
+      <form onSubmit={handleSubmit}>
+        <div className="signup-form">
+          <h1>Sign up for BorrowMe</h1>
+          <br />
+          <input
+            className="signup-name-input"
+            type="text"
+            value={firstName}
+            onChange={(e) => updateFirstName(e.currentTarget.value)}
+            placeholder="First Name"
+          />
+          <input
+            className="signup-name-input"
+            type="text"
+            value={lastName}
+            onChange={(e) => updateLastName(e.currentTarget.value)}
+            placeholder="Last Name"
+          />
+          <br />
+          <input
+            className="signup-email-input"
+            type="text"
+            value={email}
+            onChange={(e) => updateEmail(e.currentTarget.value)}
+            placeholder="Email"
+          />
+          <br />
+          <input
+            className="signup-password-input"
+            type="password"
+            value={password}
+            onChange={(e) => updatePassword(e.currentTarget.value)}
+            placeholder="Password"
+          />
+          <br />
+          <input
+            className="signup-password-input"
+            type="password"
+            value={password2}
+            onChange={(e) => updatePassword2(e.currentTarget.value)}
+            placeholder="Confirm password"
+          />
+          <br />
+          <input
+            className="signup-address-input"
+            type="text"
+            value={address}
+            onChange={(e) => updateAddress(e.currentTarget.value)}
+            placeholder="Address"
+          />
+          <input
+            className="signup-city-input"
+            type="text"
+            value={city}
+            onChange={(e) => updateCity(e.currentTarget.value)}
+            placeholder="City"
+          />
+          <br />
+          <div className="signup-zip-state-container">
             <input
               className="signup-name-input"
               type="text"
-              value={firstName}
-              onChange={e => updateFirstName(e.currentTarget.value)}
-              placeholder="First Name"
+              value={zipCode}
+              onChange={(e) => updateZipCode(e.currentTarget.value)}
+              placeholder="Zip Code"
             />
             <input
-              className="signup-name-input"
+              className="signup-state-input"
               type="text"
-              value={lastName}
-              onChange={e => updateLastName(e.currentTarget.value)}
-              placeholder="Last Name"
+              value={state}
+              onChange={(e) => updateState(e.currentTarget.value)}
+              placeholder="State"
             />
-            <br />
-            <input
-              className="signup-email-input"
-              type="text"
-              value={email}
-              onChange={e => updateEmail(e.currentTarget.value)}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              className="signup-password-input"
-              type="password"
-              value={password}
-              onChange={e => updatePassword(e.currentTarget.value)}
-              placeholder="Password"
-            />
-            <br />
-            <input
-              className="signup-password-input"
-              type="password"
-              value={password2}
-              onChange={e => updatePassword2(e.currentTarget.value)}
-              placeholder="Confirm password"
-            />
-            <br />
-            <input
-              className="signup-address-input"
-              type="text"
-              value={address}
-              onChange={e => updateAddress(e.currentTarget.value)}
-              placeholder="Address"
-            />
-            <input
-              className="signup-city-input"
-              type="text"
-              value={city}
-              onChange={e => updateCity(e.currentTarget.value)}
-              placeholder="City"
-            />
-            <br />
-            <div className="signup-zip-state-container">
-              <input
-                className="signup-name-input"
-                type="text"
-                value={zipCode}
-                onChange={e => updateZipCode(e.currentTarget.value)}
-                placeholder="Zip Code"
-              />
-              <input
-                className="signup-state-input"
-                type="text"
-                value={state}
-                onChange={e => updateState(e.currentTarget.value)}
-                placeholder="State"
-              />
-            </div>
-            <br />
-            
-            
-            <br />
-
-            <input className="signup-submit" type="submit" value="Signup" />
-            <div className="signup-errors">{renderErrors()}</div>
           </div>
-        </form>
-      </div>
-    )
+          <br />
+
+          <br />
+
+          <input className="signup-submit" type="submit" value="Signup" />
+          <div className="signup-errors">{renderErrors()}</div>
+        </div>
+      </form>
+    </div>
+  );
 }

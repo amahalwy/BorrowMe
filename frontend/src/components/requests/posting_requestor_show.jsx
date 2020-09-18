@@ -1,11 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Map from "../map/map";
 
 export default (props) => {
   const currentUser = useSelector((state) => state.session.user);
-
-  
   const totalAmount = props.amount * props.requestDates.length;
 
 

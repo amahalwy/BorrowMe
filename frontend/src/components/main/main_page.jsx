@@ -1,9 +1,5 @@
-// src/components/main/main_page.js
-
 import React from "react";
 import { Link } from "react-router-dom";
-import { logout } from "../../actions/session_actions";
-import { useDispatch, useSelector } from 'react-redux';
 
 class MainPage extends React.Component {
   render() {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 import { DateRange } from "react-date-range";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
@@ -22,12 +22,7 @@ export default (props) => {
 
   const currentUser = useSelector(state => state.session.user); 
   const id = props.posting._id;
-    // useEffect(() => {
-    //   setStart(props.calendarEvent.state);
-    //   setEnd(props.calendarEvent.state);
-    // }, [state.StatDate, state.endDate]);
-
-
+  
   const getDates = () => {
     const dateArray = new Array();
     let currentDate = state[0].startDate;

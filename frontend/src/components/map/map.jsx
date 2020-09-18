@@ -7,7 +7,7 @@ const Map = (props) => {
   const lng = -122.44;
   const lat = 37.76;
   const zoom = 11;
-  
+
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
   const currentUser = useSelector((state) => state.session.user);
@@ -42,22 +42,26 @@ const Map = (props) => {
       );
       map.setMaxBounds(bounds);
       setMap(map);
-      
 
-      let request = new Request(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchText}.json?country=US&access_token=${token}`);
+      let request = new Request(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchText}.json?country=US&access_token=${token}`
+      );
       const res = await fetch(request);
       const json = await res.json();
       const coordinates = json.features[0].geometry.coordinates;
-      
-      let markerPlace = new mapboxgl.Marker({ "color": "#cc0000" })
+
+      let markerPlace = new mapboxgl.Marker({ color: "#cc0000" })
         .setLngLat([coordinates[0], coordinates[1]])
         .addTo(map);
 
       // find currentUser's information
-      let requestCurrentUser = new Request(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`);
+      let requestCurrentUser = new Request(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`
+      );
       const resCurrentUser = await fetch(requestCurrentUser);
       const jsonCurrentUser = await resCurrentUser.json();
-      const coordinatesCurrentUser = jsonCurrentUser.features[0].geometry.coordinates;
+      const coordinatesCurrentUser =
+        jsonCurrentUser.features[0].geometry.coordinates;
 
       let markerPlaceCurrentUser = new mapboxgl.Marker()
         .setLngLat([coordinatesCurrentUser[0], coordinatesCurrentUser[1]])
@@ -68,61 +72,70 @@ const Map = (props) => {
         // an arbitrary start will always be the same
         // only the end or destination will change
         let start = [coordinatesCurrentUser[0], coordinatesCurrentUser[1]];
-        let url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + start[0] + ',' + start[1] + ';' + coordinates[0] + ',' + coordinates[1] + '?steps=true&geometries=geojson&access_token=' + `${token}`;
+        let url =
+          "https://api.mapbox.com/directions/v5/mapbox/cycling/" +
+          start[0] +
+          "," +
+          start[1] +
+          ";" +
+          coordinates[0] +
+          "," +
+          coordinates[1] +
+          "?steps=true&geometries=geojson&access_token=" +
+          `${token}`;
 
         // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
         let req = new XMLHttpRequest();
-        req.open('GET', url, true);
+        req.open("GET", url, true);
         req.onload = function () {
           let jsonRoute = JSON.parse(req.response);
           let data = jsonRoute.routes[0];
           let route = data.geometry.coordinates;
           let geojson = {
-            type: 'Feature',
+            type: "Feature",
             properties: {},
             geometry: {
-              type: 'LineString',
-              coordinates: route
-            }
+              type: "LineString",
+              coordinates: route,
+            },
           };
           // if the route already exists on the map, reset it using setData
-          if (map.getSource('route')) {
-            map.getSource('route').setData(geojson);
-          } else { // otherwise, make a new request
+          if (map.getSource("route")) {
+            map.getSource("route").setData(geojson);
+          } else {
+            // otherwise, make a new request
             map.addLayer({
-              id: 'route',
-              type: 'line',
+              id: "route",
+              type: "line",
               source: {
-                type: 'geojson',
+                type: "geojson",
                 data: {
-                  type: 'Feature',
+                  type: "Feature",
                   properties: {},
                   geometry: {
-                    type: 'LineString',
-                    coordinates: geojson
-                  }
-                }
+                    type: "LineString",
+                    coordinates: geojson,
+                  },
+                },
               },
               layout: {
-                'line-join': 'round',
-                'line-cap': 'round'
+                "line-join": "round",
+                "line-cap": "round",
               },
               paint: {
-                'line-color': '#3887be',
-                'line-width': 5,
-                'line-opacity': 0.75
-              }
+                "line-color": "#3887be",
+                "line-width": 5,
+                "line-opacity": 0.75,
+              },
             });
           }
           // add turn instructions here at the end
         };
         req.send();
       }
-
-
     };
     if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+  }, [map]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>

@@ -62,7 +62,7 @@ const EditProfileModal = (props) => {
           <img
             className="edit-profile-photo-img"
             src={activeUser.profilePhoto}
-            alt="Profile Image"
+            alt=""
           />
         </div>
         <br />

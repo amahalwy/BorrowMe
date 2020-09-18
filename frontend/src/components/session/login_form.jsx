@@ -7,10 +7,10 @@ export default (props) => {
   const [password, updatePassword] = useState("");
   const stateErrors = useState({});
   const dispatch = useDispatch();
-  
+
   // const currentUser = useSelector(state => state.session.isAuthenticated || {})
-  const errors = useSelector(state => state.errors.session);
-  
+  const errors = useSelector((state) => state.errors.session);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -19,16 +19,15 @@ export default (props) => {
       stateErrors,
     };
 
-    dispatch(login(user))
-    .then(res => console.log(res)); 
-  }
+    dispatch(login(user)).then((res) => console.log(res));
+  };
 
   const renderErrors = () => {
     return (
       <ul>
         {Object.keys(errors).map((error, i) => (
           <li key={`error-${i}`}>{errors[error]}</li>
-          ))}
+        ))}
       </ul>
     );
   };
@@ -36,9 +35,9 @@ export default (props) => {
   useEffect(() => {
     return () => {
       dispatch(clearErrors());
-    }
-  }, []);
-  
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
@@ -59,9 +58,7 @@ export default (props) => {
           />
           <br />
           <input type="submit" value="Log In" />
-          <div className="login-errors">
-            {renderErrors()}
-          </div>
+          <div className="login-errors">{renderErrors()}</div>
         </div>
       </form>
     </div>

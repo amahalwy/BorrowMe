@@ -36,6 +36,7 @@ export default (props) => {
             <img
               className="nav-dropdown-trigger-icon"
               src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"
+              alt=''
             />
             <div className="nav-dropdown-items">
               <ul>

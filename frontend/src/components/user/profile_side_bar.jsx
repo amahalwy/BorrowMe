@@ -35,7 +35,7 @@ const ProfileSideBar = props => {
         <img
           className="profile-photo-img"
           src={activeUser.profilePhoto}
-          alt="Profile Image"
+          alt=""
         />
       </div>
       <div className="profile-user-info">

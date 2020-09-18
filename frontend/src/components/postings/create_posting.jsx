@@ -3,8 +3,6 @@ import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
 import {createPosting} from '../../actions/posting_actions';
 import FormData from 'form-data';
-// import Modal from "../modal/modal"
-// import axios from 'axios';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user);
@@ -19,8 +17,6 @@ export default (props) => {
   const [zipCode, updateZipCode] = useState("");
   const [tags, updateTags] = useState("");
   const [imageFile, setFile] = useState(null);
-  const [url, setUrl] = useState(null);
-  const [openModal, setModal] = useState(false);
 
   const dispatch = useDispatch();
   
