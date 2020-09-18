@@ -40,9 +40,6 @@ export default (props) => {
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    clearErrors ? console.log("not clear") : console.log("CLEAR");
-    // clearErrors();
-  }, [clearErrors]);
 
   const demoLogin = () => {
     // e.preventDefault();
