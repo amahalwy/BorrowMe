@@ -14,7 +14,7 @@ export default (props) => {
     setModal(false);
   };
 
-  debugger
+  // debugger
   return (
     <div className="postings-index-image-box" onClick={showModal}>
       <img
@@ -24,13 +24,13 @@ export default (props) => {
       />
       <span></span>
       <Modal show={openModal} handleClose={hideModal}>
-        <PostingRequestorShow
+        {/* <PostingRequestorShow
           title={props.request.postingTitle}
           image={props.request.postingImage}
           amount={props.request.amount}
           requestDates={props.request.requestDates}
           hideModal={hideModal}
-        />
+        /> */}
       </Modal>
       <span>Requestor: {props.request.requestorName}</span>
       <span>Start date: {props.request.requestDates[0]}</span>

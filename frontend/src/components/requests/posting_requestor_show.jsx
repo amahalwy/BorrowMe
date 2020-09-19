@@ -5,24 +5,27 @@ export default (props) => {
   const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
 
+
+  
   if (!props.requestDates) return '';
   return (
     <div className="modal-main-show">
-      {/* <div className="modal-top-bar">
-        <h1 className="modal-item-title">{props.posting.title}</h1>
+      <div className="modal-top-bar">
+        <h1 className="modal-item-title">{props.title}</h1>
         <button className="modal-x" onClick={props.hideModal}>
           X
         </button>
-        <div className="modal-price-desc">
+        
+        {/* <div className="modal-price-desc">
           <div className="modal-price">
             <span> Price: </span> ${props.posting.price}
           </div>
           <br />
           <div className="modal-description">{props.posting.description}</div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="modal-item-info">
+      {/* <div className="modal-item-info">
         <div className="img-container">
           <img className="modal-img" src={props.posting.image} alt="" />
         </div>
@@ -35,7 +38,7 @@ export default (props) => {
       <div className="request-image">
         {/* <img src={props.image} alt=""/> */}
       </div>
-      <div>
+      {/* <div>
         <div>
           <span>{props.title}</span>
         </div>
@@ -43,7 +46,7 @@ export default (props) => {
           <span>{props.requestDates}</span>
           <span>{totalAmount}</span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
