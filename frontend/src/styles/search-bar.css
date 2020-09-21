@@ -22,9 +22,9 @@ background-color: white;
   margin-top: 10px;
 }
 
-input:focus {
-    outline:none;
-}
+  input:focus {
+      outline:none;
+  }
 
 .tag-container{
   display: inline-block;
