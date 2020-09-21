@@ -12,7 +12,6 @@ export default props => {
   };
 
   const hideModal = () => {
-    debugger
     setModal(false);
   };
 

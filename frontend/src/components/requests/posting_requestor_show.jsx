@@ -8,7 +8,16 @@ export default (props) => {
   
   const totalAmount = props.amount * props.requestDates.length;
 
+  // const [openModal, setModal] = useState(false);
 
+  // const showModal = (e) => {
+  //   e.preventDefault();
+  //   setModal(true);
+  // };
+
+  // const hideModal = () => {
+  //   setModal(false);
+  // };
 
   return (
     <div className="modal-main-show">
@@ -24,9 +33,20 @@ export default (props) => {
         </span>
       </div>
       <div>
+        <span>Requestor: {props.user}</span>
+      </div>
+      <div>
         <img className="request-image" src={props.image} />
       </div>
       <div></div>
+      <div className="request-buttons">
+        <span>
+          <button className="accept-request">Accept</button>
+        </span>
+        <span>
+          <button className="reject-request">Reject</button>
+        </span>
+      </div>
     </div>
   );
 };

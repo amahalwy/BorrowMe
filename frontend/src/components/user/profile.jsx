@@ -29,15 +29,9 @@ export default props => {
     dispatch(fetchUserPostings(props.match.params.userId));
     dispatch(clearRequests());
     dispatch(fetchRequestorRequests(props.match.params.userId));
-<<<<<<< HEAD
     dispatch(fetchReceiverRequests(props.match.params.userId));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-=======
-    // dispatch(fetchReceiverRequests(props.match.params.userId));
-  }, []);
-  
->>>>>>> Friday-work
   return (
     <div className="profile-container">
       <ProfileSideBar />

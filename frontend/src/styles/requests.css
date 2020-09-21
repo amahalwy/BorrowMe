@@ -10,3 +10,38 @@
   height: 2em;
   font-size: 2em;
 }
+
+.request-buttons{
+  display: flex;
+  margin: 0 auto;
+ justify-content: space-evenly;
+}
+
+.accept-request{
+ background: #012a36;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 30px;
+  border-radius: 25px;
+}
+
+.reject-request{
+ background: #012a36;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 30px;
+  border-radius: 25px;
+}
+
+.accept-request:hover,
+.reject-request:hover {
+  background: #01141a;
+  cursor: pointer;
+}
+
+.accept-request:focus,
+.reject-request:focus{
+ outline: none;
+}
