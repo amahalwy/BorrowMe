@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import Calendar from '../calendar/calendar';
 import Map from '../map/map'
+import Modal from '../../components/modal/modal';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user)
+  
+  const [openModal, setModal] = useState(false)
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
+
+  const hideModal = () => {
+    setModal(false);
+  };
 
   return (
     <div className="modal-main-show">
@@ -31,8 +43,12 @@ export default (props) => {
           <Calendar posting={props.posting}/>
         </div>
         <div>
-          <Link to={`/${props.posting.id}/map`}>Check it out on the map!</Link>
-          <Map posting={props.posting} currentUser={currentUser}/>
+          {/* <Link to={`/${props.posting._id}/map`} >Check it out on the map!</Link> */}
+          <Modal show={openModal} handleClose={hideModal}>
+            <Map posting={props.posting} currentUser={currentUser} hideModal={hideModal}/>
+          </Modal>
+          <button onClick={showModal}>Show map</button>
+          
         </div>
       </div>
     </div>

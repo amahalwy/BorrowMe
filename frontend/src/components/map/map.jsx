@@ -13,6 +13,7 @@ const Map = (props) => {
   const currentUser = useSelector((state) => state.session.user);
 
   const searchTextCurrentUser = `${currentUser.address} ${currentUser.city} ${currentUser.state} ${currentUser.zipCode}`;
+  debugger
   const { address, city, state, zipCode } = props.posting;
   const searchText = `${address} ${city} ${state} ${zipCode}`;
 
@@ -139,10 +140,19 @@ const Map = (props) => {
 
   return (
     <div>
+      <button onClick={props.hideModal}>XXXXX</button>
+      <div>
+        <div>Your address: {currentUser.address}</div>
+        <div>Item address: {props.posting.address}</div>
+      </div>
+      <div>
+        <button>Find fastest route!</button>
+      </div>
       <div
         ref={(el) => (mapContainer.current = el)}
         className="map_container"
-      />
+      >
+      </div>
     </div>
   );
 };
