@@ -1,52 +1,32 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import Map from "../map/map";
+import { useSelector, useDispatch } from "react-redux";
+// import Map from "../map/map";
 
 export default (props) => {
-  const currentUser = useSelector((state) => state.session.user);
+  // const currentUser = useSelector((state) => state.session.user);
 
   
   const totalAmount = props.amount * props.requestDates.length;
 
 
+
   return (
     <div className="modal-main-show">
-      {/* <div className="modal-top-bar">
-        <h1 className="modal-item-title">{props.posting.title}</h1>
-        <button className="modal-x" onClick={props.hideModal}>
-          X
-        </button>
-        <div className="modal-price-desc">
-          <div className="modal-price">
-            <span> Price: </span> ${props.posting.price}
-          </div>
-          <br />
-          <div className="modal-description">{props.posting.description}</div>
-        </div>
-      </div>
-
-      <div className="modal-item-info">
-        <div className="img-container">
-          <img className="modal-img" src={props.posting.image} alt="" />
-        </div>
-        <div>
-          <Map posting={props.posting} currentUser={currentUser} />
-        </div>
-      </div> */}
-
-      {/* Title, amount * dates.length, image */}
-      <div className="request-image">
-        {/* <img src={props.image} alt=""/> */}
+      <button className="modal-x" onClick={props.hideModal}>
+        X
+      </button>
+      <div>
+        <span className="request-title">{props.title}</span>
       </div>
       <div>
-        <div>
-          <span>{props.title}</span>
-        </div>
-        <div>
-          <span>{props.requestDates}</span>
-          <span>{totalAmount}</span>
-        </div>
+        <span className="total-amount">
+          Total cost for {props.requestDates.length} days: ${totalAmount}
+        </span>
       </div>
+      <div>
+        <img className="request-image" src={props.image} />
+      </div>
+      <div></div>
     </div>
   );
 };

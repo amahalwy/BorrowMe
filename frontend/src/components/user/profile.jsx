@@ -30,7 +30,7 @@ export default props => {
     dispatch(fetchRequestorRequests(props.match.params.userId));
     // dispatch(fetchReceiverRequests(props.match.params.userId));
   }, []);
-
+  
   return (
     <div className="profile-container">
       <ProfileSideBar />
