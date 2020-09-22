@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import Map from "../map/map";
 
 export default (props) => {
   if (!props.requestDates || props.requestDates === undefined) return '';

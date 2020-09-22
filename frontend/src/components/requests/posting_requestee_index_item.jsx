@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { createBooking, clearBookings, fetchUserBookings} from '../../actions/booking_actions';
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest} from '../../actions/request_actions';
-import Modal from "../modal/modal";
+import Modal from "../modal/request_modal";
 import PostingRequestorShow from "./posting_requestor_show";
 import FormData from 'form-data';
 
@@ -10,11 +10,9 @@ export default (props) => {
   const currentUser = useSelector(state => state.session.user); 
   const dispatch = useDispatch();
 
-
   const [openModal, setModal] = useState(false);
 
-  const showModal = (e) => {
-    e.preventDefault();
+  const showModal = () => {
     setModal(true);
   };
 
@@ -57,14 +55,14 @@ export default (props) => {
   }
 
   return (
-    <div className="postings-index-image-box">
+    <div className="postings-index-image-box" onClick={showModal}>
       <img
         className="postings-index-image"
         src={props.request.postingImage}
         alt=""
       />
       <span></span>
-      <Modal show={openModal} handleClose={hideModal}>
+      {/* <Modal show={openModal}>
         <PostingRequestorShow
           title={props.request.postingTitle}
           image={props.request.postingImage}
@@ -73,7 +71,7 @@ export default (props) => {
           requestDates={props.request.requestDates}
           hideModal={hideModal}
         />
-      </Modal>
+      </Modal> */}
       <span>Requestor: {props.request.requestorName}</span>
       <span>Start date: {props.request.requestDates[0]}</span>
       <div>

@@ -5,20 +5,17 @@ import { updateUser } from '../../actions/user_actions';
 import FormData from 'form-data';
 
 const EditProfileModal = (props) => {
-  const currentUser = useSelector(state => state.session.user)
-  const activeUser = useSelector(state => state.entities.users.user);
-
+  const currentUser = useSelector(state => state.session.user);
+  
   const [firstName, updateFirstName] = useState(currentUser.firstName);
   const [lastName, updateLastName] = useState(currentUser.lastName);
   const [address, updateAddress] = useState(currentUser.address);
   const [city, updateCity] = useState(currentUser.city);
   const [state, updateState] = useState(currentUser.state);
   const [zipCode, updateZipCode] = useState(currentUser.zipCode);
-
-  // Branch logic for this one. If present, use currentUser.profilePhoto
-  // Else, use null
   const [profilePhoto, setProfilePhoto] = useState(null);
-
+  
+  const activeUser = useSelector(state => state.entities.users.user);
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
   

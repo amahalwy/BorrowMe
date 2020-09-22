@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../modal/modal';
+import Modal from '../modal/request_modal';
 import PostingRequestorShow from './posting_requestor_show';
 
 export default props => {
@@ -15,7 +15,6 @@ export default props => {
     setModal(false);
   };
 
-
   return (
     <div className="postings-index-image-box" onClick={showModal}>
       <img
@@ -24,15 +23,15 @@ export default props => {
         alt=""
       />
       <span></span>
-      <Modal show={openModal} handleClose={hideModal}>
-        <PostingRequestorShow
+      {/* <Modal show={openModal} handleClose={hideModal}> */}
+        {/* <PostingRequestorShow
           title={props.request.postingTitle}
           image={props.request.postingImage}
           amount={props.request.amount}
           requestDates={props.request.requestDates}
           hideModal={hideModal}
-        />
-      </Modal>
+        /> */}
+      {/* </Modal> */}
     </div>
   );
 

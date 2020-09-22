@@ -30,7 +30,6 @@ export default (props) => {
     while (currentDate <= state[0].endDate) {
       dateArray.push(new Date(currentDate));
       currentDate = currentDate.addDays(1);
-      console.log(currentDate)
     }
 
     return dateArray;
@@ -54,21 +53,30 @@ export default (props) => {
     dispatch(createRequest(formData));
   };
     
-    return (
-      <div>
-        <DateRange
-          editableDateInputs={true}
-          onChange={(item) => {
-            setState([item.selection])
-          }}
-
-          moveRangeOnFirstSelection={false}
-          ranges={state}
-        />
-
+  const rentalButton = () => {
+    if (currentUser.id === props.posting.ownerId) {
+      return '';
+    } else {
+      return (
         <button className="modal-rent-button" onClick={handleSubmit}>
           Rent now!
         </button>
-      </div>
-    );
+      )
+    }
+  }
+
+  return (
+    <div>
+      <DateRange
+        editableDateInputs={true}
+        onChange={(item) => {
+          setState([item.selection])
+        }}
+
+        moveRangeOnFirstSelection={false}
+        ranges={state}
+      />
+      {rentalButton()}
+    </div>
+  );
 }
