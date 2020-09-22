@@ -2,9 +2,15 @@ import * as APIUtil from "../util/user_api_util";
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
+export const UPDATE_USER = "UPDATE_USER";
 
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
+  user,
+});
+
+const update = (user) => ({
+  type: UPDATE_USER,
   user,
 });
 
@@ -21,6 +27,6 @@ export const fetchUser = userId => dispatch => {
 
 export const updateUser = (userId, formData) => dispatch => {
   APIUtil.updateUser(userId, formData)
-    .then(user => dispatch(receiveUser(user.data)))
+    .then(user => dispatch(update(user.data)))
     .catch(err => dispatch(receiveErrors(err)))
 }

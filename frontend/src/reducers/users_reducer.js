@@ -1,6 +1,6 @@
 // import { RECEIVE_USER } from "../../actions/user_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import {RECEIVE_USER} from "../actions/user_actions";
+import {RECEIVE_USER, UPDATE_USER} from "../actions/user_actions";
 
 const initialState = {
   isAuthenticated: false,
@@ -16,6 +16,12 @@ export default function (state = initialState, action) {
         user: action.currentUser,
       };
     case RECEIVE_USER:
+      return {
+        ...state,
+        isAuthenticated: !!action.currentUser,
+        user: action.user,
+      };
+    case UPDATE_USER:
       return {
         ...state,
         isAuthenticated: !!action.currentUser,

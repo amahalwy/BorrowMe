@@ -91,6 +91,17 @@ router.get(
   }
 );
 
+router.get(
+  "/:userId/bookings",
+  upload.single("file"),
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Booking.find({ requestorId: req.params.userId })
+      .then((bookings) => res.json(bookings))
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
 // Private auth route
 router.get('/current', 
   passport.authenticate("jwt", { session: false }), 
@@ -218,6 +229,10 @@ router.put(
   (req, res) => {
 
     // Branching logic for uploading a photo/NOT having a photo uploaded with edit
+
+    // if (req.file) {
+      
+    // }
     uploadImage(req.file)
       .then(data => {
         const uploadedImageURL = data.Location;
@@ -238,6 +253,9 @@ router.put(
           .catch((err) => res.status(400).json(err));
       })
       .catch((err) => res.status(400).json(err));
+      // else {
+
+      // }
   }
 );
 

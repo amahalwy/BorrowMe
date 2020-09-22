@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUser } from '../../actions/user_actions';
+import { updateUser, fetchUser } from '../../actions/user_actions';
 import FormData from 'form-data';
 
 const EditProfileModal = (props) => {
@@ -33,6 +33,9 @@ const EditProfileModal = (props) => {
     formData.append("file", profilePhoto);
       
     dispatch(updateUser(currentUser.id ,formData));
+    setTimeout(() => {
+      dispatch(fetchUser(currentUser.id));
+    }, 1000)
     props.hideModal();
   };
 

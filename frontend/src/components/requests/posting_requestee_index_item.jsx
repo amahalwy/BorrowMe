@@ -79,7 +79,7 @@ export default (props) => {
         {props.request.requestDates[0].split(" ").splice(0, 4).join(" ")}
       </span>
       <br />
-      <div>
+      <div className='requestee-buttons'>
         <span>
           <button onClick={acceptRequest}>Accept</button>
         </span>
