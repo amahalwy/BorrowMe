@@ -53,25 +53,31 @@
 }
 
 .signup-city-input {
-  margin: 6px;
+  margin: 0%;
+  margin-left: 9%;
+  margin-right: 5%;
   height: 3em;
-  width: 82%;
+  width: 80%;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
 .signup-state-input {
-  margin: 6px;
-  margin-left: 55px;
-  width: 12%;
+  margin: 0%;
+  margin-right: 9%;
+  margin-left: 5%;
+  width: 20%;
   height: 3em;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
 .signup-zip-input {
-  margin: 10px;
-  height: 25px;
+ width: 40%;
+ margin: 0%;
+  height: 3em;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 
 .signup-submit {
@@ -96,11 +102,12 @@
 .signup-zip-state-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 6px;
 }
 
-.signup-zip-state-container input {
-  margin-left: 9%;
-  margin-right: 9%;
+.signup-zip-state-container{
+ display: flex;
+ justify-content: center;
 }
 
 .signup-errors {

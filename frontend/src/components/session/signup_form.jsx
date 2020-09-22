@@ -109,17 +109,17 @@ export default (props) => {
             onChange={(e) => updateAddress(e.currentTarget.value)}
             placeholder="Address"
           />
-          <input
-            className="signup-city-input"
-            type="text"
-            value={city}
-            onChange={(e) => updateCity(e.currentTarget.value)}
-            placeholder="City"
-          />
           <br />
           <div className="signup-zip-state-container">
             <input
-              className="signup-name-input"
+              className="signup-city-input"
+              type="text"
+              value={city}
+              onChange={(e) => updateCity(e.currentTarget.value)}
+              placeholder="City"
+            />
+            <input
+              className="signup-zip-input"
               type="text"
               value={zipCode}
               onChange={(e) => updateZipCode(e.currentTarget.value)}
@@ -135,11 +135,15 @@ export default (props) => {
           </div>
           <br />
 
-            <input className="signup-submit" type="submit" value="Signup" />
-            <h2 className="signup-redirect-for-login">Already have and account? 
-              <Link to="/login" className="signup-link">  Log In</Link>
-            </h2>
-            <div className="signup-errors">{renderErrors()}</div>
+          <input className="signup-submit" type="submit" value="Signup" />
+          <h2 className="signup-redirect-for-login">
+            Already have and account?
+            <Link to="/login" className="signup-link">
+              {" "}
+              Log In
+            </Link>
+          </h2>
+          <div className="signup-errors">{renderErrors()}</div>
         </div>
       </form>
     </div>
