@@ -1,16 +1,17 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 export default (props) => {
   if (!props.requestDates || props.requestDates === undefined) return '';
-  const currentUser = useSelector((state) => state.session.user);
+  // const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
-  
+
   return (
     <div className="modal-main-show">
-      <button className="modal-x" onClick={props.hideModal}>
-        X
-      </button>
+      <div>
+        <button className="modal-x" onClick={props.hideModal}>
+          X
+        </button>
+      </div>
       <div>
         <span className="request-title">{props.title}</span>
       </div>

@@ -73,12 +73,19 @@ export default (props) => {
         />
       </Modal> */}
       <span>Requestor: {props.request.requestorName}</span>
-      <span>Start date: {props.request.requestDates[0]}</span>
+      <br />
+      <span>
+        Start date:{" "}
+        {props.request.requestDates[0].split(" ").splice(0, 4).join(" ")}
+      </span>
+      <br />
       <div>
-        <button onClick={acceptRequest}>Accept</button>
-      </div>
-      <div>
-        <button onClick={declineRequest}>Decline</button>
+        <span>
+          <button onClick={acceptRequest}>Accept</button>
+        </span>
+        <span>
+          <button onClick={declineRequest}>Decline</button>
+        </span>
       </div>
     </div>
   );

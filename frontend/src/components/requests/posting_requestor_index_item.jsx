@@ -5,13 +5,15 @@ import PostingRequestorShow from './posting_requestor_show';
 export default props => {
 
   const [openModal, setModal] = useState(false)
+  // const [hideModal, setModal] = useState(true)
 
   const showModal = (e) => {
     e.preventDefault();
     setModal(true);
   };
 
-  const hideModal = () => {
+  const hideModal2 = (e) => {
+    e.preventDefault();
     setModal(false);
   };
 
@@ -22,16 +24,16 @@ export default props => {
         src={props.request.postingImage}
         alt=""
       />
-      <span></span>
-      {/* <Modal show={openModal} handleClose={hideModal}> */}
-        {/* <PostingRequestorShow
+      <span> </span>
+      <Modal show={openModal} handleClose={hideModal2}>
+        <PostingRequestorShow
           title={props.request.postingTitle}
           image={props.request.postingImage}
           amount={props.request.amount}
           requestDates={props.request.requestDates}
-          hideModal={hideModal}
-        /> */}
-      {/* </Modal> */}
+          hideModal={hideModal2}
+        />
+      </Modal>
     </div>
   );
 

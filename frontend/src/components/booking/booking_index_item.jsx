@@ -10,7 +10,7 @@ export default props => {
           Renter: {props.booking.requestorName}
         </div>
         <div>
-          Start Date: {props.booking.requestDates[0]}
+          Start Date: {props.booking.requestDates[0].split(" ").splice(0,4).join(" ")}
         </div>
       </div>
     </div>
