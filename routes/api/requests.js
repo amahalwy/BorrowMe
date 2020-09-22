@@ -47,7 +47,7 @@ router.post(
 );
 
 router.delete(
-  "/",
+  "/:id",
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {

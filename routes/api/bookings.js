@@ -10,7 +10,7 @@ const validateBookingInput = require("../../validation/bookings");
 const upload = multer();
 
 router.get("/", (req, res) => {
-  Booking.find()
+  Booking.find({ownerId: req.body.id})
     .then((bookings) => res.json(bookings))
     .catch((err) => res.status(400).json(err));
 });
@@ -29,9 +29,11 @@ router.post(
     const newBooking = new Booking({
       ownerId: req.body.ownerId,
       requestorId: req.body.requestorId,
+      requestorName: req.body.requestorName,
       postingId: req.body.postingId,
       requestDates: req.body.requestDates,
       price: req.body.price,
+      bookingImage: req.body.bookingImage
     });
 
     newBooking

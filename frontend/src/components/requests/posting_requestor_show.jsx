@@ -3,9 +3,8 @@ import { useState} from "react";
 // import Map from "../map/map";
 
 export default (props) => {
-  // const currentUser = useSelector((state) => state.session.user);
-
-  
+  if (!props.requestDates || props.requestDates === undefined) return '';
+  const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
 
   // const [openModal, setModal] = useState(false);
