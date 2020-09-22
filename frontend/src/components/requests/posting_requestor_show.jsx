@@ -3,8 +3,8 @@ import { useState} from "react";
 // import Map from "../map/map";
 
 export default (props) => {
-  if (!props.requestDates || props.requestDates === undefined) return '';
-  const currentUser = useSelector((state) => state.session.user);
+  // if (!props.requestDates || props.requestDates === undefined) return '';
+  // const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
 
   // const [openModal, setModal] = useState(false);
@@ -17,7 +17,7 @@ export default (props) => {
   // const hideModal = () => {
   //   setModal(false);
 //   // }; 
-// debugger
+
   return (
     <div className="modal-main-show">
       <div>

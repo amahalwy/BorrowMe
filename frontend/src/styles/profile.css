@@ -157,27 +157,28 @@
 
 .profile-postings-image-list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 1%;
 }
 
 .postings-index-image-box {
-  width: 18%;
-  height: 150px;
+  width: 45%;
+  height: 100%;
   margin: 1%;
   cursor: pointer;
 }
 
 .postings-index-image {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 .bookings-index-image-box {
-  width: 20%;
-  height: 120px;
+  width: 45%;
+  height: 100%;
   margin: 1%;
   cursor: pointer;
 }
