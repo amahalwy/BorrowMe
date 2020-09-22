@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState} from "react";
 // import Map from "../map/map";
 
 export default (props) => {
@@ -17,13 +17,15 @@ export default (props) => {
 
   // const hideModal = () => {
   //   setModal(false);
-  // };
-
+//   // }; 
+// debugger
   return (
     <div className="modal-main-show">
-      <button className="modal-x" onClick={props.hideModal}>
-        X
-      </button>
+      <div>
+        <button className="modal-x" onClick={props.hideModal}>
+          X
+        </button>
+      </div>
       <div>
         <span className="request-title">{props.title}</span>
       </div>

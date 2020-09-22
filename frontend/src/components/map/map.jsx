@@ -13,7 +13,7 @@ const Map = (props) => {
   const currentUser = useSelector((state) => state.session.user);
 
   const searchTextCurrentUser = `${currentUser.address} ${currentUser.city} ${currentUser.state} ${currentUser.zipCode}`;
-  debugger
+
   const { address, city, state, zipCode } = props.posting;
   const searchText = `${address} ${city} ${state} ${zipCode}`;
 
