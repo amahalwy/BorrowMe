@@ -2,11 +2,12 @@ const Validator = require("validator");
 const validText = require("./valid-text");
 const validArray = require("./valid-array");
 
-module.exports = function validateRequestInput(data) {
+module.exports = function validateBookingInput(data) {
   let errors = {};
 
   data.ownerId = validText(data.ownerId) ? data.ownerId : "";
   data.requestorId = validText(data.requestorId) ? data.requestorId : "";
+  data.requestorName = validText(data.requestorName) ? data.requestorName : "";
   data.postingId = validText(data.postingId) ? data.postingId : "";
   data.requestDates = validArray(data.requestDates.trim().split(","))
     ? data.requestDates.trim().split(",")
@@ -16,9 +17,13 @@ module.exports = function validateRequestInput(data) {
   if (Validator.isEmpty(data.ownerId)) {
     errors.ownerId = "Owner id field is required.";
   }
-  
+
   if (Validator.isEmpty(data.requestorId)) {
     errors.requestorId = "Requestor id field is required.";
+  }
+  
+  if (Validator.isEmpty(data.requestorName)) {
+    errors.requestorName = "Requestor name field is required.";
   }
 
   if (Validator.isEmpty(data.postingId)) {

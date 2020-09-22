@@ -3,22 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 // import Map from "../map/map";
 
 export default (props) => {
-  // const currentUser = useSelector((state) => state.session.user);
-
-  
+  if (!props.requestDates || props.requestDates === undefined) return '';
+  const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
-
-  // const [openModal, setModal] = useState(false);
-
-  // const showModal = (e) => {
-  //   e.preventDefault();
-  //   setModal(true);
-  // };
-
-  // const hideModal = () => {
-  //   setModal(false);
-  // };
-
+  
   return (
     <div className="modal-main-show">
       <button className="modal-x" onClick={props.hideModal}>
