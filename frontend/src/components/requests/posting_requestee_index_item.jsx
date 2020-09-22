@@ -79,12 +79,16 @@ export default (props) => {
         {props.request.requestDates[0].split(" ").splice(0, 4).join(" ")}
       </span>
       <br />
-      <div className='requestee-buttons'>
+      <div className="request-buttons-nomo">
         <span>
-          <button onClick={acceptRequest}>Accept</button>
+          <button className="accept-button-nomo" onClick={acceptRequest}>
+            Accept
+          </button>
         </span>
         <span>
-          <button onClick={declineRequest}>Decline</button>
+          <button className="reject-button-nomo" onClick={declineRequest}>
+            Decline
+          </button>
         </span>
       </div>
     </div>
