@@ -45,3 +45,33 @@
 .reject-request:focus{
  outline: none;
 }
+
+.accept-button-nomo{
+   background: #012a36;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.reject-button-nomo{
+   background: #012a36;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.accept-button-nomo:hover,
+.reject-button-nomo:hover{
+  background: #01141a;
+  cursor: pointer;
+}
+
+.request-buttons-nomo{
+  display:flex;
+  justify-content: space-around;
+  margin-top: 4%;
+}
