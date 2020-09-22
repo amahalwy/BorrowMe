@@ -85,7 +85,7 @@ router.get(
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Booking.find({ requestorId: req.params.userId })
+    Booking.find({ ownerId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
   }

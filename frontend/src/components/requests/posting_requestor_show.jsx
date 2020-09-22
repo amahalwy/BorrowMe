@@ -2,12 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default (props) => {
+  if (!props.requestDates || props.requestDates === undefined) return '';
   const currentUser = useSelector((state) => state.session.user);
   const totalAmount = props.amount * props.requestDates.length;
-
-
   
-  if (!props.requestDates) return '';
   return (
     <div className="modal-main-show">
       <div className="modal-top-bar">
