@@ -165,12 +165,9 @@ const Map = (props) => {
   return (
     <div>
       <button className="close-map-x" onClick={props.hideModal}>X</button>
-        {/* <img className="maps-item-img-sm" src={props.posting.image} alt="image of item" /> */}
       <div className="maps-info-header">
-        <img className="maps-item-img-sm" src={props.posting.image} alt="" />
           <div>
           <div><span>{props.posting.title}</span></div>
-          <div className="posting-title-map">{props.posting.title}</div>
           <div className="posting-description-map">
           <div>Your address: {currentUser.address}</div>
           <div>Item address: {postingAddressShow}</div>

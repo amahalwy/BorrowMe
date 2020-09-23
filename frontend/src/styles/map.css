@@ -64,7 +64,7 @@
   font-weight: bold;
 }
 
-.maps-info-header {
+/* .maps-info-header {
   display: flex;
   position: relative;
 }
@@ -78,9 +78,9 @@
 }
 
 .posting-description-map {
-  /* position: center; */
+  position: center;
   text-align: center;
 }
 
 
-
+ */
