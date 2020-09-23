@@ -7,6 +7,7 @@ export default props => {
       {props.requests.map(request => {
           return (
             <PostingRequestorIndexItem
+              key={request._id}
               request={request}
             />
           );

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
 import Calendar from '../calendar/calendar';
 import Map from '../map/map'
 import Modal from '../../components/modal/modal';

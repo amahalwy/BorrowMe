@@ -13,9 +13,6 @@ export default props => {
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.errors.session);
 
-  // // This function is used to update the filter list; when typing, the input
-  // // will be used to filter out the postings that have the input INCLUDED in
-  // // their name
   const updateInput = (input) => {
     const filtered = postingList.filter((posting) => {
       if (input === "") {
@@ -38,7 +35,6 @@ export default props => {
     );
   };
 
-  // // Function used to filter by tags instead
   const updateTagInput = (input) => {
     const filtered = postingList.filter((posting) => {
       if (input === "") {
@@ -53,8 +49,6 @@ export default props => {
     setFilterList(filtered);
   };
 
-  // // Standalone fetch for data (think of an axios request but not api_util)
-  // // Using this to set the data immediately; can change this to be api_util later
   const fetchData = () => {
     return fetch("/api/postings")
       .then((response) => response.json())
@@ -65,7 +59,6 @@ export default props => {
   };
 
   useEffect(() => {
-    // Update the home_page index when new posting is created
     dispatch(clearPostings());
     fetchData();
     dispatch(fetchPostings());

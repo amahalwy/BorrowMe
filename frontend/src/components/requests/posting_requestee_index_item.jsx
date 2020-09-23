@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings} from '../../actions/booking_actions';
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest} from '../../actions/request_actions';
-import Modal from "../modal/request_modal";
-import PostingRequestorShow from "./posting_requestor_show";
 import FormData from 'form-data';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user); 
   const dispatch = useDispatch();
-
-  const [openModal, setModal] = useState(false);
-
-  const showModal = () => {
-    setModal(true);
-  };
-
-  const hideModal = () => {
-    setModal(false);
-  };
 
   const acceptRequest = async (e) => {
     e.preventDefault();
@@ -56,23 +44,12 @@ export default (props) => {
   }
 
   return (
-    <div className="postings-index-image-box" onClick={showModal}>
+    <div className="postings-index-image-box">
       <img
         className="postings-index-image"
         src={props.request.postingImage}
         alt=""
       />
-      <span></span>
-      {/* <Modal show={openModal}>
-        <PostingRequestorShow
-          title={props.request.postingTitle}
-          image={props.request.postingImage}
-          amount={props.request.amount}
-          user={props.request.requestorName}
-          requestDates={props.request.requestDates}
-          hideModal={hideModal}
-        />
-      </Modal> */}
       <span>Requestor: {props.request.requestorName}</span>
       <br />
       <span>

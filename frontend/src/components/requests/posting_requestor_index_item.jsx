@@ -3,9 +3,7 @@ import Modal from '../modal/request_modal';
 import PostingRequestorShow from './posting_requestor_show';
 
 export default props => {
-
   const [openModal, setModal] = useState(false)
-  // const [hideModal, setModal] = useState(true)
 
   const showModal = (e) => {
     e.preventDefault();

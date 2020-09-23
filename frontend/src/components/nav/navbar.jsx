@@ -1,4 +1,3 @@
-// src/components/nav/navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions/session_actions";
@@ -25,7 +24,6 @@ export default (props) => {
     setModal(false);
   };
 
-  // Selectively render links dependent on whether the user is logged in
   const getLinks = () => {
     if (loggedIn) {
 

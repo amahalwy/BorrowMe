@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUser, fetchUser } from '../../actions/user_actions';
@@ -6,14 +6,23 @@ import FormData from 'form-data';
 
 const EditProfileModal = (props) => {
   const currentUser = useSelector(state => state.session.user);
-  
+
+  debugger;
+  const getPhoto = () => {
+    if (currentUser.profilePhoto) {
+      return currentUser.profilePhoto;
+    } else {
+      return null;
+    }
+  }
+
   const [firstName, updateFirstName] = useState(currentUser.firstName);
   const [lastName, updateLastName] = useState(currentUser.lastName);
   const [address, updateAddress] = useState(currentUser.address);
   const [city, updateCity] = useState(currentUser.city);
   const [state, updateState] = useState(currentUser.state);
   const [zipCode, updateZipCode] = useState(currentUser.zipCode);
-  const [profilePhoto, setProfilePhoto] = useState(null);
+  const [profilePhoto, setProfilePhoto] = useState(getPhoto());
   
   const activeUser = useSelector(state => state.entities.users.user);
   const errors = useSelector((state) => state.errors.session);
@@ -31,7 +40,7 @@ const EditProfileModal = (props) => {
     formData.append("state", state);
     formData.append("zipCode", zipCode);
     formData.append("file", profilePhoto);
-      
+    debugger;
     dispatch(updateUser(currentUser.id ,formData));
     setTimeout(() => {
       dispatch(fetchUser(currentUser.id));
@@ -40,7 +49,8 @@ const EditProfileModal = (props) => {
   };
 
   const onDrop = (picture) => {
-    setProfilePhoto(picture[0]);
+    setProfilePhoto(picture[picture.length - 1]);
+    debugger
   }
 
   const renderErrors = () => {

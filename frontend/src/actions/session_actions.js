@@ -25,9 +25,6 @@ const clear = () => ({
   type: CLEAR_ERRORS
 })
 
-// Upon signup, dispatch the approporiate action depending on which type of 
-// response we receive from the backend
-
 export const signup = user => dispatch => (
   APIUtil.signup(user)
     .then(res => {
@@ -39,8 +36,6 @@ export const signup = user => dispatch => (
     }, err => dispatch(receiveErrors(err.response.data)))
 );
 
-// Upon login, set the session token and dispatch the current user. Dispatch 
-// errors on failure.
 export const login = (user) => (dispatch) => (
   APIUtil.login(user)
   .then(res => { 
@@ -53,10 +48,7 @@ export const login = (user) => (dispatch) => (
 )
 
 export const logout = () => (dispatch) => {
-  // APIUtil.logout()
-  // Remove the token from local storage
   localStorage.removeItem("jwtToken");
-  // Remove the token from the common axios header
   APIUtil.setAuthToken(false);
   dispatch(logoutUser());
 };

@@ -26,7 +26,7 @@ export default (props) => {
           <span>Requestor: {props.user}</span>
         </div>
         <div>
-          <img className="request-image" src={props.image} />
+          <img className="request-image" src={props.image} alt=''/>
         </div>
         <div></div>
         <div className="request-buttons">

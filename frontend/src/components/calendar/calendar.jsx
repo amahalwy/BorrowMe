@@ -24,7 +24,7 @@ export default (props) => {
   const id = props.posting._id;
   
   const getDates = () => {
-    const dateArray = new Array();
+    const dateArray = [];
     let currentDate = state[0].startDate;
 
     while (currentDate <= state[0].endDate) {

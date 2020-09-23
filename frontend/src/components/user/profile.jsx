@@ -6,13 +6,11 @@ import {clearRequests, fetchRequestorRequests, fetchReceiverRequests} from '../.
 import { clearBookings, fetchOwnerBookings, fetchRenterBookings} from '../../actions/booking_actions';
 
 import ProfileSideBar from './profile_side_bar';
-import PostingsIndex from "../postings/profile_postings_index";
 import ProfileRequesteeIndex from "../requests/posting_requestee_index";
 import ProfileRequestorIndex from '../requests/posting_requestor_index';
 import BookingsIndex from '../booking/booking_index';
 
 export default props => {
-  const currentUser = useSelector((state) => state.session.user);
   const postings = useSelector((state) =>
     Object.values(state.entities.postings)
   );

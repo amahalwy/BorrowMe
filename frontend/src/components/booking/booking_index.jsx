@@ -8,7 +8,10 @@ export default props => {
       {
         props.bookings.map(booking => {
           return (
-            <BookingIndexItem booking={booking}/>
+            <BookingIndexItem 
+              booking={booking} 
+              key={booking._id}
+            />
           )
         })
       }

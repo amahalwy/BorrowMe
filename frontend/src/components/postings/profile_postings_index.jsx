@@ -7,9 +7,9 @@ export default props => {
   return (
     <div className="profile-postings-image-list">
         {
-          props.postings.map(posting => {
+          props.postings.map((posting, i) => {
             return (
-              <div className="postings-index-image-box">
+              <div key={i} className="postings-index-image-box">
                 <img className="postings-index-image" src={posting.image} alt=""/>
               </div>
             )

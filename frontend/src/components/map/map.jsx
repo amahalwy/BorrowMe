@@ -45,7 +45,7 @@ const Map = (props) => {
       const json = await res.json();
       const coordinates = json.features[0].geometry.coordinates;
 
-      let markerPlace = new mapboxgl.Marker({ color: "#cc0000" })
+      new mapboxgl.Marker({ color: "#cc0000" })
         .setLngLat([coordinates[0], coordinates[1]])
         .addTo(map);
 
@@ -61,7 +61,7 @@ const Map = (props) => {
       const coordinatesCurrentUser =
         jsonCurrentUser.features[0].geometry.coordinates;
 
-      let markerPlaceCurrentUser = new mapboxgl.Marker()
+      new mapboxgl.Marker()
         .setLngLat([coordinatesCurrentUser[0], coordinatesCurrentUser[1]])
         .addTo(map)
 
@@ -157,7 +157,7 @@ const Map = (props) => {
     <div>
       <button className="close-map-x" onClick={props.hideModal}>X</button>
       <div className="maps-info-header">
-        <img className="maps-item-img-sm" src={props.posting.image} alt="image of item" />
+        <img className="maps-item-img-sm" src={props.posting.image} alt="" />
         <div>
           <div><span>{props.posting.title}</span></div>
           <div>Your address: {currentUser.address}</div>

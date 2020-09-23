@@ -13,17 +13,11 @@ export default (props) => {
   const [zipCode, updateZipCode] = useState("");
   const [password, updatePassword] = useState("");
   const [password2, updatePassword2] = useState("");
-  // const [stateErrors, updateErrors] = useState({});
 
-  // const isSignedIn = useSelector(state => state.session.isSignedIn || {});
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if (isSignedIn === true) {
-    //   props.history.push("/hello");
-    // }
-
     return () => {
       dispatch(clearErrors());
     };

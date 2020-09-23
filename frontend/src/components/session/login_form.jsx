@@ -43,7 +43,6 @@ export default (props) => {
 
 
   const demoLogin = () => {
-    // e.preventDefault();
     const demoUser = {
       email: "demo@demo.com",
       password: "demo1234"

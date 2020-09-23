@@ -85,7 +85,6 @@ router.get(
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("REQUEST::::", req.params.userId);
     Booking.find({ ownerId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
@@ -97,7 +96,6 @@ router.get(
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("REQUEST::::", req.params);
     Booking.find({ requestorId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
@@ -145,8 +143,7 @@ router.post('/signup', (req, res) =>{
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        profilePhoto: '',
-        postings: []
+        profilePhoto: "https://borrowme-pro.s3.us-east-2.amazonaws.com/6c40245f-69eb-40e1-be43-ce2476ecc72c",
       })
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -157,7 +154,13 @@ router.post('/signup', (req, res) =>{
             .save()
             .then(user => {
               
-              const payload = { id: user.id, email: user.email };
+              const payload = { id: user.id,
+                                firstName: user.firstName,
+                                lastName: user.lastName,
+                                email: user.email,
+                                profilePhoto: user.profilePhoto
+
+                              };
 
               jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
@@ -193,8 +196,6 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-
-            // Dictate response attributes here (jbuilder)
 
             const payload = {
               id: user.id,
@@ -235,6 +236,11 @@ router.put(
     // if (req.file) {
       
     // }
+
+    console.log("file:", req.file)
+    console.log("body", req.body)
+
+
     uploadImage(req.file)
       .then(data => {
         const uploadedImageURL = data.Location;
