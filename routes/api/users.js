@@ -81,10 +81,11 @@ router.get(
 
 // Users' bookings
 router.get(
-  "/:userId/bookings",
+  "/:userId/bookings/owner",
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log("REQUEST::::", req.params.userId);
     Booking.find({ ownerId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));
@@ -92,10 +93,11 @@ router.get(
 );
 
 router.get(
-  "/:userId/bookings",
+  "/:userId/bookings/renter",
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log("REQUEST::::", req.params);
     Booking.find({ requestorId: req.params.userId })
       .then((bookings) => res.json(bookings))
       .catch((err) => res.status(400).json(err));

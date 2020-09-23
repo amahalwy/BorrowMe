@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import { createBooking, clearBookings, fetchUserBookings} from '../../actions/booking_actions';
+import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings} from '../../actions/booking_actions';
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest} from '../../actions/request_actions';
 import Modal from "../modal/request_modal";
 import PostingRequestorShow from "./posting_requestor_show";
@@ -34,7 +34,8 @@ export default (props) => {
     dispatch(createBooking(formData));
     setTimeout(() => {
       dispatch(clearBookings());
-      dispatch(fetchUserBookings(currentUser.id));
+      dispatch(fetchOwnerBookings(currentUser.id));
+      dispatch(fetchRenterBookings(currentUser.id));
       dispatch(deleteRequest(props.request._id));
       dispatch(clearRequests());
     }, 200)

@@ -1,5 +1,4 @@
 import {
-  RECEIVE_BOOKINGS,
   RECEIVE_BOOKING,
   REMOVE_BOOKING,
   CLEAR_BOOKINGS,
@@ -8,8 +7,6 @@ import {
 export default function (state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_BOOKINGS:
-      return Object.assign({}, state, action.bookings.data);
     case RECEIVE_BOOKING:
       return Object.assign({}, state, action.booking.data);
     case REMOVE_BOOKING:

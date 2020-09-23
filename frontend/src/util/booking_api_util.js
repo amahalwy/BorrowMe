@@ -4,8 +4,12 @@ export const fetchBooking = (bookingId) => {
   return axios.get(`/api/bookings`, bookingId);
 };
 
-export const fetchUserBookings = (userId) => {
-  return axios.get(`/api/users/${userId}/bookings`);
+export const fetchOwnerBookings = (userId) => {
+  return axios.get(`/api/users/${userId}/bookings/owner`);
+};
+
+export const fetchRenterBookings = (userId) => {
+  return axios.get(`/api/users/${userId}/bookings/renter`);
 };
 
 export const createBooking = (booking) => {

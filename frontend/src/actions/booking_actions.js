@@ -1,7 +1,8 @@
 import * as APIUtil from "../util/booking_api_util";
 
 export const RECEIVE_BOOKING = "RECEIVE_BOOKING";
-export const RECEIVE_BOOKINGS = "RECEIVE_BOOKINGS";
+export const RECEIVE_OWNER_BOOKINGS = "RECEIVE_OWNER_BOOKINGS";
+export const RECEIVE_RENTER_BOOKINGS = "RECEIVE_RENTER_BOOKINGS";
 export const REMOVE_BOOKING = "REMOVE_BOOKING";
 export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 export const CLEAR_BOOKINGS = "CLEAR_BOOKINGS";
@@ -11,8 +12,13 @@ const receiveBooking = (booking) => ({
   booking,
 });
 
-const receiveBookings = (bookings) => ({
-  type: RECEIVE_BOOKINGS,
+const receiveOwnerBookings = (bookings) => ({
+  type: RECEIVE_OWNER_BOOKINGS,
+  bookings,
+});
+
+const receiveRenterBookings = (bookings) => ({
+  type: RECEIVE_RENTER_BOOKINGS,
   bookings,
 });
 
@@ -36,9 +42,15 @@ export const fetchBooking = (bookingId) => (dispatch) => {
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 
-export const fetchUserBookings = (userId) => (dispatch) => {
-  APIUtil.fetchUserBookings(userId)
-    .then((bookings) => dispatch(receiveBookings(bookings)))
+export const fetchOwnerBookings = (userId) => (dispatch) => {
+  APIUtil.fetchOwnerBookings(userId)
+    .then((bookings) => dispatch(receiveOwnerBookings(bookings)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+};
+
+export const fetchRenterBookings = (userId) => (dispatch) => {
+  APIUtil.fetchRenterBookings(userId)
+    .then((bookings) => dispatch(receiveRenterBookings(bookings)))
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 

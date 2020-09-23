@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchUser} from '../../actions/user_actions';
 import {clearPostings, fetchUserPostings} from '../../actions/posting_actions';
 import {clearRequests, fetchRequestorRequests, fetchReceiverRequests} from '../../actions/request_actions';
-import {clearBookings, fetchUserBookings} from '../../actions/booking_actions';
+import { clearBookings, fetchOwnerBookings, fetchRenterBookings} from '../../actions/booking_actions';
 
 import ProfileSideBar from './profile_side_bar';
 import PostingsIndex from "../postings/profile_postings_index";
@@ -22,9 +22,14 @@ export default props => {
   const receiverRequests = useSelector((state) =>
     Object.values(state.entities.receiverRequests)
   );
-  const bookings = useSelector((state) =>
-    Object.values(state.entities.bookings)
+  const ownerBookings = useSelector((state) =>
+    Object.values(state.entities.ownerBookings)
   );
+
+  const renterBookings = useSelector((state) =>
+    Object.values(state.entities.renterBookings)
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,20 +44,21 @@ export default props => {
     dispatch(fetchReceiverRequests(props.match.params.userId));
 
     dispatch(clearBookings());
-    dispatch(fetchUserBookings(props.match.params.userId));
+    dispatch(fetchOwnerBookings(props.match.params.userId));
+    dispatch(fetchRenterBookings(props.match.params.userId));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="profile-container">
-      <ProfileSideBar />
+      <ProfileSideBar postings={postings}/>
       <div className="profile-main-box">
-        <div className="profile-postings">
-          <h1>Postings</h1>
-          <PostingsIndex postings={postings} />
+        <div className="profile-rentals">
+          <h1>Your upcoming bookings </h1>
+          <BookingsIndex bookings={renterBookings} />
         </div>
         <div className="profile-rentals">
           <h1>Upcoming bookings </h1>
-          <BookingsIndex bookings={bookings} />
+          <BookingsIndex bookings={ownerBookings} />
         </div>
       </div>
       <div className="profile-main-box">

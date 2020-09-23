@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useSelector } from "react-redux";
 import Modal from "../modal/modal";
 import EditProfileModal from './edit_profile_modal';
+import ProfilePostingsIndex from '../postings/profile_postings_index';
 
 const ProfileSideBar = props => {
   const activeUser = useSelector(state => state.entities.users.user);
@@ -48,6 +49,7 @@ const ProfileSideBar = props => {
       <Modal show={openModal} handleClose={hideModal}>
         <EditProfileModal hideModal={hideModal} />
       </Modal>
+      <ProfilePostingsIndex postings={props.postings} />
     </div>
   )
 }
