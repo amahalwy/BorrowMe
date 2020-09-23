@@ -10,9 +10,12 @@ export default (props) => {
   
   const [openModal, setModal] = useState(false)
 
-  const showModal = (e) => {
+  const showModal = async (e) => {
     e.preventDefault();
-    setModal(true);
+    await setModal(true);
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 1)
   };
 
   const hideModal = () => {
