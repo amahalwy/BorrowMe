@@ -64,8 +64,23 @@
   font-weight: bold;
 }
 
-/* .mapboxgl-canvas-container {
-  height: 100vh;
-} */
+.maps-info-header {
+  display: flex;
+  position: relative;
+}
+
+.posting-title-map {
+  font-weight: bold;
+  position: inline-block;
+  text-align: center;
+  font-size: 150%;
+  float: top;
+}
+
+.posting-description-map {
+  /* position: center; */
+  text-align: center;
+}
+
 
 
