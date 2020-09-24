@@ -5,6 +5,7 @@ import Calendar from '../calendar/calendar';
 import Map from '../map/map'
 import Modal from '../../components/modal/modal';
 
+
 export default (props) => {
   const currentUser = useSelector(state => state.session.user)
   
@@ -50,6 +51,7 @@ export default (props) => {
           <Modal show={openModal} handleClose={hideModal}>
             <Map posting={props.posting} currentUser={currentUser} hideModal={hideModal}/>
           </Modal>
+          
           <button onClick={showModal}>Show map</button>
           
         </div>
