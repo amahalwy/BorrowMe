@@ -26,9 +26,16 @@
   border-radius: 8px; */
 }
 
+.entire-image{
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
 .home-items-index{
 background-color: #f1f1f1;
 border:none;
+margin-left: 13%;
+width: 100%;
 }
 
 .image-container{

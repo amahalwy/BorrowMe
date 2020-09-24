@@ -164,6 +164,18 @@
   padding: 1%;
 }
 
+.profile-postings-image-list:hover .postings-index-image-box {
+   transform: translateX(-25%);
+}
+
+.postings-index-image-box:hover ~ .postings-index-image-box {
+   transform: translateX(25%);
+}
+
+.postings-index-image-box:hover {
+  transform: scale(1.5) !important;
+}
+
 .postings-index-image-box {
   width: 45%;
   height: 100%;

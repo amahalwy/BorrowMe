@@ -67,9 +67,9 @@ export default props => {
   return (
     <div className="home-container">
       {renderErrors()}
-      <div className="home-filter">
+      {/* <div className="home-filter"> */}
         <div className="home-tag-search-bar"></div>
-        <div className="side-engineers-container">
+        {/* <div className="side-engineers-container">
           <h3 className="meet-the-engineers">Meet the team!</h3>
 
           <div className="engineer-info">
@@ -207,8 +207,8 @@ export default props => {
               <span> - Sean </span>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       <div className="home-index">
         <div className="search-container">
