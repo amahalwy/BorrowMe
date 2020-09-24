@@ -18,9 +18,7 @@ export default props => {
   return (
     <div >
       <div>
-        {/* Body */}
         <div className="entire-image">
-          {/*Left Body*/}
           <div onClick={showModal} className="post-index-item-image-container">
             <div className="image-container">
               <img className="posting-image" src={props.posting.image} alt="" />
@@ -44,7 +42,6 @@ export default props => {
           </div>
           <div className="home-no-show">
             Calendar
-            <div>{/* Calendar */}</div>
           </div>
         </div>
       </div>

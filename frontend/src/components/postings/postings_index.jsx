@@ -20,10 +20,15 @@ export default props => {
 return (
   <div className="home-items-index">
       <Slider {...settings}>
-      {props.filterList.map((posting) => {
-        return (<PostIndexItem key={posting._id} posting={posting} />);
-      })}
-         </Slider>
+        {props.filterList.map((posting) => {
+          return (
+            <PostIndexItem 
+              key={posting._id} 
+              posting={posting} 
+            />
+          );
+        })}
+      </Slider>
   </div>
 );
 }
