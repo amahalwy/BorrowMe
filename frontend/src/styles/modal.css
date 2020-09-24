@@ -28,3 +28,15 @@
 .display-none {
   display: none;
 }
+
+.success-modal-main {
+  width: 600px;
+  position: absolute;
+  background: white;
+  height: 250px;
+  top:42%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 5px;
+  z-index: 100;
+}

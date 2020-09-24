@@ -45,6 +45,7 @@ export const fetchUserPostings = ownerId => dispatch => {
 export const createPosting = posting => dispatch => {
   APIUtil.createPosting(posting)
     .then(posting => dispatch(receivePosting(posting)))
+    .then(res => console.log(res))
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 

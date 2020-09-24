@@ -15,7 +15,7 @@
 
 .posting-form h1{
 font-size: 2em;
-margin: 0% 0% 0% 35%;
+margin: 0% 0% 0% 40%;
 }
 
 .posting-form input{
@@ -33,28 +33,30 @@ margin: 0% 0% 0% 35%;
 
 .posting-form input[placeholder="Title"]{
   width: 57%;
+  margin-left: 125px;
   margin-right: 0px;
 }
 
 .posting-form input[placeholder="Price"]{
   width: 15%;
-  margin-left: 20px;
+  margin-left: 28px;
 }
 
 .posting-second{
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 .posting-form input[placeholder="City"]{
   width: 38%;
-  margin-left: 104px;
+  margin-left: 125px;
   margin-right: 10px;
 }
 
 .posting-form input[placeholder="State"]{
   width: 12%;
   margin-left: 0;
-  margin-right: 4px;
+  margin-right: 0px;
 }
 
 .posting-form input[placeholder="Zip Code"]{
@@ -90,7 +92,7 @@ height: 100px;
 
 .create-posting-img{
   display: flex;
-  margin-left: 30%;
+  margin-left: 34%;
   height: 2em;
 }
 
@@ -135,7 +137,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 .chooseFileButton {
   padding: 3px 15px !important;
-  margin: 0px !important;
+  margin: 0 !important;
   width: 200px !important;
 }
 
@@ -149,3 +151,4 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   height: 0px;
   width: 0px;
 }
+

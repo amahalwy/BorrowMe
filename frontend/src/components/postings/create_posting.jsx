@@ -7,7 +7,8 @@ import FormData from 'form-data';
 export default (props) => {
   const currentUser = useSelector(state => state.session.user);
   const errors = useSelector((state) => state.errors.postings);
-
+  const postings = useSelector((state) => state.entities.postings);
+  
   const [title, updateTitle] = useState("");
   const [price, updatePrice] = useState("");
   const [description, updateDescription] = useState("");
@@ -19,8 +20,9 @@ export default (props) => {
   const [imageFile, setFile] = useState(null);
 
   const dispatch = useDispatch();
-  
-  const handleSubmit = async (e) => {
+  const [openModal, setModal] = useState(false)
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -36,8 +38,29 @@ export default (props) => {
     formData.append("file", imageFile);
   
     dispatch(createPosting(formData));
-    props.hideModal();
+    // let oldPostingsLength = postings.length;
+    // if (oldPostingsLength < postings.length) {
+    //   setTimeout( async () => {
+    //     await props.hideModal()
+    //     props.showSuccessModal();
+    //   }, 20)
+    // }
+    // props.hideModal();
+
   };
+
+  // const test = () => {
+  //   handleSubmit()
+    
+  //   setTimeout( () => {
+
+  //     if (Object.keys(errors).length > 0) {
+  //       console.log("we have errors")
+  //     } else {
+  //       console.log("no errors")
+  //     }
+  //   }, 5000)
+  // }
 
   const onDrop = (picture) => {
     setFile(picture[0]);
@@ -45,7 +68,6 @@ export default (props) => {
 
   const renderErrors = () => {
     if (Object.keys(errors).length > 0) {
-      props.showModal()
       return (
         <div >
           <h2 id="create-posting-errors-h2">Could not create posting see the below errors:</h2>
@@ -141,6 +163,7 @@ export default (props) => {
         </div>
         <br />
         <input type="submit" value="Create Posting" onClick={handleSubmit} />
+
         {renderErrors()}
       </form>
     </div>

@@ -4,6 +4,7 @@ import { logout } from "../../actions/session_actions";
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from "../modal/modal";
 import CreatePosting  from "../postings/create_posting";
+import SuccessModal from "../modal/success-modal";
 
 export default (props) => {
   const dispatch = useDispatch();
@@ -15,15 +16,26 @@ export default (props) => {
   }
 
   const [openModal, setModal] = useState(false);
+  const [openSuccessModal, setSuccessModal] = useState(false);
 
   const showModal = () => {
     setModal(true);
   };
 
   const hideModal = () => {
-    setModal(false);
+    setModal(false)
   };
 
+  const showSuccessModal = () => {
+    setSuccessModal(true);
+  };
+
+  const hideSuccessModal = () => {
+    setSuccessModal(false);
+  };
+
+
+  // Selectively render links dependent on whether the user is logged in
   const getLinks = () => {
     if (loggedIn) {
 
@@ -44,11 +56,9 @@ export default (props) => {
                   </Link>
                 </li>
                 <li>
-                  {/* FIX THIS. ADD A to= */}
-                  {/* OR, change to div */}
-                  <Link className="nav-dropdown-link" onClick={showModal}>
+                  <div className="nav-dropdown-link" onClick={showModal}>
                     New Posting
-                  </Link>
+                  </div>
                 </li>
                 <li>
                   <Link
@@ -71,8 +81,17 @@ export default (props) => {
             </div>
           </div>
           <Modal show={openModal} handleClose={hideModal} >
-            <CreatePosting className="create-posting-modal-box" showModal={showModal} hideModal={hideModal} />
+            <CreatePosting className="create-posting-modal-box" 
+                hideSuccessModal={hideSuccessModal} 
+                showSuccessModal={showSuccessModal} 
+                showModal={showModal}
+                hideModal={hideModal} 
+            />
           </Modal>
+          <SuccessModal show={openSuccessModal} handleClose={hideSuccessModal}>
+            <button onClick={hideSuccessModal}>X</button>
+            <h1>Success!</h1>
+          </SuccessModal>
         </div>
       );
     } else {
