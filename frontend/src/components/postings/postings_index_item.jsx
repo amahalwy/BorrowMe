@@ -16,15 +16,10 @@ export default props => {
   };
 
   return (
-    <div className="post-index-item">
-      <div>
-        {/* <div>
-          <span></span>
-        </div> */}
-      </div>
+    <div >
       <div>
         {/* Body */}
-        <div>
+        <div className="entire-image">
           {/*Left Body*/}
           <div onClick={showModal} className="post-index-item-image-container">
             <div className="image-container">
