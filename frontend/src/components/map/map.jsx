@@ -10,6 +10,7 @@ const Map = (props) => {
   const searchTextCurrentUser = `${currentUser.address} ${currentUser.city} ${currentUser.state} ${currentUser.zipCode}`;
   const { address, city, state, zipCode } = props.posting;
   const postingAddress = `${address} ${city} ${state} ${zipCode}`;
+  const postingAddressShow = `${address}`;
 
   useEffect(() => {
     handleMap();
@@ -92,7 +93,15 @@ const Map = (props) => {
           let route = data.geometry.coordinates;
           let geojson = {
             type: "Feature",
-            properties: {},
+            properties: {
+              icon: {
+                iconUrl: props.posting.image,
+                iconSize: [50, 50], // size of the icon
+                iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+                popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+                className: 'dot'
+              }
+            },
             geometry: {
               type: "LineString",
               coordinates: route,
@@ -157,17 +166,17 @@ const Map = (props) => {
     <div>
       <button className="close-map-x" onClick={props.hideModal}>X</button>
       <div className="maps-info-header">
-        <img className="maps-item-img-sm" src={props.posting.image} alt="" />
-        <div>
+          <div>
           <div><span>{props.posting.title}</span></div>
+          <div className="posting-description-map">
           <div>Your address: {currentUser.address}</div>
-          <div>Item address: {postingAddress}</div>
-        </div>
+          <div>Item address: {postingAddressShow}</div>
+          </div>
       </div>
       <div ref={(el) => (mapContainer.current = el)} className="container-for-map"></div>
+      </div>
     </div>
   );
 }
 
 export default Map;
-
