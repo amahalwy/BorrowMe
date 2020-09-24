@@ -166,14 +166,12 @@ const Map = (props) => {
     <div>
       <button className="close-map-x" onClick={props.hideModal}>X</button>
       <div className="maps-info-header">
-          <div>
-          <div><span>{props.posting.title}</span></div>
-          <div className="posting-description-map">
-          <div>Your address: {currentUser.address}</div>
-          <div>Item address: {postingAddressShow}</div>
-          </div>
+          <h1 className="posting-title-map">{props.posting.title}</h1>
+        <div className="posting-description-map">
+        <div>Your address: {currentUser.address}</div>
+        <div>Item address: {postingAddressShow}</div>
       </div>
-      <div ref={(el) => (mapContainer.current = el)} className="container-for-map"></div>
+        <div ref={(el) => (mapContainer.current = el)} className="container-for-map"></div>
       </div>
     </div>
   );

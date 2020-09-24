@@ -54,33 +54,21 @@
 
 .maps-info-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 18px;
-  margin-top: -10px;
   line-height: 1.5em;
-}
-
-.maps-info-header span {
-  font-weight: bold;
-}
-
-/* .maps-info-header {
-  display: flex;
-  position: relative;
+  margin-top: 20px;
+  margin-left: 120px;
+  margin-right: 100px;
 }
 
 .posting-title-map {
   font-weight: bold;
-  position: inline-block;
-  text-align: center;
-  font-size: 150%;
-  float: top;
+  font-size: 4em;
+  font-size: 200%;
 }
 
 .posting-description-map {
-  position: center;
-  text-align: center;
-}
+  float: center;
+} 
 
-
- */
