@@ -22,7 +22,7 @@ export default (props) => {
       stateErrors,
     };
 
-    dispatch(login(user)).then((res) => console.log(res));
+    dispatch(login(user));
   };
 
   const renderErrors = () => {

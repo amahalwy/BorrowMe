@@ -7,7 +7,6 @@ import FormData from 'form-data';
 const EditProfileModal = (props) => {
   const currentUser = useSelector(state => state.session.user);
 
-  debugger;
   const getPhoto = () => {
     if (currentUser.profilePhoto) {
       return currentUser.profilePhoto;
@@ -40,7 +39,7 @@ const EditProfileModal = (props) => {
     formData.append("state", state);
     formData.append("zipCode", zipCode);
     formData.append("file", profilePhoto);
-    debugger;
+
     dispatch(updateUser(currentUser.id ,formData));
     setTimeout(() => {
       dispatch(fetchUser(currentUser.id));
@@ -50,7 +49,6 @@ const EditProfileModal = (props) => {
 
   const onDrop = (picture) => {
     setProfilePhoto(picture[picture.length - 1]);
-    debugger
   }
 
   const renderErrors = () => {

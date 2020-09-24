@@ -169,7 +169,7 @@ router.post('/signup', (req, res) =>{
                 });
               });
             })
-            .catch(err => console.log(err));
+            .catch((err) => res.status(400).json(err));
         });
       });
     }
@@ -230,16 +230,6 @@ router.put(
   upload.single("file"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-
-    // Branching logic for uploading a photo/NOT having a photo uploaded with edit
-
-    // if (req.file) {
-      
-    // }
-
-    console.log("file:", req.file)
-    console.log("body", req.body)
-
 
     uploadImage(req.file)
       .then(data => {
