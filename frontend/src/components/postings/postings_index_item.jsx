@@ -16,7 +16,7 @@ export default props => {
   };
 
   return (
-    <div >
+    <div>
       <div>
         {/* Body */}
         <div className="entire-image">
@@ -38,7 +38,7 @@ export default props => {
             <div className="post-price">
               <span>Price: ${props.posting.price}/day</span>
             </div>
-            <div className='post-tags'>
+            <div className="post-tags">
               <span>Tags: {props.posting.tags}</span>
             </div>
           </div>

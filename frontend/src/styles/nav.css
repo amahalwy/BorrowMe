@@ -172,3 +172,7 @@
   cursor: pointer;
   color: rgb(221, 221, 221);
 }
+
+.slick-cloned {
+  display: none !important;
+}

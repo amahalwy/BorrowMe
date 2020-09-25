@@ -1,13 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PostIndexItem from './postings_index_item';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
+import Modal from "../modal/modal";
+import PostingShow from "./posting_show";
 
 export default props => {
   
   if (!props.filterList) return '';
 
+  const [openModal, setModal] = useState(false);
+
+  const showModal = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
+
+  const hideModal = () => {
+    setModal(false);
+  };
   const settings = {
     dots: true,
     infinite: true,
@@ -21,7 +33,21 @@ return (
   <div className="home-items-index">
       <Slider {...settings}>
       {props.filterList.map((posting) => {
-        return (<PostIndexItem key={posting._id} posting={posting} />);
+        return (
+          <div>
+            <div>
+              <PostIndexItem
+                key={posting._id}
+                posting={posting}
+                onClick={showModal}
+              />
+                {/* <Modal show={openModal} handleClose={hideModal}>
+                  <PostingShow posting={props.posting} hideModal={hideModal} />
+                </Modal>
+              */}
+            </div>
+          </div>
+        );
       })}
          </Slider>
   </div>
