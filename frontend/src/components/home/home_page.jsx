@@ -10,13 +10,15 @@ import { clearModal } from "../../actions/posting_actions";
 
 
 export default props => {
+  const errors = useSelector((state) => state.errors.session);
+  const posting = useSelector(state => state.entities.modal);
+
   const [input, setInput] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [postingList, setPostingList] = useState();
   const [filterList, setFilterList] = useState();
+
   const dispatch = useDispatch();
-  const errors = useSelector((state) => state.errors.session);
-  const posting = useSelector(state => state.entities.modal);
 
   const updateInput = (input) => {
     const filtered = postingList.filter((posting) => {
@@ -79,8 +81,7 @@ export default props => {
     setModal(false);
     dispatch(clearModal());
   };
-
-  console.log(posting)
+ 
   if (!posting) return '';
   return (
     <div className="home-container">

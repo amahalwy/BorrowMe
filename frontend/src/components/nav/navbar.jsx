@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions/session_actions";
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,8 @@ export default (props) => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.session.isAuthenticated);
   const currentUser = useSelector(state => state.session.user);
+  const modalObject = useSelector((state) => state.entities.modal); 
+
   const logoutUser = e => {
     e.preventDefault();
     dispatch(logout());
@@ -33,6 +35,12 @@ export default (props) => {
   const hideSuccessModal = () => {
     setSuccessModal(false);
   };
+
+  useEffect(() => {
+    if (modalObject.res === 200) {
+      showSuccessModal();
+    }
+  }, [modalObject]);
 
 
   // Selectively render links dependent on whether the user is logged in

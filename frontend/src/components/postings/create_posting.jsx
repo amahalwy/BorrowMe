@@ -20,7 +20,6 @@ export default (props) => {
   const [imageFile, setFile] = useState(null);
 
   const dispatch = useDispatch();
-  // const [openModal, setModal] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,29 +37,8 @@ export default (props) => {
     formData.append("file", imageFile);
   
     dispatch(createPosting(formData));
-    // let oldPostingsLength = postings.length;
-    // if (oldPostingsLength < postings.length) {
-    //   setTimeout( async () => {
-    //     await props.hideModal()
-    //     props.showSuccessModal();
-    //   }, 20)
-    // }
-    // props.hideModal();
-
+    props.hideModal();
   };
-
-  // const test = () => {
-  //   handleSubmit()
-    
-  //   setTimeout( () => {
-
-  //     if (Object.keys(errors).length > 0) {
-  //       console.log("we have errors")
-  //     } else {
-  //       console.log("no errors")
-  //     }
-  //   }, 5000)
-  // }
 
   const onDrop = (picture) => {
     setFile(picture[0]);

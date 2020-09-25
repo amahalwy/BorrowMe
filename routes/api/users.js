@@ -231,7 +231,26 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
-    uploadImage(req.file)
+    if (req.file === undefined) {
+      User.findOne({ email: req.body.email })
+        .then((user) => {
+          user.firstName = req.body.firstName;
+          user.lastName = req.body.lastName;
+          user.address = req.body.address;
+          user.city = req.body.city;
+          user.state = req.body.state;
+          user.zipCode = req.body.zipCode;
+          user.profilePhoto = req.body.file;
+
+          user
+            .save()
+            .then((savedUser) => res.json(savedUser))
+            .catch((err) => res.json(err));
+        })
+        .catch((err) => res.status(400).json(err));
+    } else {
+
+      uploadImage(req.file)
       .then(data => {
         const uploadedImageURL = data.Location;
         User.findOne({ email: req.body.email })
@@ -243,17 +262,15 @@ router.put(
             user.state = req.body.state;
             user.zipCode = req.body.zipCode;
             user.profilePhoto = uploadedImageURL;
-
+            
             user.save()
-              .then((savedUser) => res.json(savedUser))
-              .catch((err) => res.json(err));
+            .then((savedUser) => res.json(savedUser))
+            .catch((err) => res.json(err));
           })
           .catch((err) => res.status(400).json(err));
-      })
-      .catch((err) => res.status(400).json(err));
-      // else {
-
-      // }
+        })
+        .catch((err) => res.status(400).json(err));
+    }
   }
 );
 

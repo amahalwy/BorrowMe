@@ -10,22 +10,12 @@ export default props => {
   
   if (!props.filterList) return '';
 
-  const [openModal, setModal] = useState(false);
-
-  const showModal = (e) => {
-    e.preventDefault();
-    setModal(true);
-  };
-
-  const hideModal = () => {
-    setModal(false);
-  };
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     arrows: true
   };
 

@@ -9,8 +9,10 @@ const EditProfileModal = (props) => {
 
   const getPhoto = () => {
     if (currentUser.profilePhoto) {
+      console.log("THIS")
       return currentUser.profilePhoto;
     } else {
+      console.log("THATTTTT");
       return null;
     }
   }

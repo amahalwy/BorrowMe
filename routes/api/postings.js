@@ -39,7 +39,6 @@ router.get("/",
 
 router.get("/ownerId", 
   (req, res) => {
-    console.log("body", req.params);
   Posting.findById(req.params.id)
   .populate({
     path: 'userId',
