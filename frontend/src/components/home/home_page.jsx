@@ -4,6 +4,10 @@ import SearchBar from './home_search_bar';
 import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
 import {clearPostings, fetchPostings} from '../../actions/posting_actions';
+import Modal from '../modal/modal';
+import PostingShow from '../postings/posting_show';
+import { clearModal } from "../../actions/posting_actions";
+
 
 export default props => {
   const [input, setInput] = useState("");
@@ -12,6 +16,7 @@ export default props => {
   const [filterList, setFilterList] = useState();
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.errors.session);
+  const posting = useSelector(state => state.entities.modal);
 
   const updateInput = (input) => {
     const filtered = postingList.filter((posting) => {
@@ -64,12 +69,25 @@ export default props => {
     dispatch(fetchPostings());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const [openModal, setModal] = useState(false);
+
+  const showModal = () => {
+    setModal(true);
+  };
+
+  const hideModal = () => {
+    setModal(false);
+    dispatch(clearModal());
+  };
+
+  console.log(posting)
+  if (!posting) return '';
   return (
     <div className="home-container">
       {renderErrors()}
       {/* <div className="home-filter"> */}
-        <div className="home-tag-search-bar"></div>
-        {/* <div className="side-engineers-container">
+      <div className="home-tag-search-bar"></div>
+      {/* <div className="side-engineers-container">
           <h3 className="meet-the-engineers">Meet the team!</h3>
 
           <div className="engineer-info">
@@ -220,8 +238,17 @@ export default props => {
           </div>
         </div>
         <div>
-          <PostingsIndex filterList={filterList} />
+          <PostingsIndex
+            filterList={filterList}
+            hideModal={hideModal}
+            showModal={showModal}
+          />
         </div>
+        <Modal show={openModal} handleClose={hideModal}>
+          <PostingShow 
+          posting={posting} hideModal={hideModal} 
+          />
+        </Modal>
       </div>
     </div>
   );

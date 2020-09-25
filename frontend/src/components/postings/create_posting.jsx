@@ -20,7 +20,7 @@ export default (props) => {
   const [imageFile, setFile] = useState(null);
 
   const dispatch = useDispatch();
-  const [openModal, setModal] = useState(false)
+  // const [openModal, setModal] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();

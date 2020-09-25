@@ -22,9 +22,11 @@ return (
       <Slider {...settings}>
         {props.filterList.map((posting) => {
           return (
-            <PostIndexItem 
-              key={posting._id} 
-              posting={posting} 
+            <PostIndexItem
+              key={posting._id}
+              posting={posting}
+              showModal={props.showModal}
+              hideModal={props.hideModal}
             />
           );
         })}

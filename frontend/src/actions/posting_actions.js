@@ -4,6 +4,8 @@ export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_POSTING = "RECEIVE_POSTING";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 export const CLEAR_POSTINGS = "CLEAR_POSTINGS";
+export const CLICK_POSTING = "CLICK_POSTING";
+export const CLEAR_MODAL = "CLEAR_MODAL";
 
 const receivePostings = postings => ({
   type: RECEIVE_POSTINGS,
@@ -22,6 +24,15 @@ const receiveErrors = errors => ({
 
 const clear = () => ({
   type: CLEAR_POSTINGS,
+});
+
+const clearMod = () => ({
+  type: CLEAR_MODAL
+})
+
+const click = (posting) => ({
+  type: CLICK_POSTING,
+  posting
 });
 
 export const fetchPosting = postingId => dispatch => {
@@ -45,7 +56,6 @@ export const fetchUserPostings = ownerId => dispatch => {
 export const createPosting = posting => dispatch => {
   APIUtil.createPosting(posting)
     .then(posting => dispatch(receivePosting(posting)))
-    .then(res => console.log(res))
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 
@@ -58,3 +68,13 @@ export const updatePosting = (postingId, posting) => dispatch => {
 export const clearPostings = () => dispatch => {
   dispatch(clear());
 }
+
+export const clickPosting = postingId => dispatch => {
+  APIUtil.fetchPosting(postingId)
+    .then((posting) => dispatch(click(posting)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+}
+
+export const clearModal = () => (dispatch) => {
+  dispatch(clearMod());
+};

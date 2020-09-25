@@ -5,6 +5,7 @@ import requestorRequests from './requestor_requests_reducer';
 import receiverRequests from "./receiver_requests_reducer";
 import ownerBookings from "./owner_bookings_reducer";
 import renterBookings from "./renter_bookings_reducer";
+import modal from './modal_reducer.js';
 
 export default combineReducers({
   users,
@@ -13,4 +14,5 @@ export default combineReducers({
   receiverRequests,
   ownerBookings,
   renterBookings,
+  modal
 });

@@ -9,7 +9,6 @@ const validatePostingInput = require("../../validation/postings");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
-// const fs = require("fs");
 
 // Middleware for postman form-data
 const upload = multer();
@@ -38,8 +37,9 @@ router.get("/",
     .catch((err) => res.status(400).json(err));
 })
 
-router.get("/:ownerId", 
+router.get("/ownerId", 
   (req, res) => {
+    console.log("body", req.params);
   Posting.findById(req.params.id)
   .populate({
     path: 'userId',
@@ -49,13 +49,11 @@ router.get("/:ownerId",
     , (err) => res.status(400).json(err));
 })
 
-router.get("/:userId", (req, res) => {
-  console.log(req.params)
-  Posting.find({ownerId: req.params.ownerId })
-  .then(postings => res.json(postings))
-  .catch(err => res.status(400).json(err))
-})
-
+router.get("/:postingId", (req, res) => {
+  Posting.findById(req.params.postingId)
+    .then((postings) => res.json(postings))
+    .catch((err) => res.status(400).json(err));
+});
 
 router.post("/", 
   upload.single("file"),
