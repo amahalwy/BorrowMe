@@ -29,6 +29,8 @@ const ProfileSideBar = props => {
     }
   }
 
+  debugger
+
   return (
     <div className="profile-info-box">
       <h1>Profile</h1>

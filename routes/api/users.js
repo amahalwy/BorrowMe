@@ -9,6 +9,7 @@ const Posting = require('../../models/Posting');
 const Booking = require("../../models/Booking");
 const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
+const validateUserInput = require("../../validation/user");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const uuidv4 = require("uuid").v4;
@@ -231,6 +232,12 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
 
+    const { errors, isValid } = validateUserInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     if (req.file === undefined) {
       User.findOne({ email: req.body.email })
         .then((user) => {
@@ -251,23 +258,23 @@ router.put(
     } else {
 
       uploadImage(req.file)
-      .then(data => {
-        const uploadedImageURL = data.Location;
-        User.findOne({ email: req.body.email })
-          .then(user => {
-            user.firstName = req.body.firstName;
-            user.lastName = req.body.lastName;
-            user.address = req.body.address;
-            user.city = req.body.city;
-            user.state = req.body.state;
-            user.zipCode = req.body.zipCode;
-            user.profilePhoto = uploadedImageURL;
-            
-            user.save()
-            .then((savedUser) => res.json(savedUser))
-            .catch((err) => res.json(err));
-          })
-          .catch((err) => res.status(400).json(err));
+        .then(data => {
+          const uploadedImageURL = data.Location;
+          User.findOne({ email: req.body.email })
+            .then(user => {
+              user.firstName = req.body.firstName;
+              user.lastName = req.body.lastName;
+              user.address = req.body.address;
+              user.city = req.body.city;
+              user.state = req.body.state;
+              user.zipCode = req.body.zipCode;
+              user.profilePhoto = uploadedImageURL;
+              
+              user.save()
+              .then((savedUser) => res.json(savedUser))
+              .catch((err) => res.json(err));
+            })
+            .catch((err) => res.status(400).json(err));
         })
         .catch((err) => res.status(400).json(err));
     }

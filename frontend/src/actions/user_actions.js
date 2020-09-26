@@ -28,16 +28,14 @@ const successUpdate = status => ({
 export const fetchUser = userId => dispatch => {
   APIUtil.fetchUser(userId)
     .then(user => dispatch(receiveUser(user.data)))
-    .catch(err => dispatch(receiveErrors(err)));
+    .catch(err => dispatch(receiveErrors(err.response.data)));
 }
 
 export const updateUser = (userId, formData) => dispatch => {
   APIUtil.updateUser(userId, formData)
-    .then(user => 
-      {
-        dispatch(update(user.data))
-        dispatch(successUpdate(user.status))
-      }
-    )
-    .catch(err => dispatch(receiveErrors(err)))
+    .then((user) => {
+      dispatch(update(user.data));
+      dispatch(successUpdate(user.status));
+    })
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
 }

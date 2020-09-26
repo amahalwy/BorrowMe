@@ -4,7 +4,7 @@ import {
 
 const _nullErrors = [];
 
-const PostingsErrorsReducer = (state = _nullErrors, action) => {
+export default function (state = _nullErrors, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_POST_ERRORS:
@@ -13,5 +13,3 @@ const PostingsErrorsReducer = (state = _nullErrors, action) => {
       return state;
   }
 };
-
-export default PostingsErrorsReducer;

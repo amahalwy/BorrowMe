@@ -111,8 +111,8 @@ export default (props) => {
         />
         <br />
         <div className="create-posting-img">
-          <label for="img">Select image:</label>
-          <input type="file" id="img" name="img" accept="image/*"  value={props.posting.image}/>
+          
+          
         </div>
         <br />
         <input type="submit" value="Create Posting" />

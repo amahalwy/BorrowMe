@@ -37,7 +37,7 @@ export default (props) => {
     formData.append("file", imageFile);
   
     dispatch(createPosting(formData));
-    props.hideModal();
+    // props.hideModal();
   };
 
   const onDrop = (picture) => {

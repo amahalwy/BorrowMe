@@ -5,14 +5,12 @@ import { updateUser, fetchUser } from '../../actions/user_actions';
 import FormData from 'form-data';
 
 const EditProfileModal = (props) => {
-  const currentUser = useSelector(state => state.session.user);
+  const currentUser = useSelector(state => state.entities.users.user);
 
   const getPhoto = () => {
     if (currentUser.profilePhoto) {
-      console.log("THIS")
       return currentUser.profilePhoto;
     } else {
-      console.log("THATTTTT");
       return null;
     }
   }
@@ -25,7 +23,6 @@ const EditProfileModal = (props) => {
   const [zipCode, updateZipCode] = useState(currentUser.zipCode);
   const [profilePhoto, setProfilePhoto] = useState(getPhoto());
   
-  const activeUser = useSelector(state => state.entities.users.user);
   const errors = useSelector((state) => state.errors.session);
   const dispatch = useDispatch();
   
@@ -44,7 +41,7 @@ const EditProfileModal = (props) => {
 
     dispatch(updateUser(currentUser.id ,formData));
     setTimeout(() => {
-      dispatch(fetchUser(currentUser.id));
+      dispatch(fetchUser(currentUser._id));
     }, 1000)
     props.hideModal();
   };
@@ -63,6 +60,7 @@ const EditProfileModal = (props) => {
     );
   };
 
+  // debugger
   return (
     <div className="edit-profile-container">
       <form className="profile-edit-form">
@@ -71,7 +69,7 @@ const EditProfileModal = (props) => {
         <div className="edit-profile-picture-box">
           <img
             className="edit-profile-photo-img"
-            src={activeUser.profilePhoto}
+            src={currentUser.profilePhoto}
             alt=""
           />
         </div>
@@ -135,7 +133,7 @@ const EditProfileModal = (props) => {
             value={zipCode}
             className="profile-zipCode"
             onChange={(e) => updateZipCode(e.currentTarget.value)}
-            placeholder={activeUser.zipCode}
+            placeholder={currentUser.zipCode}
           />
         </div>
         <br />

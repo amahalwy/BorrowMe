@@ -61,16 +61,14 @@ export const fetchUserPostings = ownerId => dispatch => {
 };
 
 export const createPosting = posting => dispatch => {
-  // return new Promise((resolve, reject) => {
-    APIUtil.createPosting(posting)
-      .then(posting => 
-        {
-          dispatch(receivePosting(posting));
-          dispatch(successPosting(posting.status));
-        }
-      )
-      .catch((err) => dispatch(receiveErrors(err.response.data)))
-  // })
+  APIUtil.createPosting(posting)
+    .then(posting => 
+      {
+        dispatch(receivePosting(posting));
+        dispatch(successPosting(posting.status));
+      }
+    )
+    .catch((err) => dispatch(receiveErrors(err.response.data)))
 };
 
 export const updatePosting = (postingId, posting) => dispatch => {

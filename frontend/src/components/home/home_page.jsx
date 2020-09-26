@@ -6,6 +6,7 @@ import HomeTagSearchBar from './home_tag_search_bar';
 import {clearPostings, fetchPostings} from '../../actions/posting_actions';
 import Modal from '../modal/modal';
 import PostingShow from '../postings/posting_show';
+import EditPosting from "../postings/edit_posting";
 import { clearModal } from "../../actions/posting_actions";
 
 
@@ -246,9 +247,8 @@ export default props => {
           />
         </div>
         <Modal show={openModal} handleClose={hideModal}>
-          <PostingShow 
-          posting={posting} hideModal={hideModal} 
-          />
+          <PostingShow posting={posting} hideModal={hideModal} />
+          <EditPosting posting={posting} hideModal={hideModal} />
         </Modal>
       </div>
     </div>
