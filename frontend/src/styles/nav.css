@@ -98,7 +98,8 @@
   padding: 12%;
 }
 
-.nav-dropdown-trigger:hover .nav-dropdown-trigger-icon {
+/* .nav-dropdown-trigger:hover .nav-dropdown-trigger-icon { */
+.nav-dropdown-trigger-icon {
   background: #779c8f;
   z-index: 1000;
 }
