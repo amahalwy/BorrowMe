@@ -42,11 +42,15 @@ export default (props) => {
       return (
         <div className="nav-box-loggedin">
           <div className="nav-dropdown-trigger">
+            {/* <h1 className="nav-current-user-profile-link">
+              Welcome{" "}
+                {currentUser.firstName}
+            </h1> */}
             <h1>Welcome <Link className="nav-current-user-profile-link" to={`/users/${currentUser.id}`}>{currentUser.firstName}</Link></h1>
             <img
               className="nav-dropdown-trigger-icon"
               src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"
-              alt=''
+              alt=""
             />
             <div className="nav-dropdown-items">
               <ul>
@@ -80,12 +84,13 @@ export default (props) => {
               </ul>
             </div>
           </div>
-          <Modal show={openModal} handleClose={hideModal} >
-            <CreatePosting className="create-posting-modal-box" 
-                hideSuccessModal={hideSuccessModal} 
-                showSuccessModal={showSuccessModal} 
-                showModal={showModal}
-                hideModal={hideModal} 
+          <Modal show={openModal} handleClose={hideModal}>
+            <CreatePosting
+              className="create-posting-modal-box"
+              hideSuccessModal={hideSuccessModal}
+              showSuccessModal={showSuccessModal}
+              showModal={showModal}
+              hideModal={hideModal}
             />
           </Modal>
           <SuccessModal show={openSuccessModal} handleClose={hideSuccessModal}>

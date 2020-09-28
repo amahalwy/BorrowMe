@@ -1,4 +1,6 @@
 .profile-container {
+  position: relative;
+  z-index: -2;
   padding: 6% 1%;
   width: 100%;
   height: 100%;
@@ -157,10 +159,13 @@
 
 .profile-postings-image-list {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
+  padding: 1%;
+}
+
+.Upcoming-Bookings{
+  display: flex;
+  justify-content: center;
   padding: 1%;
 }
 /* 
@@ -202,4 +207,14 @@
   height: 120px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.bookings-slider {
+  width: 27%;
+}
+
+.profile-bookings-slider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

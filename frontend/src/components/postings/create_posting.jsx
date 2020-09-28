@@ -7,7 +7,6 @@ import FormData from 'form-data';
 export default (props) => {
   const currentUser = useSelector(state => state.session.user);
   const errors = useSelector((state) => state.errors.postings);
-  const postings = useSelector((state) => state.entities.postings);
   
   const [title, updateTitle] = useState("");
   const [price, updatePrice] = useState("");

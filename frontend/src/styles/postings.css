@@ -29,6 +29,7 @@
 .entire-image{
   margin-right: 5%;
   margin-left: 5%;
+  z-index: -5;
 }
 
 .home-items-index{
@@ -50,12 +51,9 @@ width: 100%;
   width:100%;
   border-radius: 8px;
   box-sizing: content-box;
+  z-index: 0;
 }
 
 .Item-info-bar{
   background-color:  #f1f1f1;
-}
-
-.slick-cloned {
-  display: none !important;
 }

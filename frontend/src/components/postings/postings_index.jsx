@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import PostIndexItem from './postings_index_item';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css"; 
+// @import './styles/slick-theme.css';
+// @import './styles/slick.css';
+// @import './styles/slick-theme.scss';
+// @import './styles/slick.scss';
 import Modal from "../modal/modal";
 import PostingShow from "./posting_show";
 

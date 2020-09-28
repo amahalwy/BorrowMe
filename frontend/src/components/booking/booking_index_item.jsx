@@ -3,7 +3,7 @@ import React from 'react'
 export default props => {
   if (!props.booking.requestDates) return '';
   return (
-    <div className="bookings-index-image-box">
+    <div>
       <img className="bookings-index-image" src={props.booking.bookingImage} alt="" />
       <div>
         <div>

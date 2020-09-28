@@ -33,13 +33,13 @@ margin: 0% 0% 0% 40%;
 
 .posting-form input[placeholder="Title"]{
   width: 57%;
-  margin-left: 125px;
-  margin-right: 0px;
+  margin-left: 131px;
+  margin-right: 10px;
 }
 
 .posting-form input[placeholder="Price"]{
   width: 15%;
-  margin-left: 28px;
+  margin-left: 24px;
 }
 
 .posting-second{
@@ -49,8 +49,9 @@ margin: 0% 0% 0% 40%;
 }
 .posting-form input[placeholder="City"]{
   width: 38%;
-  margin-left: 125px;
+  margin-left: 131px;
   margin-right: 10px;
+  /* background-color: red; */
 }
 
 .posting-form input[placeholder="State"]{
