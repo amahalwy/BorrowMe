@@ -49,15 +49,11 @@ export default (props) => {
       return (
         <div className="nav-box-loggedin">
           <div className="nav-dropdown-trigger">
-            <h1>
+            {/* <h1 className="nav-current-user-profile-link">
               Welcome{" "}
-              <Link
-                className="nav-current-user-profile-link"
-                to={`/users/${currentUser.id}`}
-              >
                 {currentUser.firstName}
-              </Link>
-            </h1>
+            </h1> */}
+            <h1>Welcome <Link className="nav-current-user-profile-link" to={`/users/${currentUser.id}`}>{currentUser.firstName}</Link></h1>
             <img
               className="nav-dropdown-trigger-icon"
               src="https://borrowme-pro.s3.us-east-2.amazonaws.com/icons/hamburger.png"

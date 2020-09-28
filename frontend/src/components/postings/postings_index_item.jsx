@@ -6,16 +6,6 @@ import {clickPosting, clearModal} from '../../actions/posting_actions';
 
 export default props => {
   const dispatch = useDispatch();
-  // const [openModal, setModal] = useState(false)
-
-  // const showModal = (e) => {
-  //   e.preventDefault();
-  //   setModal(true);
-  // };
-
-  // const hideModal = () => {
-  //   setModal(false);
-  // };
 
   const handleClick = () => {
     setTimeout(() => {

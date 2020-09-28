@@ -9,6 +9,7 @@ import ProfileSideBar from './profile_side_bar';
 import ProfileRequesteeIndex from "../requests/posting_requestee_index";
 import ProfileRequestorIndex from '../requests/posting_requestor_index';
 import BookingsIndex from '../booking/booking_index';
+import Slider from "react-slick";
 
 export default props => {
   const postings = useSelector((state) =>
@@ -48,7 +49,7 @@ export default props => {
 
   return (
     <div className="profile-container">
-      <ProfileSideBar postings={postings}/>
+      <ProfileSideBar postings={postings} />
       <div className="profile-main-box">
         <div className="profile-rentals">
           <h1>Your upcoming bookings </h1>
@@ -56,7 +57,9 @@ export default props => {
         </div>
         <div className="profile-rentals">
           <h1>Upcoming bookings </h1>
-          <BookingsIndex bookings={ownerBookings} />
+          <div className="Upcoming-Bookings">
+            <BookingsIndex bookings={ownerBookings} />
+          </div>
         </div>
       </div>
       <div className="profile-main-box">
