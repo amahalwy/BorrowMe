@@ -61,75 +61,76 @@ export default (props) => {
   return (
     <div className="create-posting-container">
       <form className="posting-form">
-        <h1>Posting Form</h1>
-        <br />
-        <button className="posting-modal-x" onClick={props.hideModal}>
-          X
-        </button>
-        <br />
-        <div className="posting-first">
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => updateTitle(e.currentTarget.value)}
-            placeholder="Title"
-          />
+        <div className="fields">
+          <h1>Posting Form</h1>
+          <br />
+          <button className="posting-modal-x" onClick={props.hideModal}>
+            X
+          </button>
+          <br />
+          {/* <div className="posting-first"> */}
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => updateTitle(e.currentTarget.value)}
+              placeholder="Title"
+            />
+            <br />
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => updatePrice(e.currentTarget.value)}
+              placeholder="Price"
+            />
+          {/* </div> */}
           <br />
           <input
             type="text"
-            value={price}
-            onChange={(e) => updatePrice(e.currentTarget.value)}
-            placeholder="Price"
-          />
-        </div>
-        <br />
-        <input
-          type="text"
-          value={address}
-          onChange={(e) => updateAddress(e.currentTarget.value)}
-          placeholder="Address"
-        />
-        <br />
-        <div className="posting-second">
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => updateCity(e.currentTarget.value)}
-            placeholder="City"
+            value={address}
+            onChange={(e) => updateAddress(e.currentTarget.value)}
+            placeholder="Address"
           />
           <br />
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => updateState(e.currentTarget.value)}
-            placeholder="State"
-          />
-          <br />
+          {/* <div className="posting-second"> */}
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => updateCity(e.currentTarget.value)}
+              placeholder="City"
+            />
+            <br />
+            <input
+              type="text"
+              value={state}
+              onChange={(e) => updateState(e.currentTarget.value)}
+              placeholder="State"
+            />
+            <br />
 
+            <input
+              type="text"
+              value={zipCode}
+              onChange={(e) => updateZipCode(e.currentTarget.value)}
+              placeholder="Zip Code"
+            />
+          {/* </div> */}
+          <br />
+          <input
+            type="textarea"
+            value={description}
+            onChange={(e) => updateDescription(e.currentTarget.value)}
+            placeholder="Description"
+          />
+          <br />
           <input
             type="text"
-            value={zipCode}
-            onChange={(e) => updateZipCode(e.currentTarget.value)}
-            placeholder="Zip Code"
+            value={tags}
+            onChange={(e) => updateTags(e.currentTarget.value)}
+            placeholder="Tags"
           />
+          <br />
         </div>
-        <br />
-        <input
-          type="textarea"
-          value={description}
-          onChange={(e) => updateDescription(e.currentTarget.value)}
-          placeholder="Description"
-        />
-        <br />
-        <input
-          type="text"
-          value={tags}
-          onChange={(e) => updateTags(e.currentTarget.value)}
-          placeholder="Tags"
-        />
-        <br />
         <div className="create-posting-img">
-        
           <ImageUploader
             withIcon={true}
             buttonText="Choose Image"

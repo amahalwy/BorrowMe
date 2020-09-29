@@ -91,6 +91,16 @@
   position: fixed;
 }
 
+.welcome {
+  color: white;
+  margin-top: 20px;
+  padding-right: 8%;
+  right: 3%;
+  font-size: 22px;
+  position: fixed;
+  z-index: 10;
+}
+
 .nav-dropdown-trigger-icon {
   width: 44px;
   position: relative;
@@ -140,13 +150,14 @@
   font-weight: bold;
   z-index: 100;
 }
+
 .nav-dropdown-trigger:hover {
   height: 400%;
 }
 
 .nav-dropdown-trigger:hover .nav-dropdown-items {
   display: block;
-  z-index: 500;
+  z-index: 5000;
 }
 
 .nav-logo:hover {

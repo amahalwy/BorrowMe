@@ -29,7 +29,7 @@ const ProfileSideBar = props => {
     }
   }
 
-  debugger
+  // debugger
 
   return (
     <div className="profile-info-box">

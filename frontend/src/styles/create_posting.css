@@ -31,7 +31,7 @@ margin: 0% 0% 0% 40%;
   display: flex;
 }
 
-.posting-form input[placeholder="Title"]{
+/* .posting-form input[placeholder="Title"]{
   width: 57%;
   margin-left: 131px;
   margin-right: 10px;
@@ -51,7 +51,7 @@ margin: 0% 0% 0% 40%;
   width: 38%;
   margin-left: 131px;
   margin-right: 10px;
-  /* background-color: red; */
+  /* background-color: red; 
 }
 
 .posting-form input[placeholder="State"]{
@@ -63,7 +63,7 @@ margin: 0% 0% 0% 40%;
 .posting-form input[placeholder="Zip Code"]{
   width: 23%;
   margin-left: 10px;
-}
+} */
 
 
 
