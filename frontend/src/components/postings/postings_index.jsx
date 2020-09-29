@@ -18,7 +18,8 @@ export default props => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    arrows: true
+    arrows: true,
+    rows: 2
   };
 
 return (
