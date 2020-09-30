@@ -8,6 +8,7 @@ export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 export const CLEAR_BOOKINGS = "CLEAR_BOOKINGS";
 export const CLICK_BOOKING = "CLICK_BOOKING";
 export const CLEAR_MODAL = "CLEAR_MODAL";
+export const SUCCESS = "SUCCESS";
 
 const receiveBooking = (booking) => ({
   type: RECEIVE_BOOKING,
@@ -47,6 +48,11 @@ const click = (booking) => ({
   booking
 });
 
+const successBooking = status => ({
+  type: SUCCESS,
+  status
+})
+
 export const fetchBooking = (bookingId) => (dispatch) => {
   APIUtil.fetchBooking(bookingId)
     .then((booking) => dispatch(receiveBooking(booking)))
@@ -67,7 +73,10 @@ export const fetchRenterBookings = (userId) => (dispatch) => {
 
 export const createBooking = (booking) => (dispatch) => {
   APIUtil.createBooking(booking)
-    .then((booking) => dispatch(receiveBooking(booking)))
+    .then((booking) => {
+      dispatch(receiveBooking(booking));
+      dispatch(successBooking(booking.status));
+    })
     .catch((err) => dispatch(receiveErrors(err.response.data)));
 };
 

@@ -27,7 +27,7 @@ export default props => {
   const acceptRequest = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("ownerId", props.currentUser.id)
+    formData.append("ownerId", props.currentUser._id)
     formData.append("requestorId", modalObject.requestorId)
     formData.append("requestorName", modalObject.requestorName)
     formData.append("postingId", modalObject.postingId)
@@ -36,12 +36,14 @@ export default props => {
     formData.append("bookingImage", modalObject.postingImage)
 
     dispatch(createBooking(formData));
+
     setTimeout(() => {
       dispatch(clearBookings());
-      dispatch(fetchOwnerBookings(props.currentUser.id));
-      dispatch(fetchRenterBookings(props.currentUser.id));
-      dispatch(deleteRequest(modalObject._id));
       dispatch(clearRequests());
+      dispatch(fetchOwnerBookings(props.currentUser._id));
+      dispatch(fetchRenterBookings(props.currentUser._id));
+      dispatch(deleteRequest(modalObject._id));
+      props.hideModal();
     }, 200)
     setTimeout(() => {
       dispatch(fetchRequestorRequests(props.currentUser._id));
@@ -56,6 +58,7 @@ export default props => {
       dispatch(clearRequests());
       dispatch(fetchRequestorRequests(props.currentUser._id));
       dispatch(fetchReceiverRequests(props.currentUser._id));
+      props.hideModal();
     }, 1)
   }
 

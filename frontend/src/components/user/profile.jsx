@@ -30,7 +30,6 @@ export default props => {
   );
 
   const currentUser = useSelector((state) => state.entities.users.user); 
-  // const modalObject = useSelector((state) => state.entities.modal); 
 
   const dispatch = useDispatch();
 

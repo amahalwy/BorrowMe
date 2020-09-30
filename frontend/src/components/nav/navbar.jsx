@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from "../modal/modal";
 import CreatePosting  from "../postings/create_posting";
 import SuccessModal from "../modal/success-modal";
+import {clearModal} from '../../actions/posting_actions';
 
 export default (props) => {
-  const dispatch = useDispatch();
   const loggedIn = useSelector(state => state.session.isAuthenticated);
   const currentUser = useSelector(state => state.session.user);
   const modalObject = useSelector((state) => state.entities.modal); 
+
+  const dispatch = useDispatch();
 
   const logoutUser = e => {
     e.preventDefault();
@@ -33,6 +35,7 @@ export default (props) => {
   };
 
   const hideSuccessModal = () => {
+    dispatch(clearModal());
     setSuccessModal(false);
   };
 

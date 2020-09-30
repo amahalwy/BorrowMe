@@ -50,7 +50,7 @@ export default (props) => {
           <img className="modal-img" src={props.posting.image} alt="" />
         </div>
         <div className="modal-calendar">
-          <Calendar posting={props.posting}/>
+          <Calendar posting={props.posting} hideModal={props.hideModal}/>
         </div>
         <div>
           {/* <Modal show={openModal} handleClose={hideModal}>
