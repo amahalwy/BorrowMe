@@ -1,5 +1,6 @@
 .home-container {
   margin-top: 68px;
+  margin-bottom: 120px;
   padding-top: 10px;  
   z-index: -2;
   display: flex;
@@ -69,30 +70,35 @@
 
 /* Side engineers container */
 
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: -70px;
+  background: #012a36;
+}
 
+.footer-container:hover {
+  bottom: 0;
+}
 
 .meet-the-engineers {
   font-family: 'Lato', sans-serif;
   text-align: center;
   font-weight: bolder;
   background: white;
-  margin-left: 21%;
-  width: 50%;
-  padding: 3%;
-  box-shadow: 0px 3px 3px #888888;
-  border-radius: 5px;
+  display: none;
 }
 
 .engineer-info {
   color: white;
- background: #012a36;
- padding-left: 3px;
- padding-right: 3px;
- padding-bottom: 15px;
+  width: 100%;
+ padding-right: 3%;
+ padding-left: 3%;
  padding-top: 3px;
- margin: 10px;
- border-radius: 8px; 
- box-shadow: 0px 3px 3px #888888;
+ 
+ 
 }
 
 .engineer-info a {
@@ -105,31 +111,22 @@
 
 .engineer-name {
   font-family: 'Lato', sans-serif;
-  display: flex;
+  bottom: 0;
+  font-size: 13px;
   text-align: center;
   background: white;
   font-weight: bold;
-  padding: 2px;
   color: #012a36;
   border-radius: 5px;
-  justify-content: center;
-  margin: 20px;
-}
-
-.engineer-ahmed {
-  font-family: 'Lato', sans-serif;
-  display: flex;
-  justify-content: space-between;
-  margin: 14px 20px 20px 20px;
+  padding: 2%;
 }
 
 .links-image-container {
-  width: 80%;
+  margin: 2%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-
-  margin-bottom: 5px;
 }
 
 .links {
@@ -137,13 +134,13 @@
   color: white;
   padding: 3px;
   margin-bottom: 10px;
-  margin-left: 14px;
+  
   cursor: pointer;
 }
 
 .engineer-image {
-  height: 80px;
-  width: 80px;
+  height: 65px;
+  width: 65px;
 }
 
 .engineer-image img {
@@ -164,10 +161,6 @@
   margin: 0px 10px;
   margin-top: 10px;
   display: none;
-}
-
-.engineer-info:hover .engineer-quotes {
-  display: block;
 }
 
 .engineer-quotes span {
