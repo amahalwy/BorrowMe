@@ -85,7 +85,12 @@ export default props => {
  
   if (!posting) return '';
   return (
+    <div>
     <div className="home-container">
+      <Modal show={openModal} handleClose={hideModal}>
+            <PostingShow posting={posting} hideModal={hideModal} />
+      </Modal>
+      
       {renderErrors()}
       {/* <div className="home-filter"> */}
       <div className="home-tag-search-bar"></div>
@@ -246,10 +251,9 @@ export default props => {
             showModal={showModal}
           />
         </div>
-        <Modal show={openModal} handleClose={hideModal}>
-          <PostingShow posting={posting} hideModal={hideModal} />
-        </Modal>
+        
       </div>
     </div>
+  </div>
   );
 }

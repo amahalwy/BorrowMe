@@ -53,11 +53,11 @@ export default (props) => {
           <Calendar posting={props.posting}/>
         </div>
         <div>
-          <Modal show={openModal} handleClose={hideModal}>
+          {/* <Modal show={openModal} handleClose={hideModal}>
             <Map posting={props.posting} currentUser={currentUser} hideModal={hideModal}/>
           </Modal>
           
-          <button onClick={showModal}>Show map</button>
+          <button onClick={showModal}>Show map</button> */}
           
         </div>
       </div>
