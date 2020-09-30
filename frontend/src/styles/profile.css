@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  margin-top: 2%;
   justify-content: space-evenly;
   
 }
@@ -158,7 +159,12 @@
 .profile-postings-image-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 1%;
+}
+
+.profile-postings-image-list > div{
+  width:50%;
 }
 
 .Upcoming-Bookings{
@@ -182,15 +188,16 @@
 .postings-index-image-box {
   width: 45%;
   height: 100%;
-  margin: 1%;
+  /* margin: 1%; */
   cursor: pointer;
 }
 
 .postings-index-image {
-  width: 100%;
-  height: 180px;
+  width: 90%;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
+  margin: 1%;
 }
 
 .bookings-index-image-box {
@@ -202,9 +209,10 @@
 
 .bookings-index-image {
   width: 100%;
-  height: 120px;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
+  margin: 1%;
 }
 
 .bookings-slider {
@@ -215,4 +223,15 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.Upcoming-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Upcoming-item{
+  width: 45%;
+  margin: 1%;
 }
