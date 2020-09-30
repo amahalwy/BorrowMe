@@ -26,18 +26,16 @@ export default props => {
 
   return (
     <div>
-      <div>
-        <div className="entire-image">
-          <div
-            onClick={handleClick}
-            className="post-index-item-image-container"
-          >
-            <div className="image-container">
-              <img className="posting-image" src={props.posting.image} alt="" />
+      <div className="posting-index-item">      
+         <div className="entire-image"  >        
+            <div  onClick={handleClick}
+                  className="post-index-item-image-container"
+                >
+              <div className="image-container">
+                <img className="posting-image" src={props.posting.image} alt="" />
+              </div>
             </div>
-          </div>
         </div>
-        <div>
           <div className="Item-info-bar">
             <div className="post-title">
               <span>{props.posting.title}</span>
@@ -54,11 +52,12 @@ export default props => {
           </div>
           <div className="home-no-show">Calendar</div>
         </div>
+       
+        <Modal show={openModal} handleClose={hideModal}>
+          <PostingShow posting={props.posting} hideModal={hideModal} />
+        </Modal>
       </div>
-      <Modal show={openModal} handleClose={hideModal}>
-        <PostingShow posting={props.posting} hideModal={hideModal} />
-      </Modal>
-    </div>
+    
   );
 
 }                    

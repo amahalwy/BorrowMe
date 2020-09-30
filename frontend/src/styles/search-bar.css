@@ -3,12 +3,9 @@
   display: inline-block;
   width: 35em;
   background: #F1F1F1;
-  /* position: absolute; */
   border-radius: 5px;
   background-color: white;
-  margin-bottom: 20px;
-  margin-left: 100px;
-  margin-top: 10px;
+  
 }
 
 .search-bar-tag {
@@ -18,8 +15,6 @@
 background-color: white;
 
   border-radius: 5px;
-  margin-bottom: 20px;
-  margin-top: 10px;
 }
 
   input:focus {
@@ -29,14 +24,15 @@ background-color: white;
 .tag-container{
   display: inline-block;
   justify-content: space-between;
-  width: 25%;
+  width: 200px;
   margin-left: 50px;
 }
 
 .search-container{
   display:flex;
-  padding-right: 3%;
-margin-left: 10.6%;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 .home-search-icon {
   width: 17px;
