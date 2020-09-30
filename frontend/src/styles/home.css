@@ -1,11 +1,9 @@
 .home-container {
   margin-top: 68px;
-  padding-top: 10px;
-  width: 100%;  
+  padding-top: 10px;  
   z-index: -2;
-  margin-left: 2%;  
   display: flex;
-  bottom: 0;
+
 }
 
 .home-filter {
@@ -25,21 +23,12 @@
   margin: 2% 0% 0% 40%;
 }
 
-/* .home-tag-search-bar {
-  margin-top: 12%;
-  margin-left: 30%;
-} */
-
 .home-index{
   box-sizing: border-box;
-  margin: 10px;
-  margin-right: 15px;
-  width: 75%;
-  border: none;
+  margin-left: 10%;
+  margin-right: 10%;
   padding-top: 1%;
   background-color: #f1f1f1;
-  height: 88px;
-  /* box-shadow: 0px 3px 3px #888888; */
 }
 
 .nav-button{
@@ -67,13 +56,9 @@
 }
 
 .home-index-list{
-  margin-left: 3%;
-  margin-right: 3%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  /* justify-content: space-between; */
-  height: 100%;
+  margin: auto; 
 }
 
 
@@ -139,7 +124,6 @@
 }
 
 .links-image-container {
-  /* background: red; */
   width: 80%;
   display: flex;
   justify-content: space-around;
@@ -166,7 +150,6 @@
   height: 100%;
   width: 100%;
   border-radius: 10%;
-  /* margin-right: 10px; */
 }
 
 .italicize-quote {
@@ -176,12 +159,6 @@
   margin-left: 5px;
   font-style: italic;
 }
-
-/* .italicize-quote p {
-  font-family: "lato", sans-serif;
-  margin-right: 20px;
-  margin-left: 20px;
-} */
 
 .engineer-quotes {
   margin: 0px 10px;
