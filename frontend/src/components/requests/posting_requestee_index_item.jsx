@@ -2,7 +2,6 @@ import React from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings} from '../../actions/booking_actions';
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clickRequest} from '../../actions/request_actions';
-import FormData from 'form-data';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user); 
