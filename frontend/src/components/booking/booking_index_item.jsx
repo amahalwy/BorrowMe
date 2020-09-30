@@ -19,7 +19,7 @@ export default props => {
   // debugger;
   return (
     // <div onClick={handleClick}>
-    <div>
+    <div className="Upcoming-item">
       <img className="bookings-index-image" src={props.booking.bookingImage} alt="" />
       <div>
         <div>

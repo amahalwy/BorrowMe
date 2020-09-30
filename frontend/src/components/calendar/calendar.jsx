@@ -51,6 +51,9 @@ export default (props) => {
     formData.append("amount", props.posting.price);
 
     dispatch(createRequest(formData));
+    setTimeout(()=>{
+      props.hideModal();
+    }, 1)
   };
     
   const rentalButton = () => {

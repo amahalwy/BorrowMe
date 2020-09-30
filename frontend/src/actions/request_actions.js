@@ -8,6 +8,7 @@ export const RECEIVE_REQUEST_ERRORS = "RECEIVE_REQUEST_ERRORS";
 export const CLEAR_REQUESTS = "CLEAR_REQUESTS";
 export const CLICK_REQUEST = "CLICK_REQUEST";
 export const CLEAR_MODAL = "CLEAR_MODAL";
+export const SUCCESS = "SUCCESS";
 
 const receiveReceiverRequests = (requests) => ({
   type: RECEIVE_RECEIVER_REQUESTS,
@@ -47,6 +48,11 @@ const click = (request) => ({
   request
 });
 
+const successRequest = status => ({
+  type: SUCCESS,
+  status
+})
+
 export const fetchRequest = requestId => dispatch => {
   APIUtil.fetchRequest(requestId)
     .then(request => dispatch(receiveRequest(request)))
@@ -67,7 +73,10 @@ export const fetchRequestorRequests = (userId) => (dispatch) => {
 
 export const createRequest = request => dispatch => {
   APIUtil.createRequest(request)
-    .then(request => dispatch(receiveRequest(request)))
+    .then(request => {
+      dispatch(receiveRequest(request))
+      dispatch(successRequest(request.status))
+    })
     .catch(err => dispatch(receiveErrors(err.response.data)));
 };
 

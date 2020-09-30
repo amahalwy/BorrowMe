@@ -4,14 +4,7 @@ export default props => {
 
 if (!props.postings) return "";
 
-  const settings = {
-    // dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-  };
+  
 
   return (
     <div className="profile-postings-image-list">
