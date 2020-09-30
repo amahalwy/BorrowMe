@@ -7,10 +7,20 @@ import {clickPosting, clearModal} from '../../actions/posting_actions';
 export default props => {
   const dispatch = useDispatch();
 
+  const [openModal, setModal] = useState(false);
+
+  const showModal = () => {
+    setModal(true) 
+  }
+
+  const hideModal = () => {
+    setModal(false) 
+  }
+
   const handleClick = () => {
     setTimeout(() => {
       dispatch(clickPosting(props.posting._id));
-      props.showModal();
+      showModal();
     }, 1)
   }
 
@@ -45,6 +55,9 @@ export default props => {
           <div className="home-no-show">Calendar</div>
         </div>
       </div>
+      <Modal show={openModal} handleClose={hideModal}>
+        <PostingShow posting={props.posting} hideModal={hideModal} />
+      </Modal>
     </div>
   );
 

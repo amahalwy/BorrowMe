@@ -8,7 +8,7 @@
 }
 
 .modal-main {
-  position: absolute;
+  position: fixed;
   background: white;
   min-width: 1056px;
   width: 60%;

@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
 import PostIndexItem from './postings_index_item';
-import Slider from 'react-slick';
-// @import './styles/slick-theme.css';
-// @import './styles/slick.css';
-// @import './styles/slick-theme.scss';
-// @import './styles/slick.scss';
 import Modal from "../modal/modal";
 import PostingShow from "./posting_show";
 
@@ -24,7 +19,6 @@ export default props => {
 
 return (
   <div className="home-items-index">
-      <Slider {...settings}>
         {props.filterList.map((posting) => {
           return (
             <PostIndexItem
@@ -35,7 +29,6 @@ return (
             />
           );
         })}
-      </Slider>
   </div>
 );
 }

@@ -51,10 +51,8 @@
     "react-images-upload": "^1.2.8",
     "react-map-gl": "^5.2.8",
     "react-redux": "^7.2.1",
-    "react-slick": "^0.27.11",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "slick-carousel": "^1.8.1",
     "uuid": "^8.3.0",
     "validator": "^13.1.1"
   },

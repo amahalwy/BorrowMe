@@ -9,7 +9,6 @@ import ProfileSideBar from './profile_side_bar';
 import ProfileRequesteeIndex from "../requests/posting_requestee_index";
 import ProfileRequestorIndex from '../requests/posting_requestor_index';
 import BookingsIndex from '../booking/booking_index';
-import Slider from "react-slick";
 
 export default props => {
   const postings = useSelector((state) =>

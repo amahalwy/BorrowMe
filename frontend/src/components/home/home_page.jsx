@@ -248,7 +248,6 @@ export default props => {
         </div>
         <Modal show={openModal} handleClose={hideModal}>
           <PostingShow posting={posting} hideModal={hideModal} />
-          <EditPosting posting={posting} hideModal={hideModal} />
         </Modal>
       </div>
     </div>

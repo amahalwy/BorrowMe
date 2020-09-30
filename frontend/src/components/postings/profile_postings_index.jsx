@@ -1,8 +1,4 @@
 import React from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css"; 
-
 
 export default props => {
 
@@ -19,7 +15,6 @@ if (!props.postings) return "";
 
   return (
     <div className="profile-postings-image-list">
-      <Slider className="postings-index-image-box" {...settings}>
         {props.postings.map((posting, i) => {
           return (
             <div key={i}>
@@ -31,7 +26,6 @@ if (!props.postings) return "";
             </div>
           );
         })}
-      </Slider>
     </div>
   );
 }
