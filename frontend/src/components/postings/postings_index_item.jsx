@@ -55,9 +55,6 @@ export default props => {
           <div className="home-no-show">Calendar</div>
         </div>
       </div>
-      <Modal show={openModal} handleClose={hideModal}>
-        <PostingShow posting={props.posting} hideModal={hideModal} />
-      </Modal>
     </div>
   );
 

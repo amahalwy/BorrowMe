@@ -1,4 +1,3 @@
-import { resolve } from "path";
 import * as APIUtil from "../util/postings_api_util";
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";

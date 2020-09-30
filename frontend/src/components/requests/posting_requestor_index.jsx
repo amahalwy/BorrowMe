@@ -9,6 +9,7 @@ export default props => {
             <PostingRequestorIndexItem
               key={request._id}
               request={request}
+              showModal={props.showModal}
             />
           );
         })

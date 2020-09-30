@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchRequest = requestId => {
-  return axios.get(`/api/requests`, requestId)
+  return axios.get(`/api/requests/${requestId}`);
 }
 
 export const fetchRequestorRequests = userId => {

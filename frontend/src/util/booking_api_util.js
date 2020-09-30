@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchBooking = (bookingId) => {
-  return axios.get(`/api/bookings`, bookingId);
+  return axios.get(`/api/bookings/${bookingId}`);
 };
 
 export const fetchOwnerBookings = (userId) => {

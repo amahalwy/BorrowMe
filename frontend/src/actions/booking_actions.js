@@ -6,6 +6,8 @@ export const RECEIVE_RENTER_BOOKINGS = "RECEIVE_RENTER_BOOKINGS";
 export const REMOVE_BOOKING = "REMOVE_BOOKING";
 export const RECEIVE_BOOKING_ERRORS = "RECEIVE_BOOKING_ERRORS";
 export const CLEAR_BOOKINGS = "CLEAR_BOOKINGS";
+export const CLICK_BOOKING = "CLICK_BOOKING";
+export const CLEAR_MODAL = "CLEAR_MODAL";
 
 const receiveBooking = (booking) => ({
   type: RECEIVE_BOOKING,
@@ -34,6 +36,15 @@ const receiveErrors = (errors) => ({
 
 const clear = () => ({
   type: CLEAR_BOOKINGS,
+});
+
+const clearMod = () => ({
+  type: CLEAR_MODAL
+})
+
+const click = (booking) => ({
+  type: CLICK_BOOKING,
+  booking
 });
 
 export const fetchBooking = (bookingId) => (dispatch) => {
@@ -68,4 +79,14 @@ export const deleteBooking = (bookingId) => (dispatch) => {
 
 export const clearBookings = () => (dispatch) => {
   dispatch(clear());
+};
+
+export const clickBooking = bookingId => dispatch => {
+  APIUtil.fetchBooking(bookingId)
+    .then((booking) => dispatch(click(booking)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+}
+
+export const clearModal = () => (dispatch) => {
+  dispatch(clearMod());
 };

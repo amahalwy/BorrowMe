@@ -6,6 +6,8 @@ export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
 export const REMOVE_REQUEST = "REMOVE_REQUEST";
 export const RECEIVE_REQUEST_ERRORS = "RECEIVE_REQUEST_ERRORS";
 export const CLEAR_REQUESTS = "CLEAR_REQUESTS";
+export const CLICK_REQUEST = "CLICK_REQUEST";
+export const CLEAR_MODAL = "CLEAR_MODAL";
 
 const receiveReceiverRequests = (requests) => ({
   type: RECEIVE_RECEIVER_REQUESTS,
@@ -35,6 +37,15 @@ const receiveErrors = errors => ({
 const clear = () => ({
   type: CLEAR_REQUESTS
 })
+
+const clearMod = () => ({
+  type: CLEAR_MODAL
+})
+
+const click = (request) => ({
+  type: CLICK_REQUEST,
+  request
+});
 
 export const fetchRequest = requestId => dispatch => {
   APIUtil.fetchRequest(requestId)
@@ -69,3 +80,13 @@ export const deleteRequest = requestId => dispatch => {
 export const clearRequests = () => dispatch => {
   dispatch(clear())
 }
+
+export const clickRequest = requestId => dispatch => {
+  APIUtil.fetchRequest(requestId)
+    .then(request => dispatch(click(request)))
+    .catch((err) => dispatch(receiveErrors(err.response.data)));
+}
+
+export const clearModal = () => (dispatch) => {
+  dispatch(clearMod());
+};

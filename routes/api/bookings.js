@@ -15,6 +15,12 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
+router.get("/:bookingId", (req, res) => {
+  Booking.findById(req.params.bookingId)
+    .then(booking => res.json(booking))
+    .catch((err) => res.status(400).json(err));
+});
+
 router.post(
   "/",
   upload.single("file"),

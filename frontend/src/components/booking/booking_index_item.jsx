@@ -1,8 +1,24 @@
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux';
+import {clickPosting, clearModal} from '../../actions/posting_actions';
 
 export default props => {
+
+  // const posting = useSelector(state => state.entities.modal)
+  // const dispatch = useDispatch();
+
+  // const handleClick = () => {
+  //   dispatch(clickPosting(props.booking._id));
+  //   setTimeout(()=>{
+  //     props.showModal();
+  //   },1)
+  // }
+
   if (!props.booking.requestDates) return '';
+
+  // debugger;
   return (
+    // <div onClick={handleClick}>
     <div>
       <img className="bookings-index-image" src={props.booking.bookingImage} alt="" />
       <div>

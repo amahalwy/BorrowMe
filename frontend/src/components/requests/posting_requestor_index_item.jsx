@@ -1,37 +1,25 @@
 import React, { useState } from 'react';
-import Modal from '../modal/request_modal';
-import PostingRequestorShow from './posting_requestor_show';
+import { useDispatch, useSelector } from 'react-redux';
+import { clickRequest, clearModal } from '../../actions/request_actions';
 
 export default props => {
-  const [openModal, setModal] = useState(false)
 
-  const showModal = (e) => {
-    e.preventDefault();
-    setModal(true);
-  };
+  const dispatch = useDispatch();
 
-  const hideModal2 = (e) => {
-    e.preventDefault();
-    setModal(false);
-  };
+  const handle = () => {
+    dispatch(clickRequest(props.request._id));
+    setTimeout(()=>{
+      props.showModal();
+    },1)
+  }
 
   return (
-    <div className="postings-index-image-box" onClick={showModal}>
+    <div className="postings-index-image-box" onClick={handle}>
       <img
         className="postings-index-image"
         src={props.request.postingImage}
         alt=""
       />
-      <span> </span>
-      <Modal show={openModal} handleClose={hideModal2}>
-        <PostingRequestorShow
-          title={props.request.postingTitle}
-          image={props.request.postingImage}
-          amount={props.request.amount}
-          requestDates={props.request.requestDates}
-          hideModal={hideModal2}
-        />
-      </Modal>
     </div>
   );
 
