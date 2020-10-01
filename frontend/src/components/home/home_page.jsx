@@ -86,37 +86,32 @@ export default props => {
  
   if (!posting) return '';
   return (
-    <div>
-    <div className="home-container">
-      <Modal show={openModal} handleClose={hideModal}>
-            <PostingShow posting={posting} hideModal={hideModal} />
-      </Modal>
-      
-      {renderErrors()}
-      {/* <div className="home-filter"> */}
-      <div className="home-tag-search-bar"></div>
-      
-
-      <div className="home-index">
+    // <div>
+      <div className="home-container">
+        <Modal show={openModal} handleClose={hideModal}>
+          <PostingShow posting={posting} hideModal={hideModal} />
+        </Modal>
+        {renderErrors()}
         <div className="search-container">
-          <div>
+          <div className='title-container'>
             <SearchBar input={input} setKeyword={updateInput} />
           </div>
           <div className="tag-container">
             <HomeTagSearchBar input={tagInput} setKeyword={updateTagInput} />
           </div>
         </div>
-        <div>
-          <PostingsIndex
-            filterList={filterList}
-            hideModal={hideModal}
-            showModal={showModal}
-          />
+        <div className="home-index">
+          <div>
+            <PostingsIndex
+              filterList={filterList}
+              hideModal={hideModal}
+              showModal={showModal}
+            />
+          </div>
+          
         </div>
-        
+        <HomeFooter></HomeFooter>
       </div>
-    </div>
-    <HomeFooter></HomeFooter>
-  </div>
+    // </div>
   );
 }

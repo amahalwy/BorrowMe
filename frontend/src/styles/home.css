@@ -1,10 +1,8 @@
 .home-container {
   margin-top: 68px;
   margin-bottom: 120px;
-  padding-top: 10px;  
-  z-index: -2;
-  display: flex;
-
+  padding-top: 10px;
+  width: 100%;
 }
 
 .home-filter {
@@ -62,8 +60,6 @@
   margin: auto; 
 }
 
-
-
 .home-index .home-no-show{
   display: none;
 }
@@ -94,11 +90,9 @@
 .engineer-info {
   color: white;
   width: 100%;
- padding-right: 3%;
- padding-left: 3%;
- padding-top: 3px;
- 
- 
+  padding-right: 3%;
+  padding-left: 3%;
+  padding-top: 3px;
 }
 
 .engineer-info a {
@@ -134,7 +128,6 @@
   color: white;
   padding: 3px;
   margin-bottom: 10px;
-  
   cursor: pointer;
 }
 
