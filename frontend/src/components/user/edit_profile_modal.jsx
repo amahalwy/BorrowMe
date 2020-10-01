@@ -60,7 +60,6 @@ const EditProfileModal = (props) => {
     );
   };
 
-  // debugger
   return (
     <div className="edit-profile-container">
       <form className="profile-edit-form">

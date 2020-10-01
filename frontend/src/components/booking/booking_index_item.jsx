@@ -16,9 +16,7 @@ export default props => {
 
   if (!props.booking.requestDates) return '';
 
-  // debugger;
   return (
-    // <div onClick={handleClick}>
     <div className="Upcoming-item">
       <img className="bookings-index-image" src={props.booking.bookingImage} alt="" />
       <div>
