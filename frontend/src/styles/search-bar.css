@@ -4,10 +4,7 @@
   margin: 1% 17.5%;
 }
 
-.title-container {
-  width: 46%;
-}
-
+.title-container,
 .tag-container {
   width: 46%;
 }
@@ -15,7 +12,6 @@
 .search-bar {
   height: 3em;
   width: 100%;
-  /* background: #F1F1F1; */
   border-radius: 5px;
   background-color: white;
 }
