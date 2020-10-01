@@ -7,9 +7,12 @@ export default (props) => {
   } else {
     
   const totalAmount = props.amount * props.requestDates.length;
+   
     return (
+      
       <div className="modal-main-show">
         <div>
+        
           <button className="modal-x" onClick={props.hideModal}>
             X
           </button>
@@ -18,6 +21,7 @@ export default (props) => {
           <span className="request-title">{props.title}</span>
         </div>
         <div>
+          
           <span className="total-amount">
             Total cost for {props.requestDates.length} days: ${totalAmount}
           </span>

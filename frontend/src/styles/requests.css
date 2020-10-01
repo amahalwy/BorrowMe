@@ -13,16 +13,17 @@
 
 .request-buttons{
   display: flex;
-  margin: 0 auto;
+  margin: 1% auto;
  justify-content: space-evenly;
+
 }
 
 .accept-request{
  background: #012a36;
   color: white;
   font-weight: bold;
-  font-size: 20px;
-  padding: 10px 30px;
+  font-size: 15px;
+  padding: 5px 8px;
   border-radius: 25px;
 }
 
@@ -30,8 +31,8 @@
  background: #012a36;
   color: white;
   font-weight: bold;
-  font-size: 20px;
-  padding: 10px 30px;
+  font-size: 15px;
+  padding: 5px 8px;
   border-radius: 25px;
 }
 

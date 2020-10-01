@@ -20,6 +20,14 @@ export default props => {
         src={props.request.postingImage}
         alt=""
       />
+      <span>Requestor: {props.request.requestorName}</span>
+      <br />
+      <span>
+        Start date:{" "}
+        {props.request.requestDates[0].split(" ").splice(0, 4).join(" ")}
+      </span>
+      <br />
+      
     </div>
   );
 
