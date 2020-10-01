@@ -9,18 +9,12 @@
   width: 46%;
 }
 
-.search-bar {
+.search-bar,
+.search-bar-tag {
   height: 3em;
   width: 100%;
   border-radius: 5px;
   background-color: white;
-}
-
-.search-bar-tag {
-  height: 3em;
-  width: 98%;
-  background-color: white;
-  border-radius: 5px;
 }
 
 input:focus {
