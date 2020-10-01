@@ -234,4 +234,5 @@
 .Upcoming-item{
   width: 45%;
   margin: 1%;
+  cursor: pointer;
 }
