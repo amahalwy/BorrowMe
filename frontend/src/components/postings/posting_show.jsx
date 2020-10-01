@@ -41,8 +41,7 @@ export default (props) => {
           <div className="modal-price">
             <span> Price: </span> ${props.posting.price}
           </div>
-          <br />
-          <div className="modal-description">{props.posting.description}</div>
+            <div className="modal-description">{props.posting.description}</div>
         </div>
       </div>
 
@@ -50,7 +49,7 @@ export default (props) => {
         <div className="img-container">
           <img className="modal-img" src={props.posting.image} alt="" />
         </div>
-        <div className="modal-calendar">
+        <div className="posting-show-calendar">
           <Calendar posting={props.posting} hideModal={props.hideModal}/>
         </div>
       </div>
