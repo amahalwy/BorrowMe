@@ -64,13 +64,22 @@ export default props => {
       props.hideModal();
     }, 1)
   }
-
+  
   const fetchPosting = (postingId) => {
     return fetch(`/api/postings/${postingId}`)
     .then(response => response.json())
     .then(data => setPosting(data))
   }
+  
+  // const totalAmount = props.amount * modalObject.requestDates.length;
+  let totalAmount;
+  if (modalObject.amount) {
+    totalAmount = modalObject.requestDates.length * modalObject.amount;
+  } else if (modalObject.price) {
+    totalAmount = modalObject.requestDates.length * modalObject.price;
+  };
 
+  
   const generateContent = () => {
     if (!posting) {
       return '';
@@ -83,16 +92,17 @@ export default props => {
             </button>
             </div>
             <div>
-              <span className="request-title">{modalObject.postingTitle}</span>
+              <div className="request-title">{modalObject.postingTitle}</div>
             </div>
-            <div>
-              <span className="total-amount">
-                {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
-              </span>
+           
+          <div className="request-text" >
+            <div className="requestor-rev">
+                Total revenue for {modalObject.requestDates.length} days: ${totalAmount}
             </div>
-            <div>
-              <span>Requestor: {modalObject.requestorName}</span>
+            <div className="requestor">
+              Requestor: {modalObject.requestorName}
             </div>
+          </div>
 
             <div className='stuff'>
               <img className="request-image" src={modalObject.postingImage} alt='' />
@@ -117,22 +127,26 @@ export default props => {
               X
             </button>
           </div>
-          <div>
-            <span className="request-title">{modalObject.postingTitle}</span>
+          <div className="request-title">{modalObject.postingTitle}</div>
+          <div className="request-text">
+            <div className="requestor-cost">
+              Total cost for {modalObject.requestDates.length} days: $
+              {totalAmount}
+            </div>
+            <div className="requestor">
+              Requestor: {modalObject.requestorName}
+            </div>
           </div>
-          <div>
-            <span className="total-amount">
-              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
-            </span>
-          </div>
-          <div>
-            <span>Requestor: {modalObject.requestorName}</span>
-          </div>
-          <div className='stuff'>
-            <img className="request-image" src={modalObject.postingImage} alt='' />
+
+          <div className="stuff">
+            <img
+              className="request-image"
+              src={modalObject.postingImage}
+              alt=""
+            />
           </div>
         </div>
-      )
+      );
     } else if (modalObject.ownerId && modalObject.ownerId === props.currentUser._id) { // This object is a BOOKING and you are owner (upcoming bookings)
       return (
         <div>
@@ -141,22 +155,26 @@ export default props => {
               X
             </button>
           </div>
-          <div>
-            <span className="request-title">{posting.title}</span>
+          <div className="request-title">{posting.title}</div>
+          <div className="request-text">
+            <div className="requestor-cost">
+              Total cost for {modalObject.requestDates.length} days: $
+              {totalAmount}
+            </div>
+            <div className="requestor">
+              Requestor: {modalObject.requestorName}
+            </div>
           </div>
+       
           <div>
-            <span className="total-amount">
-              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
-            </span>
-          </div>
-          <div>
-            <span>Requestor: </span>
-          </div>
-          <div>
-            <img className="request-image" src={modalObject.bookingImage} alt='' />
+            <img
+              className="request-image"
+              src={modalObject.bookingImage}
+              alt=""
+            />
           </div>
         </div>
-      )
+      );
     } else if (modalObject.ownerId && modalObject.ownerId !== props.currentUser._id) { // This object is a BOOKING and you are NOT owner (your upcoming bookings)
       return (
         <div>
@@ -165,26 +183,29 @@ export default props => {
               X
             </button>
           </div>
-          <div>
-            <span className="request-title">{posting.title}</span>
+          <div className="request-title">{posting.title}</div>
+          <div className="request-text">
+            <div className="requestor-cost">
+              Total cost for {modalObject.requestDates.length} days: $
+              {totalAmount}
+            </div>
+            <div className="requestor">
+              <div>Requestor: {modalObject.requestorName}</div>
+            </div>
           </div>
+         
           <div>
-            <span className="total-amount">
-              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
-            </span>
-          </div>
-          <div>
-            <span>Requestor: </span>
-          </div>
-          <div>
-            <img className="request-image" src={modalObject.bookingImage} alt='' />
+            <img
+              className="request-image"
+              src={modalObject.bookingImage}
+              alt=""
+            />
           </div>
         </div>
-      )
+      );
     }
   }
 
-  // const totalAmount = props.amount * props.request.requestDates.length;
 
   return (
     <div className="modal-main-show">

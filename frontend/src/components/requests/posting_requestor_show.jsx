@@ -17,17 +17,14 @@ export default (props) => {
             X
           </button>
         </div>
-        <div>
-          <span className="request-title">{props.title}</span>
+        <div className="request-title">
+          {props.title}
         </div>
-        <div>
-          
-          <span className="total-amount">
+        <div className="requestor-cost">
             Total cost for {props.requestDates.length} days: ${totalAmount}
-          </span>
         </div>
-        <div>
-          <span>Requestor: {props.user}</span>
+        <div className="requestor">
+          Requestor: {props.user}
         </div>
         <div>
           <img className="request-image" src={props.image} alt=''/>

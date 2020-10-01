@@ -1,14 +1,28 @@
 .request-image{
-  height: 70%;
-  width: 70%;
+  height: 400px;
+  width: 60%;
+border-radius: 8%;
   display: flex;
-  margin: 5% auto;
+  margin: 3% auto 0% auto;
 }
 
-.total-amount,
+/* .total-amount, */
 .request-title{
-  height: 2em;
-  font-size: 2em;
+  background:#a2d3c2;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 8px;
+  color: white;
+  width: 33%;
+
+  margin-left: 28%;
+  margin-top: 50px;
+  font-size: 2.25em;
+  text-align: center;
+  /* height: 2em;
+  font-size: 2em; */
 }
 
 .request-buttons{
@@ -22,8 +36,8 @@
  background: #012a36;
   color: white;
   font-weight: bold;
-  font-size: 15px;
-  padding: 5px 8px;
+  font-size: 20px;
+  padding: 10px 30px;
   border-radius: 25px;
 }
 
@@ -31,8 +45,8 @@
  background: #012a36;
   color: white;
   font-weight: bold;
-  font-size: 15px;
-  padding: 5px 8px;
+  font-size: 20px;
+  padding: 10px 30px;
   border-radius: 25px;
 }
 
@@ -71,8 +85,28 @@
   cursor: pointer;
 }
 
+
 .request-buttons-nomo{
   display:flex;
   justify-content: space-around;
   margin-top: 4%;
+}
+
+.requestor {
+  margin-left: 45%;
+  margin-bottom: .5%;
+}
+
+.requestor-cost{
+margin-left: 42%;
+margin-top: 2%;
+}
+
+.requestor-rev{
+margin-left: 41%;
+margin-top: 1%;
+}
+
+.request-text{
+margin-top: 2%;
 }
