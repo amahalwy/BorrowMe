@@ -4,6 +4,7 @@ import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings }
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clickRequest } from '../../actions/request_actions';
 
 export default props => {
+  debugger
   const modalObject = useSelector((state) => state.entities.modal); 
   const dispatch = useDispatch();
 
@@ -63,9 +64,11 @@ export default props => {
   }
 
   useEffect(() => {
-  }, [modalObject])
+  }, [modalObject]);
 
-  // const totalAmount = props.amount * props.requestDates.length;
+  // const totalAmount = props.amount * props.request.requestDates.length;
+
+
   return (
     <div className="modal-main-show">
       <div>
@@ -78,12 +81,13 @@ export default props => {
       </div>
       <div>
         <span className="total-amount">
-          {/* Total cost for {props.requestDates.length} days: ${totalAmount} */}
+          {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
         </span>
       </div>
       <div>
         <span>Requestor: {props.user}</span>
       </div>
+
       <div>
         <img className="request-image" src={props.image} alt='' />
       </div>

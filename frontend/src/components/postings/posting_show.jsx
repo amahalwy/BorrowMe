@@ -31,6 +31,7 @@ export default (props) => {
 
   return (
     <div className="modal-main-show">
+   
       <div className="modal-top-bar">
         <h1 className="modal-item-title">{props.posting.title}</h1>
         <button className="modal-x" onClick={handleClick}>
