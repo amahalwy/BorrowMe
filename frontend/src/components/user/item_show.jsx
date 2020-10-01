@@ -4,7 +4,7 @@ import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings }
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clearModal } from '../../actions/request_actions';
 
 export default props => {
-  const modalObject = useSelector(state => state.entities.modal); 
+  const modalObject = useSelector(state => state.entities.modal);
   const [posting, setPosting] = useState();
   const dispatch = useDispatch();
 
@@ -27,6 +27,7 @@ export default props => {
       dispatch(fetchOwnerBookings(props.currentUser._id));
       dispatch(fetchRenterBookings(props.currentUser._id));
       dispatch(deleteRequest(modalObject._id));
+      dispatch(clearModal());
       props.hideModal();
     }, 200)
     setTimeout(() => {
@@ -42,15 +43,16 @@ export default props => {
       dispatch(clearRequests());
       dispatch(fetchRequestorRequests(props.currentUser._id));
       dispatch(fetchReceiverRequests(props.currentUser._id));
+      dispatch(clearModal());
       props.hideModal();
     }, 1)
   }
 
   useEffect(() => {
-    if (modalObject.ownerId || modalObject.receiverId) {
+    if (modalObject.ownerId || modalObject.receiverId) { //Check to see if modalObject === booking || modalObject === request
       fetchPosting(modalObject.postingId);
     }
-
+    
     return () => {
       setPosting();
     }
@@ -89,10 +91,10 @@ export default props => {
               </span>
             </div>
             <div>
-              <span>Requestor: </span>
+              <span>Requestor: {modalObject.requestorName}</span>
             </div>
 
-            <div>
+            <div className='stuff'>
               <img className="request-image" src={modalObject.postingImage} alt='' />
             </div>
             <div className="request-buttons">
@@ -106,6 +108,8 @@ export default props => {
           </div>
       )
     } else if (modalObject.receiverId && modalObject.receiverId !== props.currentUser._id) { // This object is a REQUEST and you are NOT owner (your request)
+      console.log('obj: --- ', modalObject)
+      console.log('posting: ---', posting);
       return (
         <div>
           <div>
@@ -122,9 +126,9 @@ export default props => {
             </span>
           </div>
           <div>
-            <span>Requestor: {props.user}</span>
+            <span>Requestor: {modalObject.requestorName}</span>
           </div>
-          <div>
+          <div className='stuff'>
             <img className="request-image" src={modalObject.postingImage} alt='' />
           </div>
         </div>
@@ -146,10 +150,10 @@ export default props => {
             </span>
           </div>
           <div>
-            <span>Requestor: {props.user}</span>
+            <span>Requestor: </span>
           </div>
           <div>
-            <img className="request-image" src={props.image} alt='' />
+            <img className="request-image" src={modalObject.bookingImage} alt='' />
           </div>
         </div>
       )
@@ -170,10 +174,10 @@ export default props => {
             </span>
           </div>
           <div>
-            <span>Requestor: {props.user}</span>
+            <span>Requestor: </span>
           </div>
           <div>
-            <img className="request-image" src={props.image} alt='' />
+            <img className="request-image" src={modalObject.bookingImage} alt='' />
           </div>
         </div>
       )

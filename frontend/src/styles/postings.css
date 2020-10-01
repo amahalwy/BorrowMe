@@ -54,3 +54,8 @@
 .Item-info-bar{
   background-color:  #f1f1f1;
 }
+
+.stuff {
+  height: 80px;
+  width: 80px;
+}
