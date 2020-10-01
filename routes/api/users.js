@@ -36,7 +36,7 @@ const uploadImage = (file) => {
 };
 
 router.get("/:userId",
-  passport.authenticate("jwt", { session: false }),  
+  // passport.authenticate("jwt", { session: false }),  
   (req, res) => {
     User.findOne({ _id: req.params.userId })
       .then(user => res.json(user))

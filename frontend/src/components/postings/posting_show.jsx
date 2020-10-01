@@ -1,34 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Calendar from '../calendar/calendar';
-import Map from '../map/map'
 import { clearModal } from '../../actions/posting_actions'
+import Map from '../map/map'
 import Modal from '../../components/modal/modal';
 
 export default (props) => {
   const currentUser = useSelector(state => state.session.user);
-  const [openModal, setModal] = useState(false)
+  const [owner, setOwner] = useState();
   const dispatch = useDispatch();
 
-  const showModal = async (e) => {
-    e.preventDefault();
-    await setModal(true);
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 1)
-  };
-
-  const hideModal = () => {
-    setModal(false);
-  };
-
   const handleClick = () => {
-    setTimeout(() => {
-      dispatch(clearModal());
-      props.hideModal();
-    }, 1);
+    props.hideModal();
+    dispatch(clearModal());
   };
 
+  useEffect(() => {
+    if (Object.keys(props.posting).length > 0) {
+      fetchUser(props.posting.ownerId);
+    }
+  }, [])
+
+  const fetchUser = (userId) => {
+    return fetch(`/api/users/${userId}`)
+      .then(response => response.json())
+      .then(data => setOwner(data))
+  }
+
+  if (!owner) return '';
   return (
     <div className="modal-main-show">
    
@@ -38,6 +37,9 @@ export default (props) => {
           X
         </button>
         <div className="modal-price-desc">
+          <div>
+            {owner.firstName}
+          </div>
           <div className="modal-price">
             <span> Price: </span> ${props.posting.price}
           </div>

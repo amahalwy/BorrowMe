@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import Modal from '../modal/modal';
 import PostingShow from './posting_show';
 import {clickPosting, clearModal} from '../../actions/posting_actions';
 
 export default props => {
-  const dispatch = useDispatch();
-
   const [openModal, setModal] = useState(false);
+  const dispatch = useDispatch();
 
   const showModal = () => {
     setModal(true) 
@@ -27,9 +26,9 @@ export default props => {
   return (
     <div>
       <div className="posting-index-item">      
-         <div className="entire-image"  >        
-            <div  onClick={handleClick}
-                  className="post-index-item-image-container"
+        <div className="entire-image"  >        
+            <div onClick={handleClick}
+                className="post-index-item-image-container"
                 >
               <div className="image-container">
                 <img className="posting-image" src={props.posting.image} alt="" />
@@ -52,12 +51,10 @@ export default props => {
           </div>
           <div className="home-no-show">Calendar</div>
         </div>
-       
+      
         <Modal show={openModal} handleClose={hideModal}>
           <PostingShow posting={props.posting} hideModal={hideModal} />
         </Modal>
-      </div>
-    
+      </div>      
   );
-
 }                    

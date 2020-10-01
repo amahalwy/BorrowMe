@@ -6,7 +6,6 @@ import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteReq
 export default props => {
   const modalObject = useSelector(state => state.entities.modal); 
   const [posting, setPosting] = useState();
-  // const posting = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
 
   const acceptRequest = async (e) => {
