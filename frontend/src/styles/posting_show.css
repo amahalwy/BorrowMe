@@ -10,7 +10,6 @@
   margin-right:0%;
 }
 
-
 .modal-price span{
   font-weight: 700;
 }
@@ -18,27 +17,31 @@
 .modal-item-title{
   font-size: 4em;
   display: inline-block;  
- padding-left: 10px;
- margin-top: 30px;
-width: 100%;
-top: 4px;
+  padding-left: 10px;
+  margin-top: 30px;
+  width: 100%;
+  top: 4px;
 }
 
 .modal-x{
   display: block;
-padding: 10px;
-margin-left: 350px;
-position: absolute;
-background-color: white;
-top: 4px;
-right: 5px;
-font-size: 2em;
-cursor: pointer;
+  padding: 10px;
+  margin-left: 350px;
+  position: absolute;
+  background-color: white;
+  top: 4px;
+  right: 5px;
+  font-size: 2em;
+  cursor: pointer;
 }
 
-.modal-item-info{
+.modal-item-info {
   display: flex;
   margin-top: 20%;
+}
+
+.modal-item-info div {
+  margin-left: 20px;
 }
 
 .img-containter{
@@ -54,14 +57,9 @@ cursor: pointer;
   object-fit: cover;
 }
 
-.modal-calendar{
- display: inline-block;
-}
-
 .posting-image-container{
   display: flex;
 }
-
 
 .modal-posting-img{
    width: 50%;
@@ -76,10 +74,10 @@ cursor: pointer;
   height: 2.5em;
   background-color: #a2d3c2;
   color: black;
-   cursor: pointer;
+  cursor: pointer;
   width: 40%;
   box-sizing: border-box;
-   font-weight: bold;
+  font-weight: bold;
   font-size: 16px;
   margin-top:16px;
   margin-left: 10%;
@@ -96,15 +94,14 @@ cursor: pointer;
   height: 2.5em;
   background-color: #a2d3c2;
   color: black;
-   cursor: pointer;
+  cursor: pointer;
   width: 15%;
   box-sizing: border-box;
   position: absolute;
-   font-weight: bold;
+  font-weight: bold;
   font-size: 16px;
   bottom: 2.5%;
   right: 3%;
-  /* margin-right: 120px; */
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
@@ -114,7 +111,7 @@ cursor: pointer;
 }
 
 .modal-rent-button:hover{
-    background-color:  #779e91;
+  background-color:  #779e91;
   color: black;
   cursor: pointer;
 }

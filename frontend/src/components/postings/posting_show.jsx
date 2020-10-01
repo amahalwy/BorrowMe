@@ -52,14 +52,6 @@ export default (props) => {
         <div className="modal-calendar">
           <Calendar posting={props.posting} hideModal={props.hideModal}/>
         </div>
-        <div>
-          {/* <Modal show={openModal} handleClose={hideModal}>
-            <Map posting={props.posting} currentUser={currentUser} hideModal={hideModal}/>
-          </Modal>
-          
-          <button onClick={showModal}>Show map</button> */}
-          
-        </div>
       </div>
     </div>
   );

@@ -86,7 +86,6 @@ export default props => {
         </div>
       </div>
       <Modal show={openModal} handleClose={hideModal}>
-        {/* <PostingShow posting={modalObject} hideModal={hideModal} /> */}
         <ItemShow hideModal={hideModal} currentUser={currentUser}/>
       </Modal>
     </div>
