@@ -71,7 +71,7 @@ export default props => {
         <div className="profile-rentals">
           <h1>Upcoming bookings </h1>
           <div className="Upcoming-Bookings">
-            <BookingsIndex bookings={ownerBookings} />
+            <BookingsIndex bookings={ownerBookings} showModal={showModal} />
           </div>
         </div>
       </div>

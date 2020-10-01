@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings } from '../../actions/booking_actions';
 import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clearModal } from '../../actions/request_actions';
 
 export default props => {
-  const modalObject = useSelector((state) => state.entities.modal); 
+  const modalObject = useSelector(state => state.entities.modal); 
+  const [posting, setPosting] = useState();
+  // const posting = useSelector(state => Object.values(state.entities.postings));
   const dispatch = useDispatch();
 
   const acceptRequest = async (e) => {
@@ -46,6 +48,13 @@ export default props => {
   }
 
   useEffect(() => {
+    if (modalObject.ownerId || modalObject.receiverId) {
+      fetchPosting(modalObject.postingId);
+    }
+
+    return () => {
+      setPosting();
+    }
   }, [modalObject]);
 
   const handleClose = () => {
@@ -55,9 +64,15 @@ export default props => {
     }, 1)
   }
 
+  const fetchPosting = (postingId) => {
+    return fetch(`/api/postings/${postingId}`)
+    .then(response => response.json())
+    .then(data => setPosting(data))
+  }
+
   const generateContent = () => {
-    if (!modalObject) {
-      return ''
+    if (!posting) {
+      return '';
     } else if (modalObject.receiverId && modalObject.receiverId === props.currentUser._id) { // This object is a REQUEST and you are owner (received request)
       return (
           <div>
@@ -75,11 +90,11 @@ export default props => {
               </span>
             </div>
             <div>
-              <span>Requestor: {props.user}</span>
+              <span>Requestor: </span>
             </div>
 
             <div>
-              <img className="request-image" src={props.image} alt='' />
+              <img className="request-image" src={modalObject.postingImage} alt='' />
             </div>
             <div className="request-buttons">
               <span>
@@ -111,15 +126,62 @@ export default props => {
             <span>Requestor: {props.user}</span>
           </div>
           <div>
+            <img className="request-image" src={modalObject.postingImage} alt='' />
+          </div>
+        </div>
+      )
+    } else if (modalObject.ownerId && modalObject.ownerId === props.currentUser._id) { // This object is a BOOKING and you are owner (upcoming bookings)
+      return (
+        <div>
+          <div>
+            <button className="modal-x" onClick={handleClose}>
+              X
+            </button>
+          </div>
+          <div>
+            <span className="request-title">{posting.title}</span>
+          </div>
+          <div>
+            <span className="total-amount">
+              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
+            </span>
+          </div>
+          <div>
+            <span>Requestor: {props.user}</span>
+          </div>
+          <div>
             <img className="request-image" src={props.image} alt='' />
           </div>
-      </div>
+        </div>
       )
-    }  
+    } else if (modalObject.ownerId && modalObject.ownerId !== props.currentUser._id) { // This object is a BOOKING and you are NOT owner (your upcoming bookings)
+      return (
+        <div>
+          <div>
+            <button className="modal-x" onClick={handleClose}>
+              X
+            </button>
+          </div>
+          <div>
+            <span className="request-title">{posting.title}</span>
+          </div>
+          <div>
+            <span className="total-amount">
+              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
+            </span>
+          </div>
+          <div>
+            <span>Requestor: {props.user}</span>
+          </div>
+          <div>
+            <img className="request-image" src={props.image} alt='' />
+          </div>
+        </div>
+      )
+    }
   }
 
   // const totalAmount = props.amount * props.request.requestDates.length;
-
 
   return (
     <div className="modal-main-show">
