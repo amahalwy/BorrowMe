@@ -37,11 +37,9 @@ export default (props) => {
           X
         </button>
         <div className="modal-price-desc">
-          <div>
-            {owner.firstName}
-          </div>
           <div className="modal-price">
-            <span> Price: </span> ${props.posting.price}
+            <span className="postings-show-name-span"> <span className="postings-show-price-span">Posted by:</span> {owner.firstName} </span>
+            <span className="postings-show-price-span"> Price: </span> ${props.posting.price}
           </div>
             <div className="modal-description">{props.posting.description}</div>
         </div>
