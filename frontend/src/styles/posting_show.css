@@ -59,8 +59,8 @@
 .modal-img {
   height: 470px;
   object-fit: cover;
-  width: 690px;
-  margin-left: 5%;
+  width: 100%;
+  margin-left: 8%;
   border-radius: 8px;
 }
 

@@ -6,6 +6,7 @@ import Modal from "../modal/modal";
 import CreatePosting  from "../postings/create_posting";
 import SuccessModal from "../modal/success-modal";
 import {clearModal} from '../../actions/posting_actions';
+import HomeFooter from '../home/home_footer'
 
 export default (props) => {
   const loggedIn = useSelector(state => state.session.isAuthenticated);
@@ -93,6 +94,7 @@ export default (props) => {
                 </li>
               </ul>
             </div>
+            
           </div>
           <Modal show={openModal} handleClose={hideModal}>
             <CreatePosting
@@ -104,9 +106,10 @@ export default (props) => {
             />
           </Modal>
           <SuccessModal show={openSuccessModal} handleClose={hideSuccessModal}>
-            <button onClick={hideSuccessModal}>X</button>
-            <h1>Success!</h1>
+            <button className="success-modal-x" onClick={hideSuccessModal}>X</button>
+            <h1 className="success-modal-message">Success!</h1>
           </SuccessModal>
+          <HomeFooter></HomeFooter>
         </div>
       );
     } else {

@@ -8,7 +8,6 @@ import Modal from '../modal/modal';
 import PostingShow from '../postings/posting_show';
 import EditPosting from "../postings/edit_posting";
 import { clearModal } from "../../actions/posting_actions";
-import HomeFooter from './home-footer'
 
 
 export default props => {
@@ -110,8 +109,6 @@ export default props => {
           </div>
           
         </div>
-        <HomeFooter></HomeFooter>
       </div>
-    // </div>
   );
 }

@@ -69,9 +69,11 @@
 .footer-container {
   width: 100%;
   display: flex;
+  z-index: 0;
   justify-content: center;
   position: fixed;
   bottom: -72px;
+  left: 0;
   background: #012a36;
 }
 
