@@ -14,7 +14,7 @@ const Map = (props) => {
 
   useEffect(() => {
     handleMap();
-  }, [map]);
+  }, [map]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleMap = () => {
 

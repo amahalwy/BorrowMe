@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { clickRequest, clearModal } from '../../actions/request_actions';
+import React from 'react';
+import { useDispatch} from 'react-redux';
+import { clickRequest} from '../../actions/request_actions';
 
 export default props => {
 
@@ -20,14 +20,6 @@ export default props => {
         src={props.request.postingImage}
         alt=""
       />
-      <span>Requestor: {props.request.requestorName}</span>
-      <br />
-      <span>
-        Start date:{" "}
-        {props.request.requestDates[0].split(" ").splice(0, 4).join(" ")}
-      </span>
-      <br />
-      
     </div>
   );
 

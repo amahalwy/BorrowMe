@@ -1,29 +1,11 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import { createBooking, clearBookings, fetchOwnerBookings, fetchRenterBookings } from '../../actions/booking_actions';
-import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clickRequest } from '../../actions/request_actions';
+import { fetchRequestorRequests, fetchReceiverRequests, clearRequests, deleteRequest, clearModal } from '../../actions/request_actions';
 
 export default props => {
-  debugger
   const modalObject = useSelector((state) => state.entities.modal); 
   const dispatch = useDispatch();
-
-  const ownerButtons = () => {
-    if (!modalObject) {
-      return ''
-    } else if (modalObject.receiverId && modalObject.receiverId === props.currentUser._id) {
-      return (
-        <div className="request-buttons">
-          <span>
-            <button className="accept-request" onClick={acceptRequest}>Accept</button>
-          </span>
-          <span>
-            <button className="reject-request" onClick={declineRequest}>Reject</button>
-          </span>
-        </div>
-      )
-    }
-  }
 
   const acceptRequest = async (e) => {
     e.preventDefault();
@@ -66,32 +48,82 @@ export default props => {
   useEffect(() => {
   }, [modalObject]);
 
+  const handleClose = () => {
+    dispatch(clearModal());
+    setTimeout(() => {
+      props.hideModal();
+    }, 1)
+  }
+
+  const generateContent = () => {
+    if (!modalObject) {
+      return ''
+    } else if (modalObject.receiverId && modalObject.receiverId === props.currentUser._id) { // This object is a REQUEST and you are owner (received request)
+      return (
+          <div>
+            <div>
+              <button className="modal-x" onClick={handleClose}>
+                X
+            </button>
+            </div>
+            <div>
+              <span className="request-title">{modalObject.postingTitle}</span>
+            </div>
+            <div>
+              <span className="total-amount">
+                {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
+              </span>
+            </div>
+            <div>
+              <span>Requestor: {props.user}</span>
+            </div>
+
+            <div>
+              <img className="request-image" src={props.image} alt='' />
+            </div>
+            <div className="request-buttons">
+              <span>
+                <button className="accept-request" onClick={acceptRequest}>Accept</button>
+              </span>
+              <span>
+                <button className="reject-request" onClick={declineRequest}>Reject</button>
+              </span>
+            </div>
+          </div>
+      )
+    } else if (modalObject.receiverId && modalObject.receiverId !== props.currentUser._id) { // This object is a REQUEST and you are NOT owner (your request)
+      return (
+        <div>
+          <div>
+            <button className="modal-x" onClick={handleClose}>
+              X
+            </button>
+          </div>
+          <div>
+            <span className="request-title">{modalObject.postingTitle}</span>
+          </div>
+          <div>
+            <span className="total-amount">
+              {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
+            </span>
+          </div>
+          <div>
+            <span>Requestor: {props.user}</span>
+          </div>
+          <div>
+            <img className="request-image" src={props.image} alt='' />
+          </div>
+      </div>
+      )
+    }  
+  }
+
   // const totalAmount = props.amount * props.request.requestDates.length;
 
 
   return (
     <div className="modal-main-show">
-      <div>
-        <button className="modal-x" onClick={props.hideModal}>
-          X
-          </button>
-      </div>
-      <div>
-        <span className="request-title">{modalObject.postingTitle}</span>
-      </div>
-      <div>
-        <span className="total-amount">
-          {/* Total cost for {props.request.requestDates.length} days: ${totalAmount} */}
-        </span>
-      </div>
-      <div>
-        <span>Requestor: {props.user}</span>
-      </div>
-
-      <div>
-        <img className="request-image" src={props.image} alt='' />
-      </div>
-      {ownerButtons()}
+      {generateContent()}
     </div>
   )
 }
