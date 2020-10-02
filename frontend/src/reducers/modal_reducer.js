@@ -2,6 +2,7 @@ import {
   CLICK_POSTING,
   CLEAR_MODAL,
   SUCCESS,
+  OPEN_MAP
 } from "../actions/posting_actions";
 import { UPDATE_SUCCESS } from "../actions/user_actions";
 import { CLICK_BOOKING } from '../actions/booking_actions';
