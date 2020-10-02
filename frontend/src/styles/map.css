@@ -1,12 +1,14 @@
 .mapboxgl-map {
   position: absolute;
   top: 15%;
-  left: 10%;
+  left: 2.5%;
   bottom:0;
   margin-top: 20px;
   margin: auto;
-  width: 80%;
+  width: 95%;
   height: 80%;
+  box-shadow: 0px 3px 3px #888888;
+  border-radius: 8px;
   /* overflow: visible !important; */
 }
 
@@ -33,7 +35,7 @@
   font-family: 'Lato', sans-serif;
   background: none;
   font-size: 32px;
-  margin-top: -10px;
+  margin-top: 0;
   margin-right: 1%;
 
 }
@@ -54,18 +56,27 @@
 
 .maps-info-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  
+  width: 85%;
   font-size: 18px;
   line-height: 1.5em;
-  margin-top: 20px;
-  margin-left: 120px;
-  margin-right: 100px;
+  padding-top: 2%;
+  margin: auto;
 }
 
 .posting-title-map {
   font-weight: bold;
   font-size: 4em;
-  font-size: 200%;
+  font-size: 2em;
+  color: white;
+  background: #a2d3c2;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 8px;
 }
 
 .posting-description-map {
