@@ -2,7 +2,6 @@ import {
   CLICK_POSTING,
   CLEAR_MODAL,
   SUCCESS,
-  OPEN_MAP
 } from "../actions/posting_actions";
 import { UPDATE_SUCCESS } from "../actions/user_actions";
 import { CLICK_BOOKING } from '../actions/booking_actions';
@@ -20,9 +19,9 @@ export default function (state = {}, action) {
     case CLEAR_MODAL:
       return {};
     case SUCCESS:
-      return Object.assign({}, state, { ["res"]: action.status });
+      return Object.assign({}, state, { "res": action.status });
     case UPDATE_SUCCESS:
-      return Object.assign({}, state, { ["res"]: action.status });
+      return Object.assign({}, state, { "res": action.status });
     default:
       return state;
   }

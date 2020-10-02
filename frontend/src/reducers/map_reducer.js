@@ -7,7 +7,7 @@ export default function (state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
     case OPEN_MAP:
-      return Object.assign({}, state, { ["res"]: action.status });
+      return Object.assign({}, state, { "res": action.status });
     case CLEAR_MAP:
       return {};
     default:

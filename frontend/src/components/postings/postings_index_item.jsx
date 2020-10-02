@@ -1,20 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {useDispatch} from 'react-redux';
-import Modal from '../modal/modal';
-import PostingShow from './posting_show';
-import {clickPosting, clearModal} from '../../actions/posting_actions';
+import {clickPosting} from '../../actions/posting_actions';
 
 export default props => {
-  const [openModal, setModal] = useState(false);
   const dispatch = useDispatch();
-
-  // const showModal = () => {
-  //   setModal(true) 
-  // }
-
-  // const hideModal = () => {
-  //   setModal(false) 
-  // }
 
   const handleClick = () => {
     setTimeout(() => {
@@ -35,26 +24,21 @@ export default props => {
               </div>
             </div>
         </div>
-          <div className="Item-info-bar">
-            <div className="post-title">
-              <span>{props.posting.title}</span>
-            </div>
-            <div className="home-no-show">
-              <span>Zipcode</span>
-            </div>
-            <div className="post-price">
-              <span>Price: ${props.posting.price}/day</span>
-            </div>
-            <div className="post-tags">
-              <span>Tags: {props.posting.tags}</span>
-            </div>
+        <div className="Item-info-bar">
+          <div className="post-title">
+            <span>{props.posting.title}</span>
           </div>
-          <div className="home-no-show">Calendar</div>
+          <div className="home-no-show">
+            <span>Zipcode</span>
+          </div>
+          <div className="post-price">
+            <span>Price: ${props.posting.price}/day</span>
+          </div>
+          <div className="post-tags">
+            <span>Tags: {props.posting.tags}</span>
+          </div>
         </div>
-      
-        {/* <Modal show={openModal} handleClose={hideModal}>
-          <PostingShow posting={props.posting} hideModal={hideModal} />
-        </Modal> */}
-      </div>      
+      </div>
+    </div>      
   );
 }                    

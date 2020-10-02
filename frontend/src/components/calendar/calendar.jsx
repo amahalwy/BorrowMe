@@ -3,9 +3,8 @@ import { DateRange } from "react-date-range";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import FormData from "form-data";
-import Map from '../map/map';
 import {useSelector, useDispatch} from 'react-redux';
-import {createRequest, clearModal} from '../../actions/request_actions';
+import {createRequest} from '../../actions/request_actions';
 import { showMap } from '../../actions/posting_actions';
 
 Date.prototype.addDays = function (days) {
@@ -23,7 +22,6 @@ export default (props) => {
   const dispatch = useDispatch();
 
   const currentUser = useSelector(state => state.session.user); 
-  const mapObject = useSelector(state => state.entities.map);
   const id = props.posting._id;
   
   const getDates = () => {
