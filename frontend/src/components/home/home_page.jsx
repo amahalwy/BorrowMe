@@ -6,8 +6,6 @@ import HomeTagSearchBar from './home_tag_search_bar';
 import {clearPostings, fetchPostings} from '../../actions/posting_actions';
 import Modal from '../modal/modal';
 import DynamicShow from './dynamic_show';
-import PostingShow from '../postings/posting_show';
-import EditPosting from "../postings/edit_posting";
 import { clearModal } from "../../actions/posting_actions";
 
 

@@ -1,9 +1,8 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {clickBooking} from '../../actions/booking_actions';
 
 export default props => {
-  // const posting = useSelector(state => state.entities.modal)
   const dispatch = useDispatch();
 
   const handleClick = () => {

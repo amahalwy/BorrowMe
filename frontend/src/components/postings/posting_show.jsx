@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import Calendar from '../calendar/calendar';
 import { clearModal } from '../../actions/posting_actions'
-import Map from '../map/map'
-import Modal from '../../components/modal/modal';
 
 export default (props) => {
-  const currentUser = useSelector(state => state.session.user);
   const [owner, setOwner] = useState();
   const dispatch = useDispatch();
 
@@ -19,7 +16,7 @@ export default (props) => {
     if (Object.keys(props.posting).length > 0) {
       fetchUser(props.posting.ownerId);
     }
-  }, [])
+  }, [props.posting])
 
   const fetchUser = (userId) => {
     return fetch(`/api/users/${userId}`)
@@ -30,7 +27,7 @@ export default (props) => {
   if (!owner) return '';
   return (
     <div className="modal-main-show">
-   
+
       <div className="modal-top-bar">
         <h1 className="modal-item-title">{props.posting.title}</h1>
         <button className="modal-x" onClick={handleClick}>
@@ -53,6 +50,7 @@ export default (props) => {
           <Calendar posting={props.posting} hideModal={props.hideModal}/>
         </div>
       </div>
+
     </div>
   );
 }

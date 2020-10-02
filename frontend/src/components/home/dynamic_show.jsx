@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Calendar from '../calendar/calendar';
 import Map from '../map/map';
-import PostingShow from '../postings/posting_show';
-import {clearModal} from '../../actions/request_actions';
 
 export default props => {
-  const currentUser = useSelector(state => state.session.user);
   const modalObject = useSelector(state => state.entities.modal);
   const mapObject = useSelector(state => state.entities.map);
   const [owner, setOwner] = useState();
-  const dispatch = useDispatch();
 
   const handleClick = () => {
     props.hideModal();
   };
   
   useEffect(() => {
-    if (Object.keys(modalObject).length > 0) {
+    if (Object.keys(modalObject).length > 0 && !modalObject.res) {
       fetchUser(modalObject.ownerId);
     }
 
