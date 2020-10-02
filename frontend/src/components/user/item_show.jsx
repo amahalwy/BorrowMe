@@ -73,9 +73,22 @@ export default props => {
   
   // const totalAmount = props.amount * modalObject.requestDates.length;
   let totalAmount;
+  let start;
+  let end;
+
   if (modalObject.amount) {
+    start = modalObject.requestDates[0].split(" ").slice(0, 4).join(" ");
+    end = modalObject.requestDates[modalObject.requestDates.length - 1]
+      .split(" ")
+      .slice(0, 4)
+      .join(" ");
     totalAmount = modalObject.requestDates.length * modalObject.amount;
   } else if (modalObject.price) {
+    start = modalObject.requestDates[0].split(" ").slice(0, 4).join(" ")
+    end = modalObject.requestDates[modalObject.requestDates.length - 1]
+      .split(" ")
+      .slice(0, 4)
+      .join(" ");
     totalAmount = modalObject.requestDates.length * modalObject.price;
   };
 
@@ -85,39 +98,60 @@ export default props => {
       return '';
     } else if (modalObject.receiverId && modalObject.receiverId === props.currentUser._id) { // This object is a REQUEST and you are owner (received request)
       return (
+        <div>
           <div>
-            <div>
-              <button className="modal-x" onClick={handleClose}>
-                X
+            <button className="modal-x" onClick={handleClose}>
+              X
             </button>
+          </div>
+          <div>
+            <div className="request-title">{modalObject.postingTitle}</div>
+          </div>
+
+          <div className="request-text">
+            <div className="request-text-right">
+              <div className="requestor-cost"><span className="modal-bold-text">Total cost for {modalObject.requestDates.length} days: </span> ${totalAmount}
+              </div>
+              <div className="requestor">
+                <span className="modal-bold-text">Requestor: </span>
+                Me
+              </div>
             </div>
-            <div>
-              <div className="request-title">{modalObject.postingTitle}</div>
-            </div>
-           
-          <div className="request-text" >
-            <div className="requestor-rev">
-                Total revenue for {modalObject.requestDates.length} days: ${totalAmount}
-            </div>
-            <div className="requestor">
-              Requestor: {modalObject.requestorName}
+            <div className="request-text-right">
+              <div className="dates">
+                <div className="start-date">
+                  <span className="modal-bold-text">Start Date: </span>
+                  {start}
+                </div>
+                <div className="end-date"><span className="modal-bold-text">End Date: </span>
+                  {end}</div>
+              </div>
             </div>
           </div>
 
-            <div className='stuff'>
-              <img className="request-image" src={modalObject.postingImage} alt='' />
-            </div>
-            <div className="request-buttons">
-              <span>
-                <button className="accept-request" onClick={acceptRequest}>Accept</button>
-              </span>
-              <span>
-                <button className="reject-request" onClick={declineRequest}>Reject</button>
-              </span>
-            </div>
+          <div className="stuff">
+            <img
+              className="request-image"
+              src={modalObject.postingImage}
+              alt=""
+            />
           </div>
-      )
+          <div className="request-buttons">
+            <span>
+              <button className="accept-request" onClick={acceptRequest}>
+                Accept
+              </button>
+            </span>
+            <span>
+              <button className="reject-request" onClick={declineRequest}>
+                Reject
+              </button>
+            </span>
+          </div>
+        </div>
+      );
     } else if (modalObject.receiverId && modalObject.receiverId !== props.currentUser._id) { // This object is a REQUEST and you are NOT owner (your request)
+      // debugger
       return (
         <div>
           <div>
@@ -127,12 +161,24 @@ export default props => {
           </div>
           <div className="request-title">{modalObject.postingTitle}</div>
           <div className="request-text">
-            <div className="requestor-cost">
-              Total cost for {modalObject.requestDates.length} days: $
-              {totalAmount}
+            <div className="request-text-right">
+              <div className="requestor-cost">
+                <span className="modal-bold-text">Total cost for {modalObject.requestDates.length} days: </span> ${totalAmount}
+              </div>
+              <div className="requestor">
+                <span className="modal-bold-text">Requestor: </span>
+                Me
+              </div>
             </div>
-            <div className="requestor">
-              Requestor: {modalObject.requestorName}
+            <div className="request-text-right">
+              <div className="dates">
+                <div className="start-date">
+                  <span className="modal-bold-text">Start Date: </span>
+                  {start}
+                </div>
+                <div className="end-date"><span className="modal-bold-text">End Date: </span>
+                  {end}</div>
+              </div>
             </div>
           </div>
 
@@ -155,15 +201,29 @@ export default props => {
           </div>
           <div className="request-title">{posting.title}</div>
           <div className="request-text">
-            <div className="requestor-cost">
-              Total cost for {modalObject.requestDates.length} days: $
-              {totalAmount}
+            <div className="request-text-right">
+              <div className="requestor-cost">
+                <span className="modal-bold-text">Total cost for {modalObject.requestDates.length} days: </span>${totalAmount}
+              </div>
+              <div className="requestor">
+                <span className="modal-bold-text">Requestor: </span>
+                Me
+              </div>
             </div>
-            <div className="requestor">
-              Requestor: {modalObject.requestorName}
+            <div className="request-text-right">
+              <div className="dates">
+                <div className="start-date">
+                  <span className="modal-bold-text">Start Date: </span>
+                  {start}
+                </div>
+                <div className="end-date">
+                  <span className="modal-bold-text">End Date: </span>
+                  {end}
+                </div>
+              </div>
             </div>
           </div>
-       
+
           <div>
             <img
               className="request-image"
@@ -173,6 +233,7 @@ export default props => {
           </div>
         </div>
       );
+      
     } else if (modalObject.ownerId && modalObject.ownerId !== props.currentUser._id) { // This object is a BOOKING and you are NOT owner (your upcoming bookings)
       return (
         <div>
@@ -183,12 +244,24 @@ export default props => {
           </div>
           <div className="request-title">{posting.title}</div>
           <div className="request-text">
-            <div className="requestor-cost">
-              Total cost for {modalObject.requestDates.length} days: $
-              {totalAmount}
+             <div className="request-text-right">
+              <div className="requestor-cost">
+                <span className="modal-bold-text">Total cost for {modalObject.requestDates.length} days: </span>$ {totalAmount}
+              </div>
+              <div className="requestor">
+                <span className="modal-bold-text">Requestor: </span>
+                Me
+              </div>
             </div>
-            <div className="requestor">
-              <div>Requestor: {modalObject.requestorName}</div>
+            <div className="request-text-right">
+              <div className="dates">
+                <div className="start-date">
+                  <span className="modal-bold-text">Start Date: </span>
+                  {start}
+                </div>
+                <div className="end-date"><span className="modal-bold-text">End Date: </span>
+                  {end}</div>
+              </div>
             </div>
           </div>
          
