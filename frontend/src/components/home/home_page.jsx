@@ -5,6 +5,7 @@ import PostingsIndex from '../postings/postings_index';
 import HomeTagSearchBar from './home_tag_search_bar';
 import {clearPostings, fetchPostings} from '../../actions/posting_actions';
 import Modal from '../modal/modal';
+import DynamicShow from './dynamic_show';
 import PostingShow from '../postings/posting_show';
 import EditPosting from "../postings/edit_posting";
 import { clearModal } from "../../actions/posting_actions";
@@ -13,7 +14,6 @@ import { clearModal } from "../../actions/posting_actions";
 export default props => {
   const errors = useSelector((state) => state.errors.session);
   const posting = useSelector(state => state.entities.modal);
-
   const [input, setInput] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [postingList, setPostingList] = useState();
@@ -85,30 +85,29 @@ export default props => {
  
   if (!posting) return '';
   return (
-    // <div>
-      <div className="home-container">
-        <Modal show={openModal} handleClose={hideModal}>
-          <PostingShow posting={posting} hideModal={hideModal} />
-        </Modal>
-        {renderErrors()}
-        <div className="search-container">
-          <div className='title-container'>
-            <SearchBar input={input} setKeyword={updateInput} />
-          </div>
-          <div className="tag-container">
-            <HomeTagSearchBar input={tagInput} setKeyword={updateTagInput} />
-          </div>
+    <div className="home-container">
+      <Modal show={openModal} handleClose={hideModal}>
+        <DynamicShow posting={posting} hideModal={hideModal} />
+      </Modal>
+      {renderErrors()}
+      <div className="search-container">
+        <div className='title-container'>
+          <SearchBar input={input} setKeyword={updateInput} />
         </div>
-        <div className="home-index">
-          <div>
-            <PostingsIndex
-              filterList={filterList}
-              hideModal={hideModal}
-              showModal={showModal}
-            />
-          </div>
-          
+        <div className="tag-container">
+          <HomeTagSearchBar input={tagInput} setKeyword={updateTagInput} />
         </div>
       </div>
+      <div className="home-index">
+        <div>
+          <PostingsIndex
+            filterList={filterList}
+            hideModal={hideModal}
+            showModal={showModal}
+          />
+        </div>
+        
+      </div>
+    </div>
   );
 }

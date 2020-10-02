@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {clearMap} from '../../actions/posting_actions';
 import mapboxgl from "mapbox-gl";
 const token = require('../../config/keys').mapBoxToken;
 
@@ -7,10 +8,13 @@ const Map = (props) => {
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);
+  const posting = useSelector(state => state.entities.modal);
   const searchTextCurrentUser = `${currentUser.address} ${currentUser.city} ${currentUser.state} ${currentUser.zipCode}`;
-  const { address, city, state, zipCode } = props.posting;
+  const { address, city, state, zipCode } = posting;
   const postingAddress = `${address} ${city} ${state} ${zipCode}`;
   const postingAddressShow = `${address}`;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     handleMap();
@@ -95,7 +99,7 @@ const Map = (props) => {
             type: "Feature",
             properties: {
               icon: {
-                iconUrl: props.posting.image,
+                iconUrl: posting.image,
                 iconSize: [50, 50], // size of the icon
                 iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
                 popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
@@ -161,12 +165,16 @@ const Map = (props) => {
     if (!map) initializeMap({ setMap, mapContainer });
   };
 
+  const handleClick = () => {
+    dispatch(clearMap());
+    props.hideModal();
+  }
 
   return (
     <div>
-      <button className="close-map-x" onClick={props.hideModal}>X</button>
+      <button className="close-map-x" onClick={handleClick}>X</button>
       <div className="maps-info-header">
-          <h1 className="posting-title-map">{props.posting.title}</h1>
+          <h1 className="posting-title-map">{posting.title}</h1>
         <div className="posting-description-map">
         <div>Your address: {currentUser.address}</div>
         <div>Item address: {postingAddressShow}</div>

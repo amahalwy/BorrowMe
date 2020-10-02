@@ -7,6 +7,8 @@ export const CLEAR_POSTINGS = "CLEAR_POSTINGS";
 export const CLICK_POSTING = "CLICK_POSTING";
 export const CLEAR_MODAL = "CLEAR_MODAL";
 export const SUCCESS = "SUCCESS";
+export const OPEN_MAP = "OPEN_MAP";
+export const CLEAR_MAP = "CLEAR_MAP";
 
 const receivePostings = postings => ({
   type: RECEIVE_POSTINGS,
@@ -31,6 +33,10 @@ const clearMod = () => ({
   type: CLEAR_MODAL
 })
 
+const clearTheMap = () => ({
+  type: CLEAR_MAP
+})
+
 const click = (posting) => ({
   type: CLICK_POSTING,
   posting
@@ -39,6 +45,11 @@ const click = (posting) => ({
 const successPosting = status => ({
   type: SUCCESS,
   status
+})
+
+const openTheMap = () => ({
+  type: OPEN_MAP,
+  status: 'CBD'
 })
 
 export const fetchPosting = postingId => dispatch => {
@@ -89,3 +100,11 @@ export const clickPosting = postingId => dispatch => {
 export const clearModal = () => (dispatch) => {
   dispatch(clearMod());
 };
+
+export const showMap = () => dispatch => {
+  dispatch(openTheMap());
+}
+
+export const clearMap = () => dispatch => {
+  dispatch(clearTheMap())
+}

@@ -118,8 +118,6 @@ export default props => {
           </div>
       )
     } else if (modalObject.receiverId && modalObject.receiverId !== props.currentUser._id) { // This object is a REQUEST and you are NOT owner (your request)
-      console.log('obj: --- ', modalObject)
-      console.log('posting: ---', posting);
       return (
         <div>
           <div>

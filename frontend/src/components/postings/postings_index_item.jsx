@@ -8,18 +8,18 @@ export default props => {
   const [openModal, setModal] = useState(false);
   const dispatch = useDispatch();
 
-  const showModal = () => {
-    setModal(true) 
-  }
+  // const showModal = () => {
+  //   setModal(true) 
+  // }
 
-  const hideModal = () => {
-    setModal(false) 
-  }
+  // const hideModal = () => {
+  //   setModal(false) 
+  // }
 
   const handleClick = () => {
     setTimeout(() => {
       dispatch(clickPosting(props.posting._id));
-      showModal();
+      props.showModal();
     }, 1)
   }
 
@@ -52,9 +52,9 @@ export default props => {
           <div className="home-no-show">Calendar</div>
         </div>
       
-        <Modal show={openModal} handleClose={hideModal}>
+        {/* <Modal show={openModal} handleClose={hideModal}>
           <PostingShow posting={props.posting} hideModal={hideModal} />
-        </Modal>
+        </Modal> */}
       </div>      
   );
 }                    
