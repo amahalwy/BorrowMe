@@ -26,12 +26,16 @@ module.exports = function validatePostingInput(data) {
     errors.title = 'Title field is required.';
   }
 
+  if (!Validator.isLength(data.title, { min: 4, max: 20 })) {
+    errors.title = "Title field should be minimum 4 characters and maximum 20 characters.";
+  }
+
   if (Validator.isEmpty(data.description)) {
     errors.description = "Description field is required.";
   }
 
-  if (!Validator.isLength(data.description, {min: 8, max: 300})) {
-    errors.description = "Description field should be minimum 8 characters and maximum 300 characters.";
+  if (!Validator.isLength(data.description, {min: 8, max: 100})) {
+    errors.description = "Description field should be minimum 8 characters and maximum 100 characters.";
   }
 
   if (Validator.isEmpty(data.price)) {
