@@ -3,7 +3,7 @@
   object-fit: initial;
   width: 55%;
   display: flex;
-   margin: 3% auto 0% auto;
+   margin: 2% auto 0% auto;
 
   /* height: 300px; */
   max-width:100%;
@@ -37,12 +37,14 @@ div img{
 .request-buttons{
   display: flex;
   margin: 1% auto;
- justify-content: space-evenly;
+ justify-content: center;
 
 }
 
 .accept-request{
- background: #012a36;
+  margin-right: 70px;
+  margin-left: -20px;
+  background: #012a36;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -53,6 +55,7 @@ div img{
 .reject-request{
  background: #012a36;
   color: white;
+  margin-left: 25%;
   font-weight: bold;
   font-size: 20px;
   padding: 10px 30px;

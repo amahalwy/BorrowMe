@@ -47,7 +47,7 @@ export default (props) => {
     if (Object.keys(errors).length > 0) {
       return (
         <div >
-          <h2 id="create-posting-errors-h2">Could not create posting see the below errors:</h2>
+          <div id="create-posting-errors-h2">Could not create posting, see the below errors:</div>
           <ul>
             {Object.keys(errors).map((error, i) => (
               <li className="create-posting-errors" key={`error-${i}`}>{errors[error]}</li>
