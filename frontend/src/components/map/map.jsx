@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import {clearMap} from '../../actions/posting_actions';
 import mapboxgl from "mapbox-gl";
-const token = require('../../config/keys').mapBoxToken;
+// const token = require('../../config_front/keys').mapBoxToken;
+const token = require('../../config/keys').mapBoxToken
 
 const Map = (props) => {
   const mapContainer = useRef(null);
