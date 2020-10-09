@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import {clearMap} from '../../actions/posting_actions';
 import mapboxgl from "mapbox-gl";
 // const token = require('../../config_front/keys').mapBoxToken;
-const token = require('../../config/keys').mapBoxToken
+// const token = require('../../config/keys').mapBoxToken
+const keys = require('../../config/keys');
 
 const Map = (props) => {
-  console.log(process.env);
+  console.log(process.env, keys);
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);
@@ -24,7 +25,7 @@ const Map = (props) => {
 
   const handleMap = () => {
 
-    mapboxgl.accessToken = token;
+    mapboxgl.accessToken = keys.mapBoxToken;
 
     const initializeMap = async ({ setMap, mapContainer }) => {
 
