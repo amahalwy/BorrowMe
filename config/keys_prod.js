@@ -4,5 +4,5 @@ module.exports = {
   accessKeyId: process.env.AWS_ID,
   secretAccessKey: process.env.AWS_SECRET_KEY,
   S3Bucket: process.env.S3_BUCKET,
-  mapBoxToken: process.env.MAP_BOX_TOKEN
+  // mapBoxToken: process.env.MAP_BOX_TOKEN
 };
