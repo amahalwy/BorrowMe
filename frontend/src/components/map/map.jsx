@@ -4,10 +4,11 @@ import {clearMap} from '../../actions/posting_actions';
 import mapboxgl from "mapbox-gl";
 // const token = require('../../config_front/keys').mapBoxToken;
 // const token = require('../../config/keys').mapBoxToken
-const keys = require('../../config/keys');
 
 const Map = (props) => {
-  console.log(process.env, keys);
+
+  const token = process.env.REACT_APP_MAP_BOX_TOKEN;
+  console.log(process.env, token);
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);
@@ -25,7 +26,7 @@ const Map = (props) => {
 
   const handleMap = () => {
 
-    mapboxgl.accessToken = keys.mapBoxToken;
+    mapboxgl.accessToken = token;
 
     const initializeMap = async ({ setMap, mapContainer }) => {
 
@@ -49,7 +50,7 @@ const Map = (props) => {
       //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${token}`
       // );
       let request = new Request(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${keys.mapBoxToken}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${token}`
       );
 
       const res = await fetch(request);
@@ -68,7 +69,7 @@ const Map = (props) => {
       //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`
       // );
       let requestCurrentUser = new Request(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${keys.mapBoxToken}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`
       );
       const resCurrentUser = await fetch(requestCurrentUser);
       const jsonCurrentUser = await resCurrentUser.json();
@@ -95,7 +96,7 @@ const Map = (props) => {
           "," +
           `${coordinates[1]}` +
           "?steps=true&geometries=geojson&access_token=" +
-          `${keys.mapBoxToken}`;
+          `${token}`;
 
 
         let req = new XMLHttpRequest();
