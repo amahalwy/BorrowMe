@@ -45,8 +45,11 @@ const Map = (props) => {
       /**
        This is the First Marker
        */
+      // let request = new Request(
+      //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${token}`
+      // );
       let request = new Request(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${token}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${postingAddress}.json?country=US&access_token=${keys.mapBoxToken}`
       );
 
       const res = await fetch(request);
@@ -61,8 +64,11 @@ const Map = (props) => {
        * This is the Second Marker
        */
       // find currentUser's information
+      // let requestCurrentUser = new Request(
+      //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`
+      // );
       let requestCurrentUser = new Request(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${token}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTextCurrentUser}.json?country=US&access_token=${keys.mapBoxToken}`
       );
       const resCurrentUser = await fetch(requestCurrentUser);
       const jsonCurrentUser = await resCurrentUser.json();
@@ -89,7 +95,7 @@ const Map = (props) => {
           "," +
           `${coordinates[1]}` +
           "?steps=true&geometries=geojson&access_token=" +
-          `${token}`;
+          `${keys.mapBoxToken}`;
 
 
         let req = new XMLHttpRequest();
