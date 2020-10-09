@@ -6,6 +6,7 @@ import mapboxgl from "mapbox-gl";
 const token = require('../../config/keys').mapBoxToken
 
 const Map = (props) => {
+  console.log(process.env);
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);
