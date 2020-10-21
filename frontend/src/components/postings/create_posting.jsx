@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { useSelector, useDispatch } from "react-redux";
-import {createPosting} from '../../actions/posting_actions';
+import {createPosting, clearErrors} from '../../actions/posting_actions';
 import FormData from 'form-data';
 
 export default (props) => {
@@ -43,6 +43,11 @@ export default (props) => {
     setFile(picture[0]);
   }
 
+  const removeUploaderErrors = () => {
+    const errorsDiv = document.querySelector(".errorMessage");
+    errorsDiv.innerHTML = '';
+  }
+
   const renderErrors = () => {
     if (Object.keys(errors).length > 0) {
       return (
@@ -64,7 +69,13 @@ export default (props) => {
         <div className="fields">
           <h1>Posting Form</h1>
           <br />
-          <button className="posting-modal-x" onClick={props.hideModal}>
+          <button className="posting-modal-x" onClick={
+              () => {
+                dispatch(clearErrors());
+                removeUploaderErrors();
+                props.hideModal();
+              }
+            }>
             X
           </button>
           <br />

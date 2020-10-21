@@ -9,6 +9,7 @@ export const CLEAR_MODAL = "CLEAR_MODAL";
 export const SUCCESS = "SUCCESS";
 export const OPEN_MAP = "OPEN_MAP";
 export const CLEAR_MAP = "CLEAR_MAP";
+export const CLEAR_POSTING_ERRORS = "CLEAR_POSTING_ERRORS";
 
 const receivePostings = postings => ({
   type: RECEIVE_POSTINGS,
@@ -50,6 +51,10 @@ const successPosting = status => ({
 const openTheMap = () => ({
   type: OPEN_MAP,
   status: 'CBD'
+})
+
+const clearErrs = () => ({
+  type: CLEAR_POSTING_ERRORS
 })
 
 export const fetchPosting = postingId => dispatch => {
@@ -107,4 +112,8 @@ export const showMap = () => dispatch => {
 
 export const clearMap = () => dispatch => {
   dispatch(clearTheMap())
+}
+
+export const clearErrors = () => dispatch => {
+  dispatch(clearErrs())
 }
