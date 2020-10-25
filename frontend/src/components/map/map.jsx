@@ -2,9 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import {clearMap} from '../../actions/posting_actions';
 import mapboxgl from "mapbox-gl";
+const token = require('../../config/keys').mapBoxToken;
 
 const Map = (props) => {
-  const token = process.env.REACT_APP_MAP_BOX_TOKEN;
+  // const token = process.env.REACT_APP_MAP_BOX_TOKEN;
+
+  console.log(token)
+
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);

@@ -1,7 +1,7 @@
 .search-container{
   display: flex;
-  justify-content: space-between;
-  margin: 1% 17.5%;
+  justify-content: space-around;
+  margin: 1% 18%;
 }
 
 .title-container,

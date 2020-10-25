@@ -12,6 +12,7 @@
 
 # frontend keys
 /frontend/config/keys_dev.js
+/frontend/src/config/keys_dev.js
 
 # testing
 /coverage

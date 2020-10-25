@@ -43,10 +43,10 @@ export default (props) => {
     setFile(picture[0]);
   }
 
-  const removeUploaderErrors = () => {
-    const errorsDiv = document.querySelector(".errorMessage");
-    errorsDiv.innerHTML = '';
-  }
+  // const removeUploaderErrors = () => {
+  //   const errorsDiv = document.querySelector(".errorMessage");
+  //   errorsDiv.innerHTML = '';
+  // }
 
   const renderErrors = () => {
     if (Object.keys(errors).length > 0) {
@@ -72,7 +72,7 @@ export default (props) => {
           <button className="posting-modal-x" onClick={
               () => {
                 dispatch(clearErrors());
-                removeUploaderErrors();
+                // removeUploaderErrors();
                 props.hideModal();
               }
             }>

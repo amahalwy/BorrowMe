@@ -34,10 +34,11 @@ export default props => {
           <div className="post-price">
             <span>Price: ${props.posting.price}/day</span>
           </div>
+          <br/>
+        </div>
           <div className="post-tags">
             <span>Tags: {props.posting.tags}</span>
           </div>
-        </div>
       </div>
     </div>      
   );

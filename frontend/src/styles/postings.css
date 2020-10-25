@@ -32,7 +32,8 @@
 .home-items-index{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 0 auto;
 }
 
 .image-container{
@@ -51,7 +52,9 @@
   z-index: 0;
 }
 
-.Item-info-bar{
+.Item-info-bar {
+  display: flex;
+  justify-content: space-between;
   background-color:  #f1f1f1;
 }
 

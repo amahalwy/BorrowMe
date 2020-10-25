@@ -7,7 +7,6 @@ const SuccessModal = ({ handleClose, show, children }) => {
 
   return (
     <div className={showHideClassName}>
-      
       <section className="success-modal-main">{children}</section>
     </div>
   );

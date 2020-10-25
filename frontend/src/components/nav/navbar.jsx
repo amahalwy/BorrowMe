@@ -106,7 +106,10 @@ export default (props) => {
             />
           </Modal>
           <SuccessModal show={openSuccessModal} handleClose={hideSuccessModal}>
-            <button className="success-modal-x" onClick={hideSuccessModal}>X</button>
+            <button className="success-modal-x" onClick={() => {
+              hideSuccessModal();
+              hideModal();
+            }}>X</button>
             <h1 className="success-modal-message">Success!</h1>
           </SuccessModal>
           <HomeFooter></HomeFooter>
