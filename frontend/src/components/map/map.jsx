@@ -7,8 +7,6 @@ const token = require('../../config/keys').mapBoxToken;
 const Map = (props) => {
   // const token = process.env.REACT_APP_MAP_BOX_TOKEN;
 
-  console.log(token)
-
   const mapContainer = useRef(null);
   const [map, setMap] = useState("");
   const currentUser = useSelector((state) => state.session.user);
