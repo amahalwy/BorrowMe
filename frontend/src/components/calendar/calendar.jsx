@@ -70,7 +70,6 @@ export default (props) => {
   }
 
   const handleClick = () => {
-    // dispatch(clearModal());
     dispatch(showMap());
   }
 

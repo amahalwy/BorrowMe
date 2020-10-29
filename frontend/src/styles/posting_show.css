@@ -1,10 +1,15 @@
 .modal-top-bar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* position: relative; */
+  justify-content: space-between;
   height: 0px;
-  padding-top: 2%;
+  margin-top: 2%;
+}
+
+.modal-description {
+  width: 500px;
 }
 
 .modal-price-desc{
@@ -37,12 +42,13 @@
 .modal-x{
   display: block;
   height: 22px;
-  position: absolute;
-  background-color: white;
+  background-color: blue;
   top: 55%;
   right: 2%;
   font-size: 2em;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .modal-item-info {
