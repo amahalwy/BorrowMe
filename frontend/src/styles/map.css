@@ -54,11 +54,11 @@
 }
 
 .maps-info-header {
-  /* display: flex;
-  justify-content: space-around; */
+   display: flex;
+flex-wrap: wrap;
   align-items: center;
   
-  width: 30%;
+  width: 40%;
   font-size: 18px;
   line-height: 1.5em;
   padding-top: 2%;

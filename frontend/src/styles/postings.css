@@ -52,10 +52,21 @@
   z-index: 0;
 }
 
-.Item-info-bar {
-  display: flex;
+.posting-image:hover {
+  cursor: pointer;
+}
+
+.item-info-bar {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.item-info-top,
+.item-info-bottom {
   justify-content: space-between;
-  background-color:  #f1f1f1;
+  background-color: #f1f1f1;
+  display: flex;
+  height: 40%;
 }
 
 .stuff {
