@@ -17,7 +17,7 @@ export default props => {
       fetchUser(modalObject.ownerId);
     }
 
-    if (mapObject.res === 'CBD') {
+    if (mapObject.res === 'MAP') {
       return;
     }
 
@@ -33,7 +33,7 @@ export default props => {
 
   if (!owner) return ''
 
-  if (mapObject.res === "CBD") {
+  if (mapObject.res === "MAP") {
     return (
       <div className='MAPSTUFFF'>
         <Map hideModal={props.hideModal} />

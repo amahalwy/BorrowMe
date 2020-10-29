@@ -175,7 +175,6 @@ const Map = (props) => {
 
   const handleClick = () => {
     dispatch(clearMap());
-    props.hideModal();
   }
 
   return (
