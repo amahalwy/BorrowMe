@@ -1,12 +1,16 @@
 .search-container{
   display: flex;
-  justify-content: space-around;
-  margin: 1% 18%;
+  margin: 1% 337px;
 }
 
 .title-container,
 .tag-container {
-  width: 46%;
+  width: 40%;
+}
+
+.tag-container {
+  margin-left: 260px;
+  margin-right: 10px;
 }
 
 .search-bar,

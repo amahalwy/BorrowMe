@@ -16,29 +16,29 @@ export default props => {
     <div>
       <div className="posting-index-item">      
         <div className="entire-image"  >        
-            <div onClick={handleClick}
-                className="post-index-item-image-container"
-                >
-              <div className="image-container">
-                <img className="posting-image" src={props.posting.image} alt="" />
-              </div>
+          <div onClick={handleClick}
+              className="post-index-item-image-container"
+              >
+            <div className="image-container">
+              <img className="posting-image" src={props.posting.image} alt="" />
             </div>
+          </div>
         </div>
-        <div className="Item-info-bar">
-          <div className="post-title">
-            <span>{props.posting.title}</span>
+        <div className="item-info-bar">
+          <div className='item-info-top'>
+            <div className="post-title">
+              <span>{props.posting.title}</span>
+            </div>
+            <div className="post-price">
+              <span>Price: ${props.posting.price}/day</span>
+            </div>
           </div>
-          <div className="home-no-show">
-            <span>Zipcode</span>
+          <div className='item-info-bottom'>
+            <div className="post-tags">
+              <span>Tags: {props.posting.tags}</span>
+            </div>
           </div>
-          <div className="post-price">
-            <span>Price: ${props.posting.price}/day</span>
-          </div>
-          <br/>
         </div>
-          <div className="post-tags">
-            <span>Tags: {props.posting.tags}</span>
-          </div>
       </div>
     </div>      
   );
