@@ -50,7 +50,7 @@ const successPosting = status => ({
 
 const openTheMap = () => ({
   type: OPEN_MAP,
-  status: 'CBD'
+  status: 'MAP'
 })
 
 const clearErrs = () => ({
