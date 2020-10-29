@@ -36,12 +36,11 @@
 
 .modal-x{
   display: block;
-  padding: 10px;
-  margin-left: 350px;
+  height: 22px;
   position: absolute;
   background-color: white;
-  top: 4px;
-  right: 5px;
+  top: 55%;
+  right: 2%;
   font-size: 2em;
   cursor: pointer;
 }

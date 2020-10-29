@@ -180,7 +180,18 @@ const Map = (props) => {
 
   return (
     <div>
-      <button className="close-map-x" onClick={handleClick}>X</button>
+      <svg 
+        id="Layer_1" 
+        data-name="Layer 1" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 12.32 10.24"
+        onClick={handleClick}
+        className="close-map-x"
+        >
+          <title>close-x</title>
+          <polygon 
+            points="12.32 0.2 12.15 0 6.16 4.95 0.17 0 0 0.2 5.95 5.12 0 10.04 0.17 10.24 6.16 5.29 12.15 10.24 12.32 10.04 6.37 5.12 12.32 0.2"/>
+      </svg>
       <div className="maps-info-header">
           <h1 className="posting-title-map">{posting.title}</h1>
         <div className="posting-description-map">
