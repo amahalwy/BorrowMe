@@ -7,6 +7,7 @@ import ProfilePostingsIndex from '../postings/profile_postings_index';
 const ProfileSideBar = props => {
   const activeUser = useSelector(state => state.entities.users.user);
   const currentUser = useSelector(state => state.session.user);
+  const modalType = "profile-side";
 
   const [openModal, setModal] = useState(false);
 
@@ -46,7 +47,7 @@ const ProfileSideBar = props => {
         <h2>{activeUser.address}</h2>
       </div>
       {userActions()}
-      <Modal show={openModal} handleClose={hideModal}>
+      <Modal show={openModal} handleClose={hideModal} modalType={modalType}>
         <EditProfileModal hideModal={hideModal} />
       </Modal>
       <ProfilePostingsIndex postings={props.postings} />

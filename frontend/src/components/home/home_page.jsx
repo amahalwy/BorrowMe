@@ -16,6 +16,7 @@ export default props => {
   const [tagInput, setTagInput] = useState("");
   const [postingList, setPostingList] = useState();
   const [filterList, setFilterList] = useState();
+  const modalType = "home"
 
   const dispatch = useDispatch();
 
@@ -84,7 +85,7 @@ export default props => {
   if (!posting) return '';
   return (
     <div className="home-container">
-      <Modal show={openModal} handleClose={hideModal}>
+      <Modal show={openModal} handleClose={hideModal} modalType={modalType}>
         <DynamicShow posting={posting} hideModal={hideModal} />
       </Modal>
       {renderErrors()}

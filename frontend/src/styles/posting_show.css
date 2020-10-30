@@ -1,19 +1,11 @@
 .modal-top-bar{
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* position: relative; */
-  justify-content: space-between;
   height: 0px;
-  margin-top: 2%;
-}
-
-.modal-description {
-  width: 500px;
+  margin: 2% 0;
 }
 
 .modal-price-desc{
-  width: 100%;
+  width: 46%;
   padding-top: 1.2%;
   text-align: center;
   line-height:1.3em;
@@ -25,48 +17,67 @@
 
 .postings-show-price-span{
   font-weight: 700;
-  
 }
 
-.modal-item-title{
+.modal-item-title {
   background:#a2d3c2;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  width: 48%;
+  height: 60px;
   border-radius: 8px;
   color: white;
-  font-size: 2.5em;
+  margin-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-item-title p {
+  font-size: 2em;
 }
 
 .modal-x{
   display: block;
-  height: 22px;
-  background-color: blue;
+  height: 14px;
+  background-color: #a2d3c2;
   top: 55%;
   right: 2%;
   font-size: 2em;
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
+  fill: white;
+  stroke: white;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.modal-x:hover {
+  background-color: #012a36;
 }
 
 .modal-item-info {
   display: flex;
-  position: absolute;
-  top: 24%;
+  margin-top: 13.2%;
 }
 
 .posting-show-calendar {
-  margin-left: 6%;
+  margin-left: 1%;
+  width: 401px;
+  height: 370px;
+}
+
+.img-container {
+  height: 426px;
+  width: 520px;
+  margin-right: 20px;
 }
 
 .modal-img {
-  height: 470px;
+  height: 100%;
   object-fit: cover;
   width: 100%;
-  margin-left: 8%;
-  border-radius: 8px;
+  /* margin-left: 8%; */
+  border-radius: 4px;
 }
 
 .modal-posting-img{
@@ -78,10 +89,10 @@
 }
 
 .modal-rent-button{
-  align-content: center;
-  height: 2.5em;
   background-color:#012a36;
   color: white;
+  /* align-content: center;
+  height: 2.5em;
   cursor: pointer;
   width: 60%;
   box-sizing: border-box;
@@ -92,7 +103,9 @@
   padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 25px;
+  border-radius: 25px; */
+  height: 20px;
+  width: 100px;
 }
 
 .postings-view-map-button {

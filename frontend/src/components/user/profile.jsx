@@ -30,7 +30,8 @@ export default props => {
   );
 
   const currentUser = useSelector((state) => state.entities.users.user); 
-
+  const modalType = "profile";
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -85,7 +86,7 @@ export default props => {
           <ProfileRequesteeIndex requests={receiverRequests} showModal={showModal}/>
         </div>
       </div>
-      <Modal show={openModal} handleClose={hideModal}>
+      <Modal show={openModal} handleClose={hideModal} modalType={modalType}>
         <ItemShow hideModal={hideModal} currentUser={currentUser}/>
       </Modal>
     </div>

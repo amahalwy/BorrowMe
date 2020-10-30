@@ -12,6 +12,7 @@ export default (props) => {
   const loggedIn = useSelector(state => state.session.isAuthenticated);
   const currentUser = useSelector(state => state.session.user);
   const modalObject = useSelector((state) => state.entities.modal); 
+  const modalType = "nav";
 
   const dispatch = useDispatch();
 
@@ -96,7 +97,7 @@ export default (props) => {
             </div>
             
           </div>
-          <Modal show={openModal} handleClose={hideModal}>
+          <Modal show={openModal} handleClose={hideModal} modalType={modalType}>
             <CreatePosting
               className="create-posting-modal-box"
               hideSuccessModal={hideSuccessModal}
