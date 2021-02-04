@@ -1,31 +1,32 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
-import {clickPosting} from '../../actions/posting_actions';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { clickPosting } from "../../actions/posting_actions";
 
-export default props => {
+export default (props) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
     setTimeout(() => {
       dispatch(clickPosting(props.posting._id));
       props.showModal();
-    }, 1)
-  }
+    }, 1);
+  };
 
   return (
-    <div>
-      <div className="posting-index-item">      
-        <div className="entire-image"  >        
-          <div onClick={handleClick}
-              className="post-index-item-image-container"
-              >
-            <div className="image-container">
+    <div style={{ width: "100%" }}>
+      <div className="posting-index-item">
+        <div>
+          <div
+            onClick={handleClick}
+            className="post-index-item-image-container"
+          >
+            <div>
               <img className="posting-image" src={props.posting.image} alt="" />
             </div>
           </div>
         </div>
         <div className="item-info-bar">
-          <div className='item-info-top'>
+          <div className="item-info-top">
             <div className="post-title">
               <span>{props.posting.title}</span>
             </div>
@@ -33,13 +34,13 @@ export default props => {
               <span>Price: ${props.posting.price}/day</span>
             </div>
           </div>
-          <div className='item-info-bottom'>
+          <div className="item-info-bottom">
             <div className="post-tags">
               <span>Tags: {props.posting.tags}</span>
             </div>
           </div>
         </div>
       </div>
-    </div>      
+    </div>
   );
-}                    
+};

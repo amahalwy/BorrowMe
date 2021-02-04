@@ -27,7 +27,7 @@ export default (props) => {
       state,
       zipCode,
     };
-  dispatch(updatePosting(props.posting.id, data))
+    dispatch(updatePosting(props.posting.id, data));
   };
 
   const renderErrors = () => {
@@ -110,10 +110,7 @@ export default (props) => {
           placeholder="Tags"
         />
         <br />
-        <div className="create-posting-img">
-          
-          
-        </div>
+        <div className="create-posting-img"></div>
         <br />
         <input type="submit" value="Create Posting" />
         {renderErrors()}
