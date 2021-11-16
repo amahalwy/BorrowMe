@@ -29,7 +29,7 @@
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
-    "aws-sdk": "^2.745.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "bcryptjs": "^2.4.3",
