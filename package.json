@@ -35,7 +35,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "form-data": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
